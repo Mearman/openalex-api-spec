@@ -41,34 +41,9 @@ export const work: PathItemObject = {
           },
         },
         description: "",
-
       },
     },
 
     summary: "/works/{id}",
-  },
-};
-export const workNgrams: PathItemObject = {
-  get: {
-    description: "",
-    parameters: [
-      {
-        in: "path",
-        name: "id",
-        required: true,
-        schema: {
-          type: "string",
-        },
-      },
-    ],
-    responses: {
-      "200": {
-        content: {
-          "application/json": {},
-        },
-        description: "",
-      },
-    },
-    summary: "/works/{id}/ngrams",
   },
 };
