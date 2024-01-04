@@ -1,0 +1,8 @@
+{
+	"compilerOptions": {
+		"resolveJsonModule": true,
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "./src",
+		"rootDir": "./"
+	}
+}
