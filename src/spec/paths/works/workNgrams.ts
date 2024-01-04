@@ -1,7 +1,7 @@
 import { OpenAPIV3_1 } from "openapi-types";
 import PathItemObject = OpenAPIV3_1.PathItemObject;
 
-const example: { meta: { count: number; openalex_id: string; doi: string }; ngrams: { ngram_count: number; ngram_tokens: number; term_frequency: number; ngram: string }[] } = {
+const example: { meta: { count: number; openalex_id: string; doi: string; }; ngrams: { ngram_count: number; ngram_tokens: number; term_frequency: number; ngram: string; }[]; } = {
 	meta: {
 		count: 3475,
 		doi: "https://doi.org/10.1093/comjnl/40.2_and_3.67",

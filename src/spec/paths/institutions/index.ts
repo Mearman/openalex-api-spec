@@ -1,5 +1,5 @@
 import { OpenAPIV3_1 } from "openapi-types";
-import { group_by } from "spec/components/schemas";
+import { group_by } from "~/spec/components/schemas";
 import PathsObject = OpenAPIV3_1.PathsObject;
 
 export const institutions = {
