@@ -89,7 +89,7 @@ export default {
           }
         },
       },
-      security: [],
+
       summary: "/autocomplete/authors",
     },
   }

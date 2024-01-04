@@ -1146,35 +1146,9 @@ export const institutions = {
             },
           },
           description: "",
-          headers: {
-            Nel: {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-            "Reporting-Endpoints": {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-            "X-Api-Pool": {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-            "X-Content-Type-Options": {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-          },
         },
       },
-      security: [],
+
       summary: "/institutions",
     },
   },
@@ -1772,35 +1746,9 @@ export const institutions = {
             },
           },
           description: "",
-          headers: {
-            Nel: {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-            "Reporting-Endpoints": {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-            "X-Api-Pool": {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-            "X-Content-Type-Options": {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-          },
         },
       },
-      security: [],
+
       summary: "/institutions/https://ror.org/02y3ad647",
     },
   },
@@ -2522,35 +2470,9 @@ export const institutions = {
             },
           },
           description: "",
-          headers: {
-            Nel: {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-            "Reporting-Endpoints": {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-            "X-Api-Pool": {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-            "X-Content-Type-Options": {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-          },
         },
       },
-      security: [],
+
       summary: "/institutions/ror:https://ror.org/00cvxb145",
     },
   },
@@ -3165,35 +3087,9 @@ export const institutions = {
             },
           },
           description: "",
-          headers: {
-            Nel: {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-            "Reporting-Endpoints": {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-            "X-Api-Pool": {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-            "X-Content-Type-Options": {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-          },
         },
       },
-      security: [],
+
       summary: "/institutions/{id}",
     },
   },

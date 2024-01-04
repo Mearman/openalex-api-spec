@@ -86,7 +86,7 @@ export default {
           },
         },
       },
-      security: [],
+
       summary: "/autocomplete/funders",
     },
   },

@@ -289,35 +289,9 @@ export const publishers = {
             },
           },
           description: "",
-          headers: {
-            Nel: {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-            "Reporting-Endpoints": {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-            "X-Api-Pool": {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-            "X-Content-Type-Options": {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-          },
         },
       },
-      security: [],
+
       summary: "/publishers",
     },
   },
@@ -475,35 +449,9 @@ export const publishers = {
             },
           },
           description: "",
-          headers: {
-            Nel: {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-            "Reporting-Endpoints": {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-            "X-Api-Pool": {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-            "X-Content-Type-Options": {
-              required: false,
-              schema: {
-                type: "string",
-              },
-            },
-          },
         },
       },
-      security: [],
+
       summary: "/publishers/{id}",
     },
   },
