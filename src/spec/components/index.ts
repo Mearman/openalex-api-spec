@@ -1,16 +1,8 @@
-import { OpenAPIV3_1 } from "openapi-types";
 import { examples } from "~/spec/components/examples";
 import { parameters } from "~/spec/components/parameters";
 import { pathItems } from "~/spec/components/pathItems";
 import { responses } from "~/spec/components/responses";
 import { schemas } from "~/spec/components/schemas";
-import ComponentsObject = OpenAPIV3_1.ComponentsObject;
-import ExampleObject = OpenAPIV3_1.ExampleObject;
-import ParameterObject = OpenAPIV3_1.ParameterObject;
-import PathItemObject = OpenAPIV3_1.PathItemObject;
-import ReferenceObject = OpenAPIV3_1.ReferenceObject;
-import ResponseObject = OpenAPIV3_1.ResponseObject;
-import SchemaObject = OpenAPIV3_1.SchemaObject;
 
 export class ComponentGenerator {
 	private static instance: ComponentsObject;
@@ -21,8 +13,8 @@ export class ComponentGenerator {
 			parameters,
 			pathItems,
 			responses,
-			examples
-		}
+			examples,
+		};
 	}
 
 	static getInstance() {
@@ -50,11 +42,11 @@ export class ComponentGenerator {
 		// add to instance
 		ComponentGenerator.getInstance()[comp] = {
 			...ComponentGenerator.getInstance()[comp],
-			...obj
-		}
+			...obj,
+		};
 		return {
-			$ref: `#/components/${comp}/${key}`
-		}
+			$ref: `#/components/${comp}/${key}`,
+		};
 	}
 
 	static generate(): ComponentsObject {
@@ -62,15 +54,19 @@ export class ComponentGenerator {
 	}
 }
 
-export default ComponentGenerator.generate()
+export const components = ComponentGenerator.generate();
 
 export const generate = () => ComponentGenerator.generate();
 
 export const ref = ComponentGenerator.ref;
 
-export const refParameter = (obj: Record<string, ParameterObject>) => ComponentGenerator.ref("parameters", obj);
-export const refSchema = (obj: Record<string, SchemaObject>) => ComponentGenerator.ref("schemas", obj);
-export const refResponse = (obj: Record<string, ResponseObject>) => ComponentGenerator.ref("responses", obj);
-export const refExample = (obj: Record<string, ExampleObject>) => ComponentGenerator.ref("examples", obj);
-export const refPathItem = (obj: Record<string, PathItemObject>) => ComponentGenerator.ref("pathItems", obj);
-
+export const refParameter = (obj: Record<string, ParameterObject>) =>
+	ComponentGenerator.ref("parameters", obj)
+export const refSchema = (obj: Record<string, SchemaObject>) =>
+	ComponentGenerator.ref("schemas", obj);
+export const refResponse = (obj: Record<string, ResponseObject>) =>
+	ComponentGenerator.ref("responses", obj);
+export const refExample = (obj: Record<string, ExampleObject>) =>
+	ComponentGenerator.ref("examples", obj);
+export const refPathItem = (obj: Record<string, PathItemObject>) =>
+	ComponentGenerator.ref("pathItems", obj);

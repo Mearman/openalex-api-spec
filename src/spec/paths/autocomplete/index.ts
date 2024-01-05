@@ -1,4 +1,3 @@
-import { OpenAPIV3_1 } from "openapi-types";
 import autocomplete from "~/spec/paths/autocomplete/autocomplete";
 import authors from "~/spec/paths/autocomplete/autocompleteAuthors";
 import concepts from "~/spec/paths/autocomplete/autocompleteConcepts";
@@ -7,15 +6,18 @@ import institutions from "~/spec/paths/autocomplete/autocompleteInstitutions";
 import publishers from "~/spec/paths/autocomplete/autocompletePublishers";
 import sources from "~/spec/paths/autocomplete/autocompleteSources";
 import works from "~/spec/paths/autocomplete/autocompleteWorks";
-import PathsObject = OpenAPIV3_1.PathsObject;
+import { addTags } from "~/util/addTags";
 
-export default {
-	...autocomplete,
-	...authors,
-	...concepts,
-	...funders,
-	...institutions,
-	...publishers,
-	...sources,
-	...works,
-} satisfies PathsObject;
+export default addTags(
+	[
+		autocomplete,
+		authors,
+		concepts,
+		funders,
+		institutions,
+		publishers,
+		sources,
+		works,
+	],
+	["autocomplete"]
+) satisfies PathsObject;

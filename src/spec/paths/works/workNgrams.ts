@@ -1,9 +1,21 @@
 import { OpenAPIV3_1 } from "openapi-types";
+import { refSchema } from "~/spec/components";
 
 import { tags } from "~/spec/paths/works/tags";
-import PathItemObject = OpenAPIV3_1.PathItemObject;
 
-const example: { meta: { count: number; openalex_id: string; doi: string; }; ngrams: { ngram_count: number; ngram_tokens: number; term_frequency: number; ngram: string; }[]; } = {
+const example: {
+	meta: {
+		count: number;
+		openalex_id: string;
+		doi: string;
+	};
+	ngrams: {
+		ngram_count: number;
+		ngram_tokens: number;
+		term_frequency: number;
+		ngram: string;
+	}[];
+} = {
 	meta: {
 		count: 3475,
 		doi: "https://doi.org/10.1093/comjnl/40.2_and_3.67",
@@ -18,13 +30,47 @@ const example: { meta: { count: number; openalex_id: string; doi: string; }; ngr
 		},
 	],
 };
+let ngramMeta = {
+	properties: {
+		count: {
+			type: "integer",
+		},
+		doi: {
+			type: "string",
+		},
+		openalex_id: {
+			type: "string",
+		},
+	},
+	required: ["count", "openalex_id"],
+	type: "object",
+} satisfies SchemaObject;
+
+let ngram = {
+	items: {
+		properties: {
+			ngram: {
+				type: "string",
+			},
+			ngram_count: {
+				type: "integer",
+			},
+			ngram_tokens: {
+				type: "integer",
+			},
+			term_frequency: {
+				type: "number",
+			},
+		},
+		required: ["ngram", "ngram_count", "ngram_tokens", "term_frequency"],
+		type: "object",
+	},
+	type: "array",
+} satisfies SchemaObject;
 export const workNgrams: PathItemObject = {
 	get: {
 		operationId: "getWorkNgrams",
-		tags: tags.concat([
-			"ngrams",
-			"single"
-		]),
+		tags: tags.concat(["ngrams", "single"]),
 		externalDocs: {
 			url: "https://docs.openalex.org/api-entities/works/get-n-grams",
 		},
@@ -47,52 +93,13 @@ export const workNgrams: PathItemObject = {
 						example,
 						schema: {
 							properties: {
-								meta: {
-									properties: {
-										count: {
-											type: "integer",
-										},
-										doi: {
-											type: "string",
-										},
-										openalex_id: {
-											type: "string",
-										},
-									},
-									required: ["count", "openalex_id"],
-									type: "object",
-								},
-								ngrams: {
-									items: {
-										properties: {
-											ngram: {
-												type: "string",
-											},
-											ngram_count: {
-												type: "integer",
-											},
-											ngram_tokens: {
-												type: "integer",
-											},
-											term_frequency: {
-												type: "number",
-											},
-										},
-										required: [
-											"ngram",
-											"ngram_count",
-											"ngram_tokens",
-											"term_frequency",
-										],
-										type: "object",
-									},
-									type: "array",
-								},
+								meta: refSchema({ ngramMeta }),
+								ngrams: refSchema({ ngram }),
 							},
 						},
 					},
 				},
-				description: ""
+				description: "",
 			},
 		},
 		summary: "/works/{id}/ngrams",
@@ -101,4 +108,4 @@ export const workNgrams: PathItemObject = {
 
 export default {
 	"/works/{id}/ngrams": workNgrams,
-}
+};

@@ -1,6 +1,3 @@
-import { OpenAPIV3_1 } from "openapi-types";
-import SchemaObject = OpenAPIV3_1.SchemaObject;
-
 export const errorMessage = {
 	properties: {
 		error: {
@@ -12,4 +9,4 @@ export const errorMessage = {
 	},
 	required: ["error", "message"],
 	type: "object",
-} satisfies SchemaObject
+} satisfies SchemaObject;

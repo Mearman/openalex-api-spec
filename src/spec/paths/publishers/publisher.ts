@@ -1,6 +1,3 @@
-import { OpenAPIV3_1 } from "openapi-types";
-import PathsObject = OpenAPIV3_1.PathsObject;
-
 export const publisher = {
 	"/publishers/{id}": {
 		get: {
@@ -161,5 +158,5 @@ export const publisher = {
 
 			summary: "/publishers/{id}",
 		},
-	}
+	},
 } satisfies PathsObject;

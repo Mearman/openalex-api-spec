@@ -1,6 +1,3 @@
-import { OpenAPIV3_1 } from "openapi-types";
-import PathsObject = OpenAPIV3_1.PathsObject;
-
 export default {
 	"/author/{id}": {
 		get: {

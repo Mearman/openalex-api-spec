@@ -1,111 +1,21 @@
-import { OpenAPIV3_1 } from "openapi-types";
-import { group_by } from "~/spec/components/schemas";
-import PathsObject = OpenAPIV3_1.PathsObject;
+import { refSchema } from "~/spec/components";
+import { defaultListParameters } from "~/spec/components/parameters/defaultListParameters";
+import { group_by_result } from "~/spec/components/schemas/group_by_result";
+import { meta } from "~/spec/components/schemas/meta";
 
 export const publishers = {
 	"/publishers": {
 		get: {
 			description: "",
-			parameters: [
-				{
-					in: "query",
-					name: "filter",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
-				{
-					in: "query",
-					name: "group_by",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
-				{
-					in: "query",
-					name: "per-page",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
-				{
-					in: "query",
-					name: "page",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
-				{
-					in: "query",
-					name: "sample",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
-				{
-					in: "query",
-					name: "search",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
-				{
-					in: "query",
-					name: "select",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
-				{
-					in: "query",
-					name: "sort",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
-			],
+			parameters: defaultListParameters,
 			responses: {
 				"200": {
 					content: {
 						"application/json": {
 							schema: {
 								properties: {
-									group_by,
-									meta: {
-										properties: {
-											count: {
-												type: "integer",
-											},
-											db_response_time_ms: {
-												type: "integer",
-											},
-											groups_count: {
-												type: "string",
-											},
-											page: {
-												type: "integer",
-											},
-											per_page: {
-												type: "integer",
-											},
-										},
-										required: [
-											"count",
-											"db_response_time_ms",
-											"page",
-											"per_page",
-											"groups_count",
-										],
-										type: "object",
-									},
+									group_by: group_by_result,
+									meta: refSchema({meta}),
 									results: {
 										items: {
 											properties: {
@@ -137,11 +47,7 @@ export const publishers = {
 																type: "integer",
 															},
 														},
-														required: [
-															"year",
-															"works_count",
-															"cited_by_count",
-														],
+														required: ["year", "works_count", "cited_by_count"],
 														type: "object",
 													},
 													type: "array",
@@ -294,5 +200,5 @@ export const publishers = {
 
 			summary: "/publishers",
 		},
-	}
+	},
 } satisfies PathsObject;

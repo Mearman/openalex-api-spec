@@ -1,1 +1,1 @@
-export const tags = ["works"]
+export const tags = ["works"];

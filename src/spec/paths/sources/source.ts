@@ -1,6 +1,3 @@
-import { OpenAPIV3_1 } from "openapi-types";
-import PathsObject = OpenAPIV3_1.PathsObject;
-
 export const source = {
 	"/sources/{id}": {
 		get: {
@@ -46,5 +43,5 @@ export const source = {
 			},
 			summary: "/sources/{id}",
 		},
-	}
+	},
 } satisfies PathsObject;

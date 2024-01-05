@@ -1,6 +1,6 @@
 #!/usr#!/usr/bin/env npx -y tsx
 import * as fs from "fs";
-import OpenAPISchemaValidator, { OpenAPISchemaValidatorResult } from "openapi-schema-validator";
+import OpenAPISchemaValidator, { OpenAPISchemaValidatorResult, } from "openapi-schema-validator";
 import spec from "./spec";
 
 console.log(spec);
@@ -25,3 +25,5 @@ if (validation.errors.length > 0) {
 }
 
 fs.writeFileSync("./openapi.json", JSON.stringify(spec, null, "\t"));
+export { addTags } from "~/util/addTags";
+

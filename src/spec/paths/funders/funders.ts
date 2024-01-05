@@ -1,84 +1,18 @@
-import { OpenAPIV3_1 } from "openapi-types";
-import { group_by } from "~/spec/components/schemas";
-import PathsObject = OpenAPIV3_1.PathsObject;
+import { defaultListParameters } from "~/spec/components/parameters/defaultListParameters";
+import { group_by_result } from "~/spec/components/schemas/group_by_result";
 
 export const funders = {
 	"/funders": {
 		get: {
 			description: "",
-			parameters: [
-				{
-					in: "query",
-					name: "filter",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
-				{
-					in: "query",
-					name: "group_by",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
-				{
-					in: "query",
-					name: "per-page",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
-				{
-					in: "query",
-					name: "page",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
-				{
-					in: "query",
-					name: "sample",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
-				{
-					in: "query",
-					name: "search",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
-				{
-					in: "query",
-					name: "select",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
-				{
-					in: "query",
-					name: "sort",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
-			],
+			parameters: defaultListParameters,
 			responses: {
 				"200": {
 					content: {
 						"application/json": {
 							schema: {
 								properties: {
-									group_by,
+									group_by: group_by_result,
 									meta: {
 										properties: {
 											count: {
@@ -134,11 +68,7 @@ export const funders = {
 																type: "integer",
 															},
 														},
-														required: [
-															"year",
-															"works_count",
-															"cited_by_count",
-														],
+														required: ["year", "works_count", "cited_by_count"],
 														type: "object",
 													},
 													type: "array",
@@ -252,5 +182,5 @@ export const funders = {
 
 			summary: "/funders",
 		},
-	}
+	},
 } satisfies PathsObject;

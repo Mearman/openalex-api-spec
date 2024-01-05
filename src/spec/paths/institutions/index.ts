@@ -1,9 +1,8 @@
-import { OpenAPIV3_1 } from "openapi-types";
 import { institution } from "~/spec/paths/institutions/institution";
 import { institutions } from "~/spec/paths/institutions/institutions";
-import PathsObject = OpenAPIV3_1.PathsObject;
+import { addTags } from "~/util/addTags";
 
-export default {
-	...institution,
-	...institutions,
-} satisfies PathsObject;
+export default addTags(
+	[institutions, institution],
+	["institutions"]
+) satisfies PathsObject;

@@ -1,5 +1,5 @@
-import PathsObject = OpenAPIV3_1.PathsObject;
-import { OpenAPIV3_1 } from "openapi-types";
+import { refSchema } from "~/spec/components";
+import { meta } from "~/spec/components/schemas/meta";
 
 export default {
 	"/autocomplete/authors": {
@@ -22,29 +22,7 @@ export default {
 						"application/json": {
 							schema: {
 								properties: {
-									meta: {
-										type: "object",
-										properties: {
-											count: {
-												type: "integer",
-											},
-											db_response_time_ms: {
-												type: "integer",
-											},
-											page: {
-												type: "integer",
-											},
-											per_page: {
-												type: "integer",
-											},
-										},
-										required: [
-											"count",
-											"db_response_time_ms",
-											"page",
-											"per_page",
-										]
-									},
+									meta: refSchema({meta}),
 									results: {
 										type: "array",
 										items: {
@@ -74,22 +52,20 @@ export default {
 												works_count: {
 													type: "integer",
 												},
-											}
-										}
-									}
+											},
+										},
+									},
 								},
-								required: [
-									"meta",
-									"results"
-								],
+								required: ["meta", "results"],
 								type: "object",
 							},
 						},
-					}
+					},
 				},
 			},
-
 			summary: "/autocomplete/authors",
+
+			tags: ["authors"],
 		},
-	}
+	},
 } satisfies PathsObject;

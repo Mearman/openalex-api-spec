@@ -1,5 +1,5 @@
-import { OpenAPIV3_1 } from "openapi-types";
-import PathsObject = OpenAPIV3_1.PathsObject;
+import { refSchema } from "~/spec/components";
+import { meta } from "~/spec/components/schemas/meta";
 
 export default {
 	"/autocomplete/institutions": {
@@ -21,29 +21,7 @@ export default {
 						"application/json": {
 							schema: {
 								properties: {
-									meta: {
-										properties: {
-											count: {
-												type: "integer",
-											},
-											db_response_time_ms: {
-												type: "integer",
-											},
-											page: {
-												type: "integer",
-											},
-											per_page: {
-												type: "integer",
-											},
-										},
-										required: [
-											"count",
-											"db_response_time_ms",
-											"page",
-											"per_page",
-										],
-										type: "object",
-									},
+									meta: refSchema({meta}),
 									results: {
 										items: {
 											properties: {
@@ -95,8 +73,9 @@ export default {
 					description: "",
 				},
 			},
-
 			summary: "/autocomplete/institutions",
+
+			tags: ["institutions"],
 		},
 	},
 } satisfies PathsObject;

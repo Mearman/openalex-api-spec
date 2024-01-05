@@ -1,6 +1,3 @@
-import { OpenAPIV3_1 } from "openapi-types";
-import SchemaObject = OpenAPIV3_1.SchemaObject;
-
 export const location: SchemaObject = {
 	type: "object",
 	properties: {
