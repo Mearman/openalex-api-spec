@@ -1,8 +1,8 @@
 import { OpenAPIV3_1 } from "openapi-types";
+import { ref } from "~/spec/components";
 import { group_by } from "~/spec/components/schemas";
 import PathItemObject = OpenAPIV3_1.PathItemObject;
 import PathsObject = OpenAPIV3_1.PathsObject;
-
 
 
 const authors: PathItemObject = {
@@ -88,7 +88,7 @@ const authors: PathItemObject = {
 					"application/json": {
 						schema: {
 							properties: {
-								group_by,
+								group_by: ref("schemas", {group_by}),
 								meta: {
 									properties: {
 										count: {
