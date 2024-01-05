@@ -4,10 +4,19 @@ import SchemaObject = OpenAPIV3_1.SchemaObject;
 export const location: SchemaObject = {
 	type: "object",
 	properties: {
+		is_accepted: {
+			type: "boolean",
+		},
 		is_oa: {
 			type: "boolean",
 		},
+		is_published: {
+			type: "boolean",
+		},
 		landing_page_url: {
+			type: "string",
+		},
+		license: {
 			type: "string",
 		},
 		pdf_url: {
@@ -73,17 +82,8 @@ export const location: SchemaObject = {
 				"type",
 			],
 		},
-		license: {
-			type: "string",
-		},
 		version: {
 			type: "string",
-		},
-		is_accepted: {
-			type: "boolean",
-		},
-		is_published: {
-			type: "boolean",
 		},
 	},
 	required: [

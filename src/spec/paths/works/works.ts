@@ -3,6 +3,7 @@ import { refParameter, refResponse, refSchema } from "~/spec/components";
 import { api_key, cursor, filterRegex, filterWorks, per_page } from "~/spec/components/parameters";
 import { resp4xx } from "~/spec/components/responses/resp4xx";
 import { group_by } from "~/spec/components/schemas";
+import { location } from "~/spec/components/schemas/location";
 import { tags } from "~/spec/paths/works/tags";
 import PathsObject = OpenAPIV3_1.PathsObject;
 import ResponseObject = OpenAPIV3_1.ResponseObject;
@@ -521,220 +522,9 @@ let listWorksItem = {
 		},
 		locations: {
 			type: "array",
-			items: {
-				type: "object",
-				properties: {
-					is_oa: {
-						type: "boolean"
-					},
-					landing_page_url: {
-						type: "string"
-					},
-					pdf_url: {
-						type: "string"
-					},
-					source: {
-						type: "object",
-						properties: {
-							id: {
-								type: "string"
-							},
-							display_name: {
-								type: "string"
-							},
-							issn_l: {
-								type: "string"
-							},
-							issn: {
-								anyOf: [
-									{
-										type: "null"
-									},
-									{
-										type: "array",
-										items: {
-											type: "string"
-										}
-									}
-								]
-							},
-							is_oa: {
-								type: "boolean"
-							},
-							is_in_doaj: {
-								type: "boolean"
-							},
-							host_organization: {
-								type: "string"
-							},
-							host_organization_name: {
-								type: "string"
-							},
-							host_organization_lineage: {
-								type: "array",
-								items: {
-									type: "string"
-								}
-							},
-							host_organization_lineage_names: {
-								type: "array",
-								items: {
-									type: "string"
-								}
-							},
-							type: {
-								type: "string"
-							}
-						},
-						required: [
-							"id",
-							"display_name",
-							"issn_l",
-							"issn",
-							"is_oa",
-							"is_in_doaj",
-							"host_organization",
-							"host_organization_name",
-							"host_organization_lineage",
-							"host_organization_lineage_names",
-							"type"
-						]
-					},
-					license: {
-						type: "string"
-					},
-					version: {
-						type: "string"
-					},
-					is_accepted: {
-						type: "boolean"
-					},
-					is_published: {
-						type: "boolean"
-					}
-				},
-				required: [
-					"is_oa",
-					"landing_page_url",
-					"pdf_url",
-					"source",
-					"license",
-					"version",
-					"is_accepted",
-					"is_published"
-				]
-			}
+			items: refSchema({location})
 		},
-		best_oa_location: {
-			anyOf: [
-				{
-					type: "null"
-				},
-				{
-					type: "object",
-					properties: {
-						is_oa: {
-							type: "boolean"
-						},
-						landing_page_url: {
-							type: "string"
-						},
-						pdf_url: {
-							type: "string"
-						},
-						source: {
-							type: "object",
-							properties: {
-								id: {
-									type: "string"
-								},
-								display_name: {
-									type: "string"
-								},
-								issn_l: {
-									type: "string"
-								},
-								issn: {
-									anyOf: [
-										{
-											type: "null"
-										},
-										{
-											type: "array",
-											items: {
-												type: "string"
-											}
-										}
-									]
-								},
-								is_oa: {
-									type: "boolean"
-								},
-								is_in_doaj: {
-									type: "boolean"
-								},
-								host_organization: {
-									type: "string"
-								},
-								host_organization_name: {
-									type: "string"
-								},
-								host_organization_lineage: {
-									type: "array",
-									items: {
-										type: "string"
-									}
-								},
-								host_organization_lineage_names: {
-									type: "array",
-									items: {
-										type: "string"
-									}
-								},
-								type: {
-									type: "string"
-								}
-							},
-							required: [
-								"id",
-								"display_name",
-								"issn_l",
-								"issn",
-								"is_oa",
-								"is_in_doaj",
-								"host_organization",
-								"host_organization_name",
-								"host_organization_lineage",
-								"host_organization_lineage_names",
-								"type"
-							]
-						},
-						license: {
-							type: "string"
-						},
-						version: {
-							type: "string"
-						},
-						is_accepted: {
-							type: "boolean"
-						},
-						is_published: {
-							type: "boolean"
-						}
-					},
-					required: [
-						"is_oa",
-						"landing_page_url",
-						"pdf_url",
-						"source",
-						"license",
-						"version",
-						"is_accepted",
-						"is_published"
-					]
-				}
-			]
-		},
+		best_oa_location: refSchema({location}),
 		sustainable_development_goals: {
 			type: "array",
 			items: {
@@ -878,12 +668,12 @@ let listWorks = {
 		"application/json": {
 			schema: {
 				properties: {
-					meta: refSchema({ meta }),
+					meta: refSchema({meta}),
 					results: {
 						type: "array",
-						items: refSchema({ listWorksItem })
+						items: refSchema({listWorksItem})
 					},
-					group_by: refSchema({ group_by })
+					group_by: refSchema({group_by})
 				},
 				required: [
 					"meta",
@@ -903,14 +693,14 @@ export default {
 			]),
 			description: "",
 			parameters: [
-				refParameter({ filterWorks }),
-				refParameter({ api_key }),
-				refParameter({ per_page }),
-				refParameter({ cursor }),
+				refParameter({filterWorks}),
+				refParameter({api_key}),
+				refParameter({per_page}),
+				refParameter({cursor}),
 			],
 			responses: {
-				"200": refResponse({ listWorks }),
-				"403": refResponse({ resp4xx }),
+				"200": refResponse({listWorks}),
+				"403": refResponse({resp4xx}),
 				// "4xx": refResponse({resp4xx})
 			},
 			summary: "/works",
