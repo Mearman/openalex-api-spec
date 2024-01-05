@@ -47,7 +47,6 @@ export default {
 									},
 									results: {
 										type: "array",
-										additionalProperties: true,
 										items: {
 											type: "object",
 											properties: {

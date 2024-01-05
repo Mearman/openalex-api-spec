@@ -20,5 +20,4 @@ export default {
 	...publishers,
 	...sources,
 	...works
-
 } satisfies PathsObject;

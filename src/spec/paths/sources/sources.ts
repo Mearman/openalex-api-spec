@@ -1,22 +1,14 @@
 import { OpenAPIV3_1 } from "openapi-types";
 import PathsObject = OpenAPIV3_1.PathsObject;
 
-export default {
-	"/people/{id}": {
+export const sources = {
+	"/sources": {
 		get: {
 			description: "",
 			parameters: [
 				{
-					in: "path",
-					name: "id",
-					required: true,
-					schema: {
-						type: "string",
-					},
-				},
-				{
 					in: "query",
-					name: "select",
+					name: "group_by",
 					required: false,
 					schema: {
 						type: "string",
@@ -24,22 +16,19 @@ export default {
 				},
 			],
 			responses: {
-				"200": {
+				"403": {
 					content: {
 						"application/json": {
 							schema: {
 								properties: {
-									display_name: {
+									error: {
 										type: "string",
 									},
-									id: {
-										type: "string",
-									},
-									orcid: {
+									message: {
 										type: "string",
 									},
 								},
-								required: ["id", "display_name", "orcid"],
+								required: ["error", "message"],
 								type: "object",
 							},
 						},
@@ -47,7 +36,8 @@ export default {
 					description: "",
 				},
 			},
-			summary: "/people/{id}",
+
+			summary: "/sources",
 		},
 	}
-} satisfies PathsObject satisfies PathsObject;
+} satisfies PathsObject;

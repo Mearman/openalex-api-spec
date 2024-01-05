@@ -1,4 +1,6 @@
 import { OpenAPIV3_1 } from "openapi-types";
+
+import { tags } from "~/spec/paths/works/tags";
 import PathItemObject = OpenAPIV3_1.PathItemObject;
 
 const example: { meta: { count: number; openalex_id: string; doi: string; }; ngrams: { ngram_count: number; ngram_tokens: number; term_frequency: number; ngram: string; }[]; } = {
@@ -19,7 +21,10 @@ const example: { meta: { count: number; openalex_id: string; doi: string; }; ngr
 export const workNgrams: PathItemObject = {
 	get: {
 		operationId: "getWorkNgrams",
-		tags: ["works", "ngrams"],
+		tags: tags.concat([
+			"ngrams",
+			"single"
+		]),
 		externalDocs: {
 			url: "https://docs.openalex.org/api-entities/works/get-n-grams",
 		},
@@ -93,3 +98,7 @@ export const workNgrams: PathItemObject = {
 		summary: "/works/{id}/ngrams",
 	},
 };
+
+export default {
+	"/works/{id}/ngrams": workNgrams,
+}

@@ -47,9 +47,9 @@ export default {
 									},
 									results: {
 										type: "array",
-										additionalProperties: true,
 										items: {
 											type: "object",
+											additionalProperties: true,
 											properties: {
 												cited_by_count: {
 													type: "integer",

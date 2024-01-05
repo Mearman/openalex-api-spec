@@ -1,8 +1,8 @@
 import { OpenAPIV3_1 } from "openapi-types";
 import PathsObject = OpenAPIV3_1.PathsObject;
 
-export default {
-	"/people/{id}": {
+export const source = {
+	"/sources/{id}": {
 		get: {
 			description: "",
 			parameters: [
@@ -35,11 +35,8 @@ export default {
 									id: {
 										type: "string",
 									},
-									orcid: {
-										type: "string",
-									},
 								},
-								required: ["id", "display_name", "orcid"],
+								required: ["id", "display_name"],
 								type: "object",
 							},
 						},
@@ -47,7 +44,7 @@ export default {
 					description: "",
 				},
 			},
-			summary: "/people/{id}",
+			summary: "/sources/{id}",
 		},
 	}
-} satisfies PathsObject satisfies PathsObject;
+} satisfies PathsObject;
