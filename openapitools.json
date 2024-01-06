@@ -1,0 +1,36 @@
+{
+	"$schema": "https://raw.githubusercontent.com/OpenAPITools/openapi-generator-cli/master/apps/generator-cli/src/config.schema.json",
+	"generator-cli": {
+		"version": "7.2.0",
+		"generators": {
+			"typescript": {
+				"generatorName": "typescript",
+				"output": "#{cwd}/src/generated/clients/typescript",
+				"glob": "openapi.json",
+				"additionalProperties": {
+					"npmName": "openalex-api",
+					"supportsES6": "true",
+					"withInterfaces": true
+				}
+			},
+			"typescript-fetch": {
+				"generatorName": "typescript-fetch",
+				"output": "#{cwd}/src/generated/clients/typescript-fetch",
+				"glob": "openapi.json",
+				"additionalProperties": {
+					"npmName": "openalex-api"
+				}
+			},
+			"openapi": {
+				"generatorName": "openapi",
+				"output": "#{cwd}/src/generated/openapi",
+				"glob": "openapi.json"
+			},
+			"markdown": {
+				"generatorName": "markdown",
+				"output": "#{cwd}/src/generated/markdown",
+				"glob": "openapi.json"
+			}
+		}
+	}
+}
