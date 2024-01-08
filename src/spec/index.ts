@@ -5,7 +5,7 @@ import { paths } from "~/spec/paths";
 import { security } from "~/spec/security";
 import { servers } from "~/spec/servers";
 
-export default {
+export const doc = {
 	info,
 	openapi,
 	paths,
@@ -15,3 +15,4 @@ export default {
 	externalDocs,
 } satisfies OpenAPIV3_1_Document;
 
+export const getDoc = (): OpenAPIV3_1_Document => doc;
