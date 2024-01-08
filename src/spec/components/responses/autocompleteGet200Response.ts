@@ -1,7 +1,7 @@
 import { refSchema } from "~/spec/components";
 import { meta } from "~/spec/components/schemas/meta";
 
-export const autocomplete200Response = {
+export const autocompleteGet200Response = {
 	content: {
 		"application/json": {
 			schema: {

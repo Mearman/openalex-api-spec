@@ -1,5 +1,5 @@
 import { refResponse } from "~/spec/components";
-import { autocomplete200Response } from "~/spec/components/responses/autocomplete200Response";
+import { autocompleteGet200Response } from "~/spec/components/responses/autocompleteGet200Response";
 
 export default {
 	"/autocomplete": {
@@ -16,7 +16,7 @@ export default {
 				},
 			],
 			responses: {
-				"200": refResponse({autocomplete200Response}),
+				"200": refResponse({autocompleteGet200Response}),
 			},
 			summary: "/autocomplete",
 		},
