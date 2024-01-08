@@ -3,10 +3,62 @@
 	"generator-cli": {
 		"version": "7.2.0",
 		"generators": {
+			"apache2": {
+				"generatorName": "apache2",
+				"output": "#{cwd}/generated/config/apache2",
+				"glob": "generated/openapi.json"
+			},
+			"asciidoc": {
+				"generatorName": "asciidoc",
+				"output": "#{cwd}/generated/documentation/asciidoc",
+				"glob": "generated/openapi.json"
+			},
+			"bash": {
+				"generatorName": "bash",
+				"output": "#{cwd}/generated/clients/bash",
+				"glob": "generated/openapi.json"
+			},
+			"graphql-schema": {
+				"generatorName": "graphql-schema",
+				"output": "#{cwd}/generated/schemas/graphql",
+				"glob": "generated/openapi.json"
+			},
+			"markdown": {
+				"generatorName": "markdown",
+				"output": "#{cwd}/generated/documentation/markdown",
+				"glob": "generated/openapi.json"
+			},
+			"nodejs-express-server": {
+				"generatorName": "nodejs-express-server",
+				"output": "#{cwd}/generated/servers/nodejs-express-server",
+				"glob": "generated/openapi.json",
+				"additionalProperties": {
+					"npmName": "openalex-api"
+				}
+			},
+			"openapi": {
+				"generatorName": "openapi",
+				"output": "#{cwd}/generated/documentation/openapi-json",
+				"glob": "generated/openapi.json"
+			},
+			"openapi-yaml": {
+				"generatorName": "openapi-yaml",
+				"output": "#{cwd}/generated/documentation/openapi-yaml",
+				"glob": "generated/openapi.json"
+			},
+			"python": {
+				"generatorName": "python",
+				"output": "#{cwd}/generated/clients/python",
+				"glob": "generated/openapi.json",
+				"additionalProperties": {
+					"packageName": "openalex-api",
+					"projectName": "openalex-api"
+				}
+			},
 			"typescript": {
 				"generatorName": "typescript",
-				"output": "#{cwd}/src/generated/clients/typescript",
-				"glob": "openapi.json",
+				"output": "#{cwd}/generated/clients/typescript",
+				"glob": "generated/openapi.json",
 				"additionalProperties": {
 					"npmName": "openalex-api",
 					"supportsES6": "true",
@@ -15,21 +67,20 @@
 			},
 			"typescript-fetch": {
 				"generatorName": "typescript-fetch",
-				"output": "#{cwd}/src/generated/clients/typescript-fetch",
-				"glob": "openapi.json",
+				"output": "#{cwd}/generated/clients/typescript-fetch",
+				"glob": "generated/openapi.json",
 				"additionalProperties": {
 					"npmName": "openalex-api"
 				}
 			},
-			"openapi": {
-				"generatorName": "openapi",
-				"output": "#{cwd}/src/generated/openapi",
-				"glob": "openapi.json"
-			},
-			"markdown": {
-				"generatorName": "markdown",
-				"output": "#{cwd}/src/generated/markdown",
-				"glob": "openapi.json"
+			"typescript-node": {
+				"generatorName": "typescript-node",
+				"output": "#{cwd}/generated/clients/typescript-node",
+				"glob": "generated/openapi.json",
+				"additionalProperties": {
+					"npmName": "openalex-api",
+					"supportsES6": "true"
+				}
 			}
 		}
 	}
