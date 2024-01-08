@@ -1,1 +1,14 @@
+export { addTags } from "~/util/addTags";
 export { sortObject } from "~/util/sortObject";
+export { backPort } from "~/util/backPort";
+export { dereference } from "~/util/dereference";
+export { generateDereferencedSpec } from "~/util/generateDereferencedSpec";
+export { downloadiFleToTemp } from "~/util/downloadiFleToTemp";
+export { getGetPaths } from "~/util/getGetPaths";
+export { getPaths } from "~/util/getPaths";
+export { makeOatts } from "~/util/makeOatts";
+export { makeTempFile } from "~/util/makeTempFile";
+export { operationsWithNoRequiredParameters } from "~/util/operationsWithNoRequiredParameters";
+export { separator } from "~/util/separator";
+export { validate } from "~/util/validate";
+export { validateOAS3_1 } from "~/util/validateOAS3_1";
