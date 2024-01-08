@@ -1,4 +1,5 @@
-import { refSchema } from "~/spec/components";
+import { refParameter, refSchema } from "~/spec/components";
+import { select } from "~/spec/components/parameters/select";
 import { international_display_name_and_description } from "~/spec/components/schemas/international_display_name";
 
 export const concept = {
@@ -14,14 +15,7 @@ export const concept = {
 						type: "string",
 					},
 				},
-				{
-					in: "query",
-					name: "select",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
+				refParameter({select}),
 			],
 			responses: {
 				"200": {

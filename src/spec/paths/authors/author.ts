@@ -1,3 +1,6 @@
+import { refParameter } from "~/spec/components";
+import { select } from "~/spec/components/parameters/select";
+
 export default {
 	"/author/{id}": {
 		get: {
@@ -11,14 +14,7 @@ export default {
 						type: "string",
 					},
 				},
-				{
-					in: "query",
-					name: "select",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
+				refParameter({select}),
 			],
 			responses: {
 				"200": {

@@ -1,3 +1,4 @@
+import { mailto } from "~/spec/components/parameters/mailto";
 import authors from "~/spec/paths/authors"
 import autocomplete from "~/spec/paths/autocomplete";
 import concepts from "~/spec/paths/concepts";
@@ -8,7 +9,25 @@ import publishers from "~/spec/paths/publishers";
 import sources from "~/spec/paths/sources";
 import works from "~/spec/paths/works";
 
-export const paths = {
+export function addParameterToAllPaths(paths: PathsObject): PathsObject {
+	return Object.entries(paths).reduce((acc, [path, pathItem]) => {
+		return {
+			...acc,
+			[path]: {
+				...pathItem,
+				get: {
+					...pathItem.get,
+					parameters: [
+						...(pathItem.get.parameters || []),
+						...mailto,
+					],
+				},
+			},
+		};
+	}, {});
+}
+
+export const paths = addParameterToAllPaths({
 	...authors,
 	...autocomplete,
 	...concepts,
@@ -18,4 +37,4 @@ export const paths = {
 	...publishers,
 	...sources,
 	...works,
-} satisfies PathsObject;
+}) satisfies PathsObject;

@@ -1,3 +1,6 @@
+import { refParameter } from "~/spec/components";
+import { select } from "~/spec/components/parameters/select";
+
 export const source = {
 	"/sources/{id}": {
 		get: {
@@ -11,14 +14,7 @@ export const source = {
 						type: "string",
 					},
 				},
-				{
-					in: "query",
-					name: "select",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
+				refParameter({select}),
 			],
 			responses: {
 				"200": {
