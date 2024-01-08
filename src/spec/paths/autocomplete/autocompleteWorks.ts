@@ -1,4 +1,7 @@
-import { refResponse } from "~/spec/components";
+import { refParameter, refResponse } from "~/spec/components";
+import { autocompleteQuery } from "~/spec/components/parameters/autocompleteQuery";
+import { filter } from "~/spec/components/parameters/filter";
+import { search } from "~/spec/components/parameters/search";
 import { autocompleteGet200Response } from "~/spec/components/responses/autocompleteGet200Response";
 
 export default {
@@ -6,30 +9,9 @@ export default {
 		get: {
 			description: "",
 			parameters: [
-				{
-					in: "query",
-					name: "filter",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
-				{
-					in: "query",
-					name: "search",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
-				{
-					in: "query",
-					name: "q",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
+				refParameter({filter}),
+				refParameter({search}),
+				refParameter({autocompleteQuery}),
 			],
 			responses: {
 				"200": refResponse({autocompleteGet200Response}),

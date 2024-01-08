@@ -15,8 +15,8 @@ export const info: InfoObject = {
 	version: "1.0.0",
 	license: {
 		name: "CC0",
-		identifier: "CC0-1.0",
-		// url: "https://creativecommons.org/publicdomain/zero/1.0/",
+		// identifier: "CC0-1.0",
+		url: "https://creativecommons.org/publicdomain/zero/1.0/",
 	} satisfies LicenseObject,
 }
 export const openapi: OpenApiVersion = "3.1.0";

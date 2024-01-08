@@ -1,4 +1,5 @@
-import { refResponse } from "~/spec/components";
+import { refParameter, refResponse } from "~/spec/components";
+import { autocompleteQuery } from "~/spec/components/parameters/autocompleteQuery";
 import { autocompleteGet200Response } from "~/spec/components/responses/autocompleteGet200Response";
 
 export default {
@@ -6,14 +7,7 @@ export default {
 		get: {
 			description: "",
 			parameters: [
-				{
-					in: "query",
-					name: "q",
-					required: false,
-					schema: {
-						type: "string",
-					},
-				},
+				refParameter({autocompleteQuery}),
 			],
 			responses: {
 				"200": refResponse({autocompleteGet200Response}),

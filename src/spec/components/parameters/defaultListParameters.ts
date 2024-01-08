@@ -1,15 +1,10 @@
 import { refParameter } from "~/spec/components";
+import { filter } from "~/spec/components/parameters/filter";
 import { group_by_param } from "~/spec/components/parameters/group_by_param";
+import { search } from "~/spec/components/parameters/search";
 
 export const defaultListParameters: (ParameterObject | ReferenceObject)[] = [
-	{
-		in: "query",
-		name: "filter",
-		required: false,
-		schema: {
-			type: "string",
-		},
-	},
+	refParameter({filter}),
 	refParameter({group_by_param}),
 	{
 		in: "query",
@@ -43,14 +38,7 @@ export const defaultListParameters: (ParameterObject | ReferenceObject)[] = [
 			type: "string",
 		},
 	},
-	{
-		in: "query",
-		name: "search",
-		required: false,
-		schema: {
-			type: "string",
-		},
-	},
+	refParameter({search}),
 	{
 		in: "query",
 		name: "select",
