@@ -1,29 +1,29 @@
 #!/usr#!/usr/bin/env npx -y tsx
-import * as fs from "fs";
-import OpenAPISchemaValidator, { OpenAPISchemaValidatorResult, } from "openapi-schema-validator";
-import spec from "./spec";
 
-console.log(spec);
+import fs, { PathOrFileDescriptor } from "fs";
+import spec from "~/spec";
+import { dereference } from "~/util/dereference";
+import { getGetPaths } from "~/util/getGetPaths";
+import { operationsWithNoRequiredParameters } from "~/util/operationsWithNoRequiredParameters";
+import { separator } from "~/util/separator";
+import { validate } from "~/util/validate";
 
-console.log("=".repeat(80));
+async function main() {
+	console.log(JSON.stringify(spec, null, 2));
+	separator();
+	await validate(spec);
+	const specOutputFilePath: PathOrFileDescriptor = "./openapi.json";
+	fs.writeFileSync(specOutputFilePath, JSON.stringify(spec, null, "\t"));
 
-const validator = new OpenAPISchemaValidator({
-	version: 3.1,
-});
+	const result = await dereference(spec);
+	const gets = getGetPaths(result);
+	const noRequiredParameters = operationsWithNoRequiredParameters(gets);
+	const server = new URL(spec.servers[0].url);
+	// const results =
 
-const validation: OpenAPISchemaValidatorResult = validator.validate(spec);
-// console.log(validation);
-if (validation.errors.length > 0) {
-	console.error("Validation errors:");
-	// console.error(validation.errors);
-	validation.errors.forEach((err) => {
-		console.log("=".repeat(20));
-		console.error(err);
-		console.log("=".repeat(20));
-	});
-	process.exit(1);
+	// console.log(gets);
 }
 
-fs.writeFileSync("./openapi.json", JSON.stringify(spec, null, "\t"));
-export { addTags } from "~/util/addTags";
-
+(async () => {
+	await main();
+})();
