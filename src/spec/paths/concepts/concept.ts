@@ -1,4 +1,5 @@
 import { refParameter, refSchema } from "~/spec/components";
+import { conceptIdPatternRef } from "~/spec/components/parameters/conceptIdPatternRef";
 import { select } from "~/spec/components/parameters/select";
 import { international_display_name_and_description } from "~/spec/components/schemas/international_display_name";
 
@@ -7,14 +8,7 @@ export const concept = {
 		get: {
 			description: "",
 			parameters: [
-				{
-					in: "path",
-					name: "id",
-					required: true,
-					schema: {
-						type: "string",
-					},
-				},
+				conceptIdPatternRef,
 				refParameter({select}),
 			],
 			responses: {

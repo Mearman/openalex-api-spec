@@ -30,6 +30,14 @@
 					"type": "string"
 				}
 			},
+			"conceptIdParam": {
+				"in": "path",
+				"name": "id",
+				"required": true,
+				"schema": {
+					"$ref": "#/components/schemas/conceptIdPattern"
+				}
+			},
 			"cursor": {
 				"in": "query",
 				"name": "cursor",
@@ -1029,6 +1037,10 @@
 						"$ref": "#/components/schemas/baseSelectionAttributes"
 					}
 				],
+				"type": "string"
+			},
+			"conceptIdPattern": {
+				"pattern": "^C[0-9]+$",
 				"type": "string"
 			},
 			"errorMessage": {
@@ -3750,12 +3762,7 @@
 				"description": "",
 				"parameters": [
 					{
-						"in": "path",
-						"name": "id",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
+						"$ref": "#/components/parameters/conceptIdParam"
 					},
 					{
 						"$ref": "#/components/parameters/select"
