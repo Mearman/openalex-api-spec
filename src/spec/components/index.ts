@@ -49,14 +49,12 @@ export class ComponentGenerator {
 		};
 	}
 
-	static generate(): ComponentsObject {
+	static get(): ComponentsObject {
 		return ComponentGenerator.getInstance();
 	}
 }
 
-export const components = ComponentGenerator.generate();
-
-export const generate = () => ComponentGenerator.generate();
+export const components: ComponentsObject = ComponentGenerator.get() satisfies ComponentsObject;
 
 export const ref = ComponentGenerator.ref;
 
