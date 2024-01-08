@@ -1,5 +1,5 @@
+import authors from "~/spec/paths/authors"
 import autocomplete from "~/spec/paths/autocomplete";
-import authors from "~/spec/paths/autocomplete/autocompleteAuthors";
 import concepts from "~/spec/paths/concepts";
 import funders from "~/spec/paths/funders";
 import institutions from "~/spec/paths/institutions";
@@ -19,5 +19,3 @@ export const paths = {
 	...sources,
 	...works,
 } satisfies PathsObject;
-
-export default paths;

@@ -6,6 +6,55 @@ import { paths } from "~/spec/paths";
 import { security } from "~/spec/security";
 import { servers } from "~/spec/servers";
 
+// export default Object.entries(paths).reduce((acc, [path, pathItem]) => {
+// 	// pathItem = Object.entries(pathItem).reduce((acc, [method, operation]) => {
+// 	// 	operation.servers = [
+// 	// 		{
+// 	// 			url: "https://api.osf.io/v2",
+// 	// 		},
+// 	// 	].concat(operation.servers || []);
+// 	// 	acc[method] = operation;
+// 	// }, {} as OperationObject);
+// 	// acc[path] = pathItem;
+// 	// return acc;
+//
+// 	pathItem = Object.entries(pathItem).reduce((acc, [method, operation]) => {
+// 		operation.servers = [
+// 			{
+// 				url: "https://api.openalex.org/v1",
+// 			},
+// 		].concat(operation.servers || []);
+// 		acc[method] = operation;
+// 		return acc;
+// 	}, {} as OperationObject);
+// 	acc[path] = pathItem;
+// }, {} as PathsObject);
+
+// type PerformModificationToPath = (path: PathItemObject, ...args: any) => PathItemObject
+//
+// export function performModificationToAllPaths(paths: PathsObject, modification: PerformModificationToPath): PathsObject {
+// 	return Object.entries(paths).reduce((acc, [path, pathItem]) => {
+// 		acc[path] = modification(pathItem);
+// 		return acc;
+// 	}, {} as PathsObject);
+// }
+//
+// const appendServerToPathItemObject: PerformModificationToPath = (pathItem: PathItemObject, servers: ServerObject[]): PathItemObject => {
+// 	return Object.entries(pathItem).reduce((acc, [method, operation]) => {
+// 		operation["servers"] = servers.concat(operation["servers"] ?? []);
+// 		acc[method] = operation;
+// 		return acc;
+// 	}, {} as PathItemObject);
+// }
+//
+// export function appendServersToAllOperationsForAllPaths(doc: OpenAPIV3_1_Document): OpenAPIV3_1_Document {
+// 	const servers = doc.servers || [];
+// 	return {
+// 		...doc,
+// 		paths: performModificationToAllPaths(doc.paths, (pathItem) => appendServerToPathItemObject(pathItem, servers)),
+// 	}
+// }
+
 export default {
 	info,
 	openapi,
@@ -14,7 +63,7 @@ export default {
 	servers,
 	components,
 	externalDocs,
-} satisfies OpenAPIV3_1_Document;
+} satisfies OpenAPIV3_1_Document
 
 declare global {
 	type OpenAPIV3_1_Document = OpenAPIV3_1.Document;

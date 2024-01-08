@@ -1,4 +1,4 @@
-export const servers = [
+export const servers: ServerObject[] = [
 	{
 		url: "https://api.openalex.org",
 	},
