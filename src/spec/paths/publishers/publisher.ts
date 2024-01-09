@@ -7,6 +7,7 @@ export const publisher = {
 	"/publishers/{id}": {
 		get: {
 			description: "",
+			operationId: "getPublisher",
 			parameters: [
 				{
 					in: "path",

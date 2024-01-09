@@ -6,10 +6,11 @@ import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { institutionObject } from "~/spec/components/schemas/institutionObject";
 import { institutionsArray } from "~/spec/components/schemas/institutionsArray";
 
-export default {
+export const author = {
 	"/author/{id}": {
 		get: {
 			description: "",
+			operationId: "getAuthor",
 			parameters: [
 				{
 					in: "path",

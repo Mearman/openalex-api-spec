@@ -107,6 +107,7 @@ export default {
 			externalDocs: {
 				url: "https://docs.openalex.org/api-entities/works/get-a-single-work",
 			},
+			operationId: "getWork",
 			parameters: [
 				{
 					description: "The id of the work to retrieve",

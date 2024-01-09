@@ -14,6 +14,7 @@ export const institutions = {
 	"/institutions": {
 		get: {
 			description: "",
+			operationId: "getInstitutions",
 			parameters: defaultListParameters,
 			responses: {
 				"200": {

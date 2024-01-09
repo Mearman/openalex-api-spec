@@ -6,6 +6,7 @@ export default {
 	"/autocomplete/funders": {
 		get: {
 			description: "",
+			operationId: "getAutocompleteFunders",
 			parameters: [
 				refParameter({ autocompleteQuery }),
 			],

@@ -6,6 +6,7 @@ export default {
 	"/autocomplete/institutions": {
 		get: {
 			description: "",
+			operationId: "getAutocompleteInstitutions",
 			parameters: [
 				refParameter({ autocompleteQuery }),
 			],

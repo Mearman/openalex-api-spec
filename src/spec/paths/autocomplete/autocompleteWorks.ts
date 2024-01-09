@@ -8,6 +8,7 @@ export default {
 	"/autocomplete/works": {
 		get: {
 			description: "",
+			operationId: "getAutocompleteWorks",
 			parameters: [
 				refParameter({ filter }),
 				refParameter({ search }),

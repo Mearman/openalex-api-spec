@@ -5,6 +5,7 @@ export const source = {
 	"/sources/{id}": {
 		get: {
 			description: "",
+			operationId: "getSource",
 			parameters: [
 				{
 					in: "path",

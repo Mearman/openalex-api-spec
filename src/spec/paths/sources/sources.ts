@@ -2,6 +2,7 @@ export const sources = {
 	"/sources": {
 		get: {
 			description: "",
+			operationId: "getSources",
 			parameters: [
 				{
 					in: "query",

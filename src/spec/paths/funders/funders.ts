@@ -9,6 +9,7 @@ export const funders = {
 	"/funders": {
 		get: {
 			description: "",
+			operationId: "getFunders",
 			parameters: defaultListParameters,
 			responses: {
 				"200": {

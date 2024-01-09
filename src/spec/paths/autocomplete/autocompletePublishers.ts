@@ -6,6 +6,7 @@ export default {
 	"/autocomplete/publishers": {
 		get: {
 			description: "",
+			operationId: "getAutocompletePublishers",
 			parameters: [
 				refParameter({ autocompleteQuery }),
 

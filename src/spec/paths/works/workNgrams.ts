@@ -45,7 +45,7 @@ let ngramMeta = {
 	type: "object",
 } satisfies SchemaObject;
 
-let ngram = {
+export const ngram = {
 	items: {
 		properties: {
 			ngram: {
@@ -68,12 +68,11 @@ let ngram = {
 } satisfies SchemaObject;
 export const workNgrams: PathItemObject = {
 	get: {
-		operationId: "getWorkNgrams",
-		tags: tags.concat(["ngrams", "single"]),
+		description: "",
 		externalDocs: {
 			url: "https://docs.openalex.org/api-entities/works/get-n-grams",
 		},
-		description: "",
+		operationId: "getWorkNgrams",
 		parameters: [
 			{
 				example: "W2089319476",
@@ -102,6 +101,7 @@ export const workNgrams: PathItemObject = {
 			},
 		},
 		summary: "/works/{id}/ngrams",
+		tags: tags.concat(["ngrams", "single"]),
 	},
 };
 

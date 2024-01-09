@@ -12,6 +12,7 @@ export const concept = {
 				description,
 				url: "https://docs.openalex.org/api-entities/concepts/get-a-single-concept",
 			},
+			operationId: "getConcept",
 			parameters: [
 				conceptIdPatternRef,
 				refParameter({ select }),

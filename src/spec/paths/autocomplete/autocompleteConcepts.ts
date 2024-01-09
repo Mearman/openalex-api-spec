@@ -6,6 +6,7 @@ export default {
 	"/autocomplete/concepts": {
 		get: {
 			description: "",
+			operationId: "getAutocompleteConcepts",
 			parameters: [
 				refParameter({ autocompleteQuery }),
 			],

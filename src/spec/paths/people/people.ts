@@ -5,6 +5,7 @@ export const people = {
 	"/people/{id}": {
 		get: {
 			description: "",
+			operationId: "getPerson",
 			parameters: [
 				{
 					in: "path",

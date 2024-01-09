@@ -7,6 +7,7 @@ export const funder = {
 	"/funders/{id}": {
 		get: {
 			description: "",
+			operationId: "getFunder",
 			parameters: [
 				{
 					in: "path",

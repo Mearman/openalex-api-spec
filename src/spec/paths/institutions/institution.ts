@@ -12,6 +12,7 @@ export const institution = {
 	"/institutions/{id}": {
 		get: {
 			description: "",
+			operationId: "getInstitution",
 			parameters: [
 				{
 					in: "path",

@@ -10,8 +10,8 @@ import { tags } from "~/spec/paths/works/tags";
 export default {
 	"/works": {
 		get: {
-			tags: tags.concat(["list"]),
 			description: "",
+			operationId: "getWorks",
 			parameters: [
 				refParameter({ filterWorks }),
 				refParameter({ api_key }),
@@ -24,6 +24,7 @@ export default {
 				// "4xx": refResponse({resp4xx})
 			},
 			summary: "/works",
+			tags: tags.concat(["list"]),
 		},
 	},
 } as PathsObject;

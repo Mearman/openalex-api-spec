@@ -10,6 +10,7 @@ export const concepts = {
 	"/concepts": {
 		get: {
 			description: "",
+			operationId: "getConcepts",
 			parameters: defaultListParameters,
 			responses: {
 				"200": {
