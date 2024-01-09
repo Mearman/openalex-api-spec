@@ -880,6 +880,29 @@
 				},
 				"type": "array"
 			},
+			"apc": {
+				"properties": {
+					"currency": {
+						"type": "string"
+					},
+					"provenance": {
+						"type": "string"
+					},
+					"value": {
+						"type": "integer"
+					},
+					"value_usd": {
+						"type": "integer"
+					}
+				},
+				"required": [
+					"value",
+					"currency",
+					"value_usd",
+					"provenance"
+				],
+				"type": "object"
+			},
 			"authorSelectionAttributes": {
 				"enum": [
 					"abstract_inverted_index",
@@ -1115,26 +1138,7 @@
 						"type": "integer"
 					},
 					"counts_by_year": {
-						"items": {
-							"properties": {
-								"cited_by_count": {
-									"type": "integer"
-								},
-								"works_count": {
-									"type": "integer"
-								},
-								"year": {
-									"type": "integer"
-								}
-							},
-							"required": [
-								"year",
-								"works_count",
-								"cited_by_count"
-							],
-							"type": "object"
-						},
-						"type": "array"
+						"$ref": "#/components/schemas/countsByYear"
 					},
 					"created_date": {
 						"type": "string"
@@ -1191,34 +1195,7 @@
 						"type": "integer"
 					},
 					"related_concepts": {
-						"items": {
-							"properties": {
-								"display_name": {
-									"type": "string"
-								},
-								"id": {
-									"type": "string"
-								},
-								"level": {
-									"type": "integer"
-								},
-								"score": {
-									"type": "number"
-								},
-								"wikidata": {
-									"type": "string"
-								}
-							},
-							"required": [
-								"id",
-								"wikidata",
-								"display_name",
-								"level",
-								"score"
-							],
-							"type": "object"
-						},
-						"type": "array"
+						"$ref": "#/components/schemas/concepts"
 					},
 					"summary_stats": {
 						"properties": {
@@ -1262,6 +1239,36 @@
 				"pattern": "^C[0-9]+$",
 				"type": "string"
 			},
+			"concepts": {
+				"items": {
+					"properties": {
+						"display_name": {
+							"type": "string"
+						},
+						"id": {
+							"type": "string"
+						},
+						"level": {
+							"type": "integer"
+						},
+						"score": {
+							"type": "number"
+						},
+						"wikidata": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"id",
+						"wikidata",
+						"display_name",
+						"level",
+						"score"
+					],
+					"type": "object"
+				},
+				"type": "array"
+			},
 			"countsByYear": {
 				"items": {
 					"properties": {
@@ -1296,6 +1303,41 @@
 				"required": [
 					"error",
 					"message"
+				],
+				"type": "object"
+			},
+			"geo": {
+				"properties": {
+					"city": {
+						"type": "string"
+					},
+					"country": {
+						"type": "string"
+					},
+					"country_code": {
+						"type": "string"
+					},
+					"geonames_city_id": {
+						"type": "string"
+					},
+					"latitude": {
+						"type": "number"
+					},
+					"longitude": {
+						"type": "number"
+					},
+					"region": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"city",
+					"geonames_city_id",
+					"region",
+					"country_code",
+					"country",
+					"latitude",
+					"longitude"
 				],
 				"type": "object"
 			},
@@ -2391,56 +2433,71 @@
 				],
 				"type": "object"
 			},
+			"repositoriesArray": {
+				"items": {
+					"properties": {
+						"display_name": {
+							"type": "string"
+						},
+						"host_organization": {
+							"type": "string"
+						},
+						"host_organization_lineage": {
+							"items": {
+								"type": "string"
+							},
+							"type": "array"
+						},
+						"host_organization_name": {
+							"type": "string"
+						},
+						"id": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"id",
+						"display_name",
+						"host_organization",
+						"host_organization_name",
+						"host_organization_lineage"
+					],
+					"type": "object"
+				},
+				"type": "array"
+			},
+			"roles": {
+				"items": {
+					"properties": {
+						"id": {
+							"type": "string"
+						},
+						"role": {
+							"type": "string"
+						},
+						"works_count": {
+							"type": "integer"
+						}
+					},
+					"required": [
+						"role",
+						"id",
+						"works_count"
+					],
+					"type": "object"
+				},
+				"type": "array"
+			},
 			"workSchema": {
 				"properties": {
 					"abstract_inverted_index": {
 						"type": "object"
 					},
 					"apc_list": {
-						"properties": {
-							"currency": {
-								"type": "string"
-							},
-							"provenance": {
-								"type": "string"
-							},
-							"value": {
-								"type": "integer"
-							},
-							"value_usd": {
-								"type": "integer"
-							}
-						},
-						"required": [
-							"value",
-							"currency",
-							"value_usd",
-							"provenance"
-						],
-						"type": "object"
+						"$ref": "#/components/schemas/apc"
 					},
 					"apc_paid": {
-						"properties": {
-							"currency": {
-								"type": "string"
-							},
-							"provenance": {
-								"type": "string"
-							},
-							"value": {
-								"type": "integer"
-							},
-							"value_usd": {
-								"type": "integer"
-							}
-						},
-						"required": [
-							"value",
-							"currency",
-							"value_usd",
-							"provenance"
-						],
-						"type": "object"
+						"$ref": "#/components/schemas/apc"
 					},
 					"authorships": {
 						"$ref": "#/components/schemas/authorships"
@@ -2538,10 +2595,7 @@
 						"type": "integer"
 					},
 					"counts_by_year": {
-						"items": {
-							"type": "string"
-						},
-						"type": "array"
+						"$ref": "#/components/schemas/countsByYear"
 					},
 					"created_date": {
 						"type": "string"
@@ -2758,36 +2812,6 @@
 					"display_name"
 				],
 				"type": "object"
-			},
-			"x_concepts": {
-				"items": {
-					"properties": {
-						"display_name": {
-							"type": "string"
-						},
-						"id": {
-							"type": "string"
-						},
-						"level": {
-							"type": "integer"
-						},
-						"score": {
-							"type": "number"
-						},
-						"wikidata": {
-							"type": "string"
-						}
-					},
-					"required": [
-						"id",
-						"wikidata",
-						"display_name",
-						"level",
-						"score"
-					],
-					"type": "object"
-				},
-				"type": "array"
 			}
 		}
 	},
@@ -2810,6 +2834,7 @@
 		"/author/{id}": {
 			"get": {
 				"description": "",
+				"operationId": "getAuthor",
 				"parameters": [
 					{
 						"in": "path",
@@ -2911,7 +2936,7 @@
 											"type": "integer"
 										},
 										"x_concepts": {
-											"$ref": "#/components/schemas/x_concepts"
+											"$ref": "#/components/schemas/concepts"
 										}
 									},
 									"required": [
@@ -2940,6 +2965,7 @@
 		"/authors": {
 			"get": {
 				"description": "",
+				"operationId": "getAuthors",
 				"parameters": [
 					{
 						"$ref": "#/components/parameters/filter"
@@ -3075,7 +3101,7 @@
 														"type": "integer"
 													},
 													"x_concepts": {
-														"$ref": "#/components/schemas/x_concepts"
+														"$ref": "#/components/schemas/concepts"
 													}
 												},
 												"required": [
@@ -3114,6 +3140,7 @@
 		"/autocomplete": {
 			"get": {
 				"description": "",
+				"operationId": "getAutocomplete",
 				"parameters": [
 					{
 						"$ref": "#/components/parameters/autocompleteQuery"
@@ -3145,6 +3172,7 @@
 		"/autocomplete/authors": {
 			"get": {
 				"description": "",
+				"operationId": "getAutocompleteAuthors",
 				"parameters": [
 					{
 						"$ref": "#/components/parameters/autocompleteQuery"
@@ -3177,6 +3205,7 @@
 		"/autocomplete/concepts": {
 			"get": {
 				"description": "",
+				"operationId": "getAutocompleteConcepts",
 				"parameters": [
 					{
 						"$ref": "#/components/parameters/autocompleteQuery"
@@ -3209,6 +3238,7 @@
 		"/autocomplete/funders": {
 			"get": {
 				"description": "",
+				"operationId": "getAutocompleteFunders",
 				"parameters": [
 					{
 						"$ref": "#/components/parameters/autocompleteQuery"
@@ -3241,6 +3271,7 @@
 		"/autocomplete/institutions": {
 			"get": {
 				"description": "",
+				"operationId": "getAutocompleteInstitutions",
 				"parameters": [
 					{
 						"$ref": "#/components/parameters/autocompleteQuery"
@@ -3273,6 +3304,7 @@
 		"/autocomplete/publishers": {
 			"get": {
 				"description": "",
+				"operationId": "getAutocompletePublishers",
 				"parameters": [
 					{
 						"$ref": "#/components/parameters/autocompleteQuery"
@@ -3305,6 +3337,7 @@
 		"/autocomplete/sources": {
 			"get": {
 				"description": "",
+				"operationId": "getAutocompleteSources",
 				"parameters": [
 					{
 						"$ref": "#/components/parameters/autocompleteQuery"
@@ -3337,6 +3370,7 @@
 		"/autocomplete/works": {
 			"get": {
 				"description": "",
+				"operationId": "getAutocompleteWorks",
 				"parameters": [
 					{
 						"$ref": "#/components/parameters/filter"
@@ -3375,6 +3409,7 @@
 		"/concepts": {
 			"get": {
 				"description": "",
+				"operationId": "getConcepts",
 				"parameters": [
 					{
 						"$ref": "#/components/parameters/filter"
@@ -3439,31 +3474,7 @@
 											"type": "array"
 										},
 										"meta": {
-											"properties": {
-												"count": {
-													"type": "integer"
-												},
-												"db_response_time_ms": {
-													"type": "integer"
-												},
-												"groups_count": {
-													"type": "integer"
-												},
-												"page": {
-													"type": "integer"
-												},
-												"per_page": {
-													"type": "integer"
-												}
-											},
-											"required": [
-												"count",
-												"db_response_time_ms",
-												"page",
-												"per_page",
-												"groups_count"
-											],
-											"type": "object"
+											"$ref": "#/components/schemas/meta"
 										},
 										"results": {
 											"items": {
@@ -3498,26 +3509,7 @@
 														"type": "integer"
 													},
 													"counts_by_year": {
-														"items": {
-															"properties": {
-																"cited_by_count": {
-																	"type": "integer"
-																},
-																"works_count": {
-																	"type": "integer"
-																},
-																"year": {
-																	"type": "integer"
-																}
-															},
-															"required": [
-																"year",
-																"works_count",
-																"cited_by_count"
-															],
-															"type": "object"
-														},
-														"type": "array"
+														"$ref": "#/components/schemas/countsByYear"
 													},
 													"created_date": {
 														"type": "string"
@@ -3578,34 +3570,7 @@
 														"type": "integer"
 													},
 													"related_concepts": {
-														"items": {
-															"properties": {
-																"display_name": {
-																	"type": "string"
-																},
-																"id": {
-																	"type": "string"
-																},
-																"level": {
-																	"type": "integer"
-																},
-																"score": {
-																	"type": "number"
-																},
-																"wikidata": {
-																	"type": "string"
-																}
-															},
-															"required": [
-																"id",
-																"wikidata",
-																"display_name",
-																"level",
-																"score"
-															],
-															"type": "object"
-														},
-														"type": "array"
+														"$ref": "#/components/schemas/concepts"
 													},
 													"relevance_score": {
 														"type": "number"
@@ -3682,6 +3647,7 @@
 					"description": "Get a single concept",
 					"url": "https://docs.openalex.org/api-entities/concepts/get-a-single-concept"
 				},
+				"operationId": "getConcept",
 				"parameters": [
 					{
 						"$ref": "#/components/parameters/conceptIdParam"
@@ -3716,6 +3682,7 @@
 		"/funders": {
 			"get": {
 				"description": "",
+				"operationId": "getFunders",
 				"parameters": [
 					{
 						"$ref": "#/components/parameters/filter"
@@ -3780,31 +3747,7 @@
 											"type": "array"
 										},
 										"meta": {
-											"properties": {
-												"count": {
-													"type": "integer"
-												},
-												"db_response_time_ms": {
-													"type": "integer"
-												},
-												"groups_count": {
-													"type": "integer"
-												},
-												"page": {
-													"type": "integer"
-												},
-												"per_page": {
-													"type": "integer"
-												}
-											},
-											"required": [
-												"count",
-												"db_response_time_ms",
-												"page",
-												"per_page",
-												"groups_count"
-											],
-											"type": "object"
+											"$ref": "#/components/schemas/meta"
 										},
 										"results": {
 											"items": {
@@ -3822,26 +3765,7 @@
 														"type": "string"
 													},
 													"counts_by_year": {
-														"items": {
-															"properties": {
-																"cited_by_count": {
-																	"type": "integer"
-																},
-																"works_count": {
-																	"type": "integer"
-																},
-																"year": {
-																	"type": "integer"
-																}
-															},
-															"required": [
-																"year",
-																"works_count",
-																"cited_by_count"
-															],
-															"type": "object"
-														},
-														"type": "array"
+														"$ref": "#/components/schemas/countsByYear"
 													},
 													"created_date": {
 														"type": "string"
@@ -3896,26 +3820,7 @@
 														"type": "number"
 													},
 													"roles": {
-														"items": {
-															"properties": {
-																"id": {
-																	"type": "string"
-																},
-																"role": {
-																	"type": "string"
-																},
-																"works_count": {
-																	"type": "integer"
-																}
-															},
-															"required": [
-																"role",
-																"id",
-																"works_count"
-															],
-															"type": "object"
-														},
-														"type": "array"
+														"$ref": "#/components/schemas/roles"
 													},
 													"summary_stats": {
 														"properties": {
@@ -3979,6 +3884,7 @@
 		"/funders/{id}": {
 			"get": {
 				"description": "",
+				"operationId": "getFunder",
 				"parameters": [
 					{
 						"in": "path",
@@ -4017,26 +3923,7 @@
 											"type": "string"
 										},
 										"counts_by_year": {
-											"items": {
-												"properties": {
-													"cited_by_count": {
-														"type": "integer"
-													},
-													"works_count": {
-														"type": "integer"
-													},
-													"year": {
-														"type": "integer"
-													}
-												},
-												"required": [
-													"year",
-													"works_count",
-													"cited_by_count"
-												],
-												"type": "object"
-											},
-											"type": "array"
+											"$ref": "#/components/schemas/countsByYear"
 										},
 										"created_date": {
 											"type": "string"
@@ -4090,26 +3977,7 @@
 											"type": "string"
 										},
 										"roles": {
-											"items": {
-												"properties": {
-													"id": {
-														"type": "string"
-													},
-													"role": {
-														"type": "string"
-													},
-													"works_count": {
-														"type": "integer"
-													}
-												},
-												"required": [
-													"role",
-													"id",
-													"works_count"
-												],
-												"type": "object"
-											},
-											"type": "array"
+											"$ref": "#/components/schemas/roles"
 										},
 										"summary_stats": {
 											"properties": {
@@ -4163,6 +4031,7 @@
 		"/institutions": {
 			"get": {
 				"description": "",
+				"operationId": "getInstitutions",
 				"parameters": [
 					{
 						"$ref": "#/components/parameters/filter"
@@ -4233,38 +4102,7 @@
 											"items": {
 												"properties": {
 													"associated_institutions": {
-														"items": {
-															"properties": {
-																"country_code": {
-																	"type": "string"
-																},
-																"display_name": {
-																	"type": "string"
-																},
-																"id": {
-																	"type": "string"
-																},
-																"relationship": {
-																	"type": "string"
-																},
-																"ror": {
-																	"type": "string"
-																},
-																"type": {
-																	"type": "string"
-																}
-															},
-															"required": [
-																"id",
-																"ror",
-																"display_name",
-																"country_code",
-																"type",
-																"relationship"
-															],
-															"type": "object"
-														},
-														"type": "array"
+														"$ref": "#/components/schemas/institutionsArray"
 													},
 													"cited_by_count": {
 														"type": "integer"
@@ -4273,26 +4111,7 @@
 														"type": "string"
 													},
 													"counts_by_year": {
-														"items": {
-															"properties": {
-																"cited_by_count": {
-																	"type": "integer"
-																},
-																"works_count": {
-																	"type": "integer"
-																},
-																"year": {
-																	"type": "integer"
-																}
-															},
-															"required": [
-																"year",
-																"works_count",
-																"cited_by_count"
-															],
-															"type": "object"
-														},
-														"type": "array"
+														"$ref": "#/components/schemas/countsByYear"
 													},
 													"created_date": {
 														"type": "string"
@@ -4313,39 +4132,7 @@
 														"type": "array"
 													},
 													"geo": {
-														"properties": {
-															"city": {
-																"type": "string"
-															},
-															"country": {
-																"type": "string"
-															},
-															"country_code": {
-																"type": "string"
-															},
-															"geonames_city_id": {
-																"type": "string"
-															},
-															"latitude": {
-																"type": "number"
-															},
-															"longitude": {
-																"type": "number"
-															},
-															"region": {
-																"type": "string"
-															}
-														},
-														"required": [
-															"city",
-															"geonames_city_id",
-															"region",
-															"country_code",
-															"country",
-															"latitude",
-															"longitude"
-														],
-														"type": "object"
+														"$ref": "#/components/schemas/geo"
 													},
 													"homepage_url": {
 														"type": "string"
@@ -4400,59 +4187,10 @@
 														"type": "number"
 													},
 													"repositories": {
-														"items": {
-															"properties": {
-																"display_name": {
-																	"type": "string"
-																},
-																"host_organization": {
-																	"type": "string"
-																},
-																"host_organization_lineage": {
-																	"items": {
-																		"type": "string"
-																	},
-																	"type": "array"
-																},
-																"host_organization_name": {
-																	"type": "string"
-																},
-																"id": {
-																	"type": "string"
-																}
-															},
-															"required": [
-																"id",
-																"display_name",
-																"host_organization",
-																"host_organization_name",
-																"host_organization_lineage"
-															],
-															"type": "object"
-														},
-														"type": "array"
+														"$ref": "#/components/schemas/repositoriesArray"
 													},
 													"roles": {
-														"items": {
-															"properties": {
-																"id": {
-																	"type": "string"
-																},
-																"role": {
-																	"type": "string"
-																},
-																"works_count": {
-																	"type": "integer"
-																}
-															},
-															"required": [
-																"role",
-																"id",
-																"works_count"
-															],
-															"type": "object"
-														},
-														"type": "array"
+														"$ref": "#/components/schemas/roles"
 													},
 													"ror": {
 														"type": "string"
@@ -4489,34 +4227,7 @@
 														"type": "integer"
 													},
 													"x_concepts": {
-														"items": {
-															"properties": {
-																"display_name": {
-																	"type": "string"
-																},
-																"id": {
-																	"type": "string"
-																},
-																"level": {
-																	"type": "integer"
-																},
-																"score": {
-																	"type": "number"
-																},
-																"wikidata": {
-																	"type": "string"
-																}
-															},
-															"required": [
-																"id",
-																"wikidata",
-																"display_name",
-																"level",
-																"score"
-															],
-															"type": "object"
-														},
-														"type": "array"
+														"$ref": "#/components/schemas/concepts"
 													}
 												},
 												"required": [
@@ -4555,6 +4266,7 @@
 		"/institutions/{id}": {
 			"get": {
 				"description": "",
+				"operationId": "getInstitution",
 				"parameters": [
 					{
 						"in": "path",
@@ -4581,38 +4293,7 @@
 								"schema": {
 									"properties": {
 										"associated_institutions": {
-											"items": {
-												"properties": {
-													"country_code": {
-														"type": "string"
-													},
-													"display_name": {
-														"type": "string"
-													},
-													"id": {
-														"type": "string"
-													},
-													"relationship": {
-														"type": "string"
-													},
-													"ror": {
-														"type": "string"
-													},
-													"type": {
-														"type": "string"
-													}
-												},
-												"required": [
-													"id",
-													"ror",
-													"display_name",
-													"country_code",
-													"type",
-													"relationship"
-												],
-												"type": "object"
-											},
-											"type": "array"
+											"$ref": "#/components/schemas/institutionsArray"
 										},
 										"cited_by_count": {
 											"type": "integer"
@@ -4621,26 +4302,7 @@
 											"type": "string"
 										},
 										"counts_by_year": {
-											"items": {
-												"properties": {
-													"cited_by_count": {
-														"type": "integer"
-													},
-													"works_count": {
-														"type": "integer"
-													},
-													"year": {
-														"type": "integer"
-													}
-												},
-												"required": [
-													"year",
-													"works_count",
-													"cited_by_count"
-												],
-												"type": "object"
-											},
-											"type": "array"
+											"$ref": "#/components/schemas/countsByYear"
 										},
 										"created_date": {
 											"type": "string"
@@ -4661,39 +4323,7 @@
 											"type": "array"
 										},
 										"geo": {
-											"properties": {
-												"city": {
-													"type": "string"
-												},
-												"country": {
-													"type": "string"
-												},
-												"country_code": {
-													"type": "string"
-												},
-												"geonames_city_id": {
-													"type": "string"
-												},
-												"latitude": {
-													"type": "number"
-												},
-												"longitude": {
-													"type": "number"
-												},
-												"region": {
-													"type": "string"
-												}
-											},
-											"required": [
-												"city",
-												"geonames_city_id",
-												"region",
-												"country_code",
-												"country",
-												"latitude",
-												"longitude"
-											],
-											"type": "object"
+											"$ref": "#/components/schemas/geo"
 										},
 										"homepage_url": {
 											"type": "string"
@@ -4748,59 +4378,10 @@
 											"type": "array"
 										},
 										"repositories": {
-											"items": {
-												"properties": {
-													"display_name": {
-														"type": "string"
-													},
-													"host_organization": {
-														"type": "string"
-													},
-													"host_organization_lineage": {
-														"items": {
-															"type": "string"
-														},
-														"type": "array"
-													},
-													"host_organization_name": {
-														"type": "string"
-													},
-													"id": {
-														"type": "string"
-													}
-												},
-												"required": [
-													"id",
-													"display_name",
-													"host_organization",
-													"host_organization_name",
-													"host_organization_lineage"
-												],
-												"type": "object"
-											},
-											"type": "array"
+											"$ref": "#/components/schemas/repositoriesArray"
 										},
 										"roles": {
-											"items": {
-												"properties": {
-													"id": {
-														"type": "string"
-													},
-													"role": {
-														"type": "string"
-													},
-													"works_count": {
-														"type": "integer"
-													}
-												},
-												"required": [
-													"role",
-													"id",
-													"works_count"
-												],
-												"type": "object"
-											},
-											"type": "array"
+											"$ref": "#/components/schemas/roles"
 										},
 										"ror": {
 											"type": "string"
@@ -4837,34 +4418,7 @@
 											"type": "integer"
 										},
 										"x_concepts": {
-											"items": {
-												"properties": {
-													"display_name": {
-														"type": "string"
-													},
-													"id": {
-														"type": "string"
-													},
-													"level": {
-														"type": "integer"
-													},
-													"score": {
-														"type": "number"
-													},
-													"wikidata": {
-														"type": "string"
-													}
-												},
-												"required": [
-													"id",
-													"wikidata",
-													"display_name",
-													"level",
-													"score"
-												],
-												"type": "object"
-											},
-											"type": "array"
+											"$ref": "#/components/schemas/concepts"
 										}
 									},
 									"required": [
@@ -4893,6 +4447,7 @@
 		"/people/{id}": {
 			"get": {
 				"description": "",
+				"operationId": "getPerson",
 				"parameters": [
 					{
 						"in": "path",
@@ -4955,6 +4510,7 @@
 		"/publishers": {
 			"get": {
 				"description": "",
+				"operationId": "getPublishers",
 				"parameters": [
 					{
 						"$ref": "#/components/parameters/filter"
@@ -5040,26 +4596,7 @@
 														"type": "array"
 													},
 													"counts_by_year": {
-														"items": {
-															"properties": {
-																"cited_by_count": {
-																	"type": "integer"
-																},
-																"works_count": {
-																	"type": "integer"
-																},
-																"year": {
-																	"type": "integer"
-																}
-															},
-															"required": [
-																"year",
-																"works_count",
-																"cited_by_count"
-															],
-															"type": "object"
-														},
-														"type": "array"
+														"$ref": "#/components/schemas/countsByYear"
 													},
 													"created_date": {
 														"type": "string"
@@ -5132,26 +4669,7 @@
 														"type": "number"
 													},
 													"roles": {
-														"items": {
-															"properties": {
-																"id": {
-																	"type": "string"
-																},
-																"role": {
-																	"type": "string"
-																},
-																"works_count": {
-																	"type": "integer"
-																}
-															},
-															"required": [
-																"role",
-																"id",
-																"works_count"
-															],
-															"type": "object"
-														},
-														"type": "array"
+														"$ref": "#/components/schemas/roles"
 													},
 													"sources_api_url": {
 														"type": "string"
@@ -5235,6 +4753,7 @@
 		"/publishers/{id}": {
 			"get": {
 				"description": "",
+				"operationId": "getPublisher",
 				"parameters": [
 					{
 						"in": "path",
@@ -5276,26 +4795,7 @@
 											"type": "array"
 										},
 										"counts_by_year": {
-											"items": {
-												"properties": {
-													"cited_by_count": {
-														"type": "integer"
-													},
-													"works_count": {
-														"type": "integer"
-													},
-													"year": {
-														"type": "integer"
-													}
-												},
-												"required": [
-													"year",
-													"works_count",
-													"cited_by_count"
-												],
-												"type": "object"
-											},
-											"type": "array"
+											"$ref": "#/components/schemas/countsByYear"
 										},
 										"created_date": {
 											"type": "string"
@@ -5347,26 +4847,7 @@
 											"type": "string"
 										},
 										"roles": {
-											"items": {
-												"properties": {
-													"id": {
-														"type": "string"
-													},
-													"role": {
-														"type": "string"
-													},
-													"works_count": {
-														"type": "integer"
-													}
-												},
-												"required": [
-													"role",
-													"id",
-													"works_count"
-												],
-												"type": "object"
-											},
-											"type": "array"
+											"$ref": "#/components/schemas/roles"
 										},
 										"sources_api_url": {
 											"type": "string"
@@ -5423,6 +4904,7 @@
 		"/sources": {
 			"get": {
 				"description": "",
+				"operationId": "getSources",
 				"parameters": [
 					{
 						"in": "query",
@@ -5456,6 +4938,7 @@
 		"/sources/{id}": {
 			"get": {
 				"description": "",
+				"operationId": "getSource",
 				"parameters": [
 					{
 						"in": "path",
@@ -5514,6 +4997,7 @@
 		"/works": {
 			"get": {
 				"description": "",
+				"operationId": "getWorks",
 				"parameters": [
 					{
 						"$ref": "#/components/parameters/filterWorks"
@@ -5558,6 +5042,7 @@
 				"externalDocs": {
 					"url": "https://docs.openalex.org/api-entities/works/get-a-single-work"
 				},
+				"operationId": "getWork",
 				"parameters": [
 					{
 						"description": "The id of the work to retrieve",
