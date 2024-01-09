@@ -3,6 +3,7 @@ import { defaultListParameters } from "~/spec/components/parameters/defaultListP
 import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { group_by_result } from "~/spec/components/schemas/group_by_result";
 import { meta } from "~/spec/components/schemas/meta";
+import { roles } from "~/spec/components/schemas/roles";
 
 export const funders = {
 	"/funders": {
@@ -81,24 +82,7 @@ export const funders = {
 												relevance_score: {
 													type: "number",
 												},
-												roles: {
-													items: {
-														properties: {
-															id: {
-																type: "string",
-															},
-															role: {
-																type: "string",
-															},
-															works_count: {
-																type: "integer",
-															},
-														},
-														required: ["role", "id", "works_count"],
-														type: "object",
-													},
-													type: "array",
-												},
+												roles: refSchema({ roles }),
 												summary_stats: {
 													properties: {
 														"2yr_mean_citedness": {

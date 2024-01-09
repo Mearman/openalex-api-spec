@@ -1,6 +1,7 @@
 import { refParameter, refSchema } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
 import { countsByYear } from "~/spec/components/schemas/countsByYear";
+import { roles } from "~/spec/components/schemas/roles";
 
 export const publisher = {
 	"/publishers/{id}": {
@@ -84,24 +85,7 @@ export const publisher = {
 									parent_publisher: {
 										type: "string",
 									},
-									roles: {
-										items: {
-											properties: {
-												id: {
-													type: "string",
-												},
-												role: {
-													type: "string",
-												},
-												works_count: {
-													type: "integer",
-												},
-											},
-											required: ["role", "id", "works_count"],
-											type: "object",
-										},
-										type: "array",
-									},
+									roles: refSchema({ roles }),
 									sources_api_url: {
 										type: "string",
 									},

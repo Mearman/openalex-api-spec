@@ -4,6 +4,7 @@ import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { group_by_result } from "~/spec/components/schemas/group_by_result";
 import { international_display_name } from "~/spec/components/schemas/international_display_name";
 import { meta } from "~/spec/components/schemas/meta";
+import { roles } from "~/spec/components/schemas/roles";
 import { x_concepts } from "~/spec/components/schemas/x_concepts";
 
 export const institutions = {
@@ -195,24 +196,7 @@ export const institutions = {
 													},
 													type: "array",
 												},
-												roles: {
-													items: {
-														properties: {
-															id: {
-																type: "string",
-															},
-															role: {
-																type: "string",
-															},
-															works_count: {
-																type: "integer",
-															},
-														},
-														required: ["role", "id", "works_count"],
-														type: "object",
-													},
-													type: "array",
-												},
+												roles: refSchema({ roles }),
 												ror: {
 													type: "string",
 												},

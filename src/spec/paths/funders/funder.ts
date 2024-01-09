@@ -1,6 +1,7 @@
 import { refParameter, refSchema } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
 import { countsByYear } from "~/spec/components/schemas/countsByYear";
+import { roles } from "~/spec/components/schemas/roles";
 
 export const funder = {
 	"/funders/{id}": {
@@ -87,24 +88,7 @@ export const funder = {
 									image_url: {
 										type: "string",
 									},
-									roles: {
-										items: {
-											properties: {
-												id: {
-													type: "string",
-												},
-												role: {
-													type: "string",
-												},
-												works_count: {
-													type: "integer",
-												},
-											},
-											required: ["role", "id", "works_count"],
-											type: "object",
-										},
-										type: "array",
-									},
+									roles: refSchema({ roles }),
 									summary_stats: {
 										properties: {
 											"2yr_mean_citedness": {

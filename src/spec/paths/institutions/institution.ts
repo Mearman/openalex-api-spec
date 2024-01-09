@@ -2,6 +2,7 @@ import { refParameter, refSchema } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
 import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { international_display_name } from "~/spec/components/schemas/international_display_name";
+import { roles } from "~/spec/components/schemas/roles";
 import { x_concepts } from "~/spec/components/schemas/x_concepts";
 
 export const institution = {
@@ -202,24 +203,7 @@ export const institution = {
 										},
 										type: "array",
 									},
-									roles: {
-										items: {
-											properties: {
-												id: {
-													type: "string",
-												},
-												role: {
-													type: "string",
-												},
-												works_count: {
-													type: "integer",
-												},
-											},
-											required: ["role", "id", "works_count"],
-											type: "object",
-										},
-										type: "array",
-									},
+									roles: refSchema({ roles }),
 									ror: {
 										type: "string",
 									},

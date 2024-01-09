@@ -9,10 +9,10 @@ export const workSchema = {
 		abstract_inverted_index: {
 			type: "object",
 		},
-		apc_list: refSchema({apc}),
-		apc_paid: refSchema({apc}),
-		authorships: refSchema({authorships}),
-		best_oa_location: refSchema({location}),
+		apc_list: refSchema({ apc }),
+		apc_paid: refSchema({ apc }),
+		authorships: refSchema({ authorships }),
+		best_oa_location: refSchema({ location }),
 		biblio: {
 			type: "object",
 			properties: {
@@ -88,7 +88,7 @@ export const workSchema = {
 		countries_distinct_count: {
 			type: "integer",
 		},
-		counts_by_year: refSchema({countsByYear}),
+		counts_by_year: refSchema({ countsByYear }),
 		created_date: {
 			type: "string",
 		},
@@ -166,7 +166,7 @@ export const workSchema = {
 		},
 		locations: {
 			type: "array",
-			items: refSchema({location}),
+			items: refSchema({ location }),
 		},
 		locations_count: {
 			type: "integer",
@@ -222,7 +222,7 @@ export const workSchema = {
 			},
 			required: ["is_oa", "oa_status", "oa_url", "any_repository_has_fulltext"],
 		},
-		primary_location: refSchema({location}),
+		primary_location: refSchema({ location }),
 		publication_date: {
 			type: "string",
 		},
