@@ -56,5 +56,5 @@ export const autocompleteGet200Response = {
 			},
 		},
 	},
-	description: "",
+	description: "Successful response",
 } satisfies ResponseObject;
