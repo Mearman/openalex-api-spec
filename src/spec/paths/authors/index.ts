@@ -1,8 +1,8 @@
 import author from "~/spec/paths/authors/author";
 import authors from "~/spec/paths/authors/authors";
+import { addTags } from "~/util";
 
-const paths: PathsObject = {
-	...author,
-	...authors,
-};
-export default paths;
+export default addTags([
+	author,
+	authors
+], ["authors"]) satisfies PathsObject;
