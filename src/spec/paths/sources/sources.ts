@@ -12,28 +12,7 @@ export const sources = {
 					},
 				},
 			],
-			responses: {
-				"403": {
-					content: {
-						"application/json": {
-							schema: {
-								properties: {
-									error: {
-										type: "string",
-									},
-									message: {
-										type: "string",
-									},
-								},
-								required: ["error", "message"],
-								type: "object",
-							},
-						},
-					},
-					description: "",
-				},
-			},
-
+			responses: {},
 			summary: "/sources",
 		},
 	},
