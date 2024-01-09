@@ -6,10 +6,19 @@ import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { institutionObject } from "~/spec/components/schemas/institutionObject";
 import { institutionsArray } from "~/spec/components/schemas/institutionsArray";
 
+const links: Record<string, LinkObject> = {
+	getInstitution: {
+		operationId: "getInstitution",
+		parameters: {
+			id: "$response.body#/last_known_institution/id",
+		}
+	},
+};
+
 export const author = {
-	"/author/{id}": {
+	"/authors/{id}": {
 		get: {
-			description: "",
+			description: "Get a single author by id",
 			operationId: "getAuthor",
 			parameters: [
 				{
@@ -96,11 +105,11 @@ export const author = {
 							},
 						},
 					},
-					description: "",
+					description: "Successful response",
+					links,
 				},
 			},
-
-			summary: "/authors/{id}",
+			summary: "Get Author",
 		},
-	},
+	}
 } satisfies PathsObject;
