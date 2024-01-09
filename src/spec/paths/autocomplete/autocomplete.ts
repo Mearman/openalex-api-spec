@@ -1,6 +1,6 @@
 import { refParameter, refResponse } from "~/spec/components";
 import { autocompleteQuery } from "~/spec/components/parameters/autocompleteQuery";
-import { autocompleteGet200Response } from "~/spec/components/responses/autocompleteGet200Response";
+import { autocompleteGet200Response } from "~/spec/components/responses/autocomplete/autocompleteGet200Response";
 
 export default {
 	"/autocomplete": {
