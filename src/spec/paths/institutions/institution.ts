@@ -2,6 +2,7 @@ import { refParameter, refSchema } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
 import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { international_display_name } from "~/spec/components/schemas/international_display_name";
+import { x_concepts } from "~/spec/components/schemas/x_concepts";
 
 export const institution = {
 	"/institutions/{id}": {
@@ -249,36 +250,7 @@ export const institution = {
 									works_count: {
 										type: "integer",
 									},
-									x_concepts: {
-										items: {
-											properties: {
-												display_name: {
-													type: "string",
-												},
-												id: {
-													type: "string",
-												},
-												level: {
-													type: "integer",
-												},
-												score: {
-													type: "number",
-												},
-												wikidata: {
-													type: "string",
-												},
-											},
-											required: [
-												"id",
-												"wikidata",
-												"display_name",
-												"level",
-												"score",
-											],
-											type: "object",
-										},
-										type: "array",
-									},
+									x_concepts: refSchema({ x_concepts }),
 								},
 								required: ["id", "display_name"],
 								type: "object",

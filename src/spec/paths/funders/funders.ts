@@ -2,6 +2,7 @@ import { refSchema } from "~/spec/components";
 import { defaultListParameters } from "~/spec/components/parameters/defaultListParameters";
 import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { group_by_result } from "~/spec/components/schemas/group_by_result";
+import { meta } from "~/spec/components/schemas/meta";
 
 export const funders = {
 	"/funders": {
@@ -15,33 +16,7 @@ export const funders = {
 							schema: {
 								properties: {
 									group_by: group_by_result,
-									meta: {
-										properties: {
-											count: {
-												type: "integer",
-											},
-											db_response_time_ms: {
-												type: "integer",
-											},
-											groups_count: {
-												type: "integer",
-											},
-											page: {
-												type: "integer",
-											},
-											per_page: {
-												type: "integer",
-											},
-										},
-										required: [
-											"count",
-											"db_response_time_ms",
-											"page",
-											"per_page",
-											"groups_count",
-										],
-										type: "object",
-									},
+									meta: refSchema({ meta }),
 									results: {
 										items: {
 											properties: {
