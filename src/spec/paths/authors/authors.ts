@@ -3,7 +3,6 @@ import { defaultListParameters } from "~/spec/components/parameters/defaultListP
 import { affiliations } from "~/spec/components/schemas/affiliations";
 import { concepts } from "~/spec/components/schemas/concepts";
 import { countsByYear } from "~/spec/components/schemas/countsByYear";
-
 import { group_by_result } from "~/spec/components/schemas/group_by_result";
 import { institutionObject } from "~/spec/components/schemas/institutionObject";
 import { institutionsArray } from "~/spec/components/schemas/institutionsArray";
@@ -12,7 +11,7 @@ import { meta } from "~/spec/components/schemas/meta";
 export const authors = {
 	"/authors": {
 		get: {
-			description: "",
+			description: "Get lists of authors",
 			operationId: "getAuthors",
 			parameters: defaultListParameters,
 			responses: {
@@ -116,8 +115,7 @@ export const authors = {
 					description: "",
 				},
 			},
-
-			summary: "/authors",
+			summary: "List Authors",
 		},
 	} satisfies PathItemObject,
 } satisfies PathsObject;
