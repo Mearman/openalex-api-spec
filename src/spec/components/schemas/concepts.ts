@@ -1,4 +1,4 @@
-export const x_concepts = {
+export const concepts = {
 	items: {
 		properties: {
 			display_name: {

@@ -1,5 +1,6 @@
 import { refSchema } from "~/spec/components";
 import { defaultListParameters } from "~/spec/components/parameters/defaultListParameters";
+import { concepts } from "~/spec/components/schemas/concepts";
 import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { geo } from "~/spec/components/schemas/geo";
 import { group_by_result } from "~/spec/components/schemas/group_by_result";
@@ -8,7 +9,6 @@ import { international_display_name } from "~/spec/components/schemas/internatio
 import { meta } from "~/spec/components/schemas/meta";
 import { repositoriesArray } from "~/spec/components/schemas/repositoriesArray";
 import { roles } from "~/spec/components/schemas/roles";
-import { x_concepts } from "~/spec/components/schemas/x_concepts";
 
 export const institutions = {
 	"/institutions": {
@@ -135,7 +135,7 @@ export const institutions = {
 												works_count: {
 													type: "integer",
 												},
-												x_concepts: refSchema({ x_concepts }),
+												x_concepts: refSchema({ concepts }),
 											},
 											required: ["id", "ror", "display_name"],
 											type: "object",

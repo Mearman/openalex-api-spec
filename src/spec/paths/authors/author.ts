@@ -1,10 +1,10 @@
 import { refParameter, refSchema } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
 import { affiliations } from "~/spec/components/schemas/affiliations";
+import { concepts } from "~/spec/components/schemas/concepts";
 import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { institutionObject } from "~/spec/components/schemas/institutionObject";
 import { institutionsArray } from "~/spec/components/schemas/institutionsArray";
-import { x_concepts } from "~/spec/components/schemas/x_concepts";
 
 export default {
 	"/author/{id}": {
@@ -88,7 +88,7 @@ export default {
 									works_count: {
 										type: "integer",
 									},
-									x_concepts: refSchema({ x_concepts }),
+									x_concepts: refSchema({ concepts }),
 								},
 								required: ["id", "display_name"],
 								type: "object",

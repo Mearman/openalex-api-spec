@@ -1,10 +1,10 @@
 import { refSchema } from "~/spec/components";
 import { defaultListParameters } from "~/spec/components/parameters/defaultListParameters";
+import { concepts as conceptsSchema } from "~/spec/components/schemas/concepts";
 import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { group_by_result } from "~/spec/components/schemas/group_by_result";
 import { international_display_name_and_description } from "~/spec/components/schemas/international_display_name";
 import { meta } from "~/spec/components/schemas/meta";
-import { x_concepts } from "~/spec/components/schemas/x_concepts";
 
 export const concepts = {
 	"/concepts": {
@@ -104,7 +104,7 @@ export const concepts = {
 												level: {
 													type: "integer",
 												},
-												related_concepts: refSchema({ x_concepts }),
+												related_concepts: refSchema({ concepts: conceptsSchema }),
 												relevance_score: {
 													type: "number",
 												},

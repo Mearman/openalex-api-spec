@@ -1,13 +1,13 @@
 import { refSchema } from "~/spec/components";
 import { defaultListParameters } from "~/spec/components/parameters/defaultListParameters";
 import { affiliations } from "~/spec/components/schemas/affiliations";
+import { concepts } from "~/spec/components/schemas/concepts";
 import { countsByYear } from "~/spec/components/schemas/countsByYear";
 
 import { group_by_result } from "~/spec/components/schemas/group_by_result";
 import { institutionObject } from "~/spec/components/schemas/institutionObject";
 import { institutionsArray } from "~/spec/components/schemas/institutionsArray";
 import { meta } from "~/spec/components/schemas/meta";
-import { x_concepts } from "~/spec/components/schemas/x_concepts";
 
 const authors: PathItemObject = {
 	get: {
@@ -98,7 +98,7 @@ const authors: PathItemObject = {
 											works_count: {
 												type: "integer",
 											},
-											x_concepts: refSchema({ x_concepts }),
+											x_concepts: refSchema({ concepts }),
 										},
 										required: ["id", "orcid", "display_name"],
 										type: "object",

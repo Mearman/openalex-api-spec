@@ -1,7 +1,7 @@
 import { refSchema } from "~/spec/components";
+import { concepts } from "~/spec/components/schemas/concepts";
 import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { international_display_name_and_description } from "~/spec/components/schemas/international_display_name";
-import { x_concepts } from "~/spec/components/schemas/x_concepts";
 
 export const conceptSchema = {
 	properties: {
@@ -82,7 +82,7 @@ export const conceptSchema = {
 		level: {
 			type: "integer",
 		},
-		related_concepts: refSchema({ x_concepts }),
+		related_concepts: refSchema({ concepts }),
 		summary_stats: {
 			properties: {
 				"2yr_mean_citedness": {
