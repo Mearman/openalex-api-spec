@@ -7,7 +7,7 @@ export async function validate(spec: OpenAPI.Document): Promise<void> {
 	const result = await validateOAS3_1(spec);
 	if (!result.valid || result.errors.length > 0) {
 		console.error("Validation errors:");
-// console.error(validation.errors);
+		// console.error(validation.errors);
 		result.errors.forEach((err) => {
 			separator(20);
 			console.error(err);

@@ -1,1 +1,1 @@
-export const conceptIdPattern = /^C[0-9]+$/
+export const conceptIdPattern = /^C[0-9]+$/;

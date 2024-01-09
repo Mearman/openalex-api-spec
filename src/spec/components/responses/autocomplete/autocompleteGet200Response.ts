@@ -39,15 +39,15 @@ export const autoCompleteResultItem = {
 		"filter_key",
 	],
 	type: "object",
-} satisfies SchemaObject
+} satisfies SchemaObject;
 export const autocompleteGet200Response = {
 	content: {
 		"application/json": {
 			schema: {
 				properties: {
-					meta: refSchema({meta}),
+					meta: refSchema({ meta }),
 					results: {
-						items: refSchema({autoCompleteResultItem}),
+						items: refSchema({ autoCompleteResultItem }),
 						type: "array",
 					},
 				},
@@ -57,4 +57,4 @@ export const autocompleteGet200Response = {
 		},
 	},
 	description: "",
-} satisfies ResponseObject
+} satisfies ResponseObject;

@@ -1,5 +1,5 @@
 import fs from "fs";
-import * as oatts from "oatts"
+import * as oatts from "oatts";
 import { OpenAPI } from "openapi-types";
 import path from "path";
 import { makeTempFile } from "~/util/makeTempFile";
@@ -20,7 +20,7 @@ export async function makeOatts(spec: OpenAPI.Document) {
 	console.log(tests);
 	const baseDir = "./test/generated";
 	if (!fs.existsSync(baseDir)) {
-		fs.mkdirSync(baseDir, {recursive: true});
+		fs.mkdirSync(baseDir, { recursive: true });
 	}
 	for (const test of tests.generated) {
 		const testPath = path.join(baseDir, test.filename);

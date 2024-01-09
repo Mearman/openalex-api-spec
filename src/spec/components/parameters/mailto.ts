@@ -8,7 +8,7 @@ export const mailtoQuery = {
 	in: "query",
 	name: "mailto",
 	required: false,
-	schema: refSchema({mailToSchema}),
+	schema: refSchema({ mailToSchema }),
 	description: [
 		"The API is the primary way to get OpenAlex data. It's free and requires no authentication.",
 		"The daily limit for API calls is 100,000 requests per user per day.",
@@ -27,11 +27,11 @@ export const mailtoHeader = {
 	name: "User-Agent",
 	in: "header",
 	required: false,
-	schema: refSchema({mailToSchema}),
+	schema: refSchema({ mailToSchema }),
 	description: "[docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)"
 } satisfies ParameterObject;
 
 export const mailto: ReferenceObject[] = [
-	refParameter({mailtoHeader}),
-	refParameter({mailtoQuery}),
+	refParameter({ mailtoHeader }),
+	refParameter({ mailtoQuery }),
 ];

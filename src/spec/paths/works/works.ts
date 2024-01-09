@@ -13,14 +13,14 @@ export default {
 			tags: tags.concat(["list"]),
 			description: "",
 			parameters: [
-				refParameter({filterWorks}),
-				refParameter({api_key}),
-				refParameter({per_page}),
-				refParameter({cursor}),
+				refParameter({ filterWorks }),
+				refParameter({ api_key }),
+				refParameter({ per_page }),
+				refParameter({ cursor }),
 			],
 			responses: {
-				"200": refResponse({works}),
-				"403": refResponse({resp4xx: resp403}),
+				"200": refResponse({ works }),
+				"403": refResponse({ resp4xx: resp403 }),
 				// "4xx": refResponse({resp4xx})
 			},
 			summary: "/works",

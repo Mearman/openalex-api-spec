@@ -5,7 +5,7 @@ export const resp403: ResponseObject = {
 	content: {
 		"application/json": {
 			schema: {
-				...refSchema({errorMessage}),
+				...refSchema({ errorMessage }),
 			},
 		},
 	},
@@ -14,7 +14,7 @@ export const resp403: ResponseObject = {
 
 let resp4xxSchema = {
 	type: "string"
-} satisfies SchemaObject
+} satisfies SchemaObject;
 
 export const resp4xx: ResponseObject = {
 	content: {

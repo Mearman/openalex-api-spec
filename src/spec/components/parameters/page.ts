@@ -5,4 +5,4 @@ export const page_param = {
 	schema: {
 		type: "string",
 	},
-} satisfies ParameterObject
+} satisfies ParameterObject;

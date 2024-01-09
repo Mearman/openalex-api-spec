@@ -5,4 +5,4 @@ export const select = {
 	schema: {
 		type: "string",
 	},
-} satisfies ParameterObject
+} satisfies ParameterObject;

@@ -4,7 +4,7 @@ import { conceptSchema } from "~/spec/components/schemas/concept";
 export const conceptGet200Response = {
 	content: {
 		"application/json": {
-			schema: refSchema({concept: conceptSchema}),
+			schema: refSchema({ concept: conceptSchema }),
 		},
 	},
 	description: "",

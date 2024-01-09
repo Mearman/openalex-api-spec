@@ -5,4 +5,4 @@ export const sort = {
 	schema: {
 		type: "string",
 	},
-} satisfies ParameterObject
+} satisfies ParameterObject;

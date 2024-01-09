@@ -9,12 +9,12 @@ export let works = {
 		"application/json": {
 			schema: {
 				properties: {
-					meta: refSchema({meta}),
+					meta: refSchema({ meta }),
 					results: {
 						type: "array",
-						items: refSchema({workSchema}),
+						items: refSchema({ workSchema }),
 					},
-					group_by: refSchema({group_by: group_by_result}),
+					group_by: refSchema({ group_by: group_by_result }),
 				},
 				required: ["meta", "results"],
 				type: "object",

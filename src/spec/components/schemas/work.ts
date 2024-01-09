@@ -1,5 +1,6 @@
 import { refSchema } from "~/spec/components";
 import { authorships } from "~/spec/components/schemas/authorships";
+import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { location } from "~/spec/components/schemas/location";
 
 export const workSchema = {
@@ -120,12 +121,7 @@ export const workSchema = {
 		countries_distinct_count: {
 			type: "integer",
 		},
-		counts_by_year: {
-			type: "array",
-			items: {
-				type: "string",
-			},
-		},
+		counts_by_year: refSchema({ countsByYear }),
 		created_date: {
 			type: "string",
 		},

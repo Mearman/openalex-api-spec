@@ -15,4 +15,4 @@ export const countsByYear = {
 		type: "object",
 	},
 	type: "array",
-} satisfies SchemaObject
+} satisfies SchemaObject;

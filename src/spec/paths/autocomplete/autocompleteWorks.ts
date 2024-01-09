@@ -9,12 +9,12 @@ export default {
 		get: {
 			description: "",
 			parameters: [
-				refParameter({filter}),
-				refParameter({search}),
-				refParameter({autocompleteQuery}),
+				refParameter({ filter }),
+				refParameter({ search }),
+				refParameter({ autocompleteQuery }),
 			],
 			responses: {
-				"200": refResponse({autocompleteGet200Response}),
+				"200": refResponse({ autocompleteGet200Response }),
 			},
 			summary: "/autocomplete/works",
 

@@ -7,11 +7,11 @@ export default {
 		get: {
 			description: "",
 			parameters: [
-				refParameter({autocompleteQuery}),
+				refParameter({ autocompleteQuery }),
 
 			],
 			responses: {
-				"200": refResponse({autocompleteGet200Response}),
+				"200": refResponse({ autocompleteGet200Response }),
 			},
 			summary: "/autocomplete/publishers",
 

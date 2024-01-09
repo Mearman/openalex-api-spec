@@ -59,7 +59,7 @@ export const components: ComponentsObject = ComponentGenerator.get() satisfies C
 export const ref = ComponentGenerator.ref;
 
 export const refParameter = (obj: Record<string, ParameterObject>) =>
-	ComponentGenerator.ref("parameters", obj)
+	ComponentGenerator.ref("parameters", obj);
 export const refSchema = (obj: Record<string, SchemaObject>) =>
 	ComponentGenerator.ref("schemas", obj);
 export const refResponse = (obj: Record<string, ResponseObject>) =>

@@ -14,7 +14,7 @@ export const source = {
 						type: "string",
 					},
 				},
-				refParameter({select}),
+				refParameter({ select }),
 			],
 			responses: {
 				"200": {

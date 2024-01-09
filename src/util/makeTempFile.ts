@@ -8,6 +8,6 @@ export function makeTempFile(data: any, filename: string = uuidv4(), prefix: str
 	if (typeof data !== "string") {
 		data = JSON.stringify(data, null, "\t");
 	}
-	fs.writeFileSync(file, data, {encoding: "utf8"});
+	fs.writeFileSync(file, data, { encoding: "utf8" });
 	return file;
 }

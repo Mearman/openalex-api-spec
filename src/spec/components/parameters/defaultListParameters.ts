@@ -9,13 +9,13 @@ import { select } from "~/spec/components/parameters/select";
 import { sort } from "~/spec/components/parameters/sort";
 
 export const defaultListParameters: (ParameterObject | ReferenceObject)[] = [
-	refParameter({filter}),
-	refParameter({group_by_param}),
-	refParameter({group_by_underscore_param}),
-	refParameter({per_page}),
-	refParameter({page_param}),
-	refParameter({sample}),
-	refParameter({search}),
-	refParameter({select}),
-	refParameter({sort}),
-]
+	refParameter({ filter }),
+	refParameter({ group_by_param }),
+	refParameter({ group_by_underscore_param }),
+	refParameter({ per_page }),
+	refParameter({ page_param }),
+	refParameter({ sample }),
+	refParameter({ search }),
+	refParameter({ select }),
+	refParameter({ sort }),
+];

@@ -1,1 +1,1 @@
-export const security: SecurityRequirementObject[] = []
+export const security: SecurityRequirementObject[] = [];

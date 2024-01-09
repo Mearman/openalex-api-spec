@@ -5,4 +5,4 @@ export const autocompleteQuery = {
 	schema: {
 		type: "string",
 	},
-} satisfies ParameterObject
+} satisfies ParameterObject;

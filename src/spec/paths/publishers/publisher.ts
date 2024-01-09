@@ -1,5 +1,6 @@
-import { refParameter } from "~/spec/components";
+import { refParameter, refSchema } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
+import { countsByYear } from "~/spec/components/schemas/countsByYear";
 
 export const publisher = {
 	"/publishers/{id}": {
@@ -14,7 +15,7 @@ export const publisher = {
 						type: "string",
 					},
 				},
-				refParameter({select}),
+				refParameter({ select }),
 			],
 			responses: {
 				"200": {
@@ -37,24 +38,7 @@ export const publisher = {
 										},
 										type: "array",
 									},
-									counts_by_year: {
-										items: {
-											properties: {
-												cited_by_count: {
-													type: "integer",
-												},
-												works_count: {
-													type: "integer",
-												},
-												year: {
-													type: "integer",
-												},
-											},
-											required: ["year", "works_count", "cited_by_count"],
-											type: "object",
-										},
-										type: "array",
-									},
+									counts_by_year: refSchema({ countsByYear }),
 									created_date: {
 										type: "string",
 									},

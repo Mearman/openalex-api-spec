@@ -4,7 +4,7 @@ import { institutionObject } from "~/spec/components/schemas/institutionObject";
 export const affiliations = {
 	items: {
 		properties: {
-			institution: refSchema({institutionObject}),
+			institution: refSchema({ institutionObject }),
 			years: {
 				items: {
 					type: "integer",
@@ -16,4 +16,4 @@ export const affiliations = {
 		type: "object",
 	},
 	type: "array",
-} satisfies SchemaObject
+} satisfies SchemaObject;

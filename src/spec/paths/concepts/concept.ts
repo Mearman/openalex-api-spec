@@ -14,10 +14,10 @@ export const concept = {
 			},
 			parameters: [
 				conceptIdPatternRef,
-				refParameter({select}),
+				refParameter({ select }),
 			],
 			responses: {
-				"200": refResponse({conceptGet200Response}),
+				"200": refResponse({ conceptGet200Response }),
 			},
 			summary: "/concepts/{id}"
 		},

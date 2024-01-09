@@ -19,7 +19,7 @@ export default {
 						type: "string",
 					},
 				},
-				refParameter({select}),
+				refParameter({ select }),
 			],
 			responses: {
 				"200": {
@@ -27,11 +27,11 @@ export default {
 						"application/json": {
 							schema: {
 								properties: {
-									affiliations: refSchema({affiliations}),
+									affiliations: refSchema({ affiliations }),
 									cited_by_count: {
 										type: "integer",
 									},
-									counts_by_year: refSchema({countsByYear}),
+									counts_by_year: refSchema({ countsByYear }),
 									created_date: {
 										type: "string",
 									},
@@ -59,8 +59,8 @@ export default {
 										required: ["openalex"],
 										type: "object",
 									},
-									last_known_institution: refSchema({institutionObject}),
-									last_known_institutions: refSchema({institutionsArray}),
+									last_known_institution: refSchema({ institutionObject }),
+									last_known_institutions: refSchema({ institutionsArray }),
 									orcid: {
 										type: "string",
 									},
@@ -88,7 +88,7 @@ export default {
 									works_count: {
 										type: "integer",
 									},
-									x_concepts: refSchema({x_concepts}),
+									x_concepts: refSchema({ x_concepts }),
 								},
 								required: ["id", "display_name"],
 								type: "object",

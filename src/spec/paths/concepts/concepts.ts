@@ -1,5 +1,6 @@
 import { refSchema } from "~/spec/components";
 import { defaultListParameters } from "~/spec/components/parameters/defaultListParameters";
+import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { group_by_result } from "~/spec/components/schemas/group_by_result";
 import { international_display_name_and_description } from "~/spec/components/schemas/international_display_name";
 
@@ -74,24 +75,7 @@ export const concepts = {
 												cited_by_count: {
 													type: "integer",
 												},
-												counts_by_year: {
-													items: {
-														properties: {
-															cited_by_count: {
-																type: "integer",
-															},
-															works_count: {
-																type: "integer",
-															},
-															year: {
-																type: "integer",
-															},
-														},
-														required: ["year", "works_count", "cited_by_count"],
-														type: "object",
-													},
-													type: "array",
-												},
+												counts_by_year: refSchema({ countsByYear }),
 												created_date: {
 													type: "string",
 												},
@@ -140,7 +124,7 @@ export const concepts = {
 												image_url: {
 													type: "string",
 												},
-												international: refSchema({international_display_name_and_description}),
+												international: refSchema({ international_display_name_and_description }),
 												level: {
 													type: "integer",
 												},

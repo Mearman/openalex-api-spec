@@ -1,7 +1,7 @@
 import { refResponse } from "~/spec/components";
 import { mailto } from "~/spec/components/parameters/mailto";
 import { resp403, resp4xx } from "~/spec/components/responses/resp403";
-import authors from "~/spec/paths/authors"
+import authors from "~/spec/paths/authors";
 import autocomplete from "~/spec/paths/autocomplete";
 import concepts from "~/spec/paths/concepts";
 import funders from "~/spec/paths/funders";
@@ -53,12 +53,12 @@ export function addResponse(operation: OperationObject, code: string, responseRe
 			...operation.responses,
 			[code]: refResponse(responseRef),
 		},
-	}
+	};
 }
 
 function addMinimalResponses(operation: OperationObject): OperationObject {
-	operation = addResponseToOperationIfNotPresent(operation, "403", {resp403});
-	operation = addResponseToOperationIfNotPresent(operation, "default", {resp4xx});
+	operation = addResponseToOperationIfNotPresent(operation, "403", { resp403 });
+	operation = addResponseToOperationIfNotPresent(operation, "default", { resp4xx });
 	return operation;
 }
 
@@ -72,4 +72,4 @@ export const paths = modifyOperationsInPaths(addMailToParameterToAllGets({
 	...publishers,
 	...sources,
 	...works,
-}), addMinimalResponses)
+}), addMinimalResponses);

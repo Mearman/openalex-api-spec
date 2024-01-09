@@ -19,16 +19,16 @@ const authors: PathItemObject = {
 					"application/json": {
 						schema: {
 							properties: {
-								group_by: refSchema({group_by_result}),
-								meta: refSchema({meta}),
+								group_by: refSchema({ group_by_result }),
+								meta: refSchema({ meta }),
 								results: {
 									items: {
 										properties: {
-											affiliations: refSchema({affiliations}),
+											affiliations: refSchema({ affiliations }),
 											cited_by_count: {
 												type: "integer",
 											},
-											counts_by_year: refSchema({countsByYear}),
+											counts_by_year: refSchema({ countsByYear }),
 											created_date: {
 												type: "string",
 											},
@@ -62,8 +62,8 @@ const authors: PathItemObject = {
 												required: ["openalex"],
 												type: "object",
 											},
-											last_known_institution: refSchema({institutionObject}),
-											last_known_institutions: refSchema({institutionsArray}),
+											last_known_institution: refSchema({ institutionObject }),
+											last_known_institutions: refSchema({ institutionsArray }),
 											orcid: {
 												type: "string",
 											},
@@ -98,7 +98,7 @@ const authors: PathItemObject = {
 											works_count: {
 												type: "integer",
 											},
-											x_concepts: refSchema({x_concepts}),
+											x_concepts: refSchema({ x_concepts }),
 										},
 										required: ["id", "orcid", "display_name"],
 										type: "object",

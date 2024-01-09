@@ -1,5 +1,6 @@
 import { refParameter, refSchema } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
+import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { international_display_name } from "~/spec/components/schemas/international_display_name";
 
 export const institution = {
@@ -15,7 +16,7 @@ export const institution = {
 						type: "string",
 					},
 				},
-				refParameter({select}),
+				refParameter({ select }),
 			],
 			responses: {
 				"200": {
@@ -63,24 +64,7 @@ export const institution = {
 									country_code: {
 										type: "string",
 									},
-									counts_by_year: {
-										items: {
-											properties: {
-												cited_by_count: {
-													type: "integer",
-												},
-												works_count: {
-													type: "integer",
-												},
-												year: {
-													type: "integer",
-												},
-											},
-											required: ["year", "works_count", "cited_by_count"],
-											type: "object",
-										},
-										type: "array",
-									},
+									counts_by_year: refSchema({ countsByYear }),
 									created_date: {
 										type: "string",
 									},
@@ -177,7 +161,7 @@ export const institution = {
 									image_url: {
 										type: "string",
 									},
-									international: refSchema({international_display_name}),
+									international: refSchema({ international_display_name }),
 									lineage: {
 										items: {
 											type: "string",

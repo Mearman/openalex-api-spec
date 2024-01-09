@@ -1,4 +1,6 @@
+import { refSchema } from "~/spec/components";
 import { defaultListParameters } from "~/spec/components/parameters/defaultListParameters";
+import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { group_by_result } from "~/spec/components/schemas/group_by_result";
 
 export const funders = {
@@ -55,24 +57,7 @@ export const funders = {
 												country_code: {
 													type: "string",
 												},
-												counts_by_year: {
-													items: {
-														properties: {
-															cited_by_count: {
-																type: "integer",
-															},
-															works_count: {
-																type: "integer",
-															},
-															year: {
-																type: "integer",
-															},
-														},
-														required: ["year", "works_count", "cited_by_count"],
-														type: "object",
-													},
-													type: "array",
-												},
+												counts_by_year: refSchema({ countsByYear }),
 												created_date: {
 													type: "string",
 												},

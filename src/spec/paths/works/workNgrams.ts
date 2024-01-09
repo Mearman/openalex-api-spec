@@ -1,4 +1,3 @@
-import { OpenAPIV3_1 } from "openapi-types";
 import { refSchema } from "~/spec/components";
 
 import { tags } from "~/spec/paths/works/tags";

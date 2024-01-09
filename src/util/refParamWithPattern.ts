@@ -11,6 +11,6 @@ export function refParamWithPattern(id: string, pattern: RegExp): ReferenceObjec
 			required: true,
 			schema: schemaRef
 		}
-	}
-	return refParameter(param)
+	};
+	return refParameter(param);
 }
