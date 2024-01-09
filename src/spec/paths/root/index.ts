@@ -1,7 +1,7 @@
 export const root: PathsObject = {
 	"/": {
 		get: {
-			description: "",
+			description: "Root endpoint",
 			externalDocs: {
 				description: "OpenAlex documentation",
 				url: "https://openalex.org/rest-api",
@@ -13,8 +13,7 @@ export const root: PathsObject = {
 						"application/json": {
 							examples: {
 								"application/json": {
-									value:
-									{
+									value: {
 										documentation_url: "https://openalex.org/rest-api",
 										msg: "Don't panic",
 										version: "0.0.1"
@@ -46,6 +45,7 @@ export const root: PathsObject = {
 				}
 			},
 			summary: "Root",
+			tags: ["info"],
 		}
 	},
 } satisfies PathsObject;
