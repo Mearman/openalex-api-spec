@@ -1,5 +1,10 @@
-import { refParameter } from "~/spec/components";
+import { refParameter, refSchema } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
+import { affiliations } from "~/spec/components/schemas/affiliations";
+import { countsByYear } from "~/spec/components/schemas/countsByYear";
+import { institutionObject } from "~/spec/components/schemas/institutionObject";
+import { institutionsArray } from "~/spec/components/schemas/institutionsArray";
+import { x_concepts } from "~/spec/components/schemas/x_concepts";
 
 export default {
 	"/author/{id}": {
@@ -22,76 +27,11 @@ export default {
 						"application/json": {
 							schema: {
 								properties: {
-									affiliations: {
-										items: {
-											properties: {
-												institution: {
-													properties: {
-														country_code: {
-															type: "string",
-														},
-														display_name: {
-															type: "string",
-														},
-														id: {
-															type: "string",
-														},
-														lineage: {
-															items: {
-																type: "string",
-															},
-															type: "array",
-														},
-														ror: {
-															type: "string",
-														},
-														type: {
-															type: "string",
-														},
-													},
-													required: [
-														"id",
-														"ror",
-														"display_name",
-														"country_code",
-														"type",
-														"lineage",
-													],
-													type: "object",
-												},
-												years: {
-													items: {
-														type: "integer",
-													},
-													type: "array",
-												},
-											},
-											required: ["institution", "years"],
-											type: "object",
-										},
-										type: "array",
-									},
+									affiliations: refSchema({affiliations}),
 									cited_by_count: {
 										type: "integer",
 									},
-									counts_by_year: {
-										items: {
-											properties: {
-												cited_by_count: {
-													type: "integer",
-												},
-												works_count: {
-													type: "integer",
-												},
-												year: {
-													type: "integer",
-												},
-											},
-											required: ["year", "works_count", "cited_by_count"],
-											type: "object",
-										},
-										type: "array",
-									},
+									counts_by_year: refSchema({countsByYear}),
 									created_date: {
 										type: "string",
 									},
@@ -119,77 +59,8 @@ export default {
 										required: ["openalex"],
 										type: "object",
 									},
-									last_known_institution: {
-										properties: {
-											country_code: {
-												type: "string",
-											},
-											display_name: {
-												type: "string",
-											},
-											id: {
-												type: "string",
-											},
-											lineage: {
-												items: {
-													type: "string",
-												},
-												type: "array",
-											},
-											ror: {
-												type: "string",
-											},
-											type: {
-												type: "string",
-											},
-										},
-										required: [
-											"id",
-											"ror",
-											"display_name",
-											"country_code",
-											"type",
-											"lineage",
-										],
-										type: "object",
-									},
-									last_known_institutions: {
-										items: {
-											properties: {
-												country_code: {
-													type: "string",
-												},
-												display_name: {
-													type: "string",
-												},
-												id: {
-													type: "string",
-												},
-												lineage: {
-													items: {
-														type: "string",
-													},
-													type: "array",
-												},
-												ror: {
-													type: "string",
-												},
-												type: {
-													type: "string",
-												},
-											},
-											required: [
-												"id",
-												"ror",
-												"display_name",
-												"country_code",
-												"type",
-												"lineage",
-											],
-											type: "object",
-										},
-										type: "array",
-									},
+									last_known_institution: refSchema({institutionObject}),
+									last_known_institutions: refSchema({institutionsArray}),
 									orcid: {
 										type: "string",
 									},
@@ -217,36 +88,7 @@ export default {
 									works_count: {
 										type: "integer",
 									},
-									x_concepts: {
-										items: {
-											properties: {
-												display_name: {
-													type: "string",
-												},
-												id: {
-													type: "string",
-												},
-												level: {
-													type: "integer",
-												},
-												score: {
-													type: "number",
-												},
-												wikidata: {
-													type: "string",
-												},
-											},
-											required: [
-												"id",
-												"wikidata",
-												"display_name",
-												"level",
-												"score",
-											],
-											type: "object",
-										},
-										type: "array",
-									},
+									x_concepts: refSchema({x_concepts}),
 								},
 								required: ["id", "display_name"],
 								type: "object",

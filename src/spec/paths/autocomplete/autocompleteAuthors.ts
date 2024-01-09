@@ -1,6 +1,6 @@
-import { refParameter, refSchema } from "~/spec/components";
+import { refParameter, refResponse } from "~/spec/components";
 import { autocompleteQuery } from "~/spec/components/parameters/autocompleteQuery";
-import { meta } from "~/spec/components/schemas/meta";
+import { autocompleteGet200Response } from "~/spec/components/responses/autocomplete/autocompleteGet200Response";
 
 export default {
 	"/autocomplete/authors": {
@@ -10,52 +10,7 @@ export default {
 				refParameter({autocompleteQuery}),
 			],
 			responses: {
-				"200": {
-					description: "OK",
-					content: {
-						"application/json": {
-							schema: {
-								properties: {
-									meta: refSchema({meta}),
-									results: {
-										type: "array",
-										items: {
-											type: "object",
-											properties: {
-												cited_by_count: {
-													type: "integer",
-												},
-												display_name: {
-													type: "string",
-												},
-												entity_type: {
-													type: "string",
-												},
-												external_id: {
-													type: "string",
-												},
-												filter_key: {
-													type: "string",
-												},
-												hint: {
-													type: "string",
-												},
-												id: {
-													type: "string",
-												},
-												works_count: {
-													type: "integer",
-												},
-											},
-										},
-									},
-								},
-								required: ["meta", "results"],
-								type: "object",
-							},
-						},
-					},
-				},
+				"200": refResponse({autocompleteGet200Response}),
 			},
 			summary: "/autocomplete/authors",
 

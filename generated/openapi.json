@@ -774,43 +774,7 @@
 								},
 								"results": {
 									"items": {
-										"properties": {
-											"cited_by_count": {
-												"type": "integer"
-											},
-											"display_name": {
-												"type": "string"
-											},
-											"entity_type": {
-												"type": "string"
-											},
-											"external_id": {
-												"type": "string"
-											},
-											"filter_key": {
-												"type": "string"
-											},
-											"hint": {
-												"type": "string"
-											},
-											"id": {
-												"type": "string"
-											},
-											"works_count": {
-												"type": "integer"
-											}
-										},
-										"required": [
-											"id",
-											"display_name",
-											"hint",
-											"cited_by_count",
-											"works_count",
-											"entity_type",
-											"external_id",
-											"filter_key"
-										],
-										"type": "object"
+										"$ref": "#/components/schemas/autoCompleteResultItem"
 									},
 									"type": "array"
 								}
@@ -825,11 +789,31 @@
 				},
 				"description": ""
 			},
-			"resp4xx": {
+			"conceptGet200Response": {
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/concept"
+						}
+					}
+				},
+				"description": ""
+			},
+			"resp403": {
 				"content": {
 					"application/json": {
 						"schema": {
 							"$ref": "#/components/schemas/errorMessage"
+						}
+					}
+				},
+				"description": ""
+			},
+			"resp4xx": {
+				"content": {
+					"application/json": {
+						"schema": {
+							"type": "string"
 						}
 					}
 				},
@@ -875,6 +859,27 @@
 			}
 		},
 		"schemas": {
+			"affiliations": {
+				"items": {
+					"properties": {
+						"institution": {
+							"$ref": "#/components/schemas/institutionObject"
+						},
+						"years": {
+							"items": {
+								"type": "integer"
+							},
+							"type": "array"
+						}
+					},
+					"required": [
+						"institution",
+						"years"
+					],
+					"type": "object"
+				},
+				"type": "array"
+			},
 			"authorSelectionAttributes": {
 				"enum": [
 					"abstract_inverted_index",
@@ -1021,6 +1026,45 @@
 				},
 				"type": "array"
 			},
+			"autoCompleteResultItem": {
+				"properties": {
+					"cited_by_count": {
+						"type": "integer"
+					},
+					"display_name": {
+						"type": "string"
+					},
+					"entity_type": {
+						"type": "string"
+					},
+					"external_id": {
+						"type": "string"
+					},
+					"filter_key": {
+						"type": "string"
+					},
+					"hint": {
+						"type": "string"
+					},
+					"id": {
+						"type": "string"
+					},
+					"works_count": {
+						"type": "integer"
+					}
+				},
+				"required": [
+					"id",
+					"display_name",
+					"hint",
+					"cited_by_count",
+					"works_count",
+					"entity_type",
+					"external_id",
+					"filter_key"
+				],
+				"type": "object"
+			},
 			"baseSelectionAttributes": {
 				"enum": [
 					"id",
@@ -1039,9 +1083,206 @@
 				],
 				"type": "string"
 			},
+			"concept": {
+				"properties": {
+					"ancestors": {
+						"items": {
+							"properties": {
+								"display_name": {
+									"type": "string"
+								},
+								"id": {
+									"type": "string"
+								},
+								"level": {
+									"type": "integer"
+								},
+								"wikidata": {
+									"type": "string"
+								}
+							},
+							"required": [
+								"id",
+								"wikidata",
+								"display_name",
+								"level"
+							],
+							"type": "object"
+						},
+						"type": "array"
+					},
+					"cited_by_count": {
+						"type": "integer"
+					},
+					"counts_by_year": {
+						"items": {
+							"properties": {
+								"cited_by_count": {
+									"type": "integer"
+								},
+								"works_count": {
+									"type": "integer"
+								},
+								"year": {
+									"type": "integer"
+								}
+							},
+							"required": [
+								"year",
+								"works_count",
+								"cited_by_count"
+							],
+							"type": "object"
+						},
+						"type": "array"
+					},
+					"created_date": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"display_name": {
+						"type": "string"
+					},
+					"id": {
+						"type": "string"
+					},
+					"ids": {
+						"properties": {
+							"mag": {
+								"type": "string"
+							},
+							"openalex": {
+								"type": "string"
+							},
+							"umls_cui": {
+								"items": {
+									"type": "string"
+								},
+								"type": "array"
+							},
+							"wikidata": {
+								"type": "string"
+							},
+							"wikipedia": {
+								"type": "string"
+							}
+						},
+						"required": [
+							"openalex",
+							"wikidata",
+							"mag",
+							"wikipedia",
+							"umls_cui"
+						],
+						"type": "object"
+					},
+					"image_thumbnail_url": {
+						"type": "string"
+					},
+					"image_url": {
+						"type": "string"
+					},
+					"international": {
+						"$ref": "#/components/schemas/international_display_name_and_description"
+					},
+					"level": {
+						"type": "integer"
+					},
+					"related_concepts": {
+						"items": {
+							"properties": {
+								"display_name": {
+									"type": "string"
+								},
+								"id": {
+									"type": "string"
+								},
+								"level": {
+									"type": "integer"
+								},
+								"score": {
+									"type": "number"
+								},
+								"wikidata": {
+									"type": "string"
+								}
+							},
+							"required": [
+								"id",
+								"wikidata",
+								"display_name",
+								"level",
+								"score"
+							],
+							"type": "object"
+						},
+						"type": "array"
+					},
+					"summary_stats": {
+						"properties": {
+							"2yr_mean_citedness": {
+								"type": "number"
+							},
+							"h_index": {
+								"type": "integer"
+							},
+							"i10_index": {
+								"type": "integer"
+							}
+						},
+						"required": [
+							"2yr_mean_citedness",
+							"h_index",
+							"i10_index"
+						],
+						"type": "object"
+					},
+					"updated_date": {
+						"type": "string"
+					},
+					"wikidata": {
+						"type": "string"
+					},
+					"works_api_url": {
+						"type": "string"
+					},
+					"works_count": {
+						"type": "integer"
+					}
+				},
+				"required": [
+					"id",
+					"display_name"
+				],
+				"type": "object"
+			},
 			"conceptIdPattern": {
 				"pattern": "^C[0-9]+$",
 				"type": "string"
+			},
+			"countsByYear": {
+				"items": {
+					"properties": {
+						"cited_by_count": {
+							"type": "integer"
+						},
+						"works_count": {
+							"type": "integer"
+						},
+						"year": {
+							"type": "integer"
+						}
+					},
+					"required": [
+						"year",
+						"works_count",
+						"cited_by_count"
+					],
+					"type": "object"
+				},
+				"type": "array"
 			},
 			"errorMessage": {
 				"properties": {
@@ -1099,6 +1340,46 @@
 						"count"
 					],
 					"type": "object"
+				},
+				"type": "array"
+			},
+			"institutionObject": {
+				"properties": {
+					"country_code": {
+						"type": "string"
+					},
+					"display_name": {
+						"type": "string"
+					},
+					"id": {
+						"type": "string"
+					},
+					"lineage": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"ror": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"ror",
+					"display_name",
+					"country_code",
+					"type",
+					"lineage"
+				],
+				"type": "object"
+			},
+			"institutionsArray": {
+				"items": {
+					"$ref": "#/components/schemas/institutionObject"
 				},
 				"type": "array"
 			},
@@ -2477,6 +2758,36 @@
 					"display_name"
 				],
 				"type": "object"
+			},
+			"x_concepts": {
+				"items": {
+					"properties": {
+						"display_name": {
+							"type": "string"
+						},
+						"id": {
+							"type": "string"
+						},
+						"level": {
+							"type": "integer"
+						},
+						"score": {
+							"type": "number"
+						},
+						"wikidata": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"id",
+						"wikidata",
+						"display_name",
+						"level",
+						"score"
+					],
+					"type": "object"
+				},
+				"type": "array"
 			}
 		}
 	},
@@ -2525,81 +2836,13 @@
 								"schema": {
 									"properties": {
 										"affiliations": {
-											"items": {
-												"properties": {
-													"institution": {
-														"properties": {
-															"country_code": {
-																"type": "string"
-															},
-															"display_name": {
-																"type": "string"
-															},
-															"id": {
-																"type": "string"
-															},
-															"lineage": {
-																"items": {
-																	"type": "string"
-																},
-																"type": "array"
-															},
-															"ror": {
-																"type": "string"
-															},
-															"type": {
-																"type": "string"
-															}
-														},
-														"required": [
-															"id",
-															"ror",
-															"display_name",
-															"country_code",
-															"type",
-															"lineage"
-														],
-														"type": "object"
-													},
-													"years": {
-														"items": {
-															"type": "integer"
-														},
-														"type": "array"
-													}
-												},
-												"required": [
-													"institution",
-													"years"
-												],
-												"type": "object"
-											},
-											"type": "array"
+											"$ref": "#/components/schemas/affiliations"
 										},
 										"cited_by_count": {
 											"type": "integer"
 										},
 										"counts_by_year": {
-											"items": {
-												"properties": {
-													"cited_by_count": {
-														"type": "integer"
-													},
-													"works_count": {
-														"type": "integer"
-													},
-													"year": {
-														"type": "integer"
-													}
-												},
-												"required": [
-													"year",
-													"works_count",
-													"cited_by_count"
-												],
-												"type": "object"
-											},
-											"type": "array"
+											"$ref": "#/components/schemas/countsByYear"
 										},
 										"created_date": {
 											"type": "string"
@@ -2631,75 +2874,10 @@
 											"type": "object"
 										},
 										"last_known_institution": {
-											"properties": {
-												"country_code": {
-													"type": "string"
-												},
-												"display_name": {
-													"type": "string"
-												},
-												"id": {
-													"type": "string"
-												},
-												"lineage": {
-													"items": {
-														"type": "string"
-													},
-													"type": "array"
-												},
-												"ror": {
-													"type": "string"
-												},
-												"type": {
-													"type": "string"
-												}
-											},
-											"required": [
-												"id",
-												"ror",
-												"display_name",
-												"country_code",
-												"type",
-												"lineage"
-											],
-											"type": "object"
+											"$ref": "#/components/schemas/institutionObject"
 										},
 										"last_known_institutions": {
-											"items": {
-												"properties": {
-													"country_code": {
-														"type": "string"
-													},
-													"display_name": {
-														"type": "string"
-													},
-													"id": {
-														"type": "string"
-													},
-													"lineage": {
-														"items": {
-															"type": "string"
-														},
-														"type": "array"
-													},
-													"ror": {
-														"type": "string"
-													},
-													"type": {
-														"type": "string"
-													}
-												},
-												"required": [
-													"id",
-													"ror",
-													"display_name",
-													"country_code",
-													"type",
-													"lineage"
-												],
-												"type": "object"
-											},
-											"type": "array"
+											"$ref": "#/components/schemas/institutionsArray"
 										},
 										"orcid": {
 											"type": "string"
@@ -2733,34 +2911,7 @@
 											"type": "integer"
 										},
 										"x_concepts": {
-											"items": {
-												"properties": {
-													"display_name": {
-														"type": "string"
-													},
-													"id": {
-														"type": "string"
-													},
-													"level": {
-														"type": "integer"
-													},
-													"score": {
-														"type": "number"
-													},
-													"wikidata": {
-														"type": "string"
-													}
-												},
-												"required": [
-													"id",
-													"wikidata",
-													"display_name",
-													"level",
-													"score"
-												],
-												"type": "object"
-											},
-											"type": "array"
+											"$ref": "#/components/schemas/x_concepts"
 										}
 									},
 									"required": [
@@ -2772,9 +2923,18 @@
 							}
 						},
 						"description": ""
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
-				"summary": "/authors/{id}"
+				"summary": "/authors/{id}",
+				"tags": [
+					"authors"
+				]
 			}
 		},
 		"/authors": {
@@ -2831,81 +2991,13 @@
 											"items": {
 												"properties": {
 													"affiliations": {
-														"items": {
-															"properties": {
-																"institution": {
-																	"properties": {
-																		"country_code": {
-																			"type": "string"
-																		},
-																		"display_name": {
-																			"type": "string"
-																		},
-																		"id": {
-																			"type": "string"
-																		},
-																		"lineage": {
-																			"items": {
-																				"type": "string"
-																			},
-																			"type": "array"
-																		},
-																		"ror": {
-																			"type": "string"
-																		},
-																		"type": {
-																			"type": "string"
-																		}
-																	},
-																	"required": [
-																		"id",
-																		"ror",
-																		"display_name",
-																		"country_code",
-																		"type",
-																		"lineage"
-																	],
-																	"type": "object"
-																},
-																"years": {
-																	"items": {
-																		"type": "integer"
-																	},
-																	"type": "array"
-																}
-															},
-															"required": [
-																"institution",
-																"years"
-															],
-															"type": "object"
-														},
-														"type": "array"
+														"$ref": "#/components/schemas/affiliations"
 													},
 													"cited_by_count": {
 														"type": "integer"
 													},
 													"counts_by_year": {
-														"items": {
-															"properties": {
-																"cited_by_count": {
-																	"type": "integer"
-																},
-																"works_count": {
-																	"type": "integer"
-																},
-																"year": {
-																	"type": "integer"
-																}
-															},
-															"required": [
-																"year",
-																"works_count",
-																"cited_by_count"
-															],
-															"type": "object"
-														},
-														"type": "array"
+														"$ref": "#/components/schemas/countsByYear"
 													},
 													"created_date": {
 														"type": "string"
@@ -2943,75 +3035,10 @@
 														"type": "object"
 													},
 													"last_known_institution": {
-														"properties": {
-															"country_code": {
-																"type": "string"
-															},
-															"display_name": {
-																"type": "string"
-															},
-															"id": {
-																"type": "string"
-															},
-															"lineage": {
-																"items": {
-																	"type": "string"
-																},
-																"type": "array"
-															},
-															"ror": {
-																"type": "string"
-															},
-															"type": {
-																"type": "string"
-															}
-														},
-														"required": [
-															"id",
-															"ror",
-															"display_name",
-															"country_code",
-															"type",
-															"lineage"
-														],
-														"type": "object"
+														"$ref": "#/components/schemas/institutionObject"
 													},
 													"last_known_institutions": {
-														"items": {
-															"properties": {
-																"country_code": {
-																	"type": "string"
-																},
-																"display_name": {
-																	"type": "string"
-																},
-																"id": {
-																	"type": "string"
-																},
-																"lineage": {
-																	"items": {
-																		"type": "string"
-																	},
-																	"type": "array"
-																},
-																"ror": {
-																	"type": "string"
-																},
-																"type": {
-																	"type": "string"
-																}
-															},
-															"required": [
-																"id",
-																"ror",
-																"display_name",
-																"country_code",
-																"type",
-																"lineage"
-															],
-															"type": "object"
-														},
-														"type": "array"
+														"$ref": "#/components/schemas/institutionsArray"
 													},
 													"orcid": {
 														"type": "string"
@@ -3048,34 +3075,7 @@
 														"type": "integer"
 													},
 													"x_concepts": {
-														"items": {
-															"properties": {
-																"display_name": {
-																	"type": "string"
-																},
-																"id": {
-																	"type": "string"
-																},
-																"level": {
-																	"type": "integer"
-																},
-																"score": {
-																	"type": "number"
-																},
-																"wikidata": {
-																	"type": "string"
-																}
-															},
-															"required": [
-																"id",
-																"wikidata",
-																"display_name",
-																"level",
-																"score"
-															],
-															"type": "object"
-														},
-														"type": "array"
+														"$ref": "#/components/schemas/x_concepts"
 													}
 												},
 												"required": [
@@ -3097,9 +3097,18 @@
 							}
 						},
 						"description": ""
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
-				"summary": "/authors"
+				"summary": "/authors",
+				"tags": [
+					"authors"
+				]
 			}
 		},
 		"/autocomplete": {
@@ -3119,6 +3128,12 @@
 				"responses": {
 					"200": {
 						"$ref": "#/components/responses/autocompleteGet200Response"
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/autocomplete",
@@ -3143,55 +3158,13 @@
 				],
 				"responses": {
 					"200": {
-						"content": {
-							"application/json": {
-								"schema": {
-									"properties": {
-										"meta": {
-											"$ref": "#/components/schemas/meta"
-										},
-										"results": {
-											"items": {
-												"properties": {
-													"cited_by_count": {
-														"type": "integer"
-													},
-													"display_name": {
-														"type": "string"
-													},
-													"entity_type": {
-														"type": "string"
-													},
-													"external_id": {
-														"type": "string"
-													},
-													"filter_key": {
-														"type": "string"
-													},
-													"hint": {
-														"type": "string"
-													},
-													"id": {
-														"type": "string"
-													},
-													"works_count": {
-														"type": "integer"
-													}
-												},
-												"type": "object"
-											},
-											"type": "array"
-										}
-									},
-									"required": [
-										"meta",
-										"results"
-									],
-									"type": "object"
-								}
-							}
-						},
-						"description": "OK"
+						"$ref": "#/components/responses/autocompleteGet200Response"
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/autocomplete/authors",
@@ -3218,6 +3191,12 @@
 				"responses": {
 					"200": {
 						"$ref": "#/components/responses/autocompleteGet200Response"
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/autocomplete/concepts",
@@ -3243,56 +3222,13 @@
 				],
 				"responses": {
 					"200": {
-						"content": {
-							"application/json": {
-								"schema": {
-									"properties": {
-										"meta": {
-											"$ref": "#/components/schemas/meta"
-										},
-										"results": {
-											"items": {
-												"additionalProperties": true,
-												"properties": {
-													"cited_by_count": {
-														"type": "integer"
-													},
-													"display_name": {
-														"type": "string"
-													},
-													"entity_type": {
-														"type": "string"
-													},
-													"external_id": {
-														"type": "string"
-													},
-													"filter_key": {
-														"type": "string"
-													},
-													"hint": {
-														"type": "string"
-													},
-													"id": {
-														"type": "string"
-													},
-													"works_count": {
-														"type": "integer"
-													}
-												},
-												"type": "object"
-											},
-											"type": "array"
-										}
-									},
-									"required": [
-										"meta",
-										"results"
-									],
-									"type": "object"
-								}
-							}
-						},
-						"description": "OK"
+						"$ref": "#/components/responses/autocompleteGet200Response"
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/autocomplete/funders",
@@ -3319,6 +3255,12 @@
 				"responses": {
 					"200": {
 						"$ref": "#/components/responses/autocompleteGet200Response"
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/autocomplete/institutions",
@@ -3344,55 +3286,13 @@
 				],
 				"responses": {
 					"200": {
-						"content": {
-							"application/json": {
-								"schema": {
-									"properties": {
-										"meta": {
-											"$ref": "#/components/schemas/meta"
-										},
-										"results": {
-											"items": {
-												"properties": {
-													"cited_by_count": {
-														"type": "integer"
-													},
-													"display_name": {
-														"type": "string"
-													},
-													"entity_type": {
-														"type": "string"
-													},
-													"external_id": {
-														"type": "string"
-													},
-													"filter_key": {
-														"type": "string"
-													},
-													"hint": {
-														"type": "string"
-													},
-													"id": {
-														"type": "string"
-													},
-													"works_count": {
-														"type": "integer"
-													}
-												},
-												"type": "object"
-											},
-											"type": "array"
-										}
-									},
-									"required": [
-										"meta",
-										"results"
-									],
-									"type": "object"
-								}
-							}
-						},
-						"description": ""
+						"$ref": "#/components/responses/autocompleteGet200Response"
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/autocomplete/publishers",
@@ -3419,6 +3319,12 @@
 				"responses": {
 					"200": {
 						"$ref": "#/components/responses/autocompleteGet200Response"
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/autocomplete/sources",
@@ -3451,6 +3357,12 @@
 				"responses": {
 					"200": {
 						"$ref": "#/components/responses/autocompleteGet200Response"
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/autocomplete/works",
@@ -3749,6 +3661,12 @@
 							}
 						},
 						"description": ""
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/concepts",
@@ -3759,7 +3677,11 @@
 		},
 		"/concepts/{id}": {
 			"get": {
-				"description": "",
+				"description": "Get a single concept",
+				"externalDocs": {
+					"description": "Get a single concept",
+					"url": "https://docs.openalex.org/api-entities/concepts/get-a-single-concept"
+				},
 				"parameters": [
 					{
 						"$ref": "#/components/parameters/conceptIdParam"
@@ -3776,186 +3698,13 @@
 				],
 				"responses": {
 					"200": {
-						"content": {
-							"application/json": {
-								"schema": {
-									"properties": {
-										"ancestors": {
-											"items": {
-												"properties": {
-													"display_name": {
-														"type": "string"
-													},
-													"id": {
-														"type": "string"
-													},
-													"level": {
-														"type": "integer"
-													},
-													"wikidata": {
-														"type": "string"
-													}
-												},
-												"required": [
-													"id",
-													"wikidata",
-													"display_name",
-													"level"
-												],
-												"type": "object"
-											},
-											"type": "array"
-										},
-										"cited_by_count": {
-											"type": "integer"
-										},
-										"counts_by_year": {
-											"items": {
-												"properties": {
-													"cited_by_count": {
-														"type": "integer"
-													},
-													"works_count": {
-														"type": "integer"
-													},
-													"year": {
-														"type": "integer"
-													}
-												},
-												"required": [
-													"year",
-													"works_count",
-													"cited_by_count"
-												],
-												"type": "object"
-											},
-											"type": "array"
-										},
-										"created_date": {
-											"type": "string"
-										},
-										"description": {
-											"type": "string"
-										},
-										"display_name": {
-											"type": "string"
-										},
-										"id": {
-											"type": "string"
-										},
-										"ids": {
-											"properties": {
-												"mag": {
-													"type": "string"
-												},
-												"openalex": {
-													"type": "string"
-												},
-												"umls_cui": {
-													"items": {
-														"type": "string"
-													},
-													"type": "array"
-												},
-												"wikidata": {
-													"type": "string"
-												},
-												"wikipedia": {
-													"type": "string"
-												}
-											},
-											"required": [
-												"openalex",
-												"wikidata",
-												"mag",
-												"wikipedia",
-												"umls_cui"
-											],
-											"type": "object"
-										},
-										"image_thumbnail_url": {
-											"type": "string"
-										},
-										"image_url": {
-											"type": "string"
-										},
-										"international": {
-											"$ref": "#/components/schemas/international_display_name_and_description"
-										},
-										"level": {
-											"type": "integer"
-										},
-										"related_concepts": {
-											"items": {
-												"properties": {
-													"display_name": {
-														"type": "string"
-													},
-													"id": {
-														"type": "string"
-													},
-													"level": {
-														"type": "integer"
-													},
-													"score": {
-														"type": "number"
-													},
-													"wikidata": {
-														"type": "string"
-													}
-												},
-												"required": [
-													"id",
-													"wikidata",
-													"display_name",
-													"level",
-													"score"
-												],
-												"type": "object"
-											},
-											"type": "array"
-										},
-										"summary_stats": {
-											"properties": {
-												"2yr_mean_citedness": {
-													"type": "number"
-												},
-												"h_index": {
-													"type": "integer"
-												},
-												"i10_index": {
-													"type": "integer"
-												}
-											},
-											"required": [
-												"2yr_mean_citedness",
-												"h_index",
-												"i10_index"
-											],
-											"type": "object"
-										},
-										"updated_date": {
-											"type": "string"
-										},
-										"wikidata": {
-											"type": "string"
-										},
-										"works_api_url": {
-											"type": "string"
-										},
-										"works_count": {
-											"type": "integer"
-										}
-									},
-									"required": [
-										"id",
-										"display_name"
-									],
-									"type": "object"
-								}
-							}
-						},
-						"description": ""
+						"$ref": "#/components/responses/conceptGet200Response"
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/concepts/{id}",
@@ -4213,6 +3962,12 @@
 							}
 						},
 						"description": ""
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/funders",
@@ -4391,6 +4146,12 @@
 							}
 						},
 						"description": ""
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/funders/{id}",
@@ -4777,6 +4538,12 @@
 							}
 						},
 						"description": ""
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/institutions",
@@ -5109,6 +4876,12 @@
 							}
 						},
 						"description": ""
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/institutions/{id}",
@@ -5165,6 +4938,12 @@
 							}
 						},
 						"description": ""
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/people/{id}",
@@ -5439,6 +5218,12 @@
 							}
 						},
 						"description": ""
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/publishers",
@@ -5621,6 +5406,12 @@
 							}
 						},
 						"description": ""
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/publishers/{id}",
@@ -5650,26 +5441,10 @@
 				],
 				"responses": {
 					"403": {
-						"content": {
-							"application/json": {
-								"schema": {
-									"properties": {
-										"error": {
-											"type": "string"
-										},
-										"message": {
-											"type": "string"
-										}
-									},
-									"required": [
-										"error",
-										"message"
-									],
-									"type": "object"
-								}
-							}
-						},
-						"description": ""
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/sources",
@@ -5722,6 +5497,12 @@
 							}
 						},
 						"description": ""
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/sources/{id}",
@@ -5758,6 +5539,9 @@
 						"$ref": "#/components/responses/works"
 					},
 					"403": {
+						"$ref": "#/components/responses/resp4xx"
+					},
+					"default": {
 						"$ref": "#/components/responses/resp4xx"
 					}
 				},
@@ -5824,6 +5608,12 @@
 				"responses": {
 					"200": {
 						"$ref": "#/components/responses/workResp"
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/works/{id}",
@@ -5889,6 +5679,12 @@
 							}
 						},
 						"description": ""
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
 					}
 				},
 				"summary": "/works/{id}/ngrams",
