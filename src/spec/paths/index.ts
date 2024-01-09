@@ -8,6 +8,7 @@ import funders from "~/spec/paths/funders";
 import institutions from "~/spec/paths/institutions";
 import people from "~/spec/paths/people";
 import publishers from "~/spec/paths/publishers";
+import { root } from "~/spec/paths/root";
 import sources from "~/spec/paths/sources";
 import works from "~/spec/paths/works";
 import { addResponseToOperationIfNotPresent } from "~/util";
@@ -70,6 +71,7 @@ export const paths = modifyOperationsInPaths(addMailToParameterToAllGets({
 	...institutions,
 	...people,
 	...publishers,
+	...root,
 	...sources,
 	...works,
 }), addMinimalResponses);
