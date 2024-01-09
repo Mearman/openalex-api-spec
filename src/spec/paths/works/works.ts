@@ -3,7 +3,7 @@ import { api_key } from "~/spec/components/parameters/api_key";
 import { cursor } from "~/spec/components/parameters/cursor";
 import { filterWorks } from "~/spec/components/parameters/filterWorks";
 import { per_page } from "~/spec/components/parameters/per_page";
-import { resp4xx } from "~/spec/components/responses/resp4xx";
+import { resp403 } from "~/spec/components/responses/resp403";
 import { works } from "~/spec/components/responses/works/works";
 import { tags } from "~/spec/paths/works/tags";
 
@@ -20,7 +20,7 @@ export default {
 			],
 			responses: {
 				"200": refResponse({works}),
-				"403": refResponse({resp4xx}),
+				"403": refResponse({resp4xx: resp403}),
 				// "4xx": refResponse({resp4xx})
 			},
 			summary: "/works",

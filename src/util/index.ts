@@ -13,3 +13,4 @@ export { separator } from "~/util/separator";
 export { validate } from "~/util/validate";
 export { validateOAS3_1 } from "~/util/validateOAS3_1";
 export { writeSpec } from "~/util/writeSpec";
+export { addResponseToOperationIfNotPresent } from "~/util/addResponseToOperationIfNotPresent";
