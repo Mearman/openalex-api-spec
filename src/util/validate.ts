@@ -13,7 +13,7 @@ export async function validate(spec: OpenAPI.Document): Promise<void> {
 			console.error(err);
 			separator(20);
 		});
-		process.exit(1);
+		throw new Error("Validation failed");
 	} else {
 		console.log("Validation succeeded");
 	}
