@@ -1,4 +1,4 @@
-fexport const search = {
+export const search = {
 	in: "query",
 	name: "search",
 	required: false,
