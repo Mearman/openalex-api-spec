@@ -1,9 +1,12 @@
 import { refSchema } from "~/spec/components";
 import { defaultListParameters } from "~/spec/components/parameters/defaultListParameters";
 import { countsByYear } from "~/spec/components/schemas/countsByYear";
+import { geo } from "~/spec/components/schemas/geo";
 import { group_by_result } from "~/spec/components/schemas/group_by_result";
+import { institutionsArray } from "~/spec/components/schemas/institutionsArray";
 import { international_display_name } from "~/spec/components/schemas/international_display_name";
 import { meta } from "~/spec/components/schemas/meta";
+import { repositoriesArray } from "~/spec/components/schemas/repositoriesArray";
 import { roles } from "~/spec/components/schemas/roles";
 import { x_concepts } from "~/spec/components/schemas/x_concepts";
 
@@ -23,40 +26,7 @@ export const institutions = {
 									results: {
 										items: {
 											properties: {
-												associated_institutions: {
-													items: {
-														properties: {
-															country_code: {
-																type: "string",
-															},
-															display_name: {
-																type: "string",
-															},
-															id: {
-																type: "string",
-															},
-															relationship: {
-																type: "string",
-															},
-															ror: {
-																type: "string",
-															},
-															type: {
-																type: "string",
-															},
-														},
-														required: [
-															"id",
-															"ror",
-															"display_name",
-															"country_code",
-															"type",
-															"relationship",
-														],
-														type: "object",
-													},
-													type: "array",
-												},
+												associated_institutions: refSchema({ institutionsArray }),
 												cited_by_count: {
 													type: "integer",
 												},
@@ -82,41 +52,7 @@ export const institutions = {
 													},
 													type: "array",
 												},
-												geo: {
-													properties: {
-														city: {
-															type: "string",
-														},
-														country: {
-															type: "string",
-														},
-														country_code: {
-															type: "string",
-														},
-														geonames_city_id: {
-															type: "string",
-														},
-														latitude: {
-															type: "number",
-														},
-														longitude: {
-															type: "number",
-														},
-														region: {
-															type: "string",
-														},
-													},
-													required: [
-														"city",
-														"geonames_city_id",
-														"region",
-														"country_code",
-														"country",
-														"latitude",
-														"longitude",
-													],
-													type: "object",
-												},
+												geo: refSchema({ geo }),
 												homepage_url: {
 													type: "string",
 												},
@@ -163,39 +99,7 @@ export const institutions = {
 												relevance_score: {
 													type: "number",
 												},
-												repositories: {
-													items: {
-														properties: {
-															display_name: {
-																type: "string",
-															},
-															host_organization: {
-																type: "string",
-															},
-															host_organization_lineage: {
-																items: {
-																	type: "string",
-																},
-																type: "array",
-															},
-															host_organization_name: {
-																type: "string",
-															},
-															id: {
-																type: "string",
-															},
-														},
-														required: [
-															"id",
-															"display_name",
-															"host_organization",
-															"host_organization_name",
-															"host_organization_lineage",
-														],
-														type: "object",
-													},
-													type: "array",
-												},
+												repositories: refSchema({ repositoriesArray }),
 												roles: refSchema({ roles }),
 												ror: {
 													type: "string",
