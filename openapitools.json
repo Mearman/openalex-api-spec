@@ -46,6 +46,11 @@
 				"output": "#{cwd}/generated/documentation/openapi-yaml",
 				"glob": "generated/openapi.json"
 			},
+			"plantuml": {
+				"generatorName": "plantuml",
+				"output": "#{cwd}/generated/documentation/plantuml",
+				"glob": "generated/openapi.json"
+			},
 			"python": {
 				"generatorName": "python",
 				"output": "#{cwd}/generated/clients/python",
