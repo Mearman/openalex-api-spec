@@ -1,5 +1,5 @@
-*
+*/*
 !.gitignore
 !openapi.json
 !openapi.dereferenced.json
-
+# !clients/typescript
