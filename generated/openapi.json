@@ -9,19 +9,6 @@
 					"type": "string"
 				}
 			},
-			"authorAttributeSelectionParameter": {
-				"explode": false,
-				"in": "query",
-				"name": "select",
-				"required": false,
-				"schema": {
-					"items": {
-						"$ref": "#/components/schemas/combinedAuthorSelectionAttributes"
-					},
-					"type": "array"
-				},
-				"style": "form"
-			},
 			"autocompleteQuery": {
 				"in": "query",
 				"name": "q",
@@ -761,6 +748,54 @@
 				"schema": {
 					"type": "string"
 				}
+			},
+			"workAttributeSelectionParameter": {
+				"explode": false,
+				"in": "query",
+				"name": "select",
+				"required": false,
+				"schema": {
+					"items": {
+						"$ref": "#/components/schemas/combinedAuthorSelectionAttributes"
+					},
+					"type": "array"
+				},
+				"style": "form"
+			},
+			"workId": {
+				"description": "The id of the work to retrieve",
+				"examples": {
+					"doi": {
+						"summary": "DOI",
+						"value": "https://doi.org/10.1016/j.jinf.2020.05.071"
+					},
+					"mag": {
+						"summary": "Microsoft Academic Graph ID",
+						"value": "mag:3033546757"
+					},
+					"openalex": {
+						"summary": "OpenAlex ID",
+						"value": "W3033546757"
+					},
+					"openalex_url": {
+						"summary": "OpenAlex URL",
+						"value": "https://openalex.org/W3033546757"
+					},
+					"pmcid": {
+						"summary": "PubMed Central ID",
+						"value": "pmcid:7270800"
+					},
+					"pmid": {
+						"summary": "PubMed ID",
+						"value": "pmid:32504740"
+					}
+				},
+				"in": "path",
+				"name": "id",
+				"required": true,
+				"schema": {
+					"$ref": "#/components/schemas/workIdPattern"
+				}
 			}
 		},
 		"responses": {
@@ -787,7 +822,7 @@
 						}
 					}
 				},
-				"description": ""
+				"description": "Successful response"
 			},
 			"conceptGet200Response": {
 				"content": {
@@ -902,54 +937,6 @@
 					"provenance"
 				],
 				"type": "object"
-			},
-			"authorSelectionAttributes": {
-				"enum": [
-					"abstract_inverted_index",
-					"apc_list",
-					"apc_paid",
-					"authorships",
-					"best_oa_location",
-					"biblio",
-					"cited_by_api_url",
-					"cited_by_count",
-					"cited_by_percentile_year",
-					"concepts",
-					"corresponding_author_ids",
-					"corresponding_institution_ids",
-					"countries_distinct_count",
-					"counts_by_year",
-					"created_date",
-					"doi",
-					"fulltext_origin",
-					"grants",
-					"has_fulltext",
-					"ids",
-					"institutions_distinct_count",
-					"is_authors_truncated",
-					"is_paratext",
-					"is_retracted",
-					"keywords",
-					"language",
-					"locations_count",
-					"locations",
-					"mesh",
-					"ngrams_url",
-					"open_access",
-					"primary_location",
-					"publication_date",
-					"publication_year",
-					"referenced_works_count",
-					"referenced_works",
-					"related_works",
-					"relevance_score",
-					"sustainable_development_goals",
-					"title",
-					"type_crossref",
-					"type",
-					"updated_date"
-				],
-				"type": "string"
 			},
 			"authorships": {
 				"items": {
@@ -1098,7 +1085,7 @@
 			"combinedAuthorSelectionAttributes": {
 				"allOf": [
 					{
-						"$ref": "#/components/schemas/authorSelectionAttributes"
+						"$ref": "#/components/schemas/workAttributes"
 					},
 					{
 						"$ref": "#/components/schemas/baseSelectionAttributes"
@@ -2488,6 +2475,58 @@
 				},
 				"type": "array"
 			},
+			"workAttributes": {
+				"enum": [
+					"abstract_inverted_index",
+					"apc_list",
+					"apc_paid",
+					"authorships",
+					"best_oa_location",
+					"biblio",
+					"cited_by_api_url",
+					"cited_by_count",
+					"cited_by_percentile_year",
+					"concepts",
+					"corresponding_author_ids",
+					"corresponding_institution_ids",
+					"countries_distinct_count",
+					"counts_by_year",
+					"created_date",
+					"doi",
+					"fulltext_origin",
+					"grants",
+					"has_fulltext",
+					"ids",
+					"institutions_distinct_count",
+					"is_authors_truncated",
+					"is_paratext",
+					"is_retracted",
+					"keywords",
+					"language",
+					"locations_count",
+					"locations",
+					"mesh",
+					"ngrams_url",
+					"open_access",
+					"primary_location",
+					"publication_date",
+					"publication_year",
+					"referenced_works_count",
+					"referenced_works",
+					"related_works",
+					"relevance_score",
+					"sustainable_development_goals",
+					"title",
+					"type_crossref",
+					"type",
+					"updated_date"
+				],
+				"type": "string"
+			},
+			"workIdPattern": {
+				"pattern": "^(W[0-9]+|https://openalex.org/W[0-9]+|mag:\\d+|https://doi.org/10.\\d{4,9}/[-._;()/:A-Z0-9]+|pmid:\\d+|pmcid:(PMC)?\\d+)$",
+				"type": "string"
+			},
 			"workSchema": {
 				"properties": {
 					"abstract_inverted_index": {
@@ -2831,22 +2870,15 @@
 	},
 	"openapi": "3.1.0",
 	"paths": {
-		"/author/{id}": {
+		"/": {
 			"get": {
-				"description": "",
-				"operationId": "getAuthor",
+				"description": "Root endpoint",
+				"externalDocs": {
+					"description": "OpenAlex documentation",
+					"url": "https://openalex.org/rest-api"
+				},
+				"operationId": "getRoot",
 				"parameters": [
-					{
-						"in": "path",
-						"name": "id",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"$ref": "#/components/parameters/select"
-					},
 					{
 						"$ref": "#/components/parameters/mailtoHeader"
 					},
@@ -2858,90 +2890,31 @@
 					"200": {
 						"content": {
 							"application/json": {
+								"examples": {
+									"application/json": {
+										"value": {
+											"documentation_url": "https://openalex.org/rest-api",
+											"msg": "Don't panic",
+											"version": "0.0.1"
+										}
+									}
+								},
 								"schema": {
 									"properties": {
-										"affiliations": {
-											"$ref": "#/components/schemas/affiliations"
-										},
-										"cited_by_count": {
-											"type": "integer"
-										},
-										"counts_by_year": {
-											"$ref": "#/components/schemas/countsByYear"
-										},
-										"created_date": {
+										"documentation_url": {
 											"type": "string"
 										},
-										"display_name": {
+										"msg": {
 											"type": "string"
 										},
-										"display_name_alternatives": {
-											"items": {
-												"type": "string"
-											},
-											"type": "array"
-										},
-										"id": {
+										"version": {
 											"type": "string"
-										},
-										"ids": {
-											"properties": {
-												"openalex": {
-													"type": "string"
-												},
-												"orcid": {
-													"type": "string"
-												}
-											},
-											"required": [
-												"openalex"
-											],
-											"type": "object"
-										},
-										"last_known_institution": {
-											"$ref": "#/components/schemas/institutionObject"
-										},
-										"last_known_institutions": {
-											"$ref": "#/components/schemas/institutionsArray"
-										},
-										"orcid": {
-											"type": "string"
-										},
-										"summary_stats": {
-											"properties": {
-												"2yr_mean_citedness": {
-													"type": "number"
-												},
-												"h_index": {
-													"type": "integer"
-												},
-												"i10_index": {
-													"type": "integer"
-												}
-											},
-											"required": [
-												"2yr_mean_citedness",
-												"h_index",
-												"i10_index"
-											],
-											"type": "object"
-										},
-										"updated_date": {
-											"type": "string"
-										},
-										"works_api_url": {
-											"type": "string"
-										},
-										"works_count": {
-											"type": "integer"
-										},
-										"x_concepts": {
-											"$ref": "#/components/schemas/concepts"
 										}
 									},
 									"required": [
-										"id",
-										"display_name"
+										"msg",
+										"documentation_url",
+										"version"
 									],
 									"type": "object"
 								}
@@ -2956,15 +2929,15 @@
 						"$ref": "#/components/responses/resp4xx"
 					}
 				},
-				"summary": "/authors/{id}",
+				"summary": "Root",
 				"tags": [
-					"authors"
+					"info"
 				]
 			}
 		},
 		"/authors": {
 			"get": {
-				"description": "",
+				"description": "Get lists of authors",
 				"operationId": "getAuthors",
 				"parameters": [
 					{
@@ -3131,7 +3104,146 @@
 						"$ref": "#/components/responses/resp4xx"
 					}
 				},
-				"summary": "/authors",
+				"summary": "List Authors",
+				"tags": [
+					"authors"
+				]
+			}
+		},
+		"/authors/{id}": {
+			"get": {
+				"description": "Get a single author by id",
+				"operationId": "getAuthor",
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"$ref": "#/components/parameters/select"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoHeader"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoQuery"
+					}
+				],
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"affiliations": {
+											"$ref": "#/components/schemas/affiliations"
+										},
+										"cited_by_count": {
+											"type": "integer"
+										},
+										"counts_by_year": {
+											"$ref": "#/components/schemas/countsByYear"
+										},
+										"created_date": {
+											"type": "string"
+										},
+										"display_name": {
+											"type": "string"
+										},
+										"display_name_alternatives": {
+											"items": {
+												"type": "string"
+											},
+											"type": "array"
+										},
+										"id": {
+											"type": "string"
+										},
+										"ids": {
+											"properties": {
+												"openalex": {
+													"type": "string"
+												},
+												"orcid": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"openalex"
+											],
+											"type": "object"
+										},
+										"last_known_institution": {
+											"$ref": "#/components/schemas/institutionObject"
+										},
+										"last_known_institutions": {
+											"$ref": "#/components/schemas/institutionsArray"
+										},
+										"orcid": {
+											"type": "string"
+										},
+										"summary_stats": {
+											"properties": {
+												"2yr_mean_citedness": {
+													"type": "number"
+												},
+												"h_index": {
+													"type": "integer"
+												},
+												"i10_index": {
+													"type": "integer"
+												}
+											},
+											"required": [
+												"2yr_mean_citedness",
+												"h_index",
+												"i10_index"
+											],
+											"type": "object"
+										},
+										"updated_date": {
+											"type": "string"
+										},
+										"works_api_url": {
+											"type": "string"
+										},
+										"works_count": {
+											"type": "integer"
+										},
+										"x_concepts": {
+											"$ref": "#/components/schemas/concepts"
+										}
+									},
+									"required": [
+										"id",
+										"display_name"
+									],
+									"type": "object"
+								}
+							}
+						},
+						"description": "Successful response",
+						"links": {
+							"getInstitution": {
+								"operationId": "getInstitution",
+								"parameters": {
+									"id": "$response.body#/last_known_institution/id"
+								}
+							}
+						}
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
+					}
+				},
+				"summary": "Get Author",
 				"tags": [
 					"authors"
 				]
@@ -5045,43 +5157,10 @@
 				"operationId": "getWork",
 				"parameters": [
 					{
-						"description": "The id of the work to retrieve",
-						"examples": {
-							"doi": {
-								"summary": "DOI",
-								"value": "https://doi.org/10.1016/j.jinf.2020.05.071"
-							},
-							"mag": {
-								"summary": "Microsoft Academic Graph ID",
-								"value": "mag:3033546757"
-							},
-							"openalex": {
-								"summary": "OpenAlex ID",
-								"value": "W3033546757"
-							},
-							"openalex_url": {
-								"summary": "OpenAlex URL",
-								"value": "https://openalex.org/W3033546757"
-							},
-							"pmcid": {
-								"summary": "PubMed Central ID",
-								"value": "pmcid:7270800"
-							},
-							"pmid": {
-								"summary": "PubMed ID",
-								"value": "pmid:32504740"
-							}
-						},
-						"in": "path",
-						"name": "id",
-						"required": true,
-						"schema": {
-							"pattern": "^(W[0-9]+|https://openalex.org/W[0-9]+|mag:\\d+|https://doi.org/10.\\d{4,9}/[-._;()/:A-Z0-9]+|pmid:\\d+|pmcid:(PMC)?\\d+)$",
-							"type": "string"
-						}
+						"$ref": "#/components/parameters/workId"
 					},
 					{
-						"$ref": "#/components/parameters/authorAttributeSelectionParameter"
+						"$ref": "#/components/parameters/workAttributeSelectionParameter"
 					},
 					{
 						"$ref": "#/components/parameters/mailtoHeader"
