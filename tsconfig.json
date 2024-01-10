@@ -1,16 +1,19 @@
 {
-	"compilerOptions": {
-		"allowSyntheticDefaultImports": true,
-		"baseUrl": "./src",
-		"noEmit": true,
-		"resolveJsonModule": true,
-		"rootDir": "./",
-		"esModuleInterop": true,
-		"moduleDetection": "auto",
-		"paths": {
-			"~/*": [
-				"./*"
-			]
-		}
-	}
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src",
+    "esModuleInterop": true,
+    "module": "CommonJS",
+    "moduleDetection": "auto",
+    "noEmit": true,
+    "paths": {
+      "~/*": [
+        "./*",
+        "./*/index"
+      ]
+    },
+    "resolveJsonModule": true,
+    "rootDir": "./",
+    "target": "es2017"
+  }
 }
