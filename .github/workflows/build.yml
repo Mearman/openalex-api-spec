@@ -3,8 +3,13 @@ name: Build and Test
 on:
   push:
   workflow_dispatch:
+
 env:
   WIREIT_LOGGER: "metrics"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
