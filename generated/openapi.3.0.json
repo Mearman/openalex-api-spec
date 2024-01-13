@@ -9,6 +9,15 @@
 					"type": "string"
 				}
 			},
+			"authorIdParam": {
+				"in": "path",
+				"name": "id",
+				"required": true,
+				"schema": {
+					"pattern": "^A[0-9]+$",
+					"type": "string"
+				}
+			},
 			"autocompleteQuery": {
 				"in": "query",
 				"name": "q",
@@ -44,616 +53,6 @@
 			},
 			"filterWorks": {
 				"description": "Filter works by a specific field.\nSee the [filter works](https://docs.openalex.org/api-entities/works/filter-works) documentation for more information.\nValid filters are:\n\n\n- `abstract.search`\n- `apc_list.currency`\n- `apc_list.provenance`\n- `apc_list.value`\n- `apc_list.value_usd`\n- `apc_paid.currency`\n- `apc_paid.provenance`\n- `apc_paid.value`\n- `apc_paid.value_usd`\n- `author.id`\n- `author.orcid`\n- `authors_count`\n- `authorships.author.id`\n- `authorships.author.orcid`\n- `authorships.countries`\n- `authorships.institutions.continent`\n- `authorships.institutions.country_code`\n- `authorships.institutions.id`\n- `authorships.institutions.is_global_south`\n- `authorships.institutions.lineage`\n- `authorships.institutions.ror`\n- `authorships.institutions.type`\n- `authorships.is_corresponding`\n- `best_oa_location.is_accepted`\n- `best_oa_location.is_oa`\n- `best_oa_location.is_published`\n- `best_oa_location.landing_page_url`\n- `best_oa_location.license`\n- `best_oa_location.source.host_organization`\n- `best_oa_location.source.host_organization_lineage`\n- `best_oa_location.source.id`\n- `best_oa_location.source.is_in_doaj`\n- `best_oa_location.source.is_oa`\n- `best_oa_location.source.issn`\n- `best_oa_location.source.type`\n- `best_oa_location.version`\n- `best_open_version`\n- `cited_by`\n- `cited_by_count`\n- `cited_by_percentile_year.max`\n- `cited_by_percentile_year.min`\n- `cites`\n- `concept.id`\n- `concepts.id`\n- `concepts.wikidata`\n- `concepts_count`\n- `corresponding_author_ids`\n- `corresponding_institution_ids`\n- `countries_distinct_count`\n- `default.search`\n- `display_name`\n- `display_name.search`\n- `doi`\n- `doi_starts_with`\n- `from_created_date`\n- `from_publication_date`\n- `fulltext.search`\n- `fulltext_origin`\n- `grants.award_id`\n- `grants.funder`\n- `has_abstract`\n- `has_doi`\n- `has_fulltext`\n- `has_ngrams`\n- `has_oa_accepted_or_published_version`\n- `has_oa_submitted_version`\n- `has_old_authors`\n- `has_orcid`\n- `has_pdf_url`\n- `has_pmcid`\n- `has_pmid`\n- `has_raw_affiliation_string`\n- `has_references`\n- `host_venue.id`\n- `ids.mag`\n- `ids.openalex`\n- `ids.pmcid`\n- `ids.pmid`\n- `institution.id`\n- `institutions.continent`\n- `institutions.country_code`\n- `institutions.id`\n- `institutions.is_global_south`\n- `institutions.ror`\n- `institutions.type`\n- `institutions_distinct_count`\n- `is_corresponding`\n- `is_oa`\n- `is_paratext`\n- `is_retracted`\n- `journal`\n- `keyword.search`\n- `keywords.keyword`\n- `language`\n- `locations.is_accepted`\n- `locations.is_oa`\n- `locations.is_published`\n- `locations.landing_page_url`\n- `locations.license`\n- `locations.source.has_issn`\n- `locations.source.host_institution_lineage`\n- `locations.source.host_organization`\n- `locations.source.host_organization_lineage`\n- `locations.source.id`\n- `locations.source.is_in_doaj`\n- `locations.source.is_oa`\n- `locations.source.issn`\n- `locations.source.publisher_lineage`\n- `locations.source.type`\n- `locations.version`\n- `locations_count`\n- `mag`\n- `oa_status`\n- `open_access.any_repository_has_fulltext`\n- `open_access.is_oa`\n- `open_access.oa_status`\n- `openalex`\n- `openalex_id`\n- `pmcid`\n- `pmid`\n- `primary_location.is_accepted`\n- `primary_location.is_oa`\n- `primary_location.is_published`\n- `primary_location.landing_page_url`\n- `primary_location.license`\n- `primary_location.source.has_issn`\n- `primary_location.source.host_institution_lineage`\n- `primary_location.source.host_organization`\n- `primary_location.source.host_organization_lineage`\n- `primary_location.source.id`\n- `primary_location.source.is_in_doaj`\n- `primary_location.source.is_oa`\n- `primary_location.source.issn`\n- `primary_location.source.publisher_lineage`\n- `primary_location.source.type`\n- `primary_location.version`\n- `publication_date`\n- `publication_year`\n- `raw_affiliation_string.search`\n- `referenced_works`\n- `referenced_works_count`\n- `related_to`\n- `repository`\n- `sustainable_development_goals.id`\n- `sustainable_development_goals.score`\n- `title.search`\n- `title_and_abstract.search`\n- `to_publication_date`\n- `to_updated_date`\n- `type`\n- `type_crossref`\n- `version`",
-				"examples": {
-					"abstract.search": {
-						"description": "Search for works with abstract.search",
-						"value": "abstract.search:"
-					},
-					"apc_list.currency": {
-						"description": "Search for works with apc_list.currency",
-						"value": "apc_list.currency:"
-					},
-					"apc_list.provenance": {
-						"description": "Search for works with apc_list.provenance",
-						"value": "apc_list.provenance:"
-					},
-					"apc_list.value": {
-						"description": "Search for works with apc_list.value",
-						"value": "apc_list.value:"
-					},
-					"apc_list.value_usd": {
-						"description": "Search for works with apc_list.value_usd",
-						"value": "apc_list.value_usd:"
-					},
-					"apc_paid.currency": {
-						"description": "Search for works with apc_paid.currency",
-						"value": "apc_paid.currency:"
-					},
-					"apc_paid.provenance": {
-						"description": "Search for works with apc_paid.provenance",
-						"value": "apc_paid.provenance:"
-					},
-					"apc_paid.value": {
-						"description": "Search for works with apc_paid.value",
-						"value": "apc_paid.value:"
-					},
-					"apc_paid.value_usd": {
-						"description": "Search for works with apc_paid.value_usd",
-						"value": "apc_paid.value_usd:"
-					},
-					"author.id": {
-						"description": "Search for works with author.id",
-						"value": "author.id:"
-					},
-					"author.orcid": {
-						"description": "Search for works with author.orcid",
-						"value": "author.orcid:"
-					},
-					"authors_count": {
-						"description": "Search for works with authors_count",
-						"value": "authors_count:"
-					},
-					"authorships.author.id": {
-						"description": "Search for works with authorships.author.id",
-						"value": "authorships.author.id:"
-					},
-					"authorships.author.orcid": {
-						"description": "Search for works with authorships.author.orcid",
-						"value": "authorships.author.orcid:"
-					},
-					"authorships.countries": {
-						"description": "Search for works with authorships.countries",
-						"value": "authorships.countries:"
-					},
-					"authorships.institutions.continent": {
-						"description": "Search for works with authorships.institutions.continent",
-						"value": "authorships.institutions.continent:"
-					},
-					"authorships.institutions.country_code": {
-						"description": "Search for works with authorships.institutions.country_code",
-						"value": "authorships.institutions.country_code:"
-					},
-					"authorships.institutions.id": {
-						"description": "Search for works with authorships.institutions.id",
-						"value": "authorships.institutions.id:"
-					},
-					"authorships.institutions.is_global_south": {
-						"description": "Search for works with authorships.institutions.is_global_south",
-						"value": "authorships.institutions.is_global_south:"
-					},
-					"authorships.institutions.lineage": {
-						"description": "Search for works with authorships.institutions.lineage",
-						"value": "authorships.institutions.lineage:"
-					},
-					"authorships.institutions.ror": {
-						"description": "Search for works with authorships.institutions.ror",
-						"value": "authorships.institutions.ror:"
-					},
-					"authorships.institutions.type": {
-						"description": "Search for works with authorships.institutions.type",
-						"value": "authorships.institutions.type:"
-					},
-					"authorships.is_corresponding": {
-						"description": "Search for works with authorships.is_corresponding",
-						"value": "authorships.is_corresponding:"
-					},
-					"best_oa_location.is_accepted": {
-						"description": "Search for works with best_oa_location.is_accepted",
-						"value": "best_oa_location.is_accepted:"
-					},
-					"best_oa_location.is_oa": {
-						"description": "Search for works with best_oa_location.is_oa",
-						"value": "best_oa_location.is_oa:"
-					},
-					"best_oa_location.is_published": {
-						"description": "Search for works with best_oa_location.is_published",
-						"value": "best_oa_location.is_published:"
-					},
-					"best_oa_location.landing_page_url": {
-						"description": "Search for works with best_oa_location.landing_page_url",
-						"value": "best_oa_location.landing_page_url:"
-					},
-					"best_oa_location.license": {
-						"description": "Search for works with best_oa_location.license",
-						"value": "best_oa_location.license:"
-					},
-					"best_oa_location.source.host_organization": {
-						"description": "Search for works with best_oa_location.source.host_organization",
-						"value": "best_oa_location.source.host_organization:"
-					},
-					"best_oa_location.source.host_organization_lineage": {
-						"description": "Search for works with best_oa_location.source.host_organization_lineage",
-						"value": "best_oa_location.source.host_organization_lineage:"
-					},
-					"best_oa_location.source.id": {
-						"description": "Search for works with best_oa_location.source.id",
-						"value": "best_oa_location.source.id:"
-					},
-					"best_oa_location.source.is_in_doaj": {
-						"description": "Search for works with best_oa_location.source.is_in_doaj",
-						"value": "best_oa_location.source.is_in_doaj:"
-					},
-					"best_oa_location.source.is_oa": {
-						"description": "Search for works with best_oa_location.source.is_oa",
-						"value": "best_oa_location.source.is_oa:"
-					},
-					"best_oa_location.source.issn": {
-						"description": "Search for works with best_oa_location.source.issn",
-						"value": "best_oa_location.source.issn:"
-					},
-					"best_oa_location.source.type": {
-						"description": "Search for works with best_oa_location.source.type",
-						"value": "best_oa_location.source.type:"
-					},
-					"best_oa_location.version": {
-						"description": "Search for works with best_oa_location.version",
-						"value": "best_oa_location.version:"
-					},
-					"best_open_version": {
-						"description": "Search for works with best_open_version",
-						"value": "best_open_version:"
-					},
-					"cited_by": {
-						"description": "Search for works with cited_by",
-						"value": "cited_by:"
-					},
-					"cited_by_count": {
-						"description": "Search for works with cited_by_count",
-						"value": "cited_by_count:"
-					},
-					"cited_by_percentile_year.max": {
-						"description": "Search for works with cited_by_percentile_year.max",
-						"value": "cited_by_percentile_year.max:"
-					},
-					"cited_by_percentile_year.min": {
-						"description": "Search for works with cited_by_percentile_year.min",
-						"value": "cited_by_percentile_year.min:"
-					},
-					"cites": {
-						"description": "Search for works with cites",
-						"value": "cites:"
-					},
-					"concept.id": {
-						"description": "Search for works with concept.id",
-						"value": "concept.id:"
-					},
-					"concepts.id": {
-						"description": "Search for works with concepts.id",
-						"value": "concepts.id:"
-					},
-					"concepts.wikidata": {
-						"description": "Search for works with concepts.wikidata",
-						"value": "concepts.wikidata:"
-					},
-					"concepts_count": {
-						"description": "Search for works with concepts_count",
-						"value": "concepts_count:"
-					},
-					"corresponding_author_ids": {
-						"description": "Search for works with corresponding_author_ids",
-						"value": "corresponding_author_ids:"
-					},
-					"corresponding_institution_ids": {
-						"description": "Search for works with corresponding_institution_ids",
-						"value": "corresponding_institution_ids:"
-					},
-					"countries_distinct_count": {
-						"description": "Search for works with countries_distinct_count",
-						"value": "countries_distinct_count:"
-					},
-					"default.search": {
-						"description": "Search for works with default.search",
-						"value": "default.search:"
-					},
-					"display_name": {
-						"description": "Search for works with display_name",
-						"value": "display_name:"
-					},
-					"display_name.search": {
-						"description": "Search for works with display_name.search",
-						"value": "display_name.search:"
-					},
-					"doi": {
-						"description": "Search for works with doi",
-						"value": "doi:"
-					},
-					"doi_starts_with": {
-						"description": "Search for works with doi_starts_with",
-						"value": "doi_starts_with:"
-					},
-					"from_created_date": {
-						"description": "Search for works with from_created_date",
-						"value": "from_created_date:"
-					},
-					"from_publication_date": {
-						"description": "Search for works with from_publication_date",
-						"value": "from_publication_date:"
-					},
-					"fulltext.search": {
-						"description": "Search for works with fulltext.search",
-						"value": "fulltext.search:"
-					},
-					"fulltext_origin": {
-						"description": "Search for works with fulltext_origin",
-						"value": "fulltext_origin:"
-					},
-					"grants.award_id": {
-						"description": "Search for works with grants.award_id",
-						"value": "grants.award_id:"
-					},
-					"grants.funder": {
-						"description": "Search for works with grants.funder",
-						"value": "grants.funder:"
-					},
-					"has_abstract": {
-						"description": "Search for works with has_abstract",
-						"value": "has_abstract:"
-					},
-					"has_doi": {
-						"description": "Search for works with has_doi",
-						"value": "has_doi:"
-					},
-					"has_fulltext": {
-						"description": "Search for works with has_fulltext",
-						"value": "has_fulltext:"
-					},
-					"has_ngrams": {
-						"description": "Search for works with has_ngrams",
-						"value": "has_ngrams:"
-					},
-					"has_oa_accepted_or_published_version": {
-						"description": "Search for works with has_oa_accepted_or_published_version",
-						"value": "has_oa_accepted_or_published_version:"
-					},
-					"has_oa_submitted_version": {
-						"description": "Search for works with has_oa_submitted_version",
-						"value": "has_oa_submitted_version:"
-					},
-					"has_old_authors": {
-						"description": "Search for works with has_old_authors",
-						"value": "has_old_authors:"
-					},
-					"has_orcid": {
-						"description": "Search for works with has_orcid",
-						"value": "has_orcid:"
-					},
-					"has_pdf_url": {
-						"description": "Search for works with has_pdf_url",
-						"value": "has_pdf_url:"
-					},
-					"has_pmcid": {
-						"description": "Search for works with has_pmcid",
-						"value": "has_pmcid:"
-					},
-					"has_pmid": {
-						"description": "Search for works with has_pmid",
-						"value": "has_pmid:"
-					},
-					"has_raw_affiliation_string": {
-						"description": "Search for works with has_raw_affiliation_string",
-						"value": "has_raw_affiliation_string:"
-					},
-					"has_references": {
-						"description": "Search for works with has_references",
-						"value": "has_references:"
-					},
-					"host_venue.id": {
-						"description": "Search for works with host_venue.id",
-						"value": "host_venue.id:"
-					},
-					"ids.mag": {
-						"description": "Search for works with ids.mag",
-						"value": "ids.mag:"
-					},
-					"ids.openalex": {
-						"description": "Search for works with ids.openalex",
-						"value": "ids.openalex:"
-					},
-					"ids.pmcid": {
-						"description": "Search for works with ids.pmcid",
-						"value": "ids.pmcid:"
-					},
-					"ids.pmid": {
-						"description": "Search for works with ids.pmid",
-						"value": "ids.pmid:"
-					},
-					"institution.id": {
-						"description": "Search for works with institution.id",
-						"value": "institution.id:"
-					},
-					"institutions.continent": {
-						"description": "Search for works with institutions.continent",
-						"value": "institutions.continent:"
-					},
-					"institutions.country_code": {
-						"description": "Search for works with institutions.country_code",
-						"value": "institutions.country_code:"
-					},
-					"institutions.id": {
-						"description": "Search for works with institutions.id",
-						"value": "institutions.id:"
-					},
-					"institutions.is_global_south": {
-						"description": "Search for works with institutions.is_global_south",
-						"value": "institutions.is_global_south:"
-					},
-					"institutions.ror": {
-						"description": "Search for works with institutions.ror",
-						"value": "institutions.ror:"
-					},
-					"institutions.type": {
-						"description": "Search for works with institutions.type",
-						"value": "institutions.type:"
-					},
-					"institutions_distinct_count": {
-						"description": "Search for works with institutions_distinct_count",
-						"value": "institutions_distinct_count:"
-					},
-					"is_corresponding": {
-						"description": "Search for works with is_corresponding",
-						"value": "is_corresponding:"
-					},
-					"is_oa": {
-						"description": "Search for works with is_oa",
-						"value": "is_oa:"
-					},
-					"is_paratext": {
-						"description": "Search for works with is_paratext",
-						"value": "is_paratext:"
-					},
-					"is_retracted": {
-						"description": "Search for works with is_retracted",
-						"value": "is_retracted:"
-					},
-					"journal": {
-						"description": "Search for works with journal",
-						"value": "journal:"
-					},
-					"keyword.search": {
-						"description": "Search for works with keyword.search",
-						"value": "keyword.search:"
-					},
-					"keywords.keyword": {
-						"description": "Search for works with keywords.keyword",
-						"value": "keywords.keyword:"
-					},
-					"language": {
-						"description": "Search for works with language",
-						"value": "language:"
-					},
-					"locations.is_accepted": {
-						"description": "Search for works with locations.is_accepted",
-						"value": "locations.is_accepted:"
-					},
-					"locations.is_oa": {
-						"description": "Search for works with locations.is_oa",
-						"value": "locations.is_oa:"
-					},
-					"locations.is_published": {
-						"description": "Search for works with locations.is_published",
-						"value": "locations.is_published:"
-					},
-					"locations.landing_page_url": {
-						"description": "Search for works with locations.landing_page_url",
-						"value": "locations.landing_page_url:"
-					},
-					"locations.license": {
-						"description": "Search for works with locations.license",
-						"value": "locations.license:"
-					},
-					"locations.source.has_issn": {
-						"description": "Search for works with locations.source.has_issn",
-						"value": "locations.source.has_issn:"
-					},
-					"locations.source.host_institution_lineage": {
-						"description": "Search for works with locations.source.host_institution_lineage",
-						"value": "locations.source.host_institution_lineage:"
-					},
-					"locations.source.host_organization": {
-						"description": "Search for works with locations.source.host_organization",
-						"value": "locations.source.host_organization:"
-					},
-					"locations.source.host_organization_lineage": {
-						"description": "Search for works with locations.source.host_organization_lineage",
-						"value": "locations.source.host_organization_lineage:"
-					},
-					"locations.source.id": {
-						"description": "Search for works with locations.source.id",
-						"value": "locations.source.id:"
-					},
-					"locations.source.is_in_doaj": {
-						"description": "Search for works with locations.source.is_in_doaj",
-						"value": "locations.source.is_in_doaj:"
-					},
-					"locations.source.is_oa": {
-						"description": "Search for works with locations.source.is_oa",
-						"value": "locations.source.is_oa:"
-					},
-					"locations.source.issn": {
-						"description": "Search for works with locations.source.issn",
-						"value": "locations.source.issn:"
-					},
-					"locations.source.publisher_lineage": {
-						"description": "Search for works with locations.source.publisher_lineage",
-						"value": "locations.source.publisher_lineage:"
-					},
-					"locations.source.type": {
-						"description": "Search for works with locations.source.type",
-						"value": "locations.source.type:"
-					},
-					"locations.version": {
-						"description": "Search for works with locations.version",
-						"value": "locations.version:"
-					},
-					"locations_count": {
-						"description": "Search for works with locations_count",
-						"value": "locations_count:"
-					},
-					"mag": {
-						"description": "Search for works with mag",
-						"value": "mag:"
-					},
-					"oa_status": {
-						"description": "Search for works with oa_status",
-						"value": "oa_status:"
-					},
-					"open_access.any_repository_has_fulltext": {
-						"description": "Search for works with open_access.any_repository_has_fulltext",
-						"value": "open_access.any_repository_has_fulltext:"
-					},
-					"open_access.is_oa": {
-						"description": "Search for works with open_access.is_oa",
-						"value": "open_access.is_oa:"
-					},
-					"open_access.oa_status": {
-						"description": "Search for works with open_access.oa_status",
-						"value": "open_access.oa_status:"
-					},
-					"openalex": {
-						"description": "Search for works with openalex",
-						"value": "openalex:"
-					},
-					"openalex_id": {
-						"description": "Search for works with openalex_id",
-						"value": "openalex_id:"
-					},
-					"pmcid": {
-						"description": "Search for works with pmcid",
-						"value": "pmcid:"
-					},
-					"pmid": {
-						"description": "Search for works with pmid",
-						"value": "pmid:"
-					},
-					"primary_location.is_accepted": {
-						"description": "Search for works with primary_location.is_accepted",
-						"value": "primary_location.is_accepted:"
-					},
-					"primary_location.is_oa": {
-						"description": "Search for works with primary_location.is_oa",
-						"value": "primary_location.is_oa:"
-					},
-					"primary_location.is_published": {
-						"description": "Search for works with primary_location.is_published",
-						"value": "primary_location.is_published:"
-					},
-					"primary_location.landing_page_url": {
-						"description": "Search for works with primary_location.landing_page_url",
-						"value": "primary_location.landing_page_url:"
-					},
-					"primary_location.license": {
-						"description": "Search for works with primary_location.license",
-						"value": "primary_location.license:"
-					},
-					"primary_location.source.has_issn": {
-						"description": "Search for works with primary_location.source.has_issn",
-						"value": "primary_location.source.has_issn:"
-					},
-					"primary_location.source.host_institution_lineage": {
-						"description": "Search for works with primary_location.source.host_institution_lineage",
-						"value": "primary_location.source.host_institution_lineage:"
-					},
-					"primary_location.source.host_organization": {
-						"description": "Search for works with primary_location.source.host_organization",
-						"value": "primary_location.source.host_organization:"
-					},
-					"primary_location.source.host_organization_lineage": {
-						"description": "Search for works with primary_location.source.host_organization_lineage",
-						"value": "primary_location.source.host_organization_lineage:"
-					},
-					"primary_location.source.id": {
-						"description": "Search for works with primary_location.source.id",
-						"value": "primary_location.source.id:"
-					},
-					"primary_location.source.is_in_doaj": {
-						"description": "Search for works with primary_location.source.is_in_doaj",
-						"value": "primary_location.source.is_in_doaj:"
-					},
-					"primary_location.source.is_oa": {
-						"description": "Search for works with primary_location.source.is_oa",
-						"value": "primary_location.source.is_oa:"
-					},
-					"primary_location.source.issn": {
-						"description": "Search for works with primary_location.source.issn",
-						"value": "primary_location.source.issn:"
-					},
-					"primary_location.source.publisher_lineage": {
-						"description": "Search for works with primary_location.source.publisher_lineage",
-						"value": "primary_location.source.publisher_lineage:"
-					},
-					"primary_location.source.type": {
-						"description": "Search for works with primary_location.source.type",
-						"value": "primary_location.source.type:"
-					},
-					"primary_location.version": {
-						"description": "Search for works with primary_location.version",
-						"value": "primary_location.version:"
-					},
-					"publication_date": {
-						"description": "Search for works with publication_date",
-						"value": "publication_date:"
-					},
-					"publication_year": {
-						"description": "Search for works with publication_year",
-						"value": "publication_year:"
-					},
-					"raw_affiliation_string.search": {
-						"description": "Search for works with raw_affiliation_string.search",
-						"value": "raw_affiliation_string.search:"
-					},
-					"referenced_works": {
-						"description": "Search for works with referenced_works",
-						"value": "referenced_works:"
-					},
-					"referenced_works_count": {
-						"description": "Search for works with referenced_works_count",
-						"value": "referenced_works_count:"
-					},
-					"related_to": {
-						"description": "Search for works with related_to",
-						"value": "related_to:"
-					},
-					"repository": {
-						"description": "Search for works with repository",
-						"value": "repository:"
-					},
-					"sustainable_development_goals.id": {
-						"description": "Search for works with sustainable_development_goals.id",
-						"value": "sustainable_development_goals.id:"
-					},
-					"sustainable_development_goals.score": {
-						"description": "Search for works with sustainable_development_goals.score",
-						"value": "sustainable_development_goals.score:"
-					},
-					"title.search": {
-						"description": "Search for works with title.search",
-						"value": "title.search:"
-					},
-					"title_and_abstract.search": {
-						"description": "Search for works with title_and_abstract.search",
-						"value": "title_and_abstract.search:"
-					},
-					"to_publication_date": {
-						"description": "Search for works with to_publication_date",
-						"value": "to_publication_date:"
-					},
-					"to_updated_date": {
-						"description": "Search for works with to_updated_date",
-						"value": "to_updated_date:"
-					},
-					"type": {
-						"description": "Search for works with type",
-						"value": "type:"
-					},
-					"type_crossref": {
-						"description": "Search for works with type_crossref",
-						"value": "type_crossref:"
-					},
-					"version": {
-						"description": "Search for works with version",
-						"value": "version:"
-					}
-				},
 				"in": "query",
 				"name": "filter",
 				"required": false,
@@ -661,7 +60,8 @@
 					"pattern": "^((abstract\\.search)|(apc_list\\.currency)|(apc_list\\.provenance)|(apc_list\\.value)|(apc_list\\.value_usd)|(apc_paid\\.currency)|(apc_paid\\.provenance)|(apc_paid\\.value)|(apc_paid\\.value_usd)|(author\\.id)|(author\\.orcid)|(authors_count)|(authorships\\.author\\.id)|(authorships\\.author\\.orcid)|(authorships\\.countries)|(authorships\\.institutions\\.continent)|(authorships\\.institutions\\.country_code)|(authorships\\.institutions\\.id)|(authorships\\.institutions\\.is_global_south)|(authorships\\.institutions\\.lineage)|(authorships\\.institutions\\.ror)|(authorships\\.institutions\\.type)|(authorships\\.is_corresponding)|(best_oa_location\\.is_accepted)|(best_oa_location\\.is_oa)|(best_oa_location\\.is_published)|(best_oa_location\\.landing_page_url)|(best_oa_location\\.license)|(best_oa_location\\.source\\.host_organization)|(best_oa_location\\.source\\.host_organization_lineage)|(best_oa_location\\.source\\.id)|(best_oa_location\\.source\\.is_in_doaj)|(best_oa_location\\.source\\.is_oa)|(best_oa_location\\.source\\.issn)|(best_oa_location\\.source\\.type)|(best_oa_location\\.version)|(best_open_version)|(cited_by)|(cited_by_count)|(cited_by_percentile_year\\.max)|(cited_by_percentile_year\\.min)|(cites)|(concept\\.id)|(concepts\\.id)|(concepts\\.wikidata)|(concepts_count)|(corresponding_author_ids)|(corresponding_institution_ids)|(countries_distinct_count)|(default\\.search)|(display_name)|(display_name\\.search)|(doi)|(doi_starts_with)|(from_created_date)|(from_publication_date)|(fulltext\\.search)|(fulltext_origin)|(grants\\.award_id)|(grants\\.funder)|(has_abstract)|(has_doi)|(has_fulltext)|(has_ngrams)|(has_oa_accepted_or_published_version)|(has_oa_submitted_version)|(has_old_authors)|(has_orcid)|(has_pdf_url)|(has_pmcid)|(has_pmid)|(has_raw_affiliation_string)|(has_references)|(host_venue\\.id)|(ids\\.mag)|(ids\\.openalex)|(ids\\.pmcid)|(ids\\.pmid)|(institution\\.id)|(institutions\\.continent)|(institutions\\.country_code)|(institutions\\.id)|(institutions\\.is_global_south)|(institutions\\.ror)|(institutions\\.type)|(institutions_distinct_count)|(is_corresponding)|(is_oa)|(is_paratext)|(is_retracted)|(journal)|(keyword\\.search)|(keywords\\.keyword)|(language)|(locations\\.is_accepted)|(locations\\.is_oa)|(locations\\.is_published)|(locations\\.landing_page_url)|(locations\\.license)|(locations\\.source\\.has_issn)|(locations\\.source\\.host_institution_lineage)|(locations\\.source\\.host_organization)|(locations\\.source\\.host_organization_lineage)|(locations\\.source\\.id)|(locations\\.source\\.is_in_doaj)|(locations\\.source\\.is_oa)|(locations\\.source\\.issn)|(locations\\.source\\.publisher_lineage)|(locations\\.source\\.type)|(locations\\.version)|(locations_count)|(mag)|(oa_status)|(open_access\\.any_repository_has_fulltext)|(open_access\\.is_oa)|(open_access\\.oa_status)|(openalex)|(openalex_id)|(pmcid)|(pmid)|(primary_location\\.is_accepted)|(primary_location\\.is_oa)|(primary_location\\.is_published)|(primary_location\\.landing_page_url)|(primary_location\\.license)|(primary_location\\.source\\.has_issn)|(primary_location\\.source\\.host_institution_lineage)|(primary_location\\.source\\.host_organization)|(primary_location\\.source\\.host_organization_lineage)|(primary_location\\.source\\.id)|(primary_location\\.source\\.is_in_doaj)|(primary_location\\.source\\.is_oa)|(primary_location\\.source\\.issn)|(primary_location\\.source\\.publisher_lineage)|(primary_location\\.source\\.type)|(primary_location\\.version)|(publication_date)|(publication_year)|(raw_affiliation_string\\.search)|(referenced_works)|(referenced_works_count)|(related_to)|(repository)|(sustainable_development_goals\\.id)|(sustainable_development_goals\\.score)|(title\\.search)|(title_and_abstract\\.search)|(to_publication_date)|(to_updated_date)|(type)|(type_crossref)|(version)):.+",
 					"type": "string"
 				},
-				"style": "form"
+				"style": "form",
+				"example": "abstract.search:"
 			},
 			"group_by_param": {
 				"in": "query",
@@ -708,17 +108,13 @@
 				}
 			},
 			"per_page": {
-				"examples": {
-					"1": {
-						"value": 1
-					}
-				},
 				"in": "query",
-				"name": "per-page",
+				"name": "per_page",
 				"required": false,
 				"schema": {
 					"type": "integer"
-				}
+				},
+				"example": 1
 			},
 			"sample": {
 				"in": "query",
@@ -824,42 +220,604 @@
 			},
 			"workId": {
 				"description": "The id of the work to retrieve",
-				"examples": {
-					"doi": {
-						"summary": "DOI",
-						"value": "https://doi.org/10.1016/j.jinf.2020.05.071"
-					},
-					"mag": {
-						"summary": "Microsoft Academic Graph ID",
-						"value": "mag:3033546757"
-					},
-					"openalex": {
-						"summary": "OpenAlex ID",
-						"value": "W3033546757"
-					},
-					"openalex_url": {
-						"summary": "OpenAlex URL",
-						"value": "https://openalex.org/W3033546757"
-					},
-					"pmcid": {
-						"summary": "PubMed Central ID",
-						"value": "pmcid:7270800"
-					},
-					"pmid": {
-						"summary": "PubMed ID",
-						"value": "pmid:32504740"
-					}
-				},
 				"in": "path",
 				"name": "id",
 				"required": true,
 				"schema": {
 					"pattern": "^(W[0-9]+|https://openalex.org/W[0-9]+|mag:\\d+|https://doi.org/10.\\d{4,9}/[-._;()/:A-Z0-9]+|pmid:\\d+|pmcid:(PMC)?\\d+)$",
 					"type": "string"
-				}
+				},
+				"example": "https://doi.org/10.1016/j.jinf.2020.05.071"
 			}
 		},
 		"responses": {
+			"authorGet200": {
+				"content": {
+					"application/json": {
+						"schema": {
+							"properties": {
+								"affiliations": {
+									"items": {
+										"properties": {
+											"institution": {
+												"properties": {
+													"country_code": {
+														"type": "string"
+													},
+													"display_name": {
+														"type": "string"
+													},
+													"id": {
+														"type": "string"
+													},
+													"lineage": {
+														"items": {
+															"type": "string"
+														},
+														"type": "array"
+													},
+													"ror": {
+														"type": "string"
+													},
+													"type": {
+														"type": "string"
+													}
+												},
+												"required": [
+													"id",
+													"ror",
+													"display_name",
+													"country_code",
+													"type",
+													"lineage"
+												],
+												"type": "object",
+												"nullable": true
+											},
+											"years": {
+												"items": {
+													"type": "integer"
+												},
+												"type": "array"
+											}
+										},
+										"required": [
+											"institution",
+											"years"
+										],
+										"type": "object"
+									},
+									"type": "array"
+								},
+								"cited_by_count": {
+									"type": "integer"
+								},
+								"counts_by_year": {
+									"items": {
+										"properties": {
+											"cited_by_count": {
+												"type": "integer"
+											},
+											"works_count": {
+												"type": "integer"
+											},
+											"year": {
+												"type": "integer"
+											}
+										},
+										"required": [
+											"year",
+											"cited_by_count"
+										],
+										"type": "object"
+									},
+									"type": "array"
+								},
+								"created_date": {
+									"type": "string"
+								},
+								"display_name": {
+									"type": "string"
+								},
+								"display_name_alternatives": {
+									"items": {
+										"type": "string"
+									},
+									"type": "array"
+								},
+								"id": {
+									"type": "string"
+								},
+								"ids": {
+									"properties": {
+										"openalex": {
+											"type": "string"
+										},
+										"orcid": {
+											"type": "string"
+										},
+										"scopus": {
+											"type": "string"
+										},
+										"wikipedia": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"openalex"
+									],
+									"type": "object"
+								},
+								"last_known_institution": {
+									"properties": {
+										"country_code": {
+											"type": "string"
+										},
+										"display_name": {
+											"type": "string"
+										},
+										"id": {
+											"type": "string"
+										},
+										"lineage": {
+											"items": {
+												"type": "string"
+											},
+											"type": "array"
+										},
+										"ror": {
+											"type": "string"
+										},
+										"type": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"id",
+										"ror",
+										"display_name",
+										"country_code",
+										"type",
+										"lineage"
+									],
+									"type": "object",
+									"nullable": true
+								},
+								"last_known_institutions": {
+									"items": {
+										"properties": {
+											"country_code": {
+												"type": "string"
+											},
+											"display_name": {
+												"type": "string"
+											},
+											"id": {
+												"type": "string"
+											},
+											"lineage": {
+												"items": {
+													"type": "string"
+												},
+												"type": "array"
+											},
+											"ror": {
+												"type": "string"
+											},
+											"type": {
+												"type": "string"
+											}
+										},
+										"required": [
+											"id",
+											"ror",
+											"display_name",
+											"country_code",
+											"type",
+											"lineage"
+										],
+										"type": "object",
+										"nullable": true
+									},
+									"type": "array"
+								},
+								"orcid": {
+									"type": "string",
+									"nullable": true
+								},
+								"summary_stats": {
+									"properties": {
+										"2yr_mean_citedness": {
+											"type": "number"
+										},
+										"h_index": {
+											"type": "integer"
+										},
+										"i10_index": {
+											"type": "integer"
+										}
+									},
+									"required": [
+										"2yr_mean_citedness",
+										"h_index",
+										"i10_index"
+									],
+									"type": "object"
+								},
+								"updated_date": {
+									"type": "string"
+								},
+								"works_api_url": {
+									"type": "string"
+								},
+								"works_count": {
+									"type": "integer"
+								},
+								"x_concepts": {
+									"items": {
+										"properties": {
+											"display_name": {
+												"type": "string"
+											},
+											"id": {
+												"type": "string"
+											},
+											"level": {
+												"type": "integer"
+											},
+											"score": {
+												"type": "number"
+											},
+											"wikidata": {
+												"type": "string"
+											}
+										},
+										"required": [
+											"id",
+											"wikidata",
+											"display_name",
+											"level",
+											"score"
+										],
+										"type": "object"
+									},
+									"type": "array"
+								}
+							},
+							"required": [
+								"id",
+								"display_name"
+							],
+							"type": "object"
+						}
+					}
+				},
+				"description": ""
+			},
+			"authorsGet200": {
+				"content": {
+					"application/json": {
+						"schema": {
+							"properties": {
+								"group_by": {
+									"items": {
+										"properties": {
+											"count": {
+												"type": "integer"
+											},
+											"key": {
+												"type": "string"
+											},
+											"key_display_name": {
+												"type": "string"
+											}
+										},
+										"required": [
+											"key",
+											"key_display_name",
+											"count"
+										],
+										"type": "object"
+									},
+									"type": "array"
+								},
+								"meta": {
+									"properties": {
+										"count": {
+											"type": "integer"
+										},
+										"db_response_time_ms": {
+											"type": "integer"
+										},
+										"groups_count": {
+											"type": "null"
+										},
+										"page": {
+											"type": "integer"
+										},
+										"per_page": {
+											"type": "integer"
+										}
+									},
+									"required": [
+										"count",
+										"db_response_time_ms",
+										"page",
+										"per_page",
+										"groups_count"
+									],
+									"type": "object"
+								},
+								"results": {
+									"items": {
+										"properties": {
+											"affiliations": {
+												"items": {
+													"properties": {
+														"institution": {
+															"properties": {
+																"country_code": {
+																	"type": "string"
+																},
+																"display_name": {
+																	"type": "string"
+																},
+																"id": {
+																	"type": "string"
+																},
+																"lineage": {
+																	"items": {
+																		"type": "string"
+																	},
+																	"type": "array"
+																},
+																"ror": {
+																	"type": "string"
+																},
+																"type": {
+																	"type": "string"
+																}
+															},
+															"required": [
+																"id",
+																"ror",
+																"display_name",
+																"country_code",
+																"type",
+																"lineage"
+															],
+															"type": "object",
+															"nullable": true
+														},
+														"years": {
+															"items": {
+																"type": "integer"
+															},
+															"type": "array"
+														}
+													},
+													"required": [
+														"institution",
+														"years"
+													],
+													"type": "object"
+												},
+												"type": "array"
+											},
+											"cited_by_count": {
+												"type": "integer"
+											},
+											"counts_by_year": {
+												"items": {
+													"properties": {
+														"cited_by_count": {
+															"type": "integer"
+														},
+														"works_count": {
+															"type": "integer"
+														},
+														"year": {
+															"type": "integer"
+														}
+													},
+													"required": [
+														"year",
+														"cited_by_count"
+													],
+													"type": "object"
+												},
+												"type": "array"
+											},
+											"created_date": {
+												"type": "string"
+											},
+											"display_name": {
+												"type": "string"
+											},
+											"display_name_alternatives": {
+												"items": {
+													"type": "string"
+												},
+												"type": "array"
+											},
+											"id": {
+												"type": "string"
+											},
+											"ids": {
+												"properties": {
+													"openalex": {
+														"type": "string"
+													},
+													"orcid": {
+														"type": "string"
+													},
+													"scopus": {
+														"type": "string"
+													},
+													"wikipedia": {
+														"type": "string"
+													}
+												},
+												"required": [
+													"openalex"
+												],
+												"type": "object"
+											},
+											"last_known_institution": {
+												"properties": {
+													"country_code": {
+														"type": "string"
+													},
+													"display_name": {
+														"type": "string"
+													},
+													"id": {
+														"type": "string"
+													},
+													"lineage": {
+														"items": {
+															"type": "string"
+														},
+														"type": "array"
+													},
+													"ror": {
+														"type": "string"
+													},
+													"type": {
+														"type": "string"
+													}
+												},
+												"required": [
+													"id",
+													"ror",
+													"display_name",
+													"country_code",
+													"type",
+													"lineage"
+												],
+												"type": "object",
+												"nullable": true
+											},
+											"last_known_institutions": {
+												"items": {
+													"properties": {
+														"country_code": {
+															"type": "string"
+														},
+														"display_name": {
+															"type": "string"
+														},
+														"id": {
+															"type": "string"
+														},
+														"lineage": {
+															"items": {
+																"type": "string"
+															},
+															"type": "array"
+														},
+														"ror": {
+															"type": "string"
+														},
+														"type": {
+															"type": "string"
+														}
+													},
+													"required": [
+														"id",
+														"ror",
+														"display_name",
+														"country_code",
+														"type",
+														"lineage"
+													],
+													"type": "object",
+													"nullable": true
+												},
+												"type": "array"
+											},
+											"orcid": {
+												"type": "string",
+												"nullable": true
+											},
+											"summary_stats": {
+												"properties": {
+													"2yr_mean_citedness": {
+														"type": "number"
+													},
+													"h_index": {
+														"type": "integer"
+													},
+													"i10_index": {
+														"type": "integer"
+													}
+												},
+												"required": [
+													"2yr_mean_citedness",
+													"h_index",
+													"i10_index"
+												],
+												"type": "object"
+											},
+											"updated_date": {
+												"type": "string"
+											},
+											"works_api_url": {
+												"type": "string"
+											},
+											"works_count": {
+												"type": "integer"
+											},
+											"x_concepts": {
+												"items": {
+													"properties": {
+														"display_name": {
+															"type": "string"
+														},
+														"id": {
+															"type": "string"
+														},
+														"level": {
+															"type": "integer"
+														},
+														"score": {
+															"type": "number"
+														},
+														"wikidata": {
+															"type": "string"
+														}
+													},
+													"required": [
+														"id",
+														"wikidata",
+														"display_name",
+														"level",
+														"score"
+													],
+													"type": "object"
+												},
+												"type": "array"
+											}
+										},
+										"required": [
+											"id",
+											"display_name"
+										],
+										"type": "object"
+									},
+									"type": "array"
+								}
+							},
+							"required": [
+								"meta",
+								"group_by"
+							],
+							"type": "object"
+						}
+					}
+				},
+				"description": ""
+			},
 			"autocompleteGet200Response": {
 				"content": {
 					"application/json": {
@@ -994,7 +952,6 @@
 										},
 										"required": [
 											"year",
-											"works_count",
 											"cited_by_count"
 										],
 										"type": "object"
@@ -1044,10 +1001,12 @@
 									"type": "object"
 								},
 								"image_thumbnail_url": {
-									"type": "string"
+									"type": "string",
+									"nullable": true
 								},
 								"image_url": {
-									"type": "string"
+									"type": "string",
+									"nullable": true
 								},
 								"international": {
 									"properties": {
@@ -2781,13 +2740,49 @@
 				},
 				"description": ""
 			},
+			"root200GetResponses": {
+				"content": {
+					"application/json": {
+						"examples": {
+							"application/json": {
+								"value": {
+									"documentation_url": "https://openalex.org/rest-api",
+									"msg": "Don't panic",
+									"version": "0.0.1"
+								}
+							}
+						},
+						"schema": {
+							"properties": {
+								"documentation_url": {
+									"type": "string"
+								},
+								"msg": {
+									"type": "string"
+								},
+								"version": {
+									"type": "string"
+								}
+							},
+							"required": [
+								"msg",
+								"documentation_url",
+								"version"
+							],
+							"type": "object"
+						}
+					}
+				},
+				"description": ""
+			},
 			"workResp": {
 				"content": {
 					"application/json": {
 						"schema": {
 							"properties": {
 								"abstract_inverted_index": {
-									"type": "object"
+									"type": "object",
+									"nullable": true
 								},
 								"apc_list": {
 									"properties": {
@@ -2810,7 +2805,8 @@
 										"value_usd",
 										"provenance"
 									],
-									"type": "object"
+									"type": "object",
+									"nullable": true
 								},
 								"apc_paid": {
 									"properties": {
@@ -2833,7 +2829,8 @@
 										"value_usd",
 										"provenance"
 									],
-									"type": "object"
+									"type": "object",
+									"nullable": true
 								},
 								"authorships": {
 									"items": {
@@ -2847,13 +2844,13 @@
 														"type": "string"
 													},
 													"orcid": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													}
 												},
 												"required": [
 													"id",
-													"display_name",
-													"orcid"
+													"display_name"
 												],
 												"type": "object"
 											},
@@ -2948,10 +2945,12 @@
 											"type": "string"
 										},
 										"license": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										},
 										"pdf_url": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										},
 										"source": {
 											"properties": {
@@ -2959,7 +2958,8 @@
 													"type": "string"
 												},
 												"host_organization": {
-													"type": "string"
+													"type": "string",
+													"nullable": true
 												},
 												"host_organization_lineage": {
 													"items": {
@@ -2974,7 +2974,8 @@
 													"type": "array"
 												},
 												"host_organization_name": {
-													"type": "string"
+													"type": "string",
+													"nullable": true
 												},
 												"id": {
 													"type": "string"
@@ -2989,67 +2990,55 @@
 													"items": {
 														"type": "string"
 													},
-													"type": "array"
+													"type": "array",
+													"nullable": true
 												},
 												"issn_l": {
-													"type": "string"
+													"type": "string",
+													"nullable": true
 												},
 												"type": {
 													"type": "string"
 												}
 											},
-											"required": [
-												"id",
-												"display_name",
-												"issn_l",
-												"issn",
-												"is_oa",
-												"is_in_doaj",
-												"host_organization",
-												"host_organization_name",
-												"host_organization_lineage",
-												"host_organization_lineage_names",
-												"type"
-											],
-											"type": "object"
+											"type": "object",
+											"nullable": true
 										},
 										"version": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										}
 									},
 									"required": [
 										"is_oa",
 										"landing_page_url",
-										"pdf_url",
 										"source",
-										"license",
 										"version",
 										"is_accepted",
 										"is_published"
 									],
-									"type": "object"
+									"type": "object",
+									"nullable": true
 								},
 								"biblio": {
 									"properties": {
 										"first_page": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										},
 										"issue": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										},
 										"last_page": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										},
 										"volume": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										}
 									},
-									"required": [
-										"volume",
-										"issue",
-										"first_page",
-										"last_page"
-									],
 									"type": "object"
 								},
 								"cited_by_api_url": {
@@ -3133,7 +3122,6 @@
 										},
 										"required": [
 											"year",
-											"works_count",
 											"cited_by_count"
 										],
 										"type": "object"
@@ -3147,7 +3135,8 @@
 									"type": "string"
 								},
 								"doi": {
-									"type": "string"
+									"type": "string",
+									"nullable": true
 								},
 								"grants": {
 									"items": {
@@ -3191,7 +3180,6 @@
 									},
 									"required": [
 										"openalex",
-										"doi",
 										"mag"
 									],
 									"type": "object"
@@ -3242,10 +3230,12 @@
 												"type": "string"
 											},
 											"license": {
-												"type": "string"
+												"type": "string",
+												"nullable": true
 											},
 											"pdf_url": {
-												"type": "string"
+												"type": "string",
+												"nullable": true
 											},
 											"source": {
 												"properties": {
@@ -3253,7 +3243,8 @@
 														"type": "string"
 													},
 													"host_organization": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													},
 													"host_organization_lineage": {
 														"items": {
@@ -3268,7 +3259,8 @@
 														"type": "array"
 													},
 													"host_organization_name": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													},
 													"id": {
 														"type": "string"
@@ -3283,45 +3275,35 @@
 														"items": {
 															"type": "string"
 														},
-														"type": "array"
+														"type": "array",
+														"nullable": true
 													},
 													"issn_l": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													},
 													"type": {
 														"type": "string"
 													}
 												},
-												"required": [
-													"id",
-													"display_name",
-													"issn_l",
-													"issn",
-													"is_oa",
-													"is_in_doaj",
-													"host_organization",
-													"host_organization_name",
-													"host_organization_lineage",
-													"host_organization_lineage_names",
-													"type"
-												],
-												"type": "object"
+												"type": "object",
+												"nullable": true
 											},
 											"version": {
-												"type": "string"
+												"type": "string",
+												"nullable": true
 											}
 										},
 										"required": [
 											"is_oa",
 											"landing_page_url",
-											"pdf_url",
 											"source",
-											"license",
 											"version",
 											"is_accepted",
 											"is_published"
 										],
-										"type": "object"
+										"type": "object",
+										"nullable": true
 									},
 									"type": "array"
 								},
@@ -3373,7 +3355,8 @@
 											"type": "string"
 										},
 										"oa_url": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										}
 									},
 									"required": [
@@ -3399,10 +3382,12 @@
 											"type": "string"
 										},
 										"license": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										},
 										"pdf_url": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										},
 										"source": {
 											"properties": {
@@ -3410,7 +3395,8 @@
 													"type": "string"
 												},
 												"host_organization": {
-													"type": "string"
+													"type": "string",
+													"nullable": true
 												},
 												"host_organization_lineage": {
 													"items": {
@@ -3425,7 +3411,8 @@
 													"type": "array"
 												},
 												"host_organization_name": {
-													"type": "string"
+													"type": "string",
+													"nullable": true
 												},
 												"id": {
 													"type": "string"
@@ -3440,45 +3427,35 @@
 													"items": {
 														"type": "string"
 													},
-													"type": "array"
+													"type": "array",
+													"nullable": true
 												},
 												"issn_l": {
-													"type": "string"
+													"type": "string",
+													"nullable": true
 												},
 												"type": {
 													"type": "string"
 												}
 											},
-											"required": [
-												"id",
-												"display_name",
-												"issn_l",
-												"issn",
-												"is_oa",
-												"is_in_doaj",
-												"host_organization",
-												"host_organization_name",
-												"host_organization_lineage",
-												"host_organization_lineage_names",
-												"type"
-											],
-											"type": "object"
+											"type": "object",
+											"nullable": true
 										},
 										"version": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										}
 									},
 									"required": [
 										"is_oa",
 										"landing_page_url",
-										"pdf_url",
 										"source",
-										"license",
 										"version",
 										"is_accepted",
 										"is_published"
 									],
-									"type": "object"
+									"type": "object",
+									"nullable": true
 								},
 								"publication_date": {
 									"type": "string"
@@ -3604,7 +3581,8 @@
 									"items": {
 										"properties": {
 											"abstract_inverted_index": {
-												"type": "object"
+												"type": "object",
+												"nullable": true
 											},
 											"apc_list": {
 												"properties": {
@@ -3627,7 +3605,8 @@
 													"value_usd",
 													"provenance"
 												],
-												"type": "object"
+												"type": "object",
+												"nullable": true
 											},
 											"apc_paid": {
 												"properties": {
@@ -3650,7 +3629,8 @@
 													"value_usd",
 													"provenance"
 												],
-												"type": "object"
+												"type": "object",
+												"nullable": true
 											},
 											"authorships": {
 												"items": {
@@ -3664,13 +3644,13 @@
 																	"type": "string"
 																},
 																"orcid": {
-																	"type": "string"
+																	"type": "string",
+																	"nullable": true
 																}
 															},
 															"required": [
 																"id",
-																"display_name",
-																"orcid"
+																"display_name"
 															],
 															"type": "object"
 														},
@@ -3765,10 +3745,12 @@
 														"type": "string"
 													},
 													"license": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													},
 													"pdf_url": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													},
 													"source": {
 														"properties": {
@@ -3776,7 +3758,8 @@
 																"type": "string"
 															},
 															"host_organization": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															},
 															"host_organization_lineage": {
 																"items": {
@@ -3791,7 +3774,8 @@
 																"type": "array"
 															},
 															"host_organization_name": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															},
 															"id": {
 																"type": "string"
@@ -3806,67 +3790,55 @@
 																"items": {
 																	"type": "string"
 																},
-																"type": "array"
+																"type": "array",
+																"nullable": true
 															},
 															"issn_l": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															},
 															"type": {
 																"type": "string"
 															}
 														},
-														"required": [
-															"id",
-															"display_name",
-															"issn_l",
-															"issn",
-															"is_oa",
-															"is_in_doaj",
-															"host_organization",
-															"host_organization_name",
-															"host_organization_lineage",
-															"host_organization_lineage_names",
-															"type"
-														],
-														"type": "object"
+														"type": "object",
+														"nullable": true
 													},
 													"version": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													}
 												},
 												"required": [
 													"is_oa",
 													"landing_page_url",
-													"pdf_url",
 													"source",
-													"license",
 													"version",
 													"is_accepted",
 													"is_published"
 												],
-												"type": "object"
+												"type": "object",
+												"nullable": true
 											},
 											"biblio": {
 												"properties": {
 													"first_page": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													},
 													"issue": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													},
 													"last_page": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													},
 													"volume": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													}
 												},
-												"required": [
-													"volume",
-													"issue",
-													"first_page",
-													"last_page"
-												],
 												"type": "object"
 											},
 											"cited_by_api_url": {
@@ -3950,7 +3922,6 @@
 													},
 													"required": [
 														"year",
-														"works_count",
 														"cited_by_count"
 													],
 													"type": "object"
@@ -3964,7 +3935,8 @@
 												"type": "string"
 											},
 											"doi": {
-												"type": "string"
+												"type": "string",
+												"nullable": true
 											},
 											"grants": {
 												"items": {
@@ -4008,7 +3980,6 @@
 												},
 												"required": [
 													"openalex",
-													"doi",
 													"mag"
 												],
 												"type": "object"
@@ -4059,10 +4030,12 @@
 															"type": "string"
 														},
 														"license": {
-															"type": "string"
+															"type": "string",
+															"nullable": true
 														},
 														"pdf_url": {
-															"type": "string"
+															"type": "string",
+															"nullable": true
 														},
 														"source": {
 															"properties": {
@@ -4070,7 +4043,8 @@
 																	"type": "string"
 																},
 																"host_organization": {
-																	"type": "string"
+																	"type": "string",
+																	"nullable": true
 																},
 																"host_organization_lineage": {
 																	"items": {
@@ -4085,7 +4059,8 @@
 																	"type": "array"
 																},
 																"host_organization_name": {
-																	"type": "string"
+																	"type": "string",
+																	"nullable": true
 																},
 																"id": {
 																	"type": "string"
@@ -4100,45 +4075,35 @@
 																	"items": {
 																		"type": "string"
 																	},
-																	"type": "array"
+																	"type": "array",
+																	"nullable": true
 																},
 																"issn_l": {
-																	"type": "string"
+																	"type": "string",
+																	"nullable": true
 																},
 																"type": {
 																	"type": "string"
 																}
 															},
-															"required": [
-																"id",
-																"display_name",
-																"issn_l",
-																"issn",
-																"is_oa",
-																"is_in_doaj",
-																"host_organization",
-																"host_organization_name",
-																"host_organization_lineage",
-																"host_organization_lineage_names",
-																"type"
-															],
-															"type": "object"
+															"type": "object",
+															"nullable": true
 														},
 														"version": {
-															"type": "string"
+															"type": "string",
+															"nullable": true
 														}
 													},
 													"required": [
 														"is_oa",
 														"landing_page_url",
-														"pdf_url",
 														"source",
-														"license",
 														"version",
 														"is_accepted",
 														"is_published"
 													],
-													"type": "object"
+													"type": "object",
+													"nullable": true
 												},
 												"type": "array"
 											},
@@ -4190,7 +4155,8 @@
 														"type": "string"
 													},
 													"oa_url": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													}
 												},
 												"required": [
@@ -4216,10 +4182,12 @@
 														"type": "string"
 													},
 													"license": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													},
 													"pdf_url": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													},
 													"source": {
 														"properties": {
@@ -4227,7 +4195,8 @@
 																"type": "string"
 															},
 															"host_organization": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															},
 															"host_organization_lineage": {
 																"items": {
@@ -4242,7 +4211,8 @@
 																"type": "array"
 															},
 															"host_organization_name": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															},
 															"id": {
 																"type": "string"
@@ -4257,45 +4227,35 @@
 																"items": {
 																	"type": "string"
 																},
-																"type": "array"
+																"type": "array",
+																"nullable": true
 															},
 															"issn_l": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															},
 															"type": {
 																"type": "string"
 															}
 														},
-														"required": [
-															"id",
-															"display_name",
-															"issn_l",
-															"issn",
-															"is_oa",
-															"is_in_doaj",
-															"host_organization",
-															"host_organization_name",
-															"host_organization_lineage",
-															"host_organization_lineage_names",
-															"type"
-														],
-														"type": "object"
+														"type": "object",
+														"nullable": true
 													},
 													"version": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													}
 												},
 												"required": [
 													"is_oa",
 													"landing_page_url",
-													"pdf_url",
 													"source",
-													"license",
 													"version",
 													"is_accepted",
 													"is_published"
 												],
-												"type": "object"
+												"type": "object",
+												"nullable": true
 											},
 											"publication_date": {
 												"type": "string"
@@ -4409,7 +4369,8 @@
 								"type",
 								"lineage"
 							],
-							"type": "object"
+							"type": "object",
+							"nullable": true
 						},
 						"years": {
 							"items": {
@@ -4447,6 +4408,263 @@
 					"value_usd",
 					"provenance"
 				],
+				"type": "object",
+				"nullable": true
+			},
+			"author": {
+				"properties": {
+					"affiliations": {
+						"items": {
+							"properties": {
+								"institution": {
+									"properties": {
+										"country_code": {
+											"type": "string"
+										},
+										"display_name": {
+											"type": "string"
+										},
+										"id": {
+											"type": "string"
+										},
+										"lineage": {
+											"items": {
+												"type": "string"
+											},
+											"type": "array"
+										},
+										"ror": {
+											"type": "string"
+										},
+										"type": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"id",
+										"ror",
+										"display_name",
+										"country_code",
+										"type",
+										"lineage"
+									],
+									"type": "object",
+									"nullable": true
+								},
+								"years": {
+									"items": {
+										"type": "integer"
+									},
+									"type": "array"
+								}
+							},
+							"required": [
+								"institution",
+								"years"
+							],
+							"type": "object"
+						},
+						"type": "array"
+					},
+					"cited_by_count": {
+						"type": "integer"
+					},
+					"counts_by_year": {
+						"items": {
+							"properties": {
+								"cited_by_count": {
+									"type": "integer"
+								},
+								"works_count": {
+									"type": "integer"
+								},
+								"year": {
+									"type": "integer"
+								}
+							},
+							"required": [
+								"year",
+								"cited_by_count"
+							],
+							"type": "object"
+						},
+						"type": "array"
+					},
+					"created_date": {
+						"type": "string"
+					},
+					"display_name": {
+						"type": "string"
+					},
+					"display_name_alternatives": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"id": {
+						"type": "string"
+					},
+					"ids": {
+						"properties": {
+							"openalex": {
+								"type": "string"
+							},
+							"orcid": {
+								"type": "string"
+							},
+							"scopus": {
+								"type": "string"
+							},
+							"wikipedia": {
+								"type": "string"
+							}
+						},
+						"required": [
+							"openalex"
+						],
+						"type": "object"
+					},
+					"last_known_institution": {
+						"properties": {
+							"country_code": {
+								"type": "string"
+							},
+							"display_name": {
+								"type": "string"
+							},
+							"id": {
+								"type": "string"
+							},
+							"lineage": {
+								"items": {
+									"type": "string"
+								},
+								"type": "array"
+							},
+							"ror": {
+								"type": "string"
+							},
+							"type": {
+								"type": "string"
+							}
+						},
+						"required": [
+							"id",
+							"ror",
+							"display_name",
+							"country_code",
+							"type",
+							"lineage"
+						],
+						"type": "object",
+						"nullable": true
+					},
+					"last_known_institutions": {
+						"items": {
+							"properties": {
+								"country_code": {
+									"type": "string"
+								},
+								"display_name": {
+									"type": "string"
+								},
+								"id": {
+									"type": "string"
+								},
+								"lineage": {
+									"items": {
+										"type": "string"
+									},
+									"type": "array"
+								},
+								"ror": {
+									"type": "string"
+								},
+								"type": {
+									"type": "string"
+								}
+							},
+							"required": [
+								"id",
+								"ror",
+								"display_name",
+								"country_code",
+								"type",
+								"lineage"
+							],
+							"type": "object",
+							"nullable": true
+						},
+						"type": "array"
+					},
+					"orcid": {
+						"type": "string",
+						"nullable": true
+					},
+					"summary_stats": {
+						"properties": {
+							"2yr_mean_citedness": {
+								"type": "number"
+							},
+							"h_index": {
+								"type": "integer"
+							},
+							"i10_index": {
+								"type": "integer"
+							}
+						},
+						"required": [
+							"2yr_mean_citedness",
+							"h_index",
+							"i10_index"
+						],
+						"type": "object"
+					},
+					"updated_date": {
+						"type": "string"
+					},
+					"works_api_url": {
+						"type": "string"
+					},
+					"works_count": {
+						"type": "integer"
+					},
+					"x_concepts": {
+						"items": {
+							"properties": {
+								"display_name": {
+									"type": "string"
+								},
+								"id": {
+									"type": "string"
+								},
+								"level": {
+									"type": "integer"
+								},
+								"score": {
+									"type": "number"
+								},
+								"wikidata": {
+									"type": "string"
+								}
+							},
+							"required": [
+								"id",
+								"wikidata",
+								"display_name",
+								"level",
+								"score"
+							],
+							"type": "object"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"id",
+					"display_name"
+				],
 				"type": "object"
 			},
 			"authorships": {
@@ -4461,13 +4679,13 @@
 									"type": "string"
 								},
 								"orcid": {
-									"type": "string"
+									"type": "string",
+									"nullable": true
 								}
 							},
 							"required": [
 								"id",
-								"display_name",
-								"orcid"
+								"display_name"
 							],
 							"type": "object"
 						},
@@ -4699,7 +4917,6 @@
 							},
 							"required": [
 								"year",
-								"works_count",
 								"cited_by_count"
 							],
 							"type": "object"
@@ -4749,10 +4966,12 @@
 						"type": "object"
 					},
 					"image_thumbnail_url": {
-						"type": "string"
+						"type": "string",
+						"nullable": true
 					},
 					"image_url": {
-						"type": "string"
+						"type": "string",
+						"nullable": true
 					},
 					"international": {
 						"properties": {
@@ -6499,7 +6718,6 @@
 					},
 					"required": [
 						"year",
-						"works_count",
 						"cited_by_count"
 					],
 					"type": "object"
@@ -6518,6 +6736,150 @@
 				"required": [
 					"error",
 					"message"
+				],
+				"type": "object"
+			},
+			"funderSchema": {
+				"properties": {
+					"alternate_titles": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"cited_by_count": {
+						"type": "integer"
+					},
+					"country_code": {
+						"type": "string"
+					},
+					"counts_by_year": {
+						"items": {
+							"properties": {
+								"cited_by_count": {
+									"type": "integer"
+								},
+								"works_count": {
+									"type": "integer"
+								},
+								"year": {
+									"type": "integer"
+								}
+							},
+							"required": [
+								"year",
+								"cited_by_count"
+							],
+							"type": "object"
+						},
+						"type": "array"
+					},
+					"created_date": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"display_name": {
+						"type": "string"
+					},
+					"grants_count": {
+						"type": "integer"
+					},
+					"homepage_url": {
+						"type": "string"
+					},
+					"id": {
+						"type": "string"
+					},
+					"ids": {
+						"properties": {
+							"crossref": {
+								"type": "string"
+							},
+							"doi": {
+								"type": "string"
+							},
+							"openalex": {
+								"type": "string"
+							},
+							"ror": {
+								"type": "string"
+							},
+							"wikidata": {
+								"type": "string"
+							}
+						},
+						"required": [
+							"openalex",
+							"crossref",
+							"doi"
+						],
+						"type": "object"
+					},
+					"image_thumbnail_url": {
+						"type": "string",
+						"nullable": true
+					},
+					"image_url": {
+						"type": "string",
+						"nullable": true
+					},
+					"relevance_score": {
+						"type": "number"
+					},
+					"roles": {
+						"items": {
+							"properties": {
+								"id": {
+									"type": "string"
+								},
+								"role": {
+									"type": "string"
+								},
+								"works_count": {
+									"type": "integer"
+								}
+							},
+							"required": [
+								"role",
+								"id",
+								"works_count"
+							],
+							"type": "object"
+						},
+						"type": "array"
+					},
+					"summary_stats": {
+						"properties": {
+							"2yr_mean_citedness": {
+								"type": "number"
+							},
+							"h_index": {
+								"type": "integer"
+							},
+							"i10_index": {
+								"type": "integer"
+							}
+						},
+						"required": [
+							"2yr_mean_citedness",
+							"h_index",
+							"i10_index"
+						],
+						"type": "object"
+					},
+					"updated_date": {
+						"type": "string"
+					},
+					"works_count": {
+						"type": "integer"
+					}
+				},
+				"required": [
+					"id",
+					"display_name",
+					"alternate_titles"
 				],
 				"type": "object"
 			},
@@ -6555,28 +6917,6 @@
 					"longitude"
 				],
 				"type": "object"
-			},
-			"group_by": {
-				"items": {
-					"properties": {
-						"count": {
-							"type": "integer"
-						},
-						"key": {
-							"type": "string"
-						},
-						"key_display_name": {
-							"type": "string"
-						}
-					},
-					"required": [
-						"key",
-						"key_display_name",
-						"count"
-					],
-					"type": "object"
-				},
-				"type": "array"
 			},
 			"group_by_result": {
 				"items": {
@@ -6632,7 +6972,8 @@
 					"type",
 					"lineage"
 				],
-				"type": "object"
+				"type": "object",
+				"nullable": true
 			},
 			"institutionsArray": {
 				"items": {
@@ -6667,7 +7008,8 @@
 						"type",
 						"lineage"
 					],
-					"type": "object"
+					"type": "object",
+					"nullable": true
 				},
 				"type": "array"
 			},
@@ -10727,10 +11069,12 @@
 						"type": "string"
 					},
 					"license": {
-						"type": "string"
+						"type": "string",
+						"nullable": true
 					},
 					"pdf_url": {
-						"type": "string"
+						"type": "string",
+						"nullable": true
 					},
 					"source": {
 						"properties": {
@@ -10738,7 +11082,8 @@
 								"type": "string"
 							},
 							"host_organization": {
-								"type": "string"
+								"type": "string",
+								"nullable": true
 							},
 							"host_organization_lineage": {
 								"items": {
@@ -10753,7 +11098,8 @@
 								"type": "array"
 							},
 							"host_organization_name": {
-								"type": "string"
+								"type": "string",
+								"nullable": true
 							},
 							"id": {
 								"type": "string"
@@ -10768,45 +11114,35 @@
 								"items": {
 									"type": "string"
 								},
-								"type": "array"
+								"type": "array",
+								"nullable": true
 							},
 							"issn_l": {
-								"type": "string"
+								"type": "string",
+								"nullable": true
 							},
 							"type": {
 								"type": "string"
 							}
 						},
-						"required": [
-							"id",
-							"display_name",
-							"issn_l",
-							"issn",
-							"is_oa",
-							"is_in_doaj",
-							"host_organization",
-							"host_organization_name",
-							"host_organization_lineage",
-							"host_organization_lineage_names",
-							"type"
-						],
-						"type": "object"
+						"type": "object",
+						"nullable": true
 					},
 					"version": {
-						"type": "string"
+						"type": "string",
+						"nullable": true
 					}
 				},
 				"required": [
 					"is_oa",
 					"landing_page_url",
-					"pdf_url",
 					"source",
-					"license",
 					"version",
 					"is_accepted",
 					"is_published"
 				],
-				"type": "object"
+				"type": "object",
+				"nullable": true
 			},
 			"mailToSchema": {
 				"pattern": ".*mailto:w+@[a-zA-Z_]+?.[a-zA-Z]{2,4}.*",
@@ -10880,6 +11216,151 @@
 				"required": [
 					"count",
 					"openalex_id"
+				],
+				"type": "object"
+			},
+			"publisherSchema": {
+				"properties": {
+					"alternate_titles": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"cited_by_count": {
+						"type": "integer"
+					},
+					"country_codes": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"counts_by_year": {
+						"items": {
+							"properties": {
+								"cited_by_count": {
+									"type": "integer"
+								},
+								"works_count": {
+									"type": "integer"
+								},
+								"year": {
+									"type": "integer"
+								}
+							},
+							"required": [
+								"year",
+								"cited_by_count"
+							],
+							"type": "object"
+						},
+						"type": "array"
+					},
+					"created_date": {
+						"type": "string"
+					},
+					"display_name": {
+						"type": "string"
+					},
+					"hierarchy_level": {
+						"type": "integer"
+					},
+					"homepage_url": {
+						"type": "string"
+					},
+					"id": {
+						"type": "string"
+					},
+					"ids": {
+						"properties": {
+							"openalex": {
+								"type": "string"
+							},
+							"ror": {
+								"type": "string"
+							},
+							"wikidata": {
+								"type": "string"
+							}
+						},
+						"required": [
+							"openalex",
+							"ror",
+							"wikidata"
+						],
+						"type": "object"
+					},
+					"image_thumbnail_url": {
+						"type": "string"
+					},
+					"image_url": {
+						"type": "string"
+					},
+					"lineage": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"parent_publisher": {
+						"type": "string",
+						"nullable": true
+					},
+					"roles": {
+						"items": {
+							"properties": {
+								"id": {
+									"type": "string"
+								},
+								"role": {
+									"type": "string"
+								},
+								"works_count": {
+									"type": "integer"
+								}
+							},
+							"required": [
+								"role",
+								"id",
+								"works_count"
+							],
+							"type": "object"
+						},
+						"type": "array"
+					},
+					"sources_api_url": {
+						"type": "string"
+					},
+					"summary_stats": {
+						"properties": {
+							"2yr_mean_citedness": {
+								"type": "number"
+							},
+							"h_index": {
+								"type": "integer"
+							},
+							"i10_index": {
+								"type": "integer"
+							}
+						},
+						"required": [
+							"2yr_mean_citedness",
+							"h_index",
+							"i10_index"
+						],
+						"type": "object"
+					},
+					"updated_date": {
+						"type": "string"
+					},
+					"works_count": {
+						"type": "integer"
+					}
+				},
+				"required": [
+					"id",
+					"display_name"
 				],
 				"type": "object"
 			},
@@ -10993,7 +11474,8 @@
 			"workSchema": {
 				"properties": {
 					"abstract_inverted_index": {
-						"type": "object"
+						"type": "object",
+						"nullable": true
 					},
 					"apc_list": {
 						"properties": {
@@ -11016,7 +11498,8 @@
 							"value_usd",
 							"provenance"
 						],
-						"type": "object"
+						"type": "object",
+						"nullable": true
 					},
 					"apc_paid": {
 						"properties": {
@@ -11039,7 +11522,8 @@
 							"value_usd",
 							"provenance"
 						],
-						"type": "object"
+						"type": "object",
+						"nullable": true
 					},
 					"authorships": {
 						"items": {
@@ -11053,13 +11537,13 @@
 											"type": "string"
 										},
 										"orcid": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										}
 									},
 									"required": [
 										"id",
-										"display_name",
-										"orcid"
+										"display_name"
 									],
 									"type": "object"
 								},
@@ -11154,10 +11638,12 @@
 								"type": "string"
 							},
 							"license": {
-								"type": "string"
+								"type": "string",
+								"nullable": true
 							},
 							"pdf_url": {
-								"type": "string"
+								"type": "string",
+								"nullable": true
 							},
 							"source": {
 								"properties": {
@@ -11165,7 +11651,8 @@
 										"type": "string"
 									},
 									"host_organization": {
-										"type": "string"
+										"type": "string",
+										"nullable": true
 									},
 									"host_organization_lineage": {
 										"items": {
@@ -11180,7 +11667,8 @@
 										"type": "array"
 									},
 									"host_organization_name": {
-										"type": "string"
+										"type": "string",
+										"nullable": true
 									},
 									"id": {
 										"type": "string"
@@ -11195,67 +11683,55 @@
 										"items": {
 											"type": "string"
 										},
-										"type": "array"
+										"type": "array",
+										"nullable": true
 									},
 									"issn_l": {
-										"type": "string"
+										"type": "string",
+										"nullable": true
 									},
 									"type": {
 										"type": "string"
 									}
 								},
-								"required": [
-									"id",
-									"display_name",
-									"issn_l",
-									"issn",
-									"is_oa",
-									"is_in_doaj",
-									"host_organization",
-									"host_organization_name",
-									"host_organization_lineage",
-									"host_organization_lineage_names",
-									"type"
-								],
-								"type": "object"
+								"type": "object",
+								"nullable": true
 							},
 							"version": {
-								"type": "string"
+								"type": "string",
+								"nullable": true
 							}
 						},
 						"required": [
 							"is_oa",
 							"landing_page_url",
-							"pdf_url",
 							"source",
-							"license",
 							"version",
 							"is_accepted",
 							"is_published"
 						],
-						"type": "object"
+						"type": "object",
+						"nullable": true
 					},
 					"biblio": {
 						"properties": {
 							"first_page": {
-								"type": "string"
+								"type": "string",
+								"nullable": true
 							},
 							"issue": {
-								"type": "string"
+								"type": "string",
+								"nullable": true
 							},
 							"last_page": {
-								"type": "string"
+								"type": "string",
+								"nullable": true
 							},
 							"volume": {
-								"type": "string"
+								"type": "string",
+								"nullable": true
 							}
 						},
-						"required": [
-							"volume",
-							"issue",
-							"first_page",
-							"last_page"
-						],
 						"type": "object"
 					},
 					"cited_by_api_url": {
@@ -11339,7 +11815,6 @@
 							},
 							"required": [
 								"year",
-								"works_count",
 								"cited_by_count"
 							],
 							"type": "object"
@@ -11353,7 +11828,8 @@
 						"type": "string"
 					},
 					"doi": {
-						"type": "string"
+						"type": "string",
+						"nullable": true
 					},
 					"grants": {
 						"items": {
@@ -11397,7 +11873,6 @@
 						},
 						"required": [
 							"openalex",
-							"doi",
 							"mag"
 						],
 						"type": "object"
@@ -11448,10 +11923,12 @@
 									"type": "string"
 								},
 								"license": {
-									"type": "string"
+									"type": "string",
+									"nullable": true
 								},
 								"pdf_url": {
-									"type": "string"
+									"type": "string",
+									"nullable": true
 								},
 								"source": {
 									"properties": {
@@ -11459,7 +11936,8 @@
 											"type": "string"
 										},
 										"host_organization": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										},
 										"host_organization_lineage": {
 											"items": {
@@ -11474,7 +11952,8 @@
 											"type": "array"
 										},
 										"host_organization_name": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										},
 										"id": {
 											"type": "string"
@@ -11489,45 +11968,35 @@
 											"items": {
 												"type": "string"
 											},
-											"type": "array"
+											"type": "array",
+											"nullable": true
 										},
 										"issn_l": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										},
 										"type": {
 											"type": "string"
 										}
 									},
-									"required": [
-										"id",
-										"display_name",
-										"issn_l",
-										"issn",
-										"is_oa",
-										"is_in_doaj",
-										"host_organization",
-										"host_organization_name",
-										"host_organization_lineage",
-										"host_organization_lineage_names",
-										"type"
-									],
-									"type": "object"
+									"type": "object",
+									"nullable": true
 								},
 								"version": {
-									"type": "string"
+									"type": "string",
+									"nullable": true
 								}
 							},
 							"required": [
 								"is_oa",
 								"landing_page_url",
-								"pdf_url",
 								"source",
-								"license",
 								"version",
 								"is_accepted",
 								"is_published"
 							],
-							"type": "object"
+							"type": "object",
+							"nullable": true
 						},
 						"type": "array"
 					},
@@ -11579,7 +12048,8 @@
 								"type": "string"
 							},
 							"oa_url": {
-								"type": "string"
+								"type": "string",
+								"nullable": true
 							}
 						},
 						"required": [
@@ -11605,10 +12075,12 @@
 								"type": "string"
 							},
 							"license": {
-								"type": "string"
+								"type": "string",
+								"nullable": true
 							},
 							"pdf_url": {
-								"type": "string"
+								"type": "string",
+								"nullable": true
 							},
 							"source": {
 								"properties": {
@@ -11616,7 +12088,8 @@
 										"type": "string"
 									},
 									"host_organization": {
-										"type": "string"
+										"type": "string",
+										"nullable": true
 									},
 									"host_organization_lineage": {
 										"items": {
@@ -11631,7 +12104,8 @@
 										"type": "array"
 									},
 									"host_organization_name": {
-										"type": "string"
+										"type": "string",
+										"nullable": true
 									},
 									"id": {
 										"type": "string"
@@ -11646,45 +12120,35 @@
 										"items": {
 											"type": "string"
 										},
-										"type": "array"
+										"type": "array",
+										"nullable": true
 									},
 									"issn_l": {
-										"type": "string"
+										"type": "string",
+										"nullable": true
 									},
 									"type": {
 										"type": "string"
 									}
 								},
-								"required": [
-									"id",
-									"display_name",
-									"issn_l",
-									"issn",
-									"is_oa",
-									"is_in_doaj",
-									"host_organization",
-									"host_organization_name",
-									"host_organization_lineage",
-									"host_organization_lineage_names",
-									"type"
-								],
-								"type": "object"
+								"type": "object",
+								"nullable": true
 							},
 							"version": {
-								"type": "string"
+								"type": "string",
+								"nullable": true
 							}
 						},
 						"required": [
 							"is_oa",
 							"landing_page_url",
-							"pdf_url",
 							"source",
-							"license",
 							"version",
 							"is_accepted",
 							"is_published"
 						],
-						"type": "object"
+						"type": "object",
+						"nullable": true
 					},
 					"publication_date": {
 						"type": "string"
@@ -11760,11 +12224,10 @@
 			"name": "CC0",
 			"url": "https://creativecommons.org/publicdomain/zero/1.0/"
 		},
-		"summary": "OpenAlex API",
 		"title": "OpenAlex",
 		"version": "1.0.0"
 	},
-	"openapi": "3.1.0",
+	"openapi": "3.0.3",
 	"paths": {
 		"/": {
 			"get": {
@@ -11907,7 +12370,7 @@
 							}
 						},
 						"in": "query",
-						"name": "per-page",
+						"name": "per_page",
 						"required": false,
 						"schema": {
 							"type": "integer"
@@ -12067,7 +12530,8 @@
 																		"type",
 																		"lineage"
 																	],
-																	"type": "object"
+																	"type": "object",
+																	"nullable": true
 																},
 																"years": {
 																	"items": {
@@ -12102,7 +12566,6 @@
 															},
 															"required": [
 																"year",
-																"works_count",
 																"cited_by_count"
 															],
 															"type": "object"
@@ -12176,7 +12639,8 @@
 															"type",
 															"lineage"
 														],
-														"type": "object"
+														"type": "object",
+														"nullable": true
 													},
 													"last_known_institutions": {
 														"items": {
@@ -12211,15 +12675,14 @@
 																"type",
 																"lineage"
 															],
-															"type": "object"
+															"type": "object",
+															"nullable": true
 														},
 														"type": "array"
 													},
 													"orcid": {
-														"type": "string"
-													},
-													"relevance_score": {
-														"type": "number"
+														"type": "string",
+														"nullable": true
 													},
 													"summary_stats": {
 														"properties": {
@@ -12282,7 +12745,6 @@
 												},
 												"required": [
 													"id",
-													"orcid",
 													"display_name"
 												],
 												"type": "object"
@@ -12339,6 +12801,343 @@
 				]
 			}
 		},
+		"/authors/random": {
+			"get": {
+				"description": "Get a single author by id",
+				"operationId": "getRandomAuthor",
+				"parameters": [
+					{
+						"in": "query",
+						"name": "select",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "[docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)",
+						"in": "header",
+						"name": "User-Agent",
+						"required": false,
+						"schema": {
+							"pattern": ".*mailto:w+@[a-zA-Z_]+?.[a-zA-Z]{2,4}.*",
+							"type": "string"
+						}
+					},
+					{
+						"description": "The API is the primary way to get OpenAlex data. It's free and requires no authentication.\nThe daily limit for API calls is 100,000 requests per user per day.\nFor best performance, add your email to all API requests\nThe email can be either in the query string, like `mailto:example@domain.com`, or in the User-Agent request header, like `User-Agent: my-app (mailto:example@domain.com)`.\nRead more about the polite pool at [docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool).",
+						"in": "query",
+						"name": "mailto",
+						"required": false,
+						"schema": {
+							"pattern": ".*mailto:w+@[a-zA-Z_]+?.[a-zA-Z]{2,4}.*",
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"affiliations": {
+											"items": {
+												"properties": {
+													"institution": {
+														"properties": {
+															"country_code": {
+																"type": "string"
+															},
+															"display_name": {
+																"type": "string"
+															},
+															"id": {
+																"type": "string"
+															},
+															"lineage": {
+																"items": {
+																	"type": "string"
+																},
+																"type": "array"
+															},
+															"ror": {
+																"type": "string"
+															},
+															"type": {
+																"type": "string"
+															}
+														},
+														"required": [
+															"id",
+															"ror",
+															"display_name",
+															"country_code",
+															"type",
+															"lineage"
+														],
+														"type": "object",
+														"nullable": true
+													},
+													"years": {
+														"items": {
+															"type": "integer"
+														},
+														"type": "array"
+													}
+												},
+												"required": [
+													"institution",
+													"years"
+												],
+												"type": "object"
+											},
+											"type": "array"
+										},
+										"cited_by_count": {
+											"type": "integer"
+										},
+										"counts_by_year": {
+											"items": {
+												"properties": {
+													"cited_by_count": {
+														"type": "integer"
+													},
+													"works_count": {
+														"type": "integer"
+													},
+													"year": {
+														"type": "integer"
+													}
+												},
+												"required": [
+													"year",
+													"cited_by_count"
+												],
+												"type": "object"
+											},
+											"type": "array"
+										},
+										"created_date": {
+											"type": "string"
+										},
+										"display_name": {
+											"type": "string"
+										},
+										"display_name_alternatives": {
+											"items": {
+												"type": "string"
+											},
+											"type": "array"
+										},
+										"id": {
+											"type": "string"
+										},
+										"ids": {
+											"properties": {
+												"openalex": {
+													"type": "string"
+												},
+												"orcid": {
+													"type": "string"
+												},
+												"scopus": {
+													"type": "string"
+												},
+												"wikipedia": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"openalex"
+											],
+											"type": "object"
+										},
+										"last_known_institution": {
+											"properties": {
+												"country_code": {
+													"type": "string"
+												},
+												"display_name": {
+													"type": "string"
+												},
+												"id": {
+													"type": "string"
+												},
+												"lineage": {
+													"items": {
+														"type": "string"
+													},
+													"type": "array"
+												},
+												"ror": {
+													"type": "string"
+												},
+												"type": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"id",
+												"ror",
+												"display_name",
+												"country_code",
+												"type",
+												"lineage"
+											],
+											"type": "object",
+											"nullable": true
+										},
+										"last_known_institutions": {
+											"items": {
+												"properties": {
+													"country_code": {
+														"type": "string"
+													},
+													"display_name": {
+														"type": "string"
+													},
+													"id": {
+														"type": "string"
+													},
+													"lineage": {
+														"items": {
+															"type": "string"
+														},
+														"type": "array"
+													},
+													"ror": {
+														"type": "string"
+													},
+													"type": {
+														"type": "string"
+													}
+												},
+												"required": [
+													"id",
+													"ror",
+													"display_name",
+													"country_code",
+													"type",
+													"lineage"
+												],
+												"type": "object",
+												"nullable": true
+											},
+											"type": "array"
+										},
+										"orcid": {
+											"type": "string",
+											"nullable": true
+										},
+										"summary_stats": {
+											"properties": {
+												"2yr_mean_citedness": {
+													"type": "number"
+												},
+												"h_index": {
+													"type": "integer"
+												},
+												"i10_index": {
+													"type": "integer"
+												}
+											},
+											"required": [
+												"2yr_mean_citedness",
+												"h_index",
+												"i10_index"
+											],
+											"type": "object"
+										},
+										"updated_date": {
+											"type": "string"
+										},
+										"works_api_url": {
+											"type": "string"
+										},
+										"works_count": {
+											"type": "integer"
+										},
+										"x_concepts": {
+											"items": {
+												"properties": {
+													"display_name": {
+														"type": "string"
+													},
+													"id": {
+														"type": "string"
+													},
+													"level": {
+														"type": "integer"
+													},
+													"score": {
+														"type": "number"
+													},
+													"wikidata": {
+														"type": "string"
+													}
+												},
+												"required": [
+													"id",
+													"wikidata",
+													"display_name",
+													"level",
+													"score"
+												],
+												"type": "object"
+											},
+											"type": "array"
+										}
+									},
+									"required": [
+										"id",
+										"display_name"
+									],
+									"type": "object"
+								}
+							}
+						},
+						"description": ""
+					},
+					"403": {
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"error": {
+											"type": "string"
+										},
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"error",
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						},
+						"description": ""
+					},
+					"default": {
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "string"
+								}
+							}
+						},
+						"description": ""
+					}
+				},
+				"summary": "Get Random Author",
+				"tags": [
+					"authors"
+				]
+			}
+		},
 		"/authors/{id}": {
 			"get": {
 				"description": "Get a single author by id",
@@ -12349,6 +13148,7 @@
 						"name": "id",
 						"required": true,
 						"schema": {
+							"pattern": "^A[0-9]+$",
 							"type": "string"
 						}
 					},
@@ -12422,7 +13222,8 @@
 															"type",
 															"lineage"
 														],
-														"type": "object"
+														"type": "object",
+														"nullable": true
 													},
 													"years": {
 														"items": {
@@ -12457,7 +13258,6 @@
 												},
 												"required": [
 													"year",
-													"works_count",
 													"cited_by_count"
 												],
 												"type": "object"
@@ -12485,6 +13285,12 @@
 													"type": "string"
 												},
 												"orcid": {
+													"type": "string"
+												},
+												"scopus": {
+													"type": "string"
+												},
+												"wikipedia": {
 													"type": "string"
 												}
 											},
@@ -12525,7 +13331,8 @@
 												"type",
 												"lineage"
 											],
-											"type": "object"
+											"type": "object",
+											"nullable": true
 										},
 										"last_known_institutions": {
 											"items": {
@@ -12560,12 +13367,14 @@
 													"type",
 													"lineage"
 												],
-												"type": "object"
+												"type": "object",
+												"nullable": true
 											},
 											"type": "array"
 										},
 										"orcid": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										},
 										"summary_stats": {
 											"properties": {
@@ -12634,15 +13443,7 @@
 								}
 							}
 						},
-						"description": "Successful response",
-						"links": {
-							"getInstitution": {
-								"operationId": "getInstitution",
-								"parameters": {
-									"id": "$response.body#/last_known_institution/id"
-								}
-							}
-						}
+						"description": ""
 					},
 					"403": {
 						"content": {
@@ -14014,7 +14815,7 @@
 							}
 						},
 						"in": "query",
-						"name": "per-page",
+						"name": "per_page",
 						"required": false,
 						"schema": {
 							"type": "integer"
@@ -14183,7 +14984,6 @@
 															},
 															"required": [
 																"year",
-																"works_count",
 																"cited_by_count"
 															],
 															"type": "object"
@@ -16091,7 +16891,6 @@
 												},
 												"required": [
 													"year",
-													"works_count",
 													"cited_by_count"
 												],
 												"type": "object"
@@ -16141,10 +16940,12 @@
 											"type": "object"
 										},
 										"image_thumbnail_url": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										},
 										"image_url": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										},
 										"international": {
 											"properties": {
@@ -17921,7 +18722,7 @@
 							}
 						},
 						"in": "query",
-						"name": "per-page",
+						"name": "per_page",
 						"required": false,
 						"schema": {
 							"type": "integer"
@@ -18073,7 +18874,6 @@
 															},
 															"required": [
 																"year",
-																"works_count",
 																"cited_by_count"
 															],
 															"type": "object"
@@ -18124,10 +18924,12 @@
 														"type": "object"
 													},
 													"image_thumbnail_url": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													},
 													"image_url": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													},
 													"relevance_score": {
 														"type": "number"
@@ -18314,7 +19116,6 @@
 												},
 												"required": [
 													"year",
-													"works_count",
 													"cited_by_count"
 												],
 												"type": "object"
@@ -18359,18 +19160,21 @@
 											},
 											"required": [
 												"openalex",
-												"ror",
-												"wikidata",
 												"crossref",
 												"doi"
 											],
 											"type": "object"
 										},
 										"image_thumbnail_url": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										},
 										"image_url": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
+										},
+										"relevance_score": {
+											"type": "number"
 										},
 										"roles": {
 											"items": {
@@ -18422,7 +19226,8 @@
 									},
 									"required": [
 										"id",
-										"display_name"
+										"display_name",
+										"alternate_titles"
 									],
 									"type": "object"
 								}
@@ -18505,7 +19310,7 @@
 							}
 						},
 						"in": "query",
-						"name": "per-page",
+						"name": "per_page",
 						"required": false,
 						"schema": {
 							"type": "integer"
@@ -18663,7 +19468,8 @@
 																"type",
 																"lineage"
 															],
-															"type": "object"
+															"type": "object",
+															"nullable": true
 														},
 														"type": "array"
 													},
@@ -18688,7 +19494,6 @@
 															},
 															"required": [
 																"year",
-																"works_count",
 																"cited_by_count"
 															],
 															"type": "object"
@@ -19865,7 +20670,8 @@
 													"type",
 													"lineage"
 												],
-												"type": "object"
+												"type": "object",
+												"nullable": true
 											},
 											"type": "array"
 										},
@@ -19890,7 +20696,6 @@
 												},
 												"required": [
 													"year",
-													"works_count",
 													"cited_by_count"
 												],
 												"type": "object"
@@ -21120,7 +21925,7 @@
 							}
 						},
 						"in": "query",
-						"name": "per-page",
+						"name": "per_page",
 						"required": false,
 						"schema": {
 							"type": "integer"
@@ -21275,7 +22080,6 @@
 															},
 															"required": [
 																"year",
-																"works_count",
 																"cited_by_count"
 															],
 															"type": "object"
@@ -21311,6 +22115,7 @@
 														},
 														"required": [
 															"openalex",
+															"ror",
 															"wikidata"
 														],
 														"type": "object"
@@ -21328,29 +22133,8 @@
 														"type": "array"
 													},
 													"parent_publisher": {
-														"anyOf": [
-															{
-																"type": "string"
-															},
-															{
-																"properties": {
-																	"display_name": {
-																		"type": "string"
-																	},
-																	"id": {
-																		"type": "string"
-																	}
-																},
-																"required": [
-																	"id",
-																	"display_name"
-																],
-																"type": "object"
-															}
-														]
-													},
-													"relevance_score": {
-														"type": "number"
+														"type": "string",
+														"nullable": true
 													},
 													"roles": {
 														"items": {
@@ -21405,24 +22189,7 @@
 												},
 												"required": [
 													"id",
-													"display_name",
-													"alternate_titles",
-													"hierarchy_level",
-													"parent_publisher",
-													"lineage",
-													"country_codes",
-													"homepage_url",
-													"image_url",
-													"image_thumbnail_url",
-													"works_count",
-													"cited_by_count",
-													"summary_stats",
-													"ids",
-													"counts_by_year",
-													"roles",
-													"sources_api_url",
-													"updated_date",
-													"created_date"
+													"display_name"
 												],
 												"type": "object"
 											},
@@ -21557,7 +22324,6 @@
 												},
 												"required": [
 													"year",
-													"works_count",
 													"cited_by_count"
 												],
 												"type": "object"
@@ -21611,7 +22377,8 @@
 											"type": "array"
 										},
 										"parent_publisher": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										},
 										"roles": {
 											"items": {
@@ -22532,7 +23299,7 @@
 							}
 						},
 						"in": "query",
-						"name": "per-page",
+						"name": "per_page",
 						"required": false,
 						"schema": {
 							"type": "integer"
@@ -22626,7 +23393,8 @@
 											"items": {
 												"properties": {
 													"abstract_inverted_index": {
-														"type": "object"
+														"type": "object",
+														"nullable": true
 													},
 													"apc_list": {
 														"properties": {
@@ -22649,7 +23417,8 @@
 															"value_usd",
 															"provenance"
 														],
-														"type": "object"
+														"type": "object",
+														"nullable": true
 													},
 													"apc_paid": {
 														"properties": {
@@ -22672,7 +23441,8 @@
 															"value_usd",
 															"provenance"
 														],
-														"type": "object"
+														"type": "object",
+														"nullable": true
 													},
 													"authorships": {
 														"items": {
@@ -22686,13 +23456,13 @@
 																			"type": "string"
 																		},
 																		"orcid": {
-																			"type": "string"
+																			"type": "string",
+																			"nullable": true
 																		}
 																	},
 																	"required": [
 																		"id",
-																		"display_name",
-																		"orcid"
+																		"display_name"
 																	],
 																	"type": "object"
 																},
@@ -22787,10 +23557,12 @@
 																"type": "string"
 															},
 															"license": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															},
 															"pdf_url": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															},
 															"source": {
 																"properties": {
@@ -22798,7 +23570,8 @@
 																		"type": "string"
 																	},
 																	"host_organization": {
-																		"type": "string"
+																		"type": "string",
+																		"nullable": true
 																	},
 																	"host_organization_lineage": {
 																		"items": {
@@ -22813,7 +23586,8 @@
 																		"type": "array"
 																	},
 																	"host_organization_name": {
-																		"type": "string"
+																		"type": "string",
+																		"nullable": true
 																	},
 																	"id": {
 																		"type": "string"
@@ -22828,67 +23602,55 @@
 																		"items": {
 																			"type": "string"
 																		},
-																		"type": "array"
+																		"type": "array",
+																		"nullable": true
 																	},
 																	"issn_l": {
-																		"type": "string"
+																		"type": "string",
+																		"nullable": true
 																	},
 																	"type": {
 																		"type": "string"
 																	}
 																},
-																"required": [
-																	"id",
-																	"display_name",
-																	"issn_l",
-																	"issn",
-																	"is_oa",
-																	"is_in_doaj",
-																	"host_organization",
-																	"host_organization_name",
-																	"host_organization_lineage",
-																	"host_organization_lineage_names",
-																	"type"
-																],
-																"type": "object"
+																"type": "object",
+																"nullable": true
 															},
 															"version": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															}
 														},
 														"required": [
 															"is_oa",
 															"landing_page_url",
-															"pdf_url",
 															"source",
-															"license",
 															"version",
 															"is_accepted",
 															"is_published"
 														],
-														"type": "object"
+														"type": "object",
+														"nullable": true
 													},
 													"biblio": {
 														"properties": {
 															"first_page": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															},
 															"issue": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															},
 															"last_page": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															},
 															"volume": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															}
 														},
-														"required": [
-															"volume",
-															"issue",
-															"first_page",
-															"last_page"
-														],
 														"type": "object"
 													},
 													"cited_by_api_url": {
@@ -22972,7 +23734,6 @@
 															},
 															"required": [
 																"year",
-																"works_count",
 																"cited_by_count"
 															],
 															"type": "object"
@@ -22986,7 +23747,8 @@
 														"type": "string"
 													},
 													"doi": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													},
 													"grants": {
 														"items": {
@@ -23030,7 +23792,6 @@
 														},
 														"required": [
 															"openalex",
-															"doi",
 															"mag"
 														],
 														"type": "object"
@@ -23081,10 +23842,12 @@
 																	"type": "string"
 																},
 																"license": {
-																	"type": "string"
+																	"type": "string",
+																	"nullable": true
 																},
 																"pdf_url": {
-																	"type": "string"
+																	"type": "string",
+																	"nullable": true
 																},
 																"source": {
 																	"properties": {
@@ -23092,7 +23855,8 @@
 																			"type": "string"
 																		},
 																		"host_organization": {
-																			"type": "string"
+																			"type": "string",
+																			"nullable": true
 																		},
 																		"host_organization_lineage": {
 																			"items": {
@@ -23107,7 +23871,8 @@
 																			"type": "array"
 																		},
 																		"host_organization_name": {
-																			"type": "string"
+																			"type": "string",
+																			"nullable": true
 																		},
 																		"id": {
 																			"type": "string"
@@ -23122,45 +23887,35 @@
 																			"items": {
 																				"type": "string"
 																			},
-																			"type": "array"
+																			"type": "array",
+																			"nullable": true
 																		},
 																		"issn_l": {
-																			"type": "string"
+																			"type": "string",
+																			"nullable": true
 																		},
 																		"type": {
 																			"type": "string"
 																		}
 																	},
-																	"required": [
-																		"id",
-																		"display_name",
-																		"issn_l",
-																		"issn",
-																		"is_oa",
-																		"is_in_doaj",
-																		"host_organization",
-																		"host_organization_name",
-																		"host_organization_lineage",
-																		"host_organization_lineage_names",
-																		"type"
-																	],
-																	"type": "object"
+																	"type": "object",
+																	"nullable": true
 																},
 																"version": {
-																	"type": "string"
+																	"type": "string",
+																	"nullable": true
 																}
 															},
 															"required": [
 																"is_oa",
 																"landing_page_url",
-																"pdf_url",
 																"source",
-																"license",
 																"version",
 																"is_accepted",
 																"is_published"
 															],
-															"type": "object"
+															"type": "object",
+															"nullable": true
 														},
 														"type": "array"
 													},
@@ -23212,7 +23967,8 @@
 																"type": "string"
 															},
 															"oa_url": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															}
 														},
 														"required": [
@@ -23238,10 +23994,12 @@
 																"type": "string"
 															},
 															"license": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															},
 															"pdf_url": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															},
 															"source": {
 																"properties": {
@@ -23249,7 +24007,8 @@
 																		"type": "string"
 																	},
 																	"host_organization": {
-																		"type": "string"
+																		"type": "string",
+																		"nullable": true
 																	},
 																	"host_organization_lineage": {
 																		"items": {
@@ -23264,7 +24023,8 @@
 																		"type": "array"
 																	},
 																	"host_organization_name": {
-																		"type": "string"
+																		"type": "string",
+																		"nullable": true
 																	},
 																	"id": {
 																		"type": "string"
@@ -23279,45 +24039,35 @@
 																		"items": {
 																			"type": "string"
 																		},
-																		"type": "array"
+																		"type": "array",
+																		"nullable": true
 																	},
 																	"issn_l": {
-																		"type": "string"
+																		"type": "string",
+																		"nullable": true
 																	},
 																	"type": {
 																		"type": "string"
 																	}
 																},
-																"required": [
-																	"id",
-																	"display_name",
-																	"issn_l",
-																	"issn",
-																	"is_oa",
-																	"is_in_doaj",
-																	"host_organization",
-																	"host_organization_name",
-																	"host_organization_lineage",
-																	"host_organization_lineage_names",
-																	"type"
-																],
-																"type": "object"
+																"type": "object",
+																"nullable": true
 															},
 															"version": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															}
 														},
 														"required": [
 															"is_oa",
 															"landing_page_url",
-															"pdf_url",
 															"source",
-															"license",
 															"version",
 															"is_accepted",
 															"is_published"
 														],
-														"type": "object"
+														"type": "object",
+														"nullable": true
 													},
 													"publication_date": {
 														"type": "string"
@@ -23564,7 +24314,8 @@
 								"schema": {
 									"properties": {
 										"abstract_inverted_index": {
-											"type": "object"
+											"type": "object",
+											"nullable": true
 										},
 										"apc_list": {
 											"properties": {
@@ -23587,7 +24338,8 @@
 												"value_usd",
 												"provenance"
 											],
-											"type": "object"
+											"type": "object",
+											"nullable": true
 										},
 										"apc_paid": {
 											"properties": {
@@ -23610,7 +24362,8 @@
 												"value_usd",
 												"provenance"
 											],
-											"type": "object"
+											"type": "object",
+											"nullable": true
 										},
 										"authorships": {
 											"items": {
@@ -23624,13 +24377,13 @@
 																"type": "string"
 															},
 															"orcid": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															}
 														},
 														"required": [
 															"id",
-															"display_name",
-															"orcid"
+															"display_name"
 														],
 														"type": "object"
 													},
@@ -23725,10 +24478,12 @@
 													"type": "string"
 												},
 												"license": {
-													"type": "string"
+													"type": "string",
+													"nullable": true
 												},
 												"pdf_url": {
-													"type": "string"
+													"type": "string",
+													"nullable": true
 												},
 												"source": {
 													"properties": {
@@ -23736,7 +24491,8 @@
 															"type": "string"
 														},
 														"host_organization": {
-															"type": "string"
+															"type": "string",
+															"nullable": true
 														},
 														"host_organization_lineage": {
 															"items": {
@@ -23751,7 +24507,8 @@
 															"type": "array"
 														},
 														"host_organization_name": {
-															"type": "string"
+															"type": "string",
+															"nullable": true
 														},
 														"id": {
 															"type": "string"
@@ -23766,67 +24523,55 @@
 															"items": {
 																"type": "string"
 															},
-															"type": "array"
+															"type": "array",
+															"nullable": true
 														},
 														"issn_l": {
-															"type": "string"
+															"type": "string",
+															"nullable": true
 														},
 														"type": {
 															"type": "string"
 														}
 													},
-													"required": [
-														"id",
-														"display_name",
-														"issn_l",
-														"issn",
-														"is_oa",
-														"is_in_doaj",
-														"host_organization",
-														"host_organization_name",
-														"host_organization_lineage",
-														"host_organization_lineage_names",
-														"type"
-													],
-													"type": "object"
+													"type": "object",
+													"nullable": true
 												},
 												"version": {
-													"type": "string"
+													"type": "string",
+													"nullable": true
 												}
 											},
 											"required": [
 												"is_oa",
 												"landing_page_url",
-												"pdf_url",
 												"source",
-												"license",
 												"version",
 												"is_accepted",
 												"is_published"
 											],
-											"type": "object"
+											"type": "object",
+											"nullable": true
 										},
 										"biblio": {
 											"properties": {
 												"first_page": {
-													"type": "string"
+													"type": "string",
+													"nullable": true
 												},
 												"issue": {
-													"type": "string"
+													"type": "string",
+													"nullable": true
 												},
 												"last_page": {
-													"type": "string"
+													"type": "string",
+													"nullable": true
 												},
 												"volume": {
-													"type": "string"
+													"type": "string",
+													"nullable": true
 												}
 											},
-											"required": [
-												"volume",
-												"issue",
-												"first_page",
-												"last_page"
-											],
 											"type": "object"
 										},
 										"cited_by_api_url": {
@@ -23910,7 +24655,6 @@
 												},
 												"required": [
 													"year",
-													"works_count",
 													"cited_by_count"
 												],
 												"type": "object"
@@ -23924,7 +24668,8 @@
 											"type": "string"
 										},
 										"doi": {
-											"type": "string"
+											"type": "string",
+											"nullable": true
 										},
 										"grants": {
 											"items": {
@@ -23968,7 +24713,6 @@
 											},
 											"required": [
 												"openalex",
-												"doi",
 												"mag"
 											],
 											"type": "object"
@@ -24019,10 +24763,12 @@
 														"type": "string"
 													},
 													"license": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													},
 													"pdf_url": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													},
 													"source": {
 														"properties": {
@@ -24030,7 +24776,8 @@
 																"type": "string"
 															},
 															"host_organization": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															},
 															"host_organization_lineage": {
 																"items": {
@@ -24045,7 +24792,8 @@
 																"type": "array"
 															},
 															"host_organization_name": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															},
 															"id": {
 																"type": "string"
@@ -24060,45 +24808,35 @@
 																"items": {
 																	"type": "string"
 																},
-																"type": "array"
+																"type": "array",
+																"nullable": true
 															},
 															"issn_l": {
-																"type": "string"
+																"type": "string",
+																"nullable": true
 															},
 															"type": {
 																"type": "string"
 															}
 														},
-														"required": [
-															"id",
-															"display_name",
-															"issn_l",
-															"issn",
-															"is_oa",
-															"is_in_doaj",
-															"host_organization",
-															"host_organization_name",
-															"host_organization_lineage",
-															"host_organization_lineage_names",
-															"type"
-														],
-														"type": "object"
+														"type": "object",
+														"nullable": true
 													},
 													"version": {
-														"type": "string"
+														"type": "string",
+														"nullable": true
 													}
 												},
 												"required": [
 													"is_oa",
 													"landing_page_url",
-													"pdf_url",
 													"source",
-													"license",
 													"version",
 													"is_accepted",
 													"is_published"
 												],
-												"type": "object"
+												"type": "object",
+												"nullable": true
 											},
 											"type": "array"
 										},
@@ -24150,7 +24888,8 @@
 													"type": "string"
 												},
 												"oa_url": {
-													"type": "string"
+													"type": "string",
+													"nullable": true
 												}
 											},
 											"required": [
@@ -24176,10 +24915,12 @@
 													"type": "string"
 												},
 												"license": {
-													"type": "string"
+													"type": "string",
+													"nullable": true
 												},
 												"pdf_url": {
-													"type": "string"
+													"type": "string",
+													"nullable": true
 												},
 												"source": {
 													"properties": {
@@ -24187,7 +24928,8 @@
 															"type": "string"
 														},
 														"host_organization": {
-															"type": "string"
+															"type": "string",
+															"nullable": true
 														},
 														"host_organization_lineage": {
 															"items": {
@@ -24202,7 +24944,8 @@
 															"type": "array"
 														},
 														"host_organization_name": {
-															"type": "string"
+															"type": "string",
+															"nullable": true
 														},
 														"id": {
 															"type": "string"
@@ -24217,45 +24960,35 @@
 															"items": {
 																"type": "string"
 															},
-															"type": "array"
+															"type": "array",
+															"nullable": true
 														},
 														"issn_l": {
-															"type": "string"
+															"type": "string",
+															"nullable": true
 														},
 														"type": {
 															"type": "string"
 														}
 													},
-													"required": [
-														"id",
-														"display_name",
-														"issn_l",
-														"issn",
-														"is_oa",
-														"is_in_doaj",
-														"host_organization",
-														"host_organization_name",
-														"host_organization_lineage",
-														"host_organization_lineage_names",
-														"type"
-													],
-													"type": "object"
+													"type": "object",
+													"nullable": true
 												},
 												"version": {
-													"type": "string"
+													"type": "string",
+													"nullable": true
 												}
 											},
 											"required": [
 												"is_oa",
 												"landing_page_url",
-												"pdf_url",
 												"source",
-												"license",
 												"version",
 												"is_accepted",
 												"is_published"
 											],
-											"type": "object"
+											"type": "object",
+											"nullable": true
 										},
 										"publication_date": {
 											"type": "string"
@@ -24372,7 +25105,6 @@
 				"operationId": "getWorkNgrams",
 				"parameters": [
 					{
-						"example": "W2089319476",
 						"in": "path",
 						"name": "id",
 						"required": true,
