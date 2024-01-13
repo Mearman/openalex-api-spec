@@ -1,5 +1,6 @@
-import { refParameter } from "~/spec/components";
+import { refParameter, refSchema } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
+import { sourceSchema } from "~/spec/components/schemas/sourceSchema";
 
 export const source = {
 	"/sources/{id}": {
@@ -15,24 +16,13 @@ export const source = {
 						type: "string",
 					},
 				},
-				refParameter({ select }),
+				refParameter({select}),
 			],
 			responses: {
 				"200": {
 					content: {
 						"application/json": {
-							schema: {
-								properties: {
-									display_name: {
-										type: "string",
-									},
-									id: {
-										type: "string",
-									},
-								},
-								required: ["id", "display_name"],
-								type: "object",
-							},
+							schema: refSchema({sourceSchema}),
 						},
 					},
 					description: "",
