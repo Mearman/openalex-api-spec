@@ -7,7 +7,6 @@ on:
 env:
   WIREIT_LOGGER: "metrics"
   FORCE_COLOR: "true"
-  JEST_RESULTS_FILE: "jest.results.json"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -25,11 +24,11 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm run generate:spec
-      - run: npm run test -- --json --outputFile=${{ env.JEST_RESULTS_FILE }}
+      - run: npm run test:report
         continue-on-error: true
       - name: Process jest results with default
         if: always()
         uses: im-open/process-jest-test-results@v2
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: jest.report.json
           timezone: 'europe/london'
