@@ -1,7 +1,6 @@
 import { refParameter, refSchema } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
-import { countsByYear } from "~/spec/components/schemas/countsByYear";
-import { roles } from "~/spec/components/schemas/roles";
+import { publisherSchema } from "~/spec/components/schemas/publisherSchema";
 
 export const publisher = {
 	"/publishers/{id}": {
@@ -23,104 +22,12 @@ export const publisher = {
 				"200": {
 					content: {
 						"application/json": {
-							schema: {
-								properties: {
-									alternate_titles: {
-										items: {
-											type: "string",
-										},
-										type: "array",
-									},
-									cited_by_count: {
-										type: "integer",
-									},
-									country_codes: {
-										items: {
-											type: "string",
-										},
-										type: "array",
-									},
-									counts_by_year: refSchema({ countsByYear }),
-									created_date: {
-										type: "string",
-									},
-									display_name: {
-										type: "string",
-									},
-									hierarchy_level: {
-										type: "integer",
-									},
-									homepage_url: {
-										type: "string",
-									},
-									id: {
-										type: "string",
-									},
-									ids: {
-										properties: {
-											openalex: {
-												type: "string",
-											},
-											ror: {
-												type: "string",
-											},
-											wikidata: {
-												type: "string",
-											},
-										},
-										required: ["openalex", "ror", "wikidata"],
-										type: "object",
-									},
-									image_thumbnail_url: {
-										type: "string",
-									},
-									image_url: {
-										type: "string",
-									},
-									lineage: {
-										items: {
-											type: "string",
-										},
-										type: "array",
-									},
-									parent_publisher: {
-										type: "string",
-									},
-									roles: refSchema({ roles }),
-									sources_api_url: {
-										type: "string",
-									},
-									summary_stats: {
-										properties: {
-											"2yr_mean_citedness": {
-												type: "number",
-											},
-											h_index: {
-												type: "integer",
-											},
-											i10_index: {
-												type: "integer",
-											},
-										},
-										required: ["2yr_mean_citedness", "h_index", "i10_index"],
-										type: "object",
-									},
-									updated_date: {
-										type: "string",
-									},
-									works_count: {
-										type: "integer",
-									},
-								},
-								required: ["id", "display_name"],
-								type: "object",
-							},
+							schema: refSchema({ publisherSchema }),
 						},
 					},
 					description: "",
 				},
 			},
-
 			summary: "/publishers/{id}",
 		},
 	},

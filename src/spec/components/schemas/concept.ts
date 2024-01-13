@@ -73,10 +73,10 @@ export const conceptSchema = {
 			type: "object",
 		},
 		image_thumbnail_url: {
-			type: "string",
+			type: ["string", "null"]
 		},
 		image_url: {
-			type: "string",
+			type: ["string", "null"]
 		},
 		international: refSchema({ international_display_name_and_description }),
 		level: {

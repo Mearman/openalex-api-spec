@@ -18,7 +18,7 @@ export const concepts = {
 						"application/json": {
 							schema: {
 								properties: {
-									group_by: group_by_result,
+									group_by: refSchema({ group_by_result }),
 									meta: refSchema({ meta }),
 									results: {
 										items: {

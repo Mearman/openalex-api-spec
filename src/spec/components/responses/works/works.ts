@@ -14,7 +14,7 @@ export let works = {
 						type: "array",
 						items: refSchema({ workSchema }),
 					},
-					group_by: refSchema({ group_by: group_by_result }),
+					group_by: refSchema({ group_by_result }),
 				},
 				required: ["meta", "results"],
 				type: "object",
