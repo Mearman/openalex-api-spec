@@ -16,4 +16,6 @@ jobs:
           node-version: '19'
       - uses: google/wireit@setup-github-actions-caching/v1
       - run: npm install
+      - run: npm run build
+      - run: npm run generate:spec
       - run: npm run test
