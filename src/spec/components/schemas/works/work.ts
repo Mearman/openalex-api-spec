@@ -185,7 +185,7 @@ export const workSchema = {
 						type: "string",
 					},
 					qualifier_name: {
-						type: "string",
+						type: ["string", "null"],
 					},
 					is_major_topic: {
 						type: "boolean",

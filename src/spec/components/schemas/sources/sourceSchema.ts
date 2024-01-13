@@ -4,12 +4,13 @@ import { dehydratedConceptArray } from "~/spec/components/schemas/concepts/dehyd
 import { ids } from "~/spec/components/schemas/ids";
 import { countsByYear } from "~/spec/components/schemas/shared/countsByYear";
 import { summary_stats } from "~/spec/components/schemas/shared/summary_stats";
+import { apc_prices } from "~/spec/components/schemas/sources/apc_prices";
 
 export const sourceSchema: SchemaObject = {
 	additionalProperties: false,
 	properties: {
 		abbreviated_title: {
-			type: "null"
+			type: ["string", "null"]
 		},
 		alternate_titles: {
 			type: "array",
@@ -17,11 +18,9 @@ export const sourceSchema: SchemaObject = {
 				type: "string"
 			}
 		},
-		apc_prices: {
-			type: "null"
-		},
+		apc_prices: refSchema({ apc_prices }),
 		apc_usd: {
-			type: "null"
+			type: ["number", "null"]
 		},
 		cited_by_count: {
 			type: "integer"

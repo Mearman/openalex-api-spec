@@ -27,4 +27,5 @@ declare global {
 	type PropertiesSchema = OpenAPIV3_1.SchemaObject["properties"];
 	type OperationObject = OpenAPIV3_1.OperationObject;
 	type ResponsesObject = OpenAPIV3_1.ResponsesObject;
+	type ObjectProperties = OpenAPIV3_1.SchemaObject["properties"];
 }

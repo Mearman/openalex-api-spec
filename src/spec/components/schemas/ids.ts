@@ -1,12 +1,25 @@
 export const ids: SchemaObject = {
+	additionalProperties: false,
 	properties: {
 		grid: {
+			type: "string",
+		},
+		issn: {
+			type: "array",
+			items: {
+				type: "string",
+			},
+		},
+		issn_l: {
 			type: "string",
 		},
 		mag: {
 			type: "string",
 		},
 		openalex: {
+			type: "string",
+		},
+		orcid: {
 			type: "string",
 		},
 		ror: {
@@ -23,5 +36,4 @@ export const ids: SchemaObject = {
 		"openalex",
 	],
 	type: "object",
-	additionalProperties: false,
 };

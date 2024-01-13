@@ -1,4 +1,5 @@
 export const apc = {
+	additionalProperties: false,
 	type: ["object", "null"],
 	properties: {
 		value: {

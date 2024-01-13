@@ -3,8 +3,10 @@ import { affiliations } from "~/spec/components/schemas/affiliations";
 
 import { dehydratedConceptArray } from "~/spec/components/schemas/concepts/dehydratedConceptArray";
 import { ids } from "~/spec/components/schemas/ids";
-import { dehydratedInstitution } from "~/spec/components/schemas/institutions/dehydratedInstitution";
-import { dehydratedInstitutionArray } from "~/spec/components/schemas/institutions/dehydratedInstitutionArray";
+import { dehydratedInstitution } from "~/spec/components/schemas/institutions/dehydrated/dehydratedInstitution";
+import {
+	dehydratedInstitutionArray
+} from "~/spec/components/schemas/institutions/dehydrated/dehydratedInstitutionArray";
 import { countsByYear } from "~/spec/components/schemas/shared/countsByYear";
 import { summary_stats } from "~/spec/components/schemas/shared/summary_stats";
 
@@ -33,7 +35,7 @@ export const author = {
 		},
 		ids: refSchema({ ids }),
 		last_known_institution: refSchema({ dehydratedInstitution }),
-		last_known_institutions: refSchema({ institutionsArray: dehydratedInstitutionArray }),
+		last_known_institutions: refSchema({ dehydratedInstitutionArray }),
 		orcid: {
 			type: ["string", "null"]
 		},

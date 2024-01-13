@@ -14,7 +14,7 @@ export const meta = {
 			type: "integer",
 		},
 		groups_count: {
-			type: "null",
+			type: ["string", "null"],
 		},
 	},
 	required: [

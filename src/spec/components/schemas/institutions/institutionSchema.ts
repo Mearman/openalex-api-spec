@@ -2,7 +2,9 @@ import { refSchema } from "~/spec/components";
 
 import { dehydratedConceptArray } from "~/spec/components/schemas/concepts/dehydratedConceptArray";
 import { ids } from "~/spec/components/schemas/ids";
-import { dehydratedInstitutionArray } from "~/spec/components/schemas/institutions/dehydratedInstitutionArray";
+import {
+	associatedInstitutionArray
+} from "~/spec/components/schemas/institutions/associated/associatedInstitutionArray";
 import { geo } from "~/spec/components/schemas/institutions/geo";
 import { international_display_name } from "~/spec/components/schemas/institutions/international_display_name";
 import { repositoriesArray } from "~/spec/components/schemas/institutions/repositoriesArray";
@@ -13,7 +15,7 @@ import { summary_stats } from "~/spec/components/schemas/shared/summary_stats";
 export const institutionSchema: SchemaObject = {
 	additionalProperties: false,
 	properties: {
-		associated_institutions: refSchema({ institutionsArray: dehydratedInstitutionArray }),
+		associated_institutions: refSchema({ associatedInstitutionArray }),
 		cited_by_count: {
 			type: "integer",
 		},
@@ -82,4 +84,6 @@ export const institutionSchema: SchemaObject = {
 	},
 	required: ["id", "display_name"],
 	type: "object",
+
 };
+
