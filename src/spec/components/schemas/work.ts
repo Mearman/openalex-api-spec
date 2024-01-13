@@ -7,7 +7,7 @@ import { location } from "~/spec/components/schemas/location";
 export const workSchema = {
 	properties: {
 		abstract_inverted_index: {
-			type: "object",
+			type: ["object", "null"],
 		},
 		apc_list: refSchema({ apc }),
 		apc_paid: refSchema({ apc }),
@@ -29,7 +29,7 @@ export const workSchema = {
 					type: "string",
 				},
 			},
-			required: ["volume", "issue", "first_page", "last_page"],
+			required: [],
 		},
 		cited_by_api_url: {
 			type: "string",
@@ -96,7 +96,7 @@ export const workSchema = {
 			type: "string",
 		},
 		doi: {
-			type: "string",
+			type: ["string", "null"],
 		},
 		grants: {
 			type: "array",
@@ -135,7 +135,7 @@ export const workSchema = {
 					type: "string",
 				},
 			},
-			required: ["openalex", "doi", "mag"],
+			required: ["openalex", "mag"],
 		},
 		institutions_distinct_count: {
 			type: "integer",
@@ -214,7 +214,7 @@ export const workSchema = {
 					type: "string",
 				},
 				oa_url: {
-					type: "string",
+					type: ["string", "null"],
 				},
 				any_repository_has_fulltext: {
 					type: "boolean",

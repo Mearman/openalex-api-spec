@@ -1,5 +1,5 @@
 export const location: SchemaObject = {
-	type: "object",
+	type: ["object", "null"],
 	properties: {
 		is_accepted: {
 			type: "boolean",
@@ -14,13 +14,13 @@ export const location: SchemaObject = {
 			type: "string",
 		},
 		license: {
-			type: "string",
+			type: ["string", "null"],
 		},
 		pdf_url: {
-			type: "string",
+			type: ["string", "null"],
 		},
 		source: {
-			type: "object",
+			type: ["object", "null"],
 			properties: {
 				id: {
 					type: "string",
@@ -80,15 +80,13 @@ export const location: SchemaObject = {
 			],
 		},
 		version: {
-			type: "string",
+			type: ["string", "null"],
 		},
 	},
 	required: [
 		"is_oa",
 		"landing_page_url",
-		"pdf_url",
 		"source",
-		"license",
 		"version",
 		"is_accepted",
 		"is_published",

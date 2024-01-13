@@ -13,10 +13,10 @@ export const authorships = {
 						type: "string",
 					},
 					orcid: {
-						type: "string",
+						type: ["string", "null"]
 					},
 				},
-				required: ["id", "display_name", "orcid"],
+				required: ["id", "display_name"],
 			},
 			author_position: {
 				type: "string",

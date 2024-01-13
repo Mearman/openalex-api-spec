@@ -1,5 +1,5 @@
 export const apc = {
-	type: "object",
+	type: ["object", "null"],
 	properties: {
 		value: {
 			type: "integer",
