@@ -765,7 +765,15 @@
 				"required": false,
 				"schema": {
 					"items": {
-						"$ref": "#/components/schemas/combinedAuthorSelectionAttributes"
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/workAttributes"
+							},
+							{
+								"$ref": "#/components/schemas/baseSelectionAttributes"
+							}
+						],
+						"type": "string"
 					},
 					"type": "array"
 				},
@@ -1048,30 +1056,11 @@
 				]
 			},
 			"associatedInstitution": {
-				"additionalProperties": false,
+				"additionalProperties": {
+					"$ref": "#/components/schemas/dehydratedInstitution"
+				},
 				"properties": {
-					"country_code": {
-						"type": "string"
-					},
-					"display_name": {
-						"type": "string"
-					},
-					"id": {
-						"type": "string"
-					},
-					"lineage": {
-						"items": {
-							"type": "string"
-						},
-						"type": "array"
-					},
 					"relationship": {
-						"type": "string"
-					},
-					"ror": {
-						"type": "string"
-					},
-					"type": {
 						"type": "string"
 					}
 				},
@@ -1290,17 +1279,6 @@
 				"enum": [
 					"id",
 					"display_name"
-				],
-				"type": "string"
-			},
-			"combinedAuthorSelectionAttributes": {
-				"allOf": [
-					{
-						"$ref": "#/components/schemas/workAttributes"
-					},
-					{
-						"$ref": "#/components/schemas/baseSelectionAttributes"
-					}
 				],
 				"type": "string"
 			},
@@ -1562,7 +1540,6 @@
 				"type": "array"
 			},
 			"dehydratedInstitution": {
-				"additionalProperties": false,
 				"properties": {
 					"country_code": {
 						"type": "string"
@@ -1585,18 +1562,7 @@
 					"type": {
 						"type": "string"
 					}
-				},
-				"required": [
-					"id",
-					"ror",
-					"display_name",
-					"country_code",
-					"type"
-				],
-				"type": [
-					"object",
-					"null"
-				]
+				}
 			},
 			"dehydratedInstitutionArray": {
 				"items": {
@@ -1632,7 +1598,10 @@
 						"type": "integer"
 					},
 					"country_code": {
-						"type": "string"
+						"type": [
+							"string",
+							"null"
+						]
 					},
 					"counts_by_year": {
 						"$ref": "#/components/schemas/countsByYear"
@@ -1641,7 +1610,10 @@
 						"type": "string"
 					},
 					"description": {
-						"type": "string"
+						"type": [
+							"string",
+							"null"
+						]
 					},
 					"display_name": {
 						"type": "string"
@@ -1650,35 +1622,16 @@
 						"type": "integer"
 					},
 					"homepage_url": {
-						"type": "string"
+						"type": [
+							"string",
+							"null"
+						]
 					},
 					"id": {
 						"type": "string"
 					},
 					"ids": {
-						"properties": {
-							"crossref": {
-								"type": "string"
-							},
-							"doi": {
-								"type": "string"
-							},
-							"openalex": {
-								"type": "string"
-							},
-							"ror": {
-								"type": "string"
-							},
-							"wikidata": {
-								"type": "string"
-							}
-						},
-						"required": [
-							"openalex",
-							"crossref",
-							"doi"
-						],
-						"type": "object"
+						"$ref": "#/components/schemas/ids"
 					},
 					"image_thumbnail_url": {
 						"type": [
@@ -1748,7 +1701,10 @@
 						"type": "string"
 					},
 					"geonames_city_id": {
-						"type": "string"
+						"type": [
+							"string",
+							"null"
+						]
 					},
 					"latitude": {
 						"type": "number"
@@ -1799,6 +1755,20 @@
 			"ids": {
 				"additionalProperties": false,
 				"properties": {
+					"crossref": {
+						"type": "string"
+					},
+					"doi": {
+						"type": "string"
+					},
+					"fatcat": {
+						"examples": [
+							{
+								"value": "https://fatcat.wiki/container/wixiueunq5e6xk7dx5ygzzysjy"
+							}
+						],
+						"type": "string"
+					},
 					"grid": {
 						"type": "string"
 					},
@@ -1820,7 +1790,16 @@
 					"orcid": {
 						"type": "string"
 					},
+					"pmcid": {
+						"type": "string"
+					},
+					"pmid": {
+						"type": "string"
+					},
 					"ror": {
+						"type": "string"
+					},
+					"scopus": {
 						"type": "string"
 					},
 					"wikidata": {
@@ -1948,7 +1927,10 @@
 						"$ref": "#/components/schemas/internationalisation"
 					}
 				},
-				"type": "object"
+				"type": [
+					"object",
+					"null"
+				]
 			},
 			"international_display_name": {
 				"properties": {
@@ -2782,7 +2764,10 @@
 						"type": "boolean"
 					},
 					"landing_page_url": {
-						"type": "string"
+						"type": [
+							"string",
+							"null"
+						]
 					},
 					"license": {
 						"type": [
@@ -3017,8 +3002,16 @@
 						"type": "array"
 					},
 					"parent_publisher": {
+						"properties": {
+							"display_name": {
+								"type": "string"
+							},
+							"id": {
+								"type": "string"
+							}
+						},
 						"type": [
-							"string",
+							"object",
 							"null"
 						]
 					},
@@ -3117,7 +3110,10 @@
 						"items": {
 							"type": "string"
 						},
-						"type": "array"
+						"type": [
+							"array",
+							"null"
+						]
 					},
 					"apc_prices": {
 						"$ref": "#/components/schemas/apc_prices"
@@ -3201,7 +3197,10 @@
 						"items": {
 							"type": "string"
 						},
-						"type": "array"
+						"type": [
+							"array",
+							"null"
+						]
 					},
 					"summary_stats": {
 						"$ref": "#/components/schemas/summary_stats"
@@ -3388,34 +3387,7 @@
 						"type": "object"
 					},
 					"concepts": {
-						"items": {
-							"properties": {
-								"display_name": {
-									"type": "string"
-								},
-								"id": {
-									"type": "string"
-								},
-								"level": {
-									"type": "integer"
-								},
-								"score": {
-									"type": "number"
-								},
-								"wikidata": {
-									"type": "string"
-								}
-							},
-							"required": [
-								"id",
-								"wikidata",
-								"display_name",
-								"level",
-								"score"
-							],
-							"type": "object"
-						},
-						"type": "array"
+						"$ref": "#/components/schemas/dehydratedConceptArray"
 					},
 					"corresponding_author_ids": {
 						"items": {
@@ -3439,7 +3411,10 @@
 						"type": "string"
 					},
 					"display_name": {
-						"type": "string"
+						"type": [
+							"string",
+							"null"
+						]
 					},
 					"doi": {
 						"type": [
@@ -3476,22 +3451,7 @@
 						"type": "string"
 					},
 					"ids": {
-						"properties": {
-							"doi": {
-								"type": "string"
-							},
-							"mag": {
-								"type": "string"
-							},
-							"openalex": {
-								"type": "string"
-							}
-						},
-						"required": [
-							"openalex",
-							"mag"
-						],
-						"type": "object"
+						"$ref": "#/components/schemas/ids"
 					},
 					"institutions_distinct_count": {
 						"type": "integer"
@@ -3641,7 +3601,10 @@
 						"type": "array"
 					},
 					"title": {
-						"type": "string"
+						"type": [
+							"string",
+							"null"
+						]
 					},
 					"type": {
 						"type": "string"

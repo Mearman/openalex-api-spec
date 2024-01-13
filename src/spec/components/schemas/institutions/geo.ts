@@ -10,7 +10,7 @@ export const geo = {
 			type: "string",
 		},
 		geonames_city_id: {
-			type: "string",
+			type: ["string", "null"],
 		},
 		latitude: {
 			type: "number",
