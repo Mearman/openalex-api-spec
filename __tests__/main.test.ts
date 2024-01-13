@@ -8,13 +8,13 @@ jestOpenAPI(path.resolve(DEFAULT_DEREFERENCED_SPEC_PATH));
 
 const entities = [
 	"",
-	"works",
 	"authors",
-	// "publishers",
-	// "sources",
-	// "concepts",
-	// "institutions",
-	// "funders"
+	"concepts",
+	"funders",
+	"institutions",
+	"publishers",
+	"sources",
+	"works",
 ];
 
 const testUrls = [
@@ -40,32 +40,33 @@ function getMailto(): any {
 	return process.env.MAILTO ?? getGitEmail();
 }
 
+const TEST_RUNS: number = 3;
+
 describe.each(entities)(`%s API tests`, (entity) => {
 	const permutations = ["random", ""]
 		.map((suffix) =>
 			["https://api.openalex.org", entity, entity ? suffix : ""]
 				.filter((x) => x)
 				.join("/")
-	)
+		)
 		.filter((value, index, self) => self.indexOf(value) === index);
-	let params: string[] | string = ["per_page=1"];
+	let params: string[] | string = [];
+	if (permutations.findIndex((x) => x.includes("random")) == -1) {
+		params.push("per_page=3")
+	}
 	const mailto = getMailto();
 	if (mailto) {
 		params.push(`mailto=${mailto}`);
 	}
 	params = params.filter((x) => x).join("&");
 
-	test.each(permutations)(`%s should satisfy OpenAPI spec`, async (url) => {
-		for (let i = 0; i < 3; i++) {
-			console.log({ url });
-			const res = await axios.get(`${url}?${params}`);
-			console.log({
-				// ...res,
-				data: JSON.stringify(res.data),
-			});
+	for (let i = 1; i <= TEST_RUNS; i++) {
+		test.each(permutations)(`${i}: %s should satisfy OpenAPI spec`, async (url) => {
+			url = `${url}?${params}`
+			console.log({url});
+			const res = await axios.get(url);
 			expect(res.status).toEqual(200);
-
 			expect(res).toSatisfyApiSpec();
-		}
-	});
+		});
+	}
 });
