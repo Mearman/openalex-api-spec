@@ -29,10 +29,10 @@ export const location: SchemaObject = {
 					type: "string",
 				},
 				issn_l: {
-					type: "string",
+					type: ["string", "null"]
 				},
 				issn: {
-					type: "array",
+					type: ["array", "null"],
 					items: {
 						type: "string",
 					},
@@ -44,10 +44,10 @@ export const location: SchemaObject = {
 					type: "boolean",
 				},
 				host_organization: {
-					type: "string",
+					type: ["string", "null"]
 				},
 				host_organization_name: {
-					type: "string",
+					type: ["string", "null"]
 				},
 				host_organization_lineage: {
 					type: "array",
@@ -64,20 +64,7 @@ export const location: SchemaObject = {
 				type: {
 					type: "string",
 				},
-			},
-			required: [
-				"id",
-				"display_name",
-				"issn_l",
-				"issn",
-				"is_oa",
-				"is_in_doaj",
-				"host_organization",
-				"host_organization_name",
-				"host_organization_lineage",
-				"host_organization_lineage_names",
-				"type",
-			],
+			}
 		},
 		version: {
 			type: ["string", "null"],
