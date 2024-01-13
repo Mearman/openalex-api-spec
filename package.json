@@ -81,7 +81,13 @@
 			]
 		},
 		"test:report": {
-			"command": "npm run test -- --json --outputFile=jest.report.json"
+			"command": "jest --json --outputFile=jest.report.json",
+			"dependencies": [
+				"generate:spec"
+			],
+			"output": [
+				"./jest.report.json"
+			]
 		}
 	}
 }
