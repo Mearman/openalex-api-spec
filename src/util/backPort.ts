@@ -2,11 +2,12 @@ import { Converter, ConverterOptions } from "@apiture/openapi-down-convert";
 import { ValidationResult } from "@cfworker/json-schema";
 import fs from "fs";
 import { OpenAPI, OpenAPIV3 } from "openapi-types";
+import { DEFAULT_DEREFERENCED_SPEC_PATH } from "./generateDereferencedSpec";
 import { validateOAS3 } from "./validateOAS3";
 
 export async function backPort(
 	spec: OpenAPI.Document,
-	path = "./generated/openapi-3.0.json"
+	path = DEFAULT_DEREFERENCED_SPEC_PATH
 ): Promise<void> {
 	const options: ConverterOptions = {
 		verbose: true,
