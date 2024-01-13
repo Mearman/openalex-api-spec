@@ -31,7 +31,8 @@
 		"generate:spec": "wireit",
 		"generate:typescript": "wireit",
 		"refactor": "tsc . && npx -y openapi-refactorer -i 'openapi-spec - JSON.json' -o main.json",
-		"test": "wireit"
+		"test": "wireit",
+		"test:report": "wireit"
 	},
 	"wireit": {
 		"build": {
@@ -78,6 +79,9 @@
 			"dependencies": [
 				"generate:spec"
 			]
+		},
+		"test:report": {
+			"command": "npm run test -- --json --outputFile=jest.report.json"
 		}
 	}
 }
