@@ -9,6 +9,8 @@ export const DEFAULT_DEREFERENCED_SPEC_PATH: string = path.join("./", "generated
 
 export async function generateDereferencedSpec(doc: OpenAPI.Document, outputFilePath = DEFAULT_DEREFERENCED_SPEC_PATH) {
 	const result = sortObject(await dereference(doc));
-	fs.writeFileSync(path.resolve(outputFilePath), JSON.stringify(result, null, "\t"));
+	const outputFile = path.resolve(outputFilePath);
+	fs.writeFileSync(outputFile, JSON.stringify(result, null, "\t"));
+	console.debug(`Wrote dereferenced spec to: ${outputFile}`);
 	return result;
 }
