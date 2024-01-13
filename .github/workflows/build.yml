@@ -31,5 +31,5 @@ jobs:
         uses: im-open/process-jest-test-results@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          results-file: jest.report.json
+          results-file: ./jest.report.json
           timezone: 'europe/london'
