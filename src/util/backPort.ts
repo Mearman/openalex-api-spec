@@ -2,13 +2,17 @@ import { Converter, ConverterOptions } from "@apiture/openapi-down-convert";
 import { ValidationResult } from "@cfworker/json-schema";
 import fs from "fs";
 import { OpenAPI, OpenAPIV3 } from "openapi-types";
-import { DEFAULT_DEREFERENCED_SPEC_PATH } from "./generateDereferencedSpec";
+import path from "path";
+import { GENERATION_DIR } from "./generateDereferencedSpec";
 import { validateOAS3 } from "./validateOAS3";
+
+export const DEFAULT_OAS30_SPEC_NAME = "openapi.3.0.json";
+export const DEFAULT_OAS30_SPEC_PATH: string = path.join(GENERATION_DIR, DEFAULT_OAS30_SPEC_NAME);
 
 export async function backPort(
 	spec: OpenAPI.Document,
-	path = DEFAULT_DEREFERENCED_SPEC_PATH
-): Promise<void> {
+	path = DEFAULT_OAS30_SPEC_PATH
+): Promise<string> {
 	const options: ConverterOptions = {
 		verbose: true,
 		deleteExampleWithId: true,
@@ -38,6 +42,8 @@ export async function backPort(
 	}
 
 	fs.writeFileSync(path, JSON.stringify(oas30Document, null, "\t"));
+	console.debug(`Wrote ${path}`);
+	return path;
 }
 
 function stripErroneousFields(
