@@ -1,4 +1,6 @@
 import { refSchema } from "~/spec/components";
+import { dehydratedConceptArray } from "~/spec/components/schemas/concepts/dehydratedConceptArray";
+import { ids } from "~/spec/components/schemas/ids";
 import { countsByYear } from "~/spec/components/schemas/shared/countsByYear";
 import { apc } from "~/spec/components/schemas/works/apc";
 import { authorships } from "~/spec/components/schemas/works/authorships";
@@ -48,30 +50,7 @@ export const workSchema = {
 			},
 			required: ["min", "max"],
 		},
-		concepts: {
-			type: "array",
-			items: {
-				type: "object",
-				properties: {
-					id: {
-						type: "string",
-					},
-					wikidata: {
-						type: "string",
-					},
-					display_name: {
-						type: "string",
-					},
-					level: {
-						type: "integer",
-					},
-					score: {
-						type: "number",
-					},
-				},
-				required: ["id", "wikidata", "display_name", "level", "score"],
-			},
-		},
+		concepts: refSchema({ dehydratedConceptArray }),
 		corresponding_author_ids: {
 			type: "array",
 			items: {
@@ -92,7 +71,7 @@ export const workSchema = {
 			type: "string",
 		},
 		display_name: {
-			type: "string",
+			type: ["string", "null"],
 		},
 		doi: {
 			type: ["string", "null"],
@@ -121,21 +100,7 @@ export const workSchema = {
 		id: {
 			type: "string",
 		},
-		ids: {
-			type: "object",
-			properties: {
-				openalex: {
-					type: "string",
-				},
-				doi: {
-					type: "string",
-				},
-				mag: {
-					type: "string",
-				},
-			},
-			required: ["openalex", "mag"],
-		},
+		ids: refSchema({ ids }),
 		institutions_distinct_count: {
 			type: "integer",
 		},
@@ -262,7 +227,7 @@ export const workSchema = {
 			},
 		},
 		title: {
-			type: "string",
+			type: ["string", "null"],
 		},
 		type: {
 			type: "string",

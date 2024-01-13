@@ -1,6 +1,18 @@
 export const ids: SchemaObject = {
 	additionalProperties: false,
 	properties: {
+		crossref: {
+			type: "string",
+		},
+		doi: {
+			type: "string",
+		},
+		fatcat: {
+			type: "string",
+			examples: [{
+				value: "https://fatcat.wiki/container/wixiueunq5e6xk7dx5ygzzysjy"
+			}],
+		},
 		grid: {
 			type: "string",
 		},
@@ -22,7 +34,16 @@ export const ids: SchemaObject = {
 		orcid: {
 			type: "string",
 		},
+		pmcid: {
+			type: "string",
+		},
+		pmid: {
+			type: "string",
+		},
 		ror: {
+			type: "string",
+		},
+		scopus: {
 			type: "string",
 		},
 		wikidata: {
@@ -30,12 +51,6 @@ export const ids: SchemaObject = {
 		},
 		wikipedia: {
 			type: "string",
-		},
-		fatcat: {
-			type: "string",
-			examples: [{
-				value: "https://fatcat.wiki/container/wixiueunq5e6xk7dx5ygzzysjy"
-			}],
 		}
 	},
 	required: [

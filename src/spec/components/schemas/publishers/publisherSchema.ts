@@ -52,7 +52,15 @@ export let publisherSchema = {
 			type: "array",
 		},
 		parent_publisher: {
-			type: ["string", "null"],
+			type: ["object", "null"],
+			properties: {
+				display_name: {
+					type: "string",
+				},
+				id: {
+					type: "string",
+				},
+			},
 		},
 		roles: refSchema({ roles }),
 		sources_api_url: {

@@ -12,7 +12,7 @@ export const location: SchemaObject = {
 			type: "boolean",
 		},
 		landing_page_url: {
-			type: "string",
+			type: ["string", "null"],
 		},
 		license: {
 			type: ["string", "null"],

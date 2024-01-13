@@ -13,7 +13,7 @@ export const sourceSchema: SchemaObject = {
 			type: ["string", "null"]
 		},
 		alternate_titles: {
-			type: "array",
+			type: ["array", "null"],
 			items: {
 				type: "string"
 			}
@@ -70,7 +70,7 @@ export const sourceSchema: SchemaObject = {
 			type: ["string", "null"],
 		},
 		societies: {
-			type: "array",
+			type: ["array", "null"],
 			items: {
 				type: "string"
 			}

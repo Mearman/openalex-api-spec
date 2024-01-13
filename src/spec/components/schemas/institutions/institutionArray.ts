@@ -5,5 +5,4 @@ export const institutionArray: SchemaObject = {
 	additionalProperties: false,
 	items: refSchema({ institutionSchema }),
 	type: "array"
-
 };
