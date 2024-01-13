@@ -23,12 +23,12 @@ const testUrls = [
 	...entities.map((entity) => `https://api.openalex.org/${entity}`),
 ];
 
-function getGitEmail(): string {
+function getGitEmail(): string | void {
 	const gitEmail = execSync("git config user.email").toString().trim();
 	if (gitEmail.match(/.+@.+\..+/)) {
 		return gitEmail;
 	} else {
-		return;
+		return
 	}
 }
 
