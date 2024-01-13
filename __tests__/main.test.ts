@@ -43,30 +43,30 @@ function getMailto(): any {
 const TEST_RUNS: number = 3;
 
 describe.each(entities)(`%s API tests`, (entity) => {
-	const permutations = ["random", ""]
-		.map((suffix) =>
-			["https://api.openalex.org", entity, entity ? suffix : ""]
-				.filter((x) => x)
-				.join("/")
-		)
-		.filter((value, index, self) => self.indexOf(value) === index);
-	let params: string[] | string = [];
-	if (permutations.findIndex((x) => x.includes("random")) == -1) {
-		params.push("per_page=3")
-	}
-	const mailto = getMailto();
-	if (mailto) {
-		params.push(`mailto=${mailto}`);
-	}
-	params = params.filter((x) => x).join("&");
+	const base = "https://api.openalex.org";
+	let entityUrl: string = [base, entity].join("/");
+	const listUrl = entityUrl;
 
-	for (let i = 1; i <= TEST_RUNS; i++) {
-		test.each(permutations)(`${i}: %s should satisfy OpenAPI spec`, async (url) => {
-			url = `${url}?${params}`
-			console.log({url});
+	const mailto = getMailto()
+	const mailtoParam = mailto ? `mailto=${mailto}` : undefined
+	const fixtures: { url: string, params: string[] }[] = [{
+		url: listUrl,
+		params: ["per_page=3", mailtoParam],
+	}, entity ? {
+		url: [entityUrl, "random"].join("/"),
+		params: [mailtoParam],
+	} : null].filter((x) => x);
+
+	describe.each(fixtures)(`%s`, (fixture) => {
+		const url = [fixture.url, fixture.params.filter((x) => x).join("&")].join("?")
+		test.each([...Array(TEST_RUNS).keys()])(`%s ${url}`, async () => {
+			console.debug(url)
 			const res = await axios.get(url);
 			expect(res.status).toEqual(200);
 			expect(res).toSatisfyApiSpec();
+			// console.debug(res.data);
+			// 	sleep for 100 ms
+			await new Promise((resolve) => setTimeout(resolve, 10));
 		});
-	}
+	});
 });
