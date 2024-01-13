@@ -14,7 +14,7 @@ const jestConfig: JestConfigWithTsJest = {
 	},
 	bail: true,
 	verbose: true,
-	testEnvironment: 'node',
+	testEnvironment: 'node'
 };
 
 export default jestConfig;
