@@ -24,11 +24,15 @@ const testUrls = [
 ];
 
 function getGitEmail(): string | void {
-	const gitEmail = execSync("git config user.email").toString().trim();
-	if (gitEmail.match(/.+@.+\..+/)) {
-		return gitEmail;
-	} else {
-		return
+	try {
+		const gitEmail = execSync("git config user.email").toString().trim();
+		if (gitEmail.match(/.+@.+\..+/)) {
+			return gitEmail;
+		} else {
+			return
+		}
+	} catch (e) {
+		return;
 	}
 }
 
