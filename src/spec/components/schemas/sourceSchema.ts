@@ -24,7 +24,7 @@ export const sourceSchema: SchemaObject = {
 			type: "integer"
 		},
 		country_code: {
-			type: "string"
+			type: ["string", "null"]
 		},
 		counts_by_year: {
 			type: "array",
@@ -55,7 +55,7 @@ export const sourceSchema: SchemaObject = {
 			type: "string"
 		},
 		homepage_url: {
-			type: "string"
+			type: ["string", "null"]
 		},
 		host_organization: {
 			type: ["string", "null"]

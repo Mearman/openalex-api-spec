@@ -2895,35 +2895,28 @@
 						"type": "integer"
 					},
 					"homepage_url": {
-						"type": "string"
+						"type": [
+							"string",
+							"null"
+						]
 					},
 					"id": {
 						"type": "string"
 					},
 					"ids": {
-						"properties": {
-							"openalex": {
-								"type": "string"
-							},
-							"ror": {
-								"type": "string"
-							},
-							"wikidata": {
-								"type": "string"
-							}
-						},
-						"required": [
-							"openalex",
-							"ror",
-							"wikidata"
-						],
-						"type": "object"
+						"$ref": "#/components/schemas/ids"
 					},
 					"image_thumbnail_url": {
-						"type": "string"
+						"type": [
+							"string",
+							"null"
+						]
 					},
 					"image_url": {
-						"type": "string"
+						"type": [
+							"string",
+							"null"
+						]
 					},
 					"lineage": {
 						"items": {
@@ -3036,7 +3029,10 @@
 						"type": "integer"
 					},
 					"country_code": {
-						"type": "string"
+						"type": [
+							"string",
+							"null"
+						]
 					},
 					"counts_by_year": {
 						"items": {
@@ -3067,7 +3063,10 @@
 						"type": "string"
 					},
 					"homepage_url": {
-						"type": "string"
+						"type": [
+							"string",
+							"null"
+						]
 					},
 					"host_organization": {
 						"type": [

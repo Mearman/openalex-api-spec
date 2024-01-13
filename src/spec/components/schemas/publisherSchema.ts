@@ -1,5 +1,6 @@
 import { refSchema } from "~/spec/components";
 import { countsByYear } from "~/spec/components/schemas/countsByYear";
+import { ids } from "~/spec/components/schemas/ids";
 import { roles } from "~/spec/components/schemas/roles";
 import { summary_stats } from "~/spec/components/schemas/summary_stats";
 
@@ -31,31 +32,17 @@ export let publisherSchema = {
 			type: "integer",
 		},
 		homepage_url: {
-			type: "string",
+			type: ["string", "null"]
 		},
 		id: {
 			type: "string",
 		},
-		ids: {
-			properties: {
-				openalex: {
-					type: "string",
-				},
-				ror: {
-					type: "string",
-				},
-				wikidata: {
-					type: "string",
-				},
-			},
-			required: ["openalex", "ror", "wikidata"],
-			type: "object",
-		},
+		ids: refSchema({ ids }),
 		image_thumbnail_url: {
-			type: "string",
+			type: ["string", "null"]
 		},
 		image_url: {
-			type: "string",
+			type: ["string", "null"]
 		},
 		lineage: {
 			items: {
