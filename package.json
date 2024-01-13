@@ -15,6 +15,7 @@
 		"axios": "^1.6.5",
 		"jest": "^29.7.0",
 		"jest-openapi": "^0.14.2",
+		"rimraf": "^5.0.5",
 		"ts-jest": "^29.1.1",
 		"ts-node": "^10.9.2",
 		"tsconfig-paths-jest": "^0.0.1",
@@ -25,10 +26,11 @@
 	"main": "./src/index.ts",
 	"packageManager": "yarn@4.0.2",
 	"scripts": {
-		"build": "rm -rfv ./src/generated/clients",
+		"clean": "wireit",
+		"build": "wireit",
 		"generate": "wireit",
-		"generate:spec": "npx -y tsx ./src/index.ts",
-		"generate:typescript": "npx -y @openapitools/openapi-generator-cli generate",
+		"generate:spec": "wireit",
+		"generate:typescript": "wireit",
 		"refactor": "tsc . && npx -y openapi-refactorer -i 'openapi-spec - JSON.json' -o main.json",
 		"test": "wireit"
 	},
@@ -38,9 +40,31 @@
 		},
 		"test": {
 			"dependencies": [
-				"generate"
+				"generate:spec"
 			],
 			"command": "jest"
+		},
+		"generate:typescript": {
+			"dependencies": [
+				"clean",
+				"generate:spec"
+			],
+			"command": "npx -y @openapitools/openapi-generator-cli generate"
+		},
+		"generate:spec": {
+			"dependencies": [
+				"clean"
+			],
+			"command": "npx -y tsx ./src/index.ts"
+		},
+		"build": {
+			"dependencies": [
+				"clean"
+			],
+			"command": "tsc --noEmit"
+		},
+		"clean": {
+			"command": "rimraf ./src/generated"
 		}
 	}
 }
