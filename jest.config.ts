@@ -12,7 +12,6 @@ const jestConfig: JestConfigWithTsJest = {
 	transform: {
 		...jsWithTsESM.transform,
 	},
-	bail: true,
 	verbose: true,
 	testEnvironment: 'node'
 };

@@ -78,10 +78,14 @@
 			"command": "jest",
 			"dependencies": [
 				"generate:spec"
+			],
+			"files": [
+				"./src/**/*.ts",
+				"__tests__/**/*.ts"
 			]
 		},
 		"test:report": {
-			"command": "jest --json --outputFile=jest.report.json",
+			"command": "npm run test -- --json --outputFile=jest.report.json",
 			"dependencies": [
 				"generate:spec"
 			],
