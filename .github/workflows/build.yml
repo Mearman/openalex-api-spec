@@ -6,6 +6,7 @@ on:
 
 env:
   WIREIT_LOGGER: "metrics"
+  FORCE_COLOR: "true"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
