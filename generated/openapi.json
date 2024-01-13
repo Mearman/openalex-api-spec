@@ -1082,23 +1082,7 @@
 						]
 					},
 					"summary_stats": {
-						"properties": {
-							"2yr_mean_citedness": {
-								"type": "number"
-							},
-							"h_index": {
-								"type": "integer"
-							},
-							"i10_index": {
-								"type": "integer"
-							}
-						},
-						"required": [
-							"2yr_mean_citedness",
-							"h_index",
-							"i10_index"
-						],
-						"type": "object"
+						"$ref": "#/components/schemas/summary_stats"
 					},
 					"updated_date": {
 						"type": "string"
@@ -1110,7 +1094,7 @@
 						"type": "integer"
 					},
 					"x_concepts": {
-						"$ref": "#/components/schemas/concepts"
+						"$ref": "#/components/schemas/dehydratedConceptArray"
 					}
 				},
 				"required": [
@@ -1280,7 +1264,7 @@
 				"additionalProperties": false,
 				"properties": {
 					"ancestors": {
-						"$ref": "#/components/schemas/relatedConcepts"
+						"$ref": "#/components/schemas/dehydratedConceptArray"
 					},
 					"cited_by_count": {
 						"type": "integer"
@@ -1348,26 +1332,10 @@
 						"type": "integer"
 					},
 					"related_concepts": {
-						"$ref": "#/components/schemas/relatedConcepts"
+						"$ref": "#/components/schemas/dehydratedConceptArray"
 					},
 					"summary_stats": {
-						"properties": {
-							"2yr_mean_citedness": {
-								"type": "number"
-							},
-							"h_index": {
-								"type": "integer"
-							},
-							"i10_index": {
-								"type": "integer"
-							}
-						},
-						"required": [
-							"2yr_mean_citedness",
-							"h_index",
-							"i10_index"
-						],
-						"type": "object"
+						"$ref": "#/components/schemas/summary_stats"
 					},
 					"updated_date": {
 						"type": "string"
@@ -1396,7 +1364,7 @@
 				"additionalProperties": false,
 				"properties": {
 					"ancestors": {
-						"$ref": "#/components/schemas/relatedConcepts"
+						"$ref": "#/components/schemas/dehydratedConceptArray"
 					},
 					"cited_by_count": {
 						"type": "integer"
@@ -1464,26 +1432,10 @@
 						"type": "integer"
 					},
 					"related_concepts": {
-						"$ref": "#/components/schemas/relatedConcepts"
+						"$ref": "#/components/schemas/dehydratedConceptArray"
 					},
 					"summary_stats": {
-						"properties": {
-							"2yr_mean_citedness": {
-								"type": "number"
-							},
-							"h_index": {
-								"type": "integer"
-							},
-							"i10_index": {
-								"type": "integer"
-							}
-						},
-						"required": [
-							"2yr_mean_citedness",
-							"h_index",
-							"i10_index"
-						],
-						"type": "object"
+						"$ref": "#/components/schemas/summary_stats"
 					},
 					"updated_date": {
 						"type": "string"
@@ -1558,6 +1510,12 @@
 					"display_name"
 				],
 				"type": "object"
+			},
+			"dehydratedConceptArray": {
+				"items": {
+					"$ref": "#/components/schemas/dehydratedConcept"
+				},
+				"type": "array"
 			},
 			"errorMessage": {
 				"properties": {
@@ -1653,23 +1611,7 @@
 						"$ref": "#/components/schemas/roles"
 					},
 					"summary_stats": {
-						"properties": {
-							"2yr_mean_citedness": {
-								"type": "number"
-							},
-							"h_index": {
-								"type": "integer"
-							},
-							"i10_index": {
-								"type": "integer"
-							}
-						},
-						"required": [
-							"2yr_mean_citedness",
-							"h_index",
-							"i10_index"
-						],
-						"type": "object"
+						"$ref": "#/components/schemas/summary_stats"
 					},
 					"updated_date": {
 						"type": "string"
@@ -1706,7 +1648,10 @@
 						"type": "number"
 					},
 					"region": {
-						"type": "string"
+						"type": [
+							"string",
+							"null"
+						]
 					}
 				},
 				"required": [
@@ -1742,6 +1687,33 @@
 				},
 				"type": "array"
 			},
+			"ids": {
+				"additionalProperties": false,
+				"properties": {
+					"grid": {
+						"type": "string"
+					},
+					"mag": {
+						"type": "string"
+					},
+					"openalex": {
+						"type": "string"
+					},
+					"ror": {
+						"type": "string"
+					},
+					"wikidata": {
+						"type": "string"
+					},
+					"wikipedia": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"openalex"
+				],
+				"type": "object"
+			},
 			"institutionObject": {
 				"properties": {
 					"country_code": {
@@ -1771,13 +1743,111 @@
 					"ror",
 					"display_name",
 					"country_code",
-					"type",
-					"lineage"
+					"type"
 				],
 				"type": [
 					"object",
 					"null"
 				]
+			},
+			"institutionSchema": {
+				"properties": {
+					"associated_institutions": {
+						"$ref": "#/components/schemas/institutionsArray"
+					},
+					"cited_by_count": {
+						"type": "integer"
+					},
+					"country_code": {
+						"type": "string"
+					},
+					"counts_by_year": {
+						"$ref": "#/components/schemas/countsByYear"
+					},
+					"created_date": {
+						"type": "string"
+					},
+					"display_name": {
+						"type": "string"
+					},
+					"display_name_acronyms": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"display_name_alternatives": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"geo": {
+						"$ref": "#/components/schemas/geo"
+					},
+					"homepage_url": {
+						"type": "string"
+					},
+					"id": {
+						"type": "string"
+					},
+					"ids": {
+						"$ref": "#/components/schemas/ids"
+					},
+					"image_thumbnail_url": {
+						"type": [
+							"string",
+							"null"
+						]
+					},
+					"image_url": {
+						"type": [
+							"string",
+							"null"
+						]
+					},
+					"international": {
+						"$ref": "#/components/schemas/international_display_name"
+					},
+					"lineage": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"repositories": {
+						"$ref": "#/components/schemas/repositoriesArray"
+					},
+					"roles": {
+						"$ref": "#/components/schemas/roles"
+					},
+					"ror": {
+						"type": "string"
+					},
+					"summary_stats": {
+						"$ref": "#/components/schemas/summary_stats"
+					},
+					"type": {
+						"type": "string"
+					},
+					"updated_date": {
+						"type": "string"
+					},
+					"works_api_url": {
+						"type": "string"
+					},
+					"works_count": {
+						"type": "integer"
+					},
+					"x_concepts": {
+						"$ref": "#/components/schemas/dehydratedConceptArray"
+					}
+				},
+				"required": [
+					"id",
+					"display_name"
+				],
+				"type": "object"
 			},
 			"institutionsArray": {
 				"items": {
@@ -2874,23 +2944,7 @@
 						"type": "string"
 					},
 					"summary_stats": {
-						"properties": {
-							"2yr_mean_citedness": {
-								"type": "number"
-							},
-							"h_index": {
-								"type": "integer"
-							},
-							"i10_index": {
-								"type": "integer"
-							}
-						},
-						"required": [
-							"2yr_mean_citedness",
-							"h_index",
-							"i10_index"
-						],
-						"type": "object"
+						"$ref": "#/components/schemas/summary_stats"
 					},
 					"updated_date": {
 						"type": "string"
@@ -2904,12 +2958,6 @@
 					"display_name"
 				],
 				"type": "object"
-			},
-			"relatedConcepts": {
-				"items": {
-					"$ref": "#/components/schemas/dehydratedConcept"
-				},
-				"type": "array"
 			},
 			"repositoriesArray": {
 				"items": {
@@ -3093,26 +3141,7 @@
 						"type": "array"
 					},
 					"summary_stats": {
-						"properties": {
-							"2yr_mean_citedness": {
-								"type": [
-									"number",
-									"null"
-								]
-							},
-							"h_index": {
-								"type": "integer"
-							},
-							"i10_index": {
-								"type": "integer"
-							}
-						},
-						"required": [
-							"2yr_mean_citedness",
-							"h_index",
-							"i10_index"
-						],
-						"type": "object"
+						"$ref": "#/components/schemas/summary_stats"
 					},
 					"type": {
 						"type": "string"
@@ -3127,12 +3156,31 @@
 						"type": "integer"
 					},
 					"x_concepts": {
-						"$ref": "#/components/schemas/concepts"
+						"$ref": "#/components/schemas/dehydratedConceptArray"
 					}
 				},
 				"required": [
 					"id",
 					"display_name"
+				],
+				"type": "object"
+			},
+			"summary_stats": {
+				"properties": {
+					"2yr_mean_citedness": {
+						"type": "number"
+					},
+					"h_index": {
+						"type": "integer"
+					},
+					"i10_index": {
+						"type": "integer"
+					}
+				},
+				"required": [
+					"2yr_mean_citedness",
+					"h_index",
+					"i10_index"
 				],
 				"type": "object"
 			},
@@ -4364,23 +4412,7 @@
 														"type": "string"
 													},
 													"summary_stats": {
-														"properties": {
-															"2yr_mean_citedness": {
-																"type": "number"
-															},
-															"h_index": {
-																"type": "integer"
-															},
-															"i10_index": {
-																"type": "integer"
-															}
-														},
-														"required": [
-															"2yr_mean_citedness",
-															"h_index",
-															"i10_index"
-														],
-														"type": "object"
+														"$ref": "#/components/schemas/summary_stats"
 													},
 													"type": {
 														"type": "string"
@@ -4395,7 +4427,7 @@
 														"type": "integer"
 													},
 													"x_concepts": {
-														"$ref": "#/components/schemas/concepts"
+														"$ref": "#/components/schemas/dehydratedConceptArray"
 													}
 												},
 												"required": [
@@ -4459,141 +4491,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"properties": {
-										"associated_institutions": {
-											"$ref": "#/components/schemas/institutionsArray"
-										},
-										"cited_by_count": {
-											"type": "integer"
-										},
-										"country_code": {
-											"type": "string"
-										},
-										"counts_by_year": {
-											"$ref": "#/components/schemas/countsByYear"
-										},
-										"created_date": {
-											"type": "string"
-										},
-										"display_name": {
-											"type": "string"
-										},
-										"display_name_acronyms": {
-											"items": {
-												"type": "string"
-											},
-											"type": "array"
-										},
-										"display_name_alternatives": {
-											"items": {
-												"type": "string"
-											},
-											"type": "array"
-										},
-										"geo": {
-											"$ref": "#/components/schemas/geo"
-										},
-										"homepage_url": {
-											"type": "string"
-										},
-										"id": {
-											"type": "string"
-										},
-										"ids": {
-											"properties": {
-												"grid": {
-													"type": "string"
-												},
-												"mag": {
-													"type": "string"
-												},
-												"openalex": {
-													"type": "string"
-												},
-												"ror": {
-													"type": "string"
-												},
-												"wikidata": {
-													"type": "string"
-												},
-												"wikipedia": {
-													"type": "string"
-												}
-											},
-											"required": [
-												"openalex",
-												"ror",
-												"mag",
-												"grid",
-												"wikipedia",
-												"wikidata"
-											],
-											"type": "object"
-										},
-										"image_thumbnail_url": {
-											"type": "string"
-										},
-										"image_url": {
-											"type": "string"
-										},
-										"international": {
-											"$ref": "#/components/schemas/international_display_name"
-										},
-										"lineage": {
-											"items": {
-												"type": "string"
-											},
-											"type": "array"
-										},
-										"repositories": {
-											"$ref": "#/components/schemas/repositoriesArray"
-										},
-										"roles": {
-											"$ref": "#/components/schemas/roles"
-										},
-										"ror": {
-											"type": "string"
-										},
-										"summary_stats": {
-											"properties": {
-												"2yr_mean_citedness": {
-													"type": "number"
-												},
-												"h_index": {
-													"type": "integer"
-												},
-												"i10_index": {
-													"type": "integer"
-												}
-											},
-											"required": [
-												"2yr_mean_citedness",
-												"h_index",
-												"i10_index"
-											],
-											"type": "object"
-										},
-										"type": {
-											"type": "string"
-										},
-										"updated_date": {
-											"type": "string"
-										},
-										"works_api_url": {
-											"type": "string"
-										},
-										"works_count": {
-											"type": "integer"
-										},
-										"x_concepts": {
-											"$ref": "#/components/schemas/concepts"
-										}
-									},
-									"required": [
-										"id",
-										"display_name"
-									],
-									"type": "object"
+									"$ref": "#/components/schemas/institutionSchema"
 								}
 							}
 						},

@@ -19,7 +19,7 @@ export const geo = {
 			type: "number",
 		},
 		region: {
-			type: "string",
+			type: ["string", "null"],
 		},
 	},
 	required: [

@@ -3,7 +3,7 @@ import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { international_display_name_and_description } from "~/spec/components/schemas/international_display_name";
 import { summary_stats } from "~/spec/components/schemas/summary_stats";
 
-let dehydratedConcept = {
+export const dehydratedConcept = {
 	additionalProperties: false,
 	properties: {
 		display_name: {
@@ -29,7 +29,7 @@ let dehydratedConcept = {
 	type: "object",
 } satisfies SchemaObject;
 
-export const relatedConcepts = {
+export const dehydratedConceptArray = {
 	items: refSchema({ dehydratedConcept }),
 	type: "array",
 } satisfies SchemaObject;
@@ -37,7 +37,7 @@ export const relatedConcepts = {
 export const conceptSchema = {
 	additionalProperties: false,
 	properties: {
-		ancestors: refSchema({ relatedConcepts }),
+		ancestors: refSchema({ dehydratedConceptArray }),
 		cited_by_count: {
 			type: "integer",
 		},
@@ -90,7 +90,7 @@ export const conceptSchema = {
 		level: {
 			type: "integer",
 		},
-		related_concepts: refSchema({ relatedConcepts }),
+		related_concepts: refSchema({ dehydratedConceptArray }),
 		summary_stats: refSchema({ summary_stats }),
 		updated_date: {
 			type: "string",

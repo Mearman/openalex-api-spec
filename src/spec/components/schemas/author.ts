@@ -1,6 +1,6 @@
 import { refSchema } from "~/spec/components";
 import { affiliations } from "~/spec/components/schemas/affiliations";
-import { concepts } from "~/spec/components/schemas/concept";
+import { dehydratedConceptArray } from "~/spec/components/schemas/concept";
 import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { institutionObject } from "~/spec/components/schemas/institutionObject";
 import { institutionsArray } from "~/spec/components/schemas/institutionsArray";
@@ -61,7 +61,7 @@ export const author = {
 		works_count: {
 			type: "integer",
 		},
-		x_concepts: refSchema({ concepts }),
+		x_concepts: refSchema({ dehydratedConceptArray }),
 	},
 	required: ["id", "display_name"],
 	type: "object",

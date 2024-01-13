@@ -28,7 +28,6 @@ export const institutionObject = {
 		"display_name",
 		"country_code",
 		"type",
-		"lineage",
 	],
 	type: ["object", "null"]
 } satisfies SchemaObject;

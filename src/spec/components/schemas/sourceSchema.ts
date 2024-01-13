@@ -1,5 +1,5 @@
 import { refSchema } from "~/spec/components";
-import { concepts } from "~/spec/components/schemas/concept";
+import { dehydratedConceptArray } from "~/spec/components/schemas/concept";
 import { summary_stats } from "~/spec/components/schemas/summary_stats";
 
 export const sourceSchema: SchemaObject = {
@@ -126,7 +126,7 @@ export const sourceSchema: SchemaObject = {
 		works_count: {
 			type: "integer"
 		},
-		x_concepts: refSchema({ concepts })
+		x_concepts: refSchema({ dehydratedConceptArray }),
 	},
 	required: ["id", "display_name"],
 	type: "object",
