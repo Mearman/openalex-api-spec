@@ -1,4 +1,5 @@
 export const summary_stats: SchemaObject = {
+	additionalProperties: false,
 	properties: {
 		"2yr_mean_citedness": {
 			type: "number",

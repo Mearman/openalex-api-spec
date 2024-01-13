@@ -1,12 +1,15 @@
 import { refSchema } from "~/spec/components";
 import { affiliations } from "~/spec/components/schemas/affiliations";
-import { dehydratedConceptArray } from "~/spec/components/schemas/concept";
-import { countsByYear } from "~/spec/components/schemas/countsByYear";
-import { institutionObject } from "~/spec/components/schemas/institutionObject";
-import { institutionsArray } from "~/spec/components/schemas/institutionsArray";
-import { summary_stats } from "~/spec/components/schemas/summary_stats";
+
+import { dehydratedConceptArray } from "~/spec/components/schemas/concepts/dehydratedConceptArray";
+import { ids } from "~/spec/components/schemas/ids";
+import { dehydratedInstitution } from "~/spec/components/schemas/institutions/dehydratedInstitution";
+import { dehydratedInstitutionArray } from "~/spec/components/schemas/institutions/dehydratedInstitutionArray";
+import { countsByYear } from "~/spec/components/schemas/shared/countsByYear";
+import { summary_stats } from "~/spec/components/schemas/shared/summary_stats";
 
 export const author = {
+	additionalProperties: false,
 	properties: {
 		affiliations: refSchema({ affiliations }),
 		cited_by_count: {
@@ -28,26 +31,9 @@ export const author = {
 		id: {
 			type: "string",
 		},
-		ids: {
-			properties: {
-				openalex: {
-					type: "string",
-				},
-				orcid: {
-					type: "string"
-				},
-				scopus: {
-					type: "string",
-				},
-				wikipedia: {
-					type: "string",
-				},
-			},
-			required: ["openalex"],
-			type: "object",
-		},
-		last_known_institution: refSchema({ institutionObject }),
-		last_known_institutions: refSchema({ institutionsArray }),
+		ids: refSchema({ ids }),
+		last_known_institution: refSchema({ dehydratedInstitution }),
+		last_known_institutions: refSchema({ institutionsArray: dehydratedInstitutionArray }),
 		orcid: {
 			type: ["string", "null"]
 		},

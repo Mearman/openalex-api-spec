@@ -1,8 +1,6 @@
 import { refSchema } from "~/spec/components";
 import { defaultListParameters } from "~/spec/components/parameters/defaultListParameters";
-import { funderSchema } from "~/spec/components/schemas/funderSchema";
-import { group_by_result } from "~/spec/components/schemas/group_by_result";
-import { meta } from "~/spec/components/schemas/meta";
+import { fundersArray } from "~/spec/components/schemas/funders/fundersArray";
 
 export const funders = {
 	"/funders": {
@@ -14,18 +12,7 @@ export const funders = {
 				"200": {
 					content: {
 						"application/json": {
-							schema: {
-								properties: {
-									group_by: refSchema({ group_by_result }),
-									meta: refSchema({ meta }),
-									results: {
-										items: refSchema({ funderSchema }),
-										type: "array",
-									},
-								},
-								required: ["meta", "group_by"],
-								type: "object",
-							},
+							schema: refSchema({ fundersArray }),
 						},
 					},
 					description: "",

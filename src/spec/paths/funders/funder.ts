@@ -1,6 +1,6 @@
 import { refParameter, refSchema } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
-import { funderSchema } from "~/spec/components/schemas/funderSchema";
+import { funderSchema } from "~/spec/components/schemas/funders/funderSchema";
 
 export const funder = {
 	"/funders/{id}": {

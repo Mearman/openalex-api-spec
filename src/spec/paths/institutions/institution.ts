@@ -1,6 +1,6 @@
 import { refParameter, refSchema } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
-import { institutionSchema } from "~/spec/components/schemas/institutionSchema";
+import { institutionSchema } from "~/spec/components/schemas/institutions/institutionSchema";
 
 export const institution = {
 	"/institutions/{id}": {

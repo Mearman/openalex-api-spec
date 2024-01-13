@@ -1,6 +1,6 @@
 import { refSchema } from "~/spec/components";
-import { baseSelectionAttributes } from "~/spec/components/schemas/baseSelectionAttributes";
-import { workAttributes } from "~/spec/components/schemas/workAttributes";
+import { baseSelectionAttributes } from "~/spec/components/schemas/shared/baseSelectionAttributes";
+import { workAttributes } from "~/spec/components/schemas/works/workAttributes";
 
 export const workAttributeSelectionParameter: ParameterObject = {
 	in: "query",

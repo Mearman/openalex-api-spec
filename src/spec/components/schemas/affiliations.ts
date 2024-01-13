@@ -1,10 +1,10 @@
 import { refSchema } from "~/spec/components";
-import { institutionObject } from "~/spec/components/schemas/institutionObject";
+import { dehydratedInstitution } from "~/spec/components/schemas/institutions/dehydratedInstitution";
 
 export const affiliations = {
 	items: {
 		properties: {
-			institution: refSchema({ institutionObject }),
+			institution: refSchema({ dehydratedInstitution }),
 			years: {
 				items: {
 					type: "integer",

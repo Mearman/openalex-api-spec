@@ -1,8 +1,9 @@
 import { refSchema } from "~/spec/components";
 import { defaultListParameters } from "~/spec/components/parameters/defaultListParameters";
-import { concepts as conceptsArray } from "~/spec/components/schemas/concept";
-import { group_by_result } from "~/spec/components/schemas/group_by_result";
-import { meta } from "~/spec/components/schemas/meta";
+
+import { conceptsArray } from "~/spec/components/schemas/concepts/conceptsArray";
+import { group_by_result } from "~/spec/components/schemas/system/group_by_result";
+import { meta } from "~/spec/components/schemas/system/meta";
 
 export const concepts = {
 	"/concepts": {
@@ -18,7 +19,7 @@ export const concepts = {
 								properties: {
 									group_by: refSchema({ group_by_result }),
 									meta: refSchema({ meta }),
-									results: refSchema({ concepts: conceptsArray }),
+									results: refSchema({ conceptsArray }),
 								},
 								required: ["meta", "group_by"],
 								type: "object",

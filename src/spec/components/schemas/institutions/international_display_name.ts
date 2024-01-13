@@ -1,5 +1,5 @@
 import { refSchema } from "~/spec/components";
-import { internationalisation } from "~/spec/components/schemas/internationalisation";
+import { internationalisation } from "~/spec/components/schemas/institutions/internationalisation";
 
 export let international_display_name = {
 	properties: {

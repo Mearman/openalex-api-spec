@@ -1,7 +1,7 @@
 import { refSchema } from "~/spec/components";
-import { author } from "~/spec/components/schemas/author";
-import { group_by_result } from "~/spec/components/schemas/group_by_result";
-import { meta } from "~/spec/components/schemas/meta";
+import { author } from "~/spec/components/schemas/authors/author";
+import { group_by_result } from "~/spec/components/schemas/system/group_by_result";
+import { meta } from "~/spec/components/schemas/system/meta";
 
 export const authorsGet200 = {
 	content: {

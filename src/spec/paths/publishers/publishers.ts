@@ -1,8 +1,8 @@
 import { refSchema } from "~/spec/components";
 import { defaultListParameters } from "~/spec/components/parameters/defaultListParameters";
-import { group_by_result } from "~/spec/components/schemas/group_by_result";
-import { meta } from "~/spec/components/schemas/meta";
-import { publisherSchema } from "~/spec/components/schemas/publisherSchema";
+import { publisherSchema } from "~/spec/components/schemas/publishers/publisherSchema";
+import { group_by_result } from "~/spec/components/schemas/system/group_by_result";
+import { meta } from "~/spec/components/schemas/system/meta";
 
 export const publishers = {
 	"/publishers": {

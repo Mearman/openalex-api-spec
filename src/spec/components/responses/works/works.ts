@@ -1,8 +1,8 @@
 import { refSchema } from "~/spec/components";
 
-import { group_by_result } from "~/spec/components/schemas/group_by_result";
-import { meta } from "~/spec/components/schemas/meta";
-import { workSchema } from "~/spec/components/schemas/work";
+import { group_by_result } from "~/spec/components/schemas/system/group_by_result";
+import { meta } from "~/spec/components/schemas/system/meta";
+import { workSchema } from "~/spec/components/schemas/works/work";
 
 export let works = {
 	content: {

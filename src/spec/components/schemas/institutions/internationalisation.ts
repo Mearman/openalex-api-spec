@@ -1,4 +1,4 @@
-import { international_string } from "~/spec/components/schemas/international_string";
+import { international_string } from "~/spec/components/schemas/institutions/international_string";
 
 export const internationalisation = {
 	properties: international_string,

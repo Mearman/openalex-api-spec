@@ -1,4 +1,5 @@
 export const location: SchemaObject = {
+	additionalProperties: false,
 	type: ["object", "null"],
 	properties: {
 		is_accepted: {

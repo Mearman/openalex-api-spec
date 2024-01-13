@@ -1,38 +1,10 @@
 import { refSchema } from "~/spec/components";
-import { countsByYear } from "~/spec/components/schemas/countsByYear";
-import { international_display_name_and_description } from "~/spec/components/schemas/international_display_name";
-import { summary_stats } from "~/spec/components/schemas/summary_stats";
-
-export const dehydratedConcept = {
-	additionalProperties: false,
-	properties: {
-		display_name: {
-			type: "string",
-		},
-		id: {
-			type: "string",
-		},
-		level: {
-			type: "integer",
-		},
-		score: {
-			type: "number",
-		},
-		wikidata: {
-			type: ["string", "null"]
-		},
-	},
-	required: [
-		"id",
-		"display_name",
-	],
-	type: "object",
-} satisfies SchemaObject;
-
-export const dehydratedConceptArray = {
-	items: refSchema({ dehydratedConcept }),
-	type: "array",
-} satisfies SchemaObject;
+import { dehydratedConceptArray } from "~/spec/components/schemas/concepts/dehydratedConceptArray";
+import {
+	international_display_name_and_description
+} from "~/spec/components/schemas/institutions/international_display_name";
+import { countsByYear } from "~/spec/components/schemas/shared/countsByYear";
+import { summary_stats } from "~/spec/components/schemas/shared/summary_stats";
 
 export const conceptSchema = {
 	additionalProperties: false,
@@ -109,7 +81,3 @@ export const conceptSchema = {
 	type: "object",
 } satisfies SchemaObject;
 
-export const concepts = {
-	items: refSchema({ conceptSchema }),
-	type: "array",
-} satisfies SchemaObject;

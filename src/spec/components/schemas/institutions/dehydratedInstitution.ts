@@ -1,4 +1,5 @@
-export const institutionObject = {
+export const dehydratedInstitution = {
+	additionalProperties: false,
 	properties: {
 		country_code: {
 			type: "string",

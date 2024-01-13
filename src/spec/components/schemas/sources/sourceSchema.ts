@@ -1,6 +1,9 @@
 import { refSchema } from "~/spec/components";
-import { dehydratedConceptArray } from "~/spec/components/schemas/concept";
-import { summary_stats } from "~/spec/components/schemas/summary_stats";
+
+import { dehydratedConceptArray } from "~/spec/components/schemas/concepts/dehydratedConceptArray";
+import { ids } from "~/spec/components/schemas/ids";
+import { countsByYear } from "~/spec/components/schemas/shared/countsByYear";
+import { summary_stats } from "~/spec/components/schemas/shared/summary_stats";
 
 export const sourceSchema: SchemaObject = {
 	additionalProperties: false,
@@ -26,28 +29,7 @@ export const sourceSchema: SchemaObject = {
 		country_code: {
 			type: ["string", "null"]
 		},
-		counts_by_year: {
-			type: "array",
-			items: {
-				type: "object",
-				properties: {
-					year: {
-						type: "integer"
-					},
-					works_count: {
-						type: "integer"
-					},
-					cited_by_count: {
-						type: "integer"
-					}
-				},
-				required: [
-					"year",
-					"works_count",
-					"cited_by_count"
-				]
-			}
-		},
+		counts_by_year: refSchema({ countsByYear }),
 		created_date: {
 			type: "string"
 		},
@@ -72,26 +54,7 @@ export const sourceSchema: SchemaObject = {
 		id: {
 			type: "string"
 		},
-		ids: {
-			type: "object",
-			properties: {
-				openalex: {
-					type: "string"
-				},
-				wikidata: {
-					type: "string"
-				},
-				issn_l: {
-					type: "string"
-				},
-				issn: {
-					type: ["array", "null"],
-					items: {
-						type: "string"
-					}
-				}
-			},
-		},
+		ids: refSchema({ ids }),
 		is_in_doaj: {
 			type: "boolean"
 		},

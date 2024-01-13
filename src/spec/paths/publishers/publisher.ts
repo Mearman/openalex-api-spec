@@ -1,6 +1,6 @@
 import { refParameter, refSchema } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
-import { publisherSchema } from "~/spec/components/schemas/publisherSchema";
+import { publisherSchema } from "~/spec/components/schemas/publishers/publisherSchema";
 
 export const publisher = {
 	"/publishers/{id}": {

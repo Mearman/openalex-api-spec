@@ -1,10 +1,11 @@
 import { refSchema } from "~/spec/components";
-import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { ids } from "~/spec/components/schemas/ids";
-import { roles } from "~/spec/components/schemas/roles";
-import { summary_stats } from "~/spec/components/schemas/summary_stats";
+import { countsByYear } from "~/spec/components/schemas/shared/countsByYear";
+import { roles } from "~/spec/components/schemas/shared/roles";
+import { summary_stats } from "~/spec/components/schemas/shared/summary_stats";
 
 export let publisherSchema = {
+	additionalProperties: false,
 	properties: {
 		alternate_titles: {
 			items: {

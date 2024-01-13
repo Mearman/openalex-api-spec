@@ -1,8 +1,8 @@
 import { refSchema } from "~/spec/components";
-import { apc } from "~/spec/components/schemas/apc";
-import { authorships } from "~/spec/components/schemas/authorships";
-import { countsByYear } from "~/spec/components/schemas/countsByYear";
-import { location } from "~/spec/components/schemas/location";
+import { countsByYear } from "~/spec/components/schemas/shared/countsByYear";
+import { apc } from "~/spec/components/schemas/works/apc";
+import { authorships } from "~/spec/components/schemas/works/authorships";
+import { location } from "~/spec/components/schemas/works/location";
 
 export const workSchema = {
 	properties: {

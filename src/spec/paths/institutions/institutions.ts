@@ -1,15 +1,16 @@
 import { refSchema } from "~/spec/components";
 import { defaultListParameters } from "~/spec/components/parameters/defaultListParameters";
-import { dehydratedConceptArray } from "~/spec/components/schemas/concept";
-import { countsByYear } from "~/spec/components/schemas/countsByYear";
-import { geo } from "~/spec/components/schemas/geo";
-import { group_by_result } from "~/spec/components/schemas/group_by_result";
-import { institutionsArray } from "~/spec/components/schemas/institutionsArray";
-import { international_display_name } from "~/spec/components/schemas/international_display_name";
-import { meta } from "~/spec/components/schemas/meta";
-import { repositoriesArray } from "~/spec/components/schemas/repositoriesArray";
-import { roles } from "~/spec/components/schemas/roles";
-import { summary_stats } from "~/spec/components/schemas/summary_stats";
+
+import { dehydratedConceptArray } from "~/spec/components/schemas/concepts/dehydratedConceptArray";
+import { dehydratedInstitutionArray } from "~/spec/components/schemas/institutions/dehydratedInstitutionArray";
+import { geo } from "~/spec/components/schemas/institutions/geo";
+import { international_display_name } from "~/spec/components/schemas/institutions/international_display_name";
+import { repositoriesArray } from "~/spec/components/schemas/institutions/repositoriesArray";
+import { countsByYear } from "~/spec/components/schemas/shared/countsByYear";
+import { roles } from "~/spec/components/schemas/shared/roles";
+import { summary_stats } from "~/spec/components/schemas/shared/summary_stats";
+import { group_by_result } from "~/spec/components/schemas/system/group_by_result";
+import { meta } from "~/spec/components/schemas/system/meta";
 
 export const institutions = {
 	"/institutions": {
@@ -28,7 +29,7 @@ export const institutions = {
 									results: {
 										items: {
 											properties: {
-												associated_institutions: refSchema({ institutionsArray }),
+												associated_institutions: refSchema({ institutionsArray: dehydratedInstitutionArray }),
 												cited_by_count: {
 													type: "integer",
 												},

@@ -1,5 +1,5 @@
 import { refSchema } from "~/spec/components";
-import { meta } from "~/spec/components/schemas/meta";
+import { meta } from "~/spec/components/schemas/system/meta";
 
 export const autoCompleteResultItem = {
 	properties: {

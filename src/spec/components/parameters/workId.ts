@@ -1,5 +1,5 @@
 import { refSchema } from "~/spec/components";
-import { workIdPattern } from "~/spec/components/schemas/workIdPattern";
+import { workIdPattern } from "~/spec/components/schemas/works/workIdPattern";
 
 export const workId = {
 	description: "The id of the work to retrieve",
