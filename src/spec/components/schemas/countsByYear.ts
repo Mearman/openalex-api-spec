@@ -11,7 +11,7 @@ export const countsByYear = {
 				type: "integer",
 			},
 		},
-		required: ["year", "works_count", "cited_by_count"],
+		required: ["year", "cited_by_count"],
 		type: "object",
 	},
 	type: "array",
