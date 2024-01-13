@@ -1,6 +1,6 @@
 import { refParameter, refResponse } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
-import { authorGet200 } from "~/spec/components/responses/authorGet200Response";
+import { authorGet200 } from "~/spec/components/responses/authorGet200";
 
 const links: Record<string, LinkObject> = {
 	getInstitution: {
@@ -26,11 +26,11 @@ const authorById = {
 		description: "Get a single author by id",
 		operationId: "getAuthor",
 		parameters: [
-			refParameter({authorIdParam}),
-			refParameter({select}),
+			refParameter({ authorIdParam }),
+			refParameter({ select }),
 		],
 		responses: {
-			"200": refResponse({authorGet200})
+			"200": refResponse({ authorGet200 })
 		},
 		summary: "Get Author",
 	},
@@ -41,7 +41,7 @@ let randomAuthor = {
 		...authorById.get,
 		operationId: "getRandomAuthor",
 		parameters: [
-			refParameter({select}),
+			refParameter({ select }),
 		],
 		summary: "Get Random Author",
 	}
