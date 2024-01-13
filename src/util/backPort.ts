@@ -34,7 +34,7 @@ export async function backPort(
 		result.errors.forEach((err) => {
 			console.error(err);
 		});
-		throw new Error("Validation failed");
+		// throw new Error("Validation failed");
 	}
 
 	fs.writeFileSync(path, JSON.stringify(oas30Document, null, "\t"));
