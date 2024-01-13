@@ -31,6 +31,12 @@ export const ids: SchemaObject = {
 		wikipedia: {
 			type: "string",
 		},
+		fatcat: {
+			type: "string",
+			examples: [{
+				value: "https://fatcat.wiki/container/wixiueunq5e6xk7dx5ygzzysjy"
+			}],
+		}
 	},
 	required: [
 		"openalex",
