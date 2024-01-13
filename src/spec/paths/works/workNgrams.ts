@@ -75,7 +75,6 @@ export const workNgrams: PathItemObject = {
 		operationId: "getWorkNgrams",
 		parameters: [
 			{
-				example: "W2089319476",
 				in: "path",
 				name: "id",
 				required: true,
