@@ -1,14 +1,7 @@
 #!/usr#!/usr/bin/env npx -y tsx
 
 import { getDoc } from "~/spec";
-import {
-	generateDereferencedSpec,
-	getGetPaths,
-	operationsWithNoRequiredParameters,
-	separator,
-	validate,
-	writeSpec
-} from "~/util";
+import { backPort, generateDereferencedSpec, separator, validate, writeSpec } from "~/util";
 
 async function main() {
 	const doc = getDoc();
@@ -17,6 +10,7 @@ async function main() {
 	await validate(doc);
 	writeSpec(doc);
 	const dereferencedDoc = await generateDereferencedSpec(doc);
+	await backPort(dereferencedDoc);
 }
 
 (async () => {
