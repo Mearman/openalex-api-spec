@@ -16,13 +16,13 @@ export const source = {
 						type: "string",
 					},
 				},
-				refParameter({select}),
+				refParameter({ select }),
 			],
 			responses: {
 				"200": {
 					content: {
 						"application/json": {
-							schema: refSchema({sourceSchema}),
+							schema: refSchema({ sourceSchema }),
 						},
 					},
 					description: "",

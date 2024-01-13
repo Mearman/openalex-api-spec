@@ -1,5 +1,6 @@
 import { refSchema } from "~/spec/components";
-import { concepts } from "~/spec/components/schemas/concepts";
+import { concepts } from "~/spec/components/schemas/concept";
+import { summary_stats } from "~/spec/components/schemas/summary_stats";
 
 export const sourceSchema: SchemaObject = {
 	additionalProperties: false,
@@ -112,25 +113,7 @@ export const sourceSchema: SchemaObject = {
 				type: "string"
 			}
 		},
-		summary_stats: {
-			properties: {
-				"2yr_mean_citedness": {
-					type: ["number", "null"]
-				},
-				h_index: {
-					type: "integer"
-				},
-				i10_index: {
-					type: "integer"
-				}
-			},
-			required: [
-				"2yr_mean_citedness",
-				"h_index",
-				"i10_index"
-			],
-			type: "object"
-		},
+		summary_stats: refSchema({ summary_stats }),
 		type: {
 			type: "string"
 		},
@@ -143,7 +126,7 @@ export const sourceSchema: SchemaObject = {
 		works_count: {
 			type: "integer"
 		},
-		x_concepts: refSchema({concepts})
+		x_concepts: refSchema({ concepts })
 	},
 	required: ["id", "display_name"],
 	type: "object",

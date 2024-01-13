@@ -1,12 +1,13 @@
 import { refParameter, refSchema } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
-import { concepts } from "~/spec/components/schemas/concepts";
+import { concepts } from "~/spec/components/schemas/concept";
 import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { geo } from "~/spec/components/schemas/geo";
 import { institutionsArray } from "~/spec/components/schemas/institutionsArray";
 import { international_display_name } from "~/spec/components/schemas/international_display_name";
 import { repositoriesArray } from "~/spec/components/schemas/repositoriesArray";
 import { roles } from "~/spec/components/schemas/roles";
+import { summary_stats } from "~/spec/components/schemas/summary_stats";
 
 export const institution = {
 	"/institutions/{id}": {
@@ -112,21 +113,7 @@ export const institution = {
 									ror: {
 										type: "string",
 									},
-									summary_stats: {
-										properties: {
-											"2yr_mean_citedness": {
-												type: "number",
-											},
-											h_index: {
-												type: "integer",
-											},
-											i10_index: {
-												type: "integer",
-											},
-										},
-										required: ["2yr_mean_citedness", "h_index", "i10_index"],
-										type: "object",
-									},
+									summary_stats: refSchema({ summary_stats }),
 									type: {
 										type: "string",
 									},

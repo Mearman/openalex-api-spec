@@ -1,31 +1,43 @@
 import { refSchema } from "~/spec/components";
-import { concepts } from "~/spec/components/schemas/concepts";
 import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { international_display_name_and_description } from "~/spec/components/schemas/international_display_name";
+import { summary_stats } from "~/spec/components/schemas/summary_stats";
+
+let dehydratedConcept = {
+	additionalProperties: false,
+	properties: {
+		display_name: {
+			type: "string",
+		},
+		id: {
+			type: "string",
+		},
+		level: {
+			type: "integer",
+		},
+		score: {
+			type: "number",
+		},
+		wikidata: {
+			type: ["string", "null"]
+		},
+	},
+	required: [
+		"id",
+		"display_name",
+	],
+	type: "object",
+} satisfies SchemaObject;
+
+export const relatedConcepts = {
+	items: refSchema({ dehydratedConcept }),
+	type: "array",
+} satisfies SchemaObject;
 
 export const conceptSchema = {
+	additionalProperties: false,
 	properties: {
-		ancestors: {
-			items: {
-				properties: {
-					display_name: {
-						type: "string",
-					},
-					id: {
-						type: "string",
-					},
-					level: {
-						type: "integer",
-					},
-					wikidata: {
-						type: "string",
-					},
-				},
-				required: ["id", "wikidata", "display_name", "level"],
-				type: "object",
-			},
-			type: "array",
-		},
+		ancestors: refSchema({ relatedConcepts }),
 		cited_by_count: {
 			type: "integer",
 		},
@@ -34,7 +46,7 @@ export const conceptSchema = {
 			type: "string",
 		},
 		description: {
-			type: "string",
+			type: ["string", "null"]
 		},
 		display_name: {
 			type: "string",
@@ -64,11 +76,7 @@ export const conceptSchema = {
 				},
 			},
 			required: [
-				"openalex",
-				"wikidata",
-				"mag",
-				"wikipedia",
-				"umls_cui",
+				"openalex"
 			],
 			type: "object",
 		},
@@ -82,22 +90,8 @@ export const conceptSchema = {
 		level: {
 			type: "integer",
 		},
-		related_concepts: refSchema({ concepts }),
-		summary_stats: {
-			properties: {
-				"2yr_mean_citedness": {
-					type: "number",
-				},
-				h_index: {
-					type: "integer",
-				},
-				i10_index: {
-					type: "integer",
-				},
-			},
-			required: ["2yr_mean_citedness", "h_index", "i10_index"],
-			type: "object",
-		},
+		related_concepts: refSchema({ relatedConcepts }),
+		summary_stats: refSchema({ summary_stats }),
 		updated_date: {
 			type: "string",
 		},
@@ -113,4 +107,9 @@ export const conceptSchema = {
 	},
 	required: ["id", "display_name"],
 	type: "object",
+} satisfies SchemaObject;
+
+export const concepts = {
+	items: refSchema({ conceptSchema }),
+	type: "array",
 } satisfies SchemaObject;

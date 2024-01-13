@@ -24,10 +24,10 @@ export const sources = {
 						"application/json": {
 							schema: {
 								properties: {
-									group_by: refSchema({group_by_result}),
-									meta: refSchema({meta}),
+									group_by: refSchema({ group_by_result }),
+									meta: refSchema({ meta }),
 									results: {
-										items: refSchema({sourceSchema}),
+										items: refSchema({ sourceSchema }),
 										type: "array",
 									}
 								},

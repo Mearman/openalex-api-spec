@@ -1,6 +1,7 @@
 import { refSchema } from "~/spec/components";
 import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { roles } from "~/spec/components/schemas/roles";
+import { summary_stats } from "~/spec/components/schemas/summary_stats";
 
 export let funderSchema = {
 	properties: {
@@ -66,25 +67,7 @@ export let funderSchema = {
 			type: "number",
 		},
 		roles: refSchema({ roles }),
-		summary_stats: {
-			properties: {
-				"2yr_mean_citedness": {
-					type: "number",
-				},
-				h_index: {
-					type: "integer",
-				},
-				i10_index: {
-					type: "integer",
-				},
-			},
-			required: [
-				"2yr_mean_citedness",
-				"h_index",
-				"i10_index",
-			],
-			type: "object",
-		},
+		summary_stats: refSchema({ summary_stats }),
 		updated_date: {
 			type: "string",
 		},

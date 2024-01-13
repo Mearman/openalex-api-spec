@@ -1,9 +1,10 @@
 import { refSchema } from "~/spec/components";
 import { affiliations } from "~/spec/components/schemas/affiliations";
-import { concepts } from "~/spec/components/schemas/concepts";
+import { concepts } from "~/spec/components/schemas/concept";
 import { countsByYear } from "~/spec/components/schemas/countsByYear";
 import { institutionObject } from "~/spec/components/schemas/institutionObject";
 import { institutionsArray } from "~/spec/components/schemas/institutionsArray";
+import { summary_stats } from "~/spec/components/schemas/summary_stats";
 
 export const author = {
 	properties: {
@@ -50,21 +51,7 @@ export const author = {
 		orcid: {
 			type: ["string", "null"]
 		},
-		summary_stats: {
-			properties: {
-				"2yr_mean_citedness": {
-					type: "number",
-				},
-				h_index: {
-					type: "integer",
-				},
-				i10_index: {
-					type: "integer",
-				},
-			},
-			required: ["2yr_mean_citedness", "h_index", "i10_index"],
-			type: "object",
-		},
+		summary_stats: refSchema({ summary_stats }),
 		updated_date: {
 			type: "string",
 		},
