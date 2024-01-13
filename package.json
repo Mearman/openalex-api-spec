@@ -10,7 +10,7 @@
 	"devDependencies": {
 		"@babel/preset-typescript": "^7.23.3",
 		"@types/jest": "^29.5.11",
-		"@types/node": "^20.10.8",
+		"@types/node": "^20.11.0",
 		"@types/uuid": "^9.0.7",
 		"axios": "^1.6.5",
 		"jest": "^29.7.0",
@@ -26,8 +26,8 @@
 	"main": "./src/index.ts",
 	"packageManager": "yarn@4.0.2",
 	"scripts": {
-		"clean": "wireit",
 		"build": "wireit",
+		"clean": "wireit",
 		"generate": "wireit",
 		"generate:spec": "wireit",
 		"generate:typescript": "wireit",
@@ -35,36 +35,36 @@
 		"test": "wireit"
 	},
 	"wireit": {
-		"generate": {
-			"command": "npm run build && npm run generate:spec && npm run generate:typescript"
-		},
-		"test": {
-			"dependencies": [
-				"generate:spec"
-			],
-			"command": "jest"
-		},
-		"generate:typescript": {
-			"dependencies": [
-				"clean",
-				"generate:spec"
-			],
-			"command": "npx -y @openapitools/openapi-generator-cli generate"
-		},
-		"generate:spec": {
-			"dependencies": [
-				"clean"
-			],
-			"command": "npx -y tsx ./src/index.ts"
-		},
 		"build": {
+			"command": "tsc --noEmit",
 			"dependencies": [
 				"clean"
-			],
-			"command": "tsc --noEmit"
+			]
 		},
 		"clean": {
 			"command": "rimraf ./src/generated"
+		},
+		"generate": {
+			"command": "npm run build && npm run generate:spec && npm run generate:typescript"
+		},
+		"generate:spec": {
+			"command": "npx -y tsx ./src/index.ts",
+			"dependencies": [
+				"clean"
+			]
+		},
+		"generate:typescript": {
+			"command": "npx -y @openapitools/openapi-generator-cli generate",
+			"dependencies": [
+				"clean",
+				"generate:spec"
+			]
+		},
+		"test": {
+			"command": "jest",
+			"dependencies": [
+				"generate:spec"
+			]
 		}
 	}
 }
