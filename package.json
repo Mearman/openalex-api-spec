@@ -27,7 +27,6 @@
 	"packageManager": "yarn@4.0.2",
 	"scripts": {
 		"build": "wireit",
-		"clean": "wireit",
 		"generate": "wireit",
 		"generate:spec": "wireit",
 		"generate:typescript": "wireit",
@@ -37,27 +36,41 @@
 	"wireit": {
 		"build": {
 			"command": "tsc --noEmit",
-			"dependencies": [
-				"clean"
+			"files": [
+				"./src/**/*.ts"
 			]
 		},
-		"clean": {
-			"command": "rimraf ./src/generated"
-		},
 		"generate": {
-			"command": "npm run build && npm run generate:spec && npm run generate:typescript"
+			"dependencies": [
+				"build",
+				"generate:spec",
+				"generate:typescript"
+			]
 		},
 		"generate:spec": {
 			"command": "npx -y tsx ./src/index.ts",
 			"dependencies": [
-				"clean"
+				"build"
+			],
+			"files": [
+				"./src/**/*.ts"
+			],
+			"output": [
+				"./generated/*.json"
 			]
 		},
 		"generate:typescript": {
 			"command": "npx -y @openapitools/openapi-generator-cli generate",
 			"dependencies": [
-				"clean",
-				"generate:spec"
+				"generate:spec",
+				"build"
+			],
+			"files": [
+				"./src/**/*.ts"
+			],
+			"output": [
+				"./generated/**/*",
+				"!./generated/*.json"
 			]
 		},
 		"test": {
