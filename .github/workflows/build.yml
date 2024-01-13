@@ -26,6 +26,7 @@ jobs:
       - run: npm run generate:spec
       - run: npm run test:report
         continue-on-error: true
+      - run: ls -la
       - name: Process jest results with default
         if: always()
         uses: im-open/process-jest-test-results@v2
