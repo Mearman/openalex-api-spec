@@ -30,5 +30,6 @@ jobs:
         if: always()
         uses: im-open/process-jest-test-results@v2
         with:
-          github-token: jest.report.json
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          results-file: jest.report.json
           timezone: 'europe/london'
