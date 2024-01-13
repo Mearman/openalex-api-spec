@@ -10,14 +10,12 @@ export const workAttributeSelectionParameter: ParameterObject = {
 	explode: false,
 	schema: {
 		type: "array",
-		items: refSchema({
-			combinedAuthorSelectionAttributes: {
-				allOf: [
-					refSchema({ workAttributes }),
-					refSchema({ baseSelectionAttributes }),
-				],
-				type: "string",
-			} satisfies SchemaObject
-		}),
+		items: {
+			allOf: [
+				refSchema({ workAttributes }),
+				refSchema({ baseSelectionAttributes }),
+			],
+			type: "string"
+		}
 	},
 } satisfies ParameterObject;
