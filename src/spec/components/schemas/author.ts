@@ -33,7 +33,7 @@ export const author = {
 					type: "string",
 				},
 				orcid: {
-					type: "string",
+					type: "string"
 				},
 				scopus: {
 					type: "string",
@@ -48,7 +48,7 @@ export const author = {
 		last_known_institution: refSchema({ institutionObject }),
 		last_known_institutions: refSchema({ institutionsArray }),
 		orcid: {
-			type: "string",
+			type: ["string", "null"]
 		},
 		summary_stats: {
 			properties: {

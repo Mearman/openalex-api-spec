@@ -30,5 +30,5 @@ export const institutionObject = {
 		"type",
 		"lineage",
 	],
-	type: "object",
+	type: ["object", "null"]
 } satisfies SchemaObject;
