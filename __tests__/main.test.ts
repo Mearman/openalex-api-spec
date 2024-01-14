@@ -17,23 +17,24 @@ const entities = [
 ];
 
 function getGitEmail(): string | void {
-	let gitEmail
-	try {
-		gitEmail = execSync("git config user.email").toString().trim();
-	} catch (e) {
-		console.debug(e);
+	let gitEmail;
+	const gitEmailCommands = [
+		"git config user.email",
+		"git log -n 1 --pretty=format:%ae"
+	];
+
+	for (const command of gitEmailCommands) {
+		try {
+			gitEmail = execSync(command).toString().trim();
+			if (gitEmail.match(/.+@.+\..+/)) {
+				console.debug(`using git email ${gitEmail} from ${command}`);
+				return gitEmail;
+			}
+		} catch (e) {
+			console.debug(e);
+		}
 	}
-	if (gitEmail.match(/.+@.+\..+/)) {
-		console.debug(`using git email ${gitEmail} from git config user.email`)
-		return gitEmail;
-	}
-	try {
-		gitEmail = execSync("git log -n 1 --pretty=format:%ae").toString().trim();
-	} catch (e) { }
-	if (gitEmail.match(/.+@.+\..+/)) {
-		console.debug(`using git email ${gitEmail} from git log -n 1 --pretty=format:%ae`);
-		return gitEmail;
-	}
+
 	return;
 }
 
