@@ -36,14 +36,13 @@ export const info: InfoObject = {
 
 			'[![CodeSpaces](https://img.shields.io/badge/CodeSpaces-181717?style=for-the-badge&logo=GitHub&link=https://codespaces.new/Mearman/openalex-python)](https://codespaces.new/Mearman/openalex-python)',
 
-			'[![Colab](https://img.shields.io/badge/Colab-gray?style=for-the-badge&logo=Google%20Colab&link=https://colab.research.google.com/github/Mearman/openalex-python/blob/main/demos/notebook.ipynb)](https://colab.research.google.com/github/Mearman/openalex-python/blob/main/demos/notebook.ipynb)',
+			'[![Colab](https://img.shields.io/badge/Colab-gray?style=for-the-badge&logo=Google%20Colab&link=https://colab.research.google.com/github/Mearman/openalex-python/blob/main/README.ipynb)](https://colab.research.google.com/github/Mearman/openalex-python/blob/main/README.ipynb)',
 
 			// '[![Open in](https://img.shields.io/badge/Open%20in-Binder-FF6C2C?style=for-the-badge&logo=Jupyter&link=https://mybinder.org/v2/gh/Mearman/openalex-python/main)](https://mybinder.org/v2/gh/Mearman/openalex-python/main)',
 
 			// '[![Open in](https://img.shields.io/badge/Open%20in-Codepen-000000?style=for-the-badge&logo=Codepen&link=https://codepen.io/pen?template=ExZqQq)](https://codepen.io/pen?template=ExZqQq)',
 
 			// '[![Open in](https://img.shields.io/badge/Open%20in-CodeSandbox-151515?style=for-the-badge&logo=CodeSandbox&link=https://codesandbox.io/s/github/Mearman/openalex-python)](https://codesandbox.io/s/github/Mearman/openalex-python)',
-
 
 			// '[![Open in](https://img.shields.io/badge/Open%20in-Glitch-3333FF?style=for-the-badge&logo=Glitch&link=https://glitch.com/edit/#!/import/github/Mearman/openalex-python)](https://glitch.com/edit/#!/import/github/Mearman/openalex-python)',
 
