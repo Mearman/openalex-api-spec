@@ -88,7 +88,7 @@ export const workSchema = {
 						type: "string",
 					},
 					award_id: {
-						type: "string",
+						type: ["string", "null"],
 					},
 				},
 				required: ["funder", "funder_display_name", "award_id"],
@@ -126,7 +126,7 @@ export const workSchema = {
 			},
 		},
 		language: {
-			type: "string",
+			type: ["string", "null"],
 		},
 		locations: {
 			type: "array",
