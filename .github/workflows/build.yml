@@ -16,7 +16,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
+      packages: write
       checks: write
       statuses: write
       pull-requests: write
@@ -52,7 +53,7 @@ jobs:
       - uses: actions/upload-artifact@main
         with:
           name: jest-report
-          path: jest.report.json
+          path: ./jest.report.json
 
       - name: Upload OpenAPI 3.1 spec
         uses: actions/upload-artifact@v2
@@ -83,3 +84,53 @@ jobs:
         run: |
           echo ${{ steps.process-jest.outputs.test-outcome }}
           exit 1
+
+      - uses: actions/create-release@main
+        if: github.ref == 'refs/heads/main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: false
+          prerelease: true
+
+      - uses: actions/upload-release-asset@main
+        if: github.ref == 'refs/heads/main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: generated/openapi.json
+          asset_name: openapi.json
+          asset_content_type: application/json
+
+      - uses: actions/upload-release-asset@main
+        if: github.ref == 'refs/heads/main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: generated/openapi.dereferenced.json
+          asset_name: openapi.dereferenced.json
+          asset_content_type: application/json
+
+      - uses: actions/upload-release-asset@main
+        if: github.ref == 'refs/heads/main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: generated/openapi.3.0.json
+          asset_name: openapi.3.0.json
+          asset_content_type: application/json
+
+      - uses: actions/upload-release-asset@main
+        if: github.ref == 'refs/heads/main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: generated/openapi.dereferenced.3.0.json
+          asset_name: openapi.dereferenced.3.0.json
+          asset_content_type: application/json
