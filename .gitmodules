@@ -1,0 +1,2 @@
+[submodule "generated/clients/python"]
+	url = https://github.com/Mearman/openalex-python.git
