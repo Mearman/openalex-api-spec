@@ -56,6 +56,7 @@ jobs:
       - run: git config --global user.email "${{ env.GIT_EMAIL }}"
       - run: git config --global user.name "${{ env.GIT_NAME }}"
 
+      - run: git add package.json
       - run: git add generated/openapi.json
       - run: git add generated/openapi.dereferenced.json
       - run: git add generated/openapi.3.0.json
