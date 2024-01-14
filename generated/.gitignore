@@ -3,4 +3,7 @@
 !openapi.json
 !openapi.dereferenced.json
 !clients/python
+!clients/typescript
+!clients/typescript-fetch
+!clients/typescript-node
 # !clients/typescript
