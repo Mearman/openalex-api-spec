@@ -50,7 +50,6 @@ jobs:
       - run: ls -la
       - run: ls -la generated
 
-
       - run: echo "GIT_EMAIL=$(git log -n 1 --pretty=format:%ae)" >> "$GITHUB_ENV"
       - run: echo "GIT_NAME=$(git log -n 1 --pretty=format:%an)" >> "$GITHUB_ENV"
 
@@ -62,6 +61,9 @@ jobs:
       - run: git add generated/openapi.3.0.json
       - run: git add generated/openapi.dereferenced.3.0.json
 
-      - run: git commit -m "${{ env.VERSION }}"
-      - run: git tag -a "${{ env.VERSION }}" -m "${{ env.VERSION }}"
-      - run: git push origin "${{ env.VERSION }}"
+      - run: echo "TAG=v${{ env.VERSION }}" >> "$GITHUB_ENV"
+
+      - run: git commit -m "${{ env.TAG }}"
+      - run: git tag -a "${{ env.TAG }}" -m "${{ env.TAG }}"
+      # - run: git push origin "${{ env.TAG }}"
+      - run: git push origin main --follow-tags
