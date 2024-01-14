@@ -5,7 +5,7 @@ on:
       version:
         description: 'Version'
         required: true
-        default: 'patch'
+        default: 'prerelease'
         type: choice
         options:
           - "major"
