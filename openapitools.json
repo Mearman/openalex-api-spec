@@ -87,8 +87,8 @@
 			},
 			"python": {
 				"additionalProperties": {
-					"packageName": "mearman_openalex_api",
-					"projectName": "Mearman OpenAlex API",
+					"packageName": "openalex_api",
+					"projectName": "OpenAlex API",
 					"packageVersion": "1.0.0"
 				},
 				"generatorName": "python",

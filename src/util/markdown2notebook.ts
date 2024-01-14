@@ -131,7 +131,7 @@ export function markdown2notebook(input: fs.PathLike, output: fs.PathLike) {
 		[
 			/Setuptools/gi,
 			/setup.py/gi,
-			/^\s*import mearman_openalex_api\s*$/gi
+			/^\s*import openalex_api\s*$/gi
 		], [
 		/Then import the package/gi
 	]);
