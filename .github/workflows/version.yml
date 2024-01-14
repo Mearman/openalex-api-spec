@@ -21,7 +21,7 @@ jobs:
   version:
     if: github.ref == 'refs/heads/main'
     outputs:
-      output1: ${{ steps.version.outputs.VERSION }}
+      VERSION: ${{ steps.version.outputs.VERSION }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
