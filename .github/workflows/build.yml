@@ -69,3 +69,8 @@ jobs:
           name: openapi-3.0-dereferenced
           path: generated/openapi.3.0.dereferenced.json
 
+      - name: Fail if there were errors in the jest tests
+        if: steps.process-jest.outputs.test-outcome == 'Failed'
+        run: |
+          echo ${{ steps.process-jest.outputs.test-outcome }}
+          exit 1
