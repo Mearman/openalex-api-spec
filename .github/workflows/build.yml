@@ -57,25 +57,25 @@ jobs:
       - name: Upload OpenAPI 3.1 spec
         uses: actions/upload-artifact@v2
         with:
-          name: openapi-3.1
+          name: openapi.3.1
           path: generated/openapi.json
 
       - name: Upload Dereferenced OpenAPI 3.1 spec
         uses: actions/upload-artifact@v2
         with:
-          name: openapi-3.1-dereferenced
+          name: openapi.3.1.dereferenced
           path: generated/openapi.dereferenced.json
 
       - name: Upload OpenAPI 3.0 spec
         uses: actions/upload-artifact@v2
         with:
-          name: openapi-3.0
+          name: openapi.3.0
           path: generated/openapi.3.0.json
 
       - name: Upload Dereferenced OpenAPI 3.0 spec
         uses: actions/upload-artifact@v2
         with:
-          name: openapi-3.0-dereferenced
+          name: openapi.dereferenced.3.0
           path: generated/openapi.dereferenced.3.0.json
 
       - name: Fail if there were errors in the jest tests
