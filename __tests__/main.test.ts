@@ -1,9 +1,8 @@
 import axios from "axios";
+import fs from "fs";
 import jestOpenAPI from "jest-openapi";
 import { execSync } from "node:child_process";
 import { OpenAPI } from "openapi-types";
-import oasDoc30 from "../generated/openapi.3.0.json";
-import oasDoc30Dereferenced from "../generated/openapi.dereferenced.3.0.json";
 
 const entities = [
 	"",
@@ -27,12 +26,9 @@ function getGitEmail(): string | void {
 		try {
 			gitEmail = execSync(command).toString().trim();
 			if (gitEmail.match(/.+@.+\..+/)) {
-				console.debug(`using git email ${gitEmail} from ${command}`);
 				return gitEmail;
 			}
-		} catch (e) {
-			console.debug(e);
-		}
+		} catch (e) { }
 	}
 
 	return;
@@ -43,16 +39,13 @@ function getMailto(): any {
 }
 
 const TEST_RUNS: number = 3;
-
-const namedDocs: [string, doc: any, string][] = [
-	["3.0 Document", oasDoc30, "generated/openapi.3.0.json"],
-	["3.0 Dereferenced", oasDoc30Dereferenced, "generated/openapi.dereferenced.3.0.json"],
-	// ["oasDoc31", oasDoc31, "generated/openapi.json"],
-	// ["oasDoc31Dereferenced", oasDoc31Dereferenced, "generated/openapi.dereferenced.json"],
+const namedDocs: [string, string][] = [
+	["3.0 Document", "generated/openapi.3.0.json"],
+	["3.0 Dereferenced", "generated/openapi.dereferenced.3.0.json"],
 ]
-describe.each(namedDocs)(`%s`, (name, doc, location) => {
+describe.each(namedDocs)(`%s`, (name, location) => {
+	const doc = fs.readFileSync(location, "utf8");
 	jestOpenAPI(doc as unknown as OpenAPI.Document);
-	// jestOpenAPI(location);
 	test("Root url", async () => {
 		const res = await axios.get("https://api.openalex.org");
 		expect(res.status).toEqual(200);
