@@ -24,7 +24,7 @@
 		"wireit": "^0.14.3"
 	},
 	"main": "./src/index.ts",
-	"name": "openalex-api-spec",
+	"name": "@mearman/openalex-api-spec",
 	"packageManager": "yarn@4.0.2",
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com"
