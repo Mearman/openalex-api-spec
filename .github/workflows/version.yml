@@ -42,3 +42,26 @@ jobs:
 
       - name: Echo version
         run: echo ${{ steps.version.outputs.VERSION }}
+
+      - run: npm install
+
+      - run: npm run generate:spec
+
+      - run: ls -la
+      - run: ls -la generated
+
+
+      - run: echo "GIT_EMAIL=$(git log -n 1 --pretty=format:%ae)" >> "$GITHUB_ENV"
+      - run: echo "GIT_NAME=$(git log -n 1 --pretty=format:%an)" >> "$GITHUB_ENV"
+
+      - run: git config --global user.email "${{ env.GIT_EMAIL }}"
+      - run: git config --global user.name "${{ env.GIT_NAME }}"
+
+      - run: git add generated/openapi.json
+      - run: git add generated/openapi.dereferenced.json
+      - run: git add generated/openapi.3.0.json
+      - run: git add generated/openapi.dereferenced.3.0.json
+
+      - run: git commit -m "${{ steps.version.outputs.VERSION }}"
+      - run: git tag -a "${{ steps.version.outputs.VERSION }}" -m "${{ steps.version.outputs.VERSION }}"
+      - run: git push origin "${{ steps.version.outputs.VERSION }}"
