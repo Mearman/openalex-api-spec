@@ -28,7 +28,8 @@ function getGitEmail(): string | void {
 			if (gitEmail.match(/.+@.+\..+/)) {
 				return gitEmail;
 			}
-		} catch (e) { }
+		} catch (e) {
+		}
 	}
 
 	return;
@@ -44,7 +45,7 @@ const namedDocs: [string, string][] = [
 	["3.0 Dereferenced", "generated/openapi.dereferenced.3.0.json"],
 ]
 describe.each(namedDocs)(`%s`, (name, location) => {
-	const doc = fs.readFileSync(location, "utf8");
+	const doc: OpenAPI.Document = JSON.parse(fs.readFileSync(location).toString())
 	jestOpenAPI(doc as unknown as OpenAPI.Document);
 	test("Root url", async () => {
 		const res = await axios.get("https://api.openalex.org");
