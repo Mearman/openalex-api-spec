@@ -72,7 +72,15 @@ export const sourceSchema: SchemaObject = {
 		societies: {
 			type: ["array", "null"],
 			items: {
-				type: "string"
+				type: "object",
+				properties: {
+					url: {
+						type: "string"
+					},
+					organization: {
+						type: "string"
+					}
+				},
 			}
 		},
 		summary_stats: refSchema({ summary_stats }),
