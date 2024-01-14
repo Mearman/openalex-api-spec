@@ -66,7 +66,8 @@ describe.each(namedDocs)(`%s`, (name, doc, location) => {
 		} : null].filter((x) => x);
 
 		describe.each(fixtures)(`%s`, (fixture) => {
-			const url = [fixture.url, fixture.params.filter((x) => x).join("&")].join("?")
+			const url = [fixture.url, fixture.params.filter((x) => x).join("&")].filter(x => x).join
+			("?")
 			test.each([...Array(TEST_RUNS).keys()])(`%s ${url}`, async () => {
 				console.debug(url)
 				const res = await axios.get(url);
