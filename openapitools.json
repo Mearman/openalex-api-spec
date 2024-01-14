@@ -4,31 +4,49 @@
 		"generators": {
 			"apache2": {
 				"generatorName": "apache2",
+				"gitHost": "github.com",
+				"gitRepoId": "openalex-api-spec",
+				"gitUserId": "Mearman",
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/config/apache2"
 			},
 			"asciidoc": {
 				"generatorName": "asciidoc",
+				"gitHost": "github.com",
+				"gitRepoId": "openalex-api-spec",
+				"gitUserId": "Mearman",
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/documentation/asciidoc"
 			},
 			"bash": {
 				"generatorName": "bash",
+				"gitHost": "github.com",
+				"gitRepoId": "openalex-api-spec",
+				"gitUserId": "Mearman",
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/clients/bash"
 			},
 			"dereferenced_yaml": {
 				"generatorName": "openapi-yaml",
+				"gitHost": "github.com",
+				"gitRepoId": "openalex-api-spec",
+				"gitUserId": "Mearman",
 				"glob": "generated/openapi.dereferences.json",
 				"output": "#{cwd}/generated/documentation/openapi-yaml-dereferenced"
 			},
 			"graphql-schema": {
 				"generatorName": "graphql-schema",
+				"gitHost": "github.com",
+				"gitRepoId": "openalex-api-spec",
+				"gitUserId": "Mearman",
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/schemas/graphql"
 			},
 			"markdown": {
 				"generatorName": "markdown",
+				"gitHost": "github.com",
+				"gitRepoId": "openalex-api-spec",
+				"gitUserId": "Mearman",
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/documentation/markdown"
 			},
@@ -37,30 +55,46 @@
 					"npmName": "openalex-api"
 				},
 				"generatorName": "nodejs-express-server",
+				"gitHost": "github.com",
+				"gitRepoId": "openalex-api-spec",
+				"gitUserId": "Mearman",
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/servers/nodejs-express-server"
 			},
 			"openapi": {
 				"generatorName": "openapi",
+				"gitHost": "github.com",
+				"gitRepoId": "openalex-api-spec",
+				"gitUserId": "Mearman",
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/documentation/openapi-json"
 			},
 			"openapi-yaml": {
 				"generatorName": "openapi-yaml",
+				"gitHost": "github.com",
+				"gitRepoId": "openalex-api-spec",
+				"gitUserId": "Mearman",
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/documentation/openapi-yaml"
 			},
 			"plantuml": {
 				"generatorName": "plantuml",
+				"gitHost": "github.com",
+				"gitRepoId": "openalex-api-spec",
+				"gitUserId": "Mearman",
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/documentation/plantuml"
 			},
 			"python": {
 				"additionalProperties": {
-					"packageName": "openalex-api",
-					"projectName": "openalex-api"
+					"packageName": "mearman_openalex_api",
+					"projectName": "Mearman OpenAlex API",
+					"packageVersion": "1.0.0"
 				},
 				"generatorName": "python",
+				"gitHost": "github.com",
+				"gitRepoId": "openalex-python",
+				"gitUserId": "Mearman",
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/clients/python"
 			},
@@ -71,6 +105,9 @@
 					"withInterfaces": true
 				},
 				"generatorName": "typescript",
+				"gitHost": "github.com",
+				"gitRepoId": "openalex-api-spec",
+				"gitUserId": "Mearman",
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/clients/typescript"
 			},
@@ -79,6 +116,9 @@
 					"npmName": "openalex-api"
 				},
 				"generatorName": "typescript-fetch",
+				"gitHost": "github.com",
+				"gitRepoId": "openalex-api-spec",
+				"gitUserId": "Mearman",
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/clients/typescript-fetch"
 			},
@@ -88,6 +128,9 @@
 					"supportsES6": "true"
 				},
 				"generatorName": "typescript-node",
+				"gitHost": "github.com",
+				"gitRepoId": "openalex-api-spec",
+				"gitUserId": "Mearman",
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/clients/typescript-node"
 			}
