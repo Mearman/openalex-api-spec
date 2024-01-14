@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "./src",
+		"esModuleInterop": true,
+		"module": "CommonJS",
+		"moduleDetection": "auto",
+		"noEmit": true,
+		"paths": {
+			"~/*": [
+				"./*",
+				"./*/index"
+			]
+		},
+		"resolveJsonModule": true,
+		"rootDir": "./",
+		"target": "es2017"
+	},
+	"include": [
+		"src/**/*.ts"
+	]
+}

@@ -1,0 +1,97 @@
+{
+	"$schema": "https://raw.githubusercontent.com/OpenAPITools/openapi-generator-cli/master/apps/generator-cli/src/config.schema.json",
+	"generator-cli": {
+		"generators": {
+			"apache2": {
+				"generatorName": "apache2",
+				"glob": "generated/openapi.json",
+				"output": "#{cwd}/generated/config/apache2"
+			},
+			"asciidoc": {
+				"generatorName": "asciidoc",
+				"glob": "generated/openapi.json",
+				"output": "#{cwd}/generated/documentation/asciidoc"
+			},
+			"bash": {
+				"generatorName": "bash",
+				"glob": "generated/openapi.json",
+				"output": "#{cwd}/generated/clients/bash"
+			},
+			"dereferenced_yaml": {
+				"generatorName": "openapi-yaml",
+				"glob": "generated/openapi.dereferences.json",
+				"output": "#{cwd}/generated/documentation/openapi-yaml-dereferenced"
+			},
+			"graphql-schema": {
+				"generatorName": "graphql-schema",
+				"glob": "generated/openapi.json",
+				"output": "#{cwd}/generated/schemas/graphql"
+			},
+			"markdown": {
+				"generatorName": "markdown",
+				"glob": "generated/openapi.json",
+				"output": "#{cwd}/generated/documentation/markdown"
+			},
+			"nodejs-express-server": {
+				"additionalProperties": {
+					"npmName": "openalex-api"
+				},
+				"generatorName": "nodejs-express-server",
+				"glob": "generated/openapi.json",
+				"output": "#{cwd}/generated/servers/nodejs-express-server"
+			},
+			"openapi": {
+				"generatorName": "openapi",
+				"glob": "generated/openapi.json",
+				"output": "#{cwd}/generated/documentation/openapi-json"
+			},
+			"openapi-yaml": {
+				"generatorName": "openapi-yaml",
+				"glob": "generated/openapi.json",
+				"output": "#{cwd}/generated/documentation/openapi-yaml"
+			},
+			"plantuml": {
+				"generatorName": "plantuml",
+				"glob": "generated/openapi.json",
+				"output": "#{cwd}/generated/documentation/plantuml"
+			},
+			"python": {
+				"additionalProperties": {
+					"packageName": "openalex-api",
+					"projectName": "openalex-api"
+				},
+				"generatorName": "python",
+				"glob": "generated/openapi.json",
+				"output": "#{cwd}/generated/clients/python"
+			},
+			"typescript": {
+				"additionalProperties": {
+					"npmName": "openalex-api",
+					"supportsES6": "true",
+					"withInterfaces": true
+				},
+				"generatorName": "typescript",
+				"glob": "generated/openapi.json",
+				"output": "#{cwd}/generated/clients/typescript"
+			},
+			"typescript-fetch": {
+				"additionalProperties": {
+					"npmName": "openalex-api"
+				},
+				"generatorName": "typescript-fetch",
+				"glob": "generated/openapi.json",
+				"output": "#{cwd}/generated/clients/typescript-fetch"
+			},
+			"typescript-node": {
+				"additionalProperties": {
+					"npmName": "openalex-api",
+					"supportsES6": "true"
+				},
+				"generatorName": "typescript-node",
+				"glob": "generated/openapi.json",
+				"output": "#{cwd}/generated/clients/typescript-node"
+			}
+		},
+		"version": "7.2.0"
+	}
+}

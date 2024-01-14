@@ -1,0 +1,136 @@
+name: Build and Test
+
+on:
+  push:
+  workflow_dispatch:
+
+env:
+  # WIREIT_LOGGER: "metrics"
+  FORCE_COLOR: "true"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      checks: write
+      statuses: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@main
+      - uses: actions/setup-node@main
+        with:
+          node-version: "19"
+      - uses: google/wireit@setup-github-actions-caching/v1
+      - run: npm install
+      - run: npm run build
+      - run: npm run generate:spec
+
+      - run: ls -la
+      - run: ls -la generated
+
+      - run: if [ ! -f generated/openapi.json ]; then exit 1; fi
+      - run: if [ ! -f generated/openapi.dereferenced.json ]; then exit 1; fi
+      - run: if [ ! -f generated/openapi.3.0.json ]; then exit 1; fi
+      - run: if [ ! -f generated/openapi.dereferenced.3.0.json ]; then exit 1; fi
+
+      - run: npm run test:report
+        continue-on-error: true
+
+      - name: Process jest results with default
+        if: always()
+        uses: im-open/process-jest-test-results@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          results-file: jest.report.json
+          timezone: "europe/london"
+
+      - uses: actions/upload-artifact@main
+        with:
+          name: jest-report
+          path: ./jest.report.json
+
+      - name: Upload OpenAPI 3.1 spec
+        uses: actions/upload-artifact@v2
+        with:
+          name: openapi.3.1
+          path: generated/openapi.json
+
+      - name: Upload Dereferenced OpenAPI 3.1 spec
+        uses: actions/upload-artifact@v2
+        with:
+          name: openapi.3.1.dereferenced
+          path: generated/openapi.dereferenced.json
+
+      - name: Upload OpenAPI 3.0 spec
+        uses: actions/upload-artifact@v2
+        with:
+          name: openapi.3.0
+          path: generated/openapi.3.0.json
+
+      - name: Upload Dereferenced OpenAPI 3.0 spec
+        uses: actions/upload-artifact@v2
+        with:
+          name: openapi.dereferenced.3.0
+          path: generated/openapi.dereferenced.3.0.json
+
+      - name: Fail if there were errors in the jest tests
+        if: steps.process-jest.outputs.test-outcome == 'Failed'
+        run: |
+          echo ${{ steps.process-jest.outputs.test-outcome }}
+          exit 1
+
+      - uses: actions/create-release@main
+        if: github.ref == 'refs/heads/main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: false
+          prerelease: true
+
+      - uses: actions/upload-release-asset@main
+        if: github.ref == 'refs/heads/main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: generated/openapi.json
+          asset_name: openapi.json
+          asset_content_type: application/json
+
+      - uses: actions/upload-release-asset@main
+        if: github.ref == 'refs/heads/main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: generated/openapi.dereferenced.json
+          asset_name: openapi.dereferenced.json
+          asset_content_type: application/json
+
+      - uses: actions/upload-release-asset@main
+        if: github.ref == 'refs/heads/main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: generated/openapi.3.0.json
+          asset_name: openapi.3.0.json
+          asset_content_type: application/json
+
+      - uses: actions/upload-release-asset@main
+        if: github.ref == 'refs/heads/main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: generated/openapi.dereferenced.3.0.json
+          asset_name: openapi.dereferenced.3.0.json
+          asset_content_type: application/json
