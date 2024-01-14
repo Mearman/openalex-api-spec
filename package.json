@@ -47,7 +47,8 @@
 		"build": {
 			"command": "tsc --noEmit",
 			"files": [
-				"./src/**/*.ts"
+				"./src/**/*.ts",
+				"openapitools.json"
 			]
 		},
 		"generate": {
@@ -77,13 +78,6 @@
 			],
 			"files": [
 				"./src/**/*.ts"
-			],
-			"output": [
-				"./generated/clients/**/*",
-				"./generated/config/**/*",
-				"./generated/documentation/**/*",
-				"./generated/schemas/**/*",
-				"./generated/serverse/**/*"
 			]
 		},
 		"test": {
