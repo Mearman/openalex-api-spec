@@ -7,7 +7,7 @@ export const geo = {
 			type: "string",
 		},
 		country_code: {
-			type: "string",
+			type: ["string", "null"]
 		},
 		geonames_city_id: {
 			type: ["string", "null"],
