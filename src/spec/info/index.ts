@@ -31,33 +31,27 @@ export const info: InfoObject = {
 
 		"## Clients",
 		[
-			`[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white&link=https://github.com/Mearman/openalex-python)](https://github.com/Mearman/openalex-python)`,
 			`[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white&link=https://github.com/Mearman/openalex-typescript)](https://github.com/Mearman/openalex-typescript)`,
 			`[![TypeScript Fetch](https://img.shields.io/badge/TypeScript%20Fetch-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white&link=https://github.com/Mearman/openalex-typescript-fetch)](https://github.com/Mearman/openalex-typescript-fetch)`,
-			`[![TypeScript Node](https://img.shields.io/badge/TypeScript%20Node-339933?style=for-the-badge&logo=Node.js&logoColor=white&link=https://github.com/Mearman/openalex-typescript-node)](https://github.com/Mearman/openalex-typescript-node)
-`,
-		].join(" "),
-		"### Python",
-		[
-			"[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&link=https://github.com/Mearman/openalex-python)](https://github.com/Mearman/openalex-python)",
+			`[![TypeScript Node](https://img.shields.io/badge/TypeScript%20Node-339933?style=for-the-badge&logo=Node.js&logoColor=white&link=https://github.com/Mearman/openalex-typescript-node)](https://github.com/Mearman/openalex-typescript-node)`,
 
-			"[![CodeSpaces](https://img.shields.io/badge/CodeSpaces-181717?style=for-the-badge&logo=GitHub&link=https://codespaces.new/Mearman/openalex-python)](https://codespaces.new/Mearman/openalex-python)",
+			[
+				"[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white&link=https://github.com/Mearman/openalex-python)](https://github.com/Mearman/openalex-python)",
+				"[![Open in](https://img.shields.io/badge/Open%20in-CodeSpaces-181717?style=for-the-badge&logo=GitHub&link=https://codespaces.new/Mearman/openalex-python)](https://codespaces.new/Mearman/openalex-python)",
+				"[![Open in](https://img.shields.io/badge/Open%20in-Colab-F9AB00?style=for-the-badge&logo=Google%20Colab&link=https://colab.research.google.com/github/Mearman/openalex-python/blob/main/README.ipynb)](https://colab.research.google.com/github/Mearman/openalex-python/blob/main/README.ipynb)"
+				// '[![Open in](https://img.shields.io/badge/Open%20in-Binder-FF6C2C?style=for-the-badge&logo=Jupyter&link=https://mybinder.org/v2/gh/Mearman/openalex-python/main)](https://mybinder.org/v2/gh/Mearman/openalex-python/main)',
 
-			"[![Colab](https://img.shields.io/badge/Colab-gray?style=for-the-badge&logo=Google%20Colab&link=https://colab.research.google.com/github/Mearman/openalex-python/blob/main/README.ipynb)](https://colab.research.google.com/github/Mearman/openalex-python/blob/main/README.ipynb)",
+				// '[![Open in](https://img.shields.io/badge/Open%20in-Codepen-000000?style=for-the-badge&logo=Codepen&link=https://codepen.io/pen?template=ExZqQq)](https://codepen.io/pen?template=ExZqQq)',
 
-			// '[![Open in](https://img.shields.io/badge/Open%20in-Binder-FF6C2C?style=for-the-badge&logo=Jupyter&link=https://mybinder.org/v2/gh/Mearman/openalex-python/main)](https://mybinder.org/v2/gh/Mearman/openalex-python/main)',
+				// '[![Open in](https://img.shields.io/badge/Open%20in-CodeSandbox-151515?style=for-the-badge&logo=CodeSandbox&link=https://codesandbox.io/s/github/Mearman/openalex-python)](https://codesandbox.io/s/github/Mearman/openalex-python)',
 
-			// '[![Open in](https://img.shields.io/badge/Open%20in-Codepen-000000?style=for-the-badge&logo=Codepen&link=https://codepen.io/pen?template=ExZqQq)](https://codepen.io/pen?template=ExZqQq)',
+				// '[![Open in](https://img.shields.io/badge/Open%20in-Glitch-3333FF?style=for-the-badge&logo=Glitch&link=https://glitch.com/edit/#!/import/github/Mearman/openalex-python)](https://glitch.com/edit/#!/import/github/Mearman/openalex-python)',
 
-			// '[![Open in](https://img.shields.io/badge/Open%20in-CodeSandbox-151515?style=for-the-badge&logo=CodeSandbox&link=https://codesandbox.io/s/github/Mearman/openalex-python)](https://codesandbox.io/s/github/Mearman/openalex-python)',
+				// '[![Open in](https://img.shields.io/badge/Open%20in-Repl.it-F26207?style=for-the-badge&logo=Replit&link=https://repl.it/github/Mearman/openalex-python)](https://repl.it/github/Mearman/openalex-python)',
 
-			// '[![Open in](https://img.shields.io/badge/Open%20in-Glitch-3333FF?style=for-the-badge&logo=Glitch&link=https://glitch.com/edit/#!/import/github/Mearman/openalex-python)](https://glitch.com/edit/#!/import/github/Mearman/openalex-python)',
-
-			// '[![Open in](https://img.shields.io/badge/Open%20in-Repl.it-F26207?style=for-the-badge&logo=Replit&link=https://repl.it/github/Mearman/openalex-python)](https://repl.it/github/Mearman/openalex-python)',
-
-			// '[![Open in](https://img.shields.io/badge/Open%20in-StackBlitz-1269D3?style=for-the-badge&logo=StackBlitz&link=https://stackblitz.com/github/Mearman/openalex-python)](https://stackblitz.com/github/Mearman/openalex-python)'
-		].join("\n"),
-		"### Many more coming soon",
+				// '[![Open in](https://img.shields.io/badge/Open%20in-StackBlitz-1269D3?style=for-the-badge&logo=StackBlitz&link=https://stackblitz.com/github/Mearman/openalex-python)](https://stackblitz.com/github/Mearman/openalex-python)'
+			].join("\n")
+		].join("\n\n"),
 		"---",
 	].join("\n\n"),
 	version,
