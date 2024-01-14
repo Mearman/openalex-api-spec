@@ -22,8 +22,8 @@ declare global {
 			[media: string]: Omit<OpenAPIV3_1.MediaTypeObject, "schema"> & {
 				schema: ReferenceObject;
 			};
-		}
-	}
+		};
+	};
 	type CallbackObject = OpenAPIV3_1.CallbackObject;
 	type LinkObject = OpenAPIV3_1.LinkObject;
 	type EncodingObject = OpenAPIV3_1.EncodingObject;

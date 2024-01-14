@@ -40,20 +40,21 @@ export const autoCompleteResultItem = {
 	],
 	type: "object",
 } satisfies SchemaObject;
+let autoCompleteResultSchema: SchemaObject = {
+	properties: {
+		meta: refSchema({ meta }),
+		results: {
+			items: refSchema({ autoCompleteResultItem }),
+			type: "array",
+		},
+	},
+	required: ["meta", "results"],
+	type: "object",
+};
 export const autocompleteGet200Response = {
 	content: {
 		"application/json": {
-			schema: {
-				properties: {
-					meta: refSchema({ meta }),
-					results: {
-						items: refSchema({ autoCompleteResultItem }),
-						type: "array",
-					},
-				},
-				required: ["meta", "results"],
-				type: "object",
-			},
+			schema: refSchema({ autoCompleteResultSchema }),
 		},
 	},
 	description: "Successful response",

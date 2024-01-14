@@ -1,4 +1,24 @@
-import { refResponse } from "~/spec/components";
+import { refResponse, refSchema } from "~/spec/components";
+
+const rootResponseSchema: SchemaObject = {
+	properties: {
+		documentation_url: {
+			type: "string"
+		},
+		msg: {
+			type: "string"
+		},
+		version: {
+			type: "string"
+		}
+	},
+	required: [
+		"msg",
+		"documentation_url",
+		"version"
+	],
+	type: "object"
+};
 const root200GetResponses: ResponseObject = {
 	content: {
 		"application/json": {
@@ -11,25 +31,7 @@ const root200GetResponses: ResponseObject = {
 					}
 				},
 			},
-			schema: {
-				properties: {
-					documentation_url: {
-						type: "string"
-					},
-					msg: {
-						type: "string"
-					},
-					version: {
-						type: "string"
-					}
-				},
-				required: [
-					"msg",
-					"documentation_url",
-					"version"
-				],
-				type: "object"
-			}
+			schema: refSchema({ rootResponseSchema })
 		},
 	},
 	description: "",

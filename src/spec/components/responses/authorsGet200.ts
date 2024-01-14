@@ -1,24 +1,11 @@
 import { refSchema } from "~/spec/components";
-import { author } from "~/spec/components/schemas/authors/author";
-import { group_by_result } from "~/spec/components/schemas/system/group_by_result";
-import { meta } from "~/spec/components/schemas/system/meta";
+import { authorsResponseSchema } from "~/spec/components/schemas/authors/authorsResponseSchema";
 
-export const authorsGet200 = {
+export const authorsGet200: ResponseObject = {
 	content: {
 		"application/json": {
-			schema: {
-				properties: {
-					group_by: refSchema({ group_by_result }),
-					meta: refSchema({ meta }),
-					results: {
-						items: refSchema({ author }),
-						type: "array",
-					},
-				},
-				required: ["meta", "group_by"],
-				type: "object",
-			},
+			schema: refSchema({ authorsResponseSchema }),
 		},
 	},
-	description: "",
-} satisfies ResponseObject;
+	description: "Authors List Response",
+};

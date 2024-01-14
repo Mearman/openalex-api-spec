@@ -1,6 +1,7 @@
 import { refResponse } from "~/spec/components";
 import { mailto } from "~/spec/components/parameters/mailto";
-import { resp403, resp4xx } from "~/spec/components/responses/resp403";
+import { resp403 } from "~/spec/components/responses/resp403";
+import { resp4xx } from "~/spec/components/responses/resp4xx";
 import authors from "~/spec/paths/authors";
 import autocomplete from "~/spec/paths/autocomplete";
 import concepts from "~/spec/paths/concepts";

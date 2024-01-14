@@ -1,5 +1,5 @@
 import { refSchema } from "~/spec/components";
-import { affiliations } from "~/spec/components/schemas/affiliations";
+import { affiliations } from "~/spec/components/schemas/authors/affiliations";
 
 import { dehydratedConceptArray } from "~/spec/components/schemas/concepts/dehydratedConceptArray";
 import { ids } from "~/spec/components/schemas/ids";

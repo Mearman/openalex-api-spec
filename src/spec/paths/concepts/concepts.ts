@@ -1,6 +1,6 @@
 import { refResponse } from "~/spec/components";
 import { defaultListParameters } from "~/spec/components/parameters/defaultListParameters";
-import { conceptsGet200Response } from "~/spec/components/responses/conceptsGet200Response";
+import { conceptsGet200Response } from "~/spec/components/responses/concepts/conceptsGet200Response";
 
 export const concepts = {
 	"/concepts": {

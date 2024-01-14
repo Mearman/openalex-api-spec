@@ -1,7 +1,6 @@
 import { refExample, refSchema } from "~/spec/components";
 import { workNgramsGet200ResponseExample } from "~/spec/components/examples/workNgramsGet200ResponseExample";
-import { ngram } from "~/spec/components/schemas/ngram";
-import { ngramMeta } from "~/spec/components/schemas/ngramMeta";
+import { workNgramsSchema } from "~/spec/components/schemas/works/workNgramsSchema";
 
 export const workNgramsGet200Response: ResponseObject = {
 	content: {
@@ -9,12 +8,7 @@ export const workNgramsGet200Response: ResponseObject = {
 			examples: {
 				"ngram": refExample({ example: workNgramsGet200ResponseExample }),
 			},
-			schema: {
-				properties: {
-					meta: refSchema({ ngramMeta }),
-					ngrams: refSchema({ ngram }),
-				},
-			},
+			schema: refSchema({ workNgramsSchema }),
 		},
 	},
 	description: "",
