@@ -79,8 +79,11 @@
 				"./src/**/*.ts"
 			],
 			"output": [
-				"./generated/**/*",
-				"!./generated/*.json"
+				"./generated/clients/**/*",
+				"./generated/config/**/*",
+				"./generated/documentation/**/*",
+				"./generated/schemas/**/*",
+				"./generated/serverse/**/*"
 			]
 		},
 		"test": {
