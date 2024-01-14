@@ -1,7 +1,9 @@
 #!/usr#!/usr/bin/env npx -y tsx
 
+import path from "path";
 import { getDoc } from "~/spec";
 import { backPort, generateDereferencedSpec, separator, validate, writeSpec } from "~/util";
+import { GENERATION_DIR } from "~/util/generateDereferencedSpec";
 
 async function main() {
 	const doc = getDoc();
@@ -9,8 +11,11 @@ async function main() {
 	separator();
 	await validate(doc);
 	writeSpec(doc);
+	separator();
+	await backPort(doc, path.join(GENERATION_DIR, "openapi.3.0.json"));
+	separator();
 	const dereferencedDoc = await generateDereferencedSpec(doc);
-	await backPort(dereferencedDoc);
+	await backPort(dereferencedDoc, path.join(GENERATION_DIR, "openapi.dereferenced.3.0.json"));
 }
 
 (async () => {
