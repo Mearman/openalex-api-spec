@@ -17,16 +17,24 @@ const entities = [
 ];
 
 function getGitEmail(): string | void {
+	let gitEmail
 	try {
-		const gitEmail = execSync("git config user.email").toString().trim();
-		if (gitEmail.match(/.+@.+\..+/)) {
-			return gitEmail;
-		} else {
-			return
-		}
+		gitEmail = execSync("git config user.email").toString().trim();
 	} catch (e) {
-		return;
+		console.debug(e);
 	}
+	if (gitEmail.match(/.+@.+\..+/)) {
+		console.debug(`using git email ${gitEmail} from git config user.email`)
+		return gitEmail;
+	}
+	try {
+		gitEmail = execSync("git log -n 1 --pretty=format:%ae").toString().trim();
+	} catch (e) { }
+	if (gitEmail.match(/.+@.+\..+/)) {
+		console.debug(`using git email ${gitEmail} from git log -n 1 --pretty=format:%ae`);
+		return gitEmail;
+	}
+	return;
 }
 
 function getMailto(): any {
