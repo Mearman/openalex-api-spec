@@ -66,13 +66,20 @@ describe.each(namedDocs)(`%s`, (name, doc, location) => {
 
 		const mailto = getMailto()
 		const mailtoParam = mailto ? `mailto=${mailto}` : undefined
-		const fixtures: { url: string, params: string[] }[] = [{
+
+		let fixtures: { url: string, params: string[]; }[] = [{
 			url: listUrl,
-			params: ["per_page=3", mailtoParam],
-		}, entity ? {
-			url: [entityUrl, "random"].join("/"),
-			params: [mailtoParam],
-		} : null].filter((x) => x);
+			params: mailtoParam ? ["per_page=3", mailtoParam] : ["per_page=3"],
+		}];
+
+		if (entity) {
+			fixtures.push({
+				url: [entityUrl, "random"].join("/"),
+				params: mailtoParam ? ["per_page=3", mailtoParam] : ["per_page=3"],
+			});
+		}
+
+		fixtures = fixtures.filter((x) => x);
 
 		describe.each(fixtures)(`%s`, (fixture) => {
 			const url = [fixture.url, fixture.params.filter((x) => x).join("&")].filter(x => x).join
@@ -82,7 +89,7 @@ describe.each(namedDocs)(`%s`, (name, doc, location) => {
 				const res = await axios.get(url);
 				expect(res.status).toEqual(200);
 				expect(res).toSatisfyApiSpec();
-				await new Promise((resolve) => setTimeout(resolve, 10));
+				await new Promise((resolve) => setTimeout(resolve, 100));
 			});
 		});
 	});
