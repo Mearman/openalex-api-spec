@@ -1,0 +1,25 @@
+name: Publish
+on:
+  workflow_dispatch:
+
+jobs:
+  version:
+    outputs:
+      output1: ${{ steps.version.outputs.VERSION }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - name: Get version
+        id: version
+        run: echo "VERSION=$(node -p "require('./package.json').version")" >> "$GITHUB_ENV"
+
+      - name: Echo version
+        run: echo ${{ steps.version.outputs.VERSION }}
+
+      - name: Create tag
+        run: git tag -a v${{ steps.version.outputs.VERSION }} -m "v${{ steps.version.outputs.VERSION }}"
+
+      - name: Push tag
+        run: git push origin v${{ steps.version.outputs.VERSION }}
