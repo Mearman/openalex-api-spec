@@ -56,25 +56,25 @@ jobs:
           path: ./jest.report.json
 
       - name: Upload OpenAPI 3.1 spec
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@main
         with:
           name: openapi.3.1
           path: generated/openapi.json
 
       - name: Upload Dereferenced OpenAPI 3.1 spec
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@main
         with:
           name: openapi.3.1.dereferenced
           path: generated/openapi.dereferenced.json
 
       - name: Upload OpenAPI 3.0 spec
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@main
         with:
           name: openapi.3.0
           path: generated/openapi.3.0.json
 
       - name: Upload Dereferenced OpenAPI 3.0 spec
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@main
         with:
           name: openapi.dereferenced.3.0
           path: generated/openapi.dereferenced.3.0.json
