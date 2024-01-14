@@ -1,2 +1,12 @@
 [submodule "generated/clients/python"]
+	path = generated/clients/python
 	url = https://github.com/Mearman/openalex-python.git
+[submodule "generated/clients/typescript"]
+	path = generated/clients/typescript
+	url = https://github.com/Mearman/openalex-typescript.git
+[submodule "generated/clients/typescript-fetch"]
+	path = generated/clients/typescript-fetch
+	url = https://github.com/Mearman/openalex-typescript-fetch.git
+[submodule "generated/clients/typescript-node"]
+	path = generated/clients/typescript-node
+	url = https://github.com/Mearman/openalex-typescript-node.git
