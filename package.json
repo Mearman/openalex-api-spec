@@ -35,9 +35,10 @@
 	},
 	"scripts": {
 		"build": "wireit",
+		"convert:markdown:notebook": "wireit",
 		"generate": "wireit",
-		"generate:spec": "wireit",
 		"generate:code": "wireit",
+		"generate:spec": "wireit",
 		"refactor": "tsc . && npx -y openapi-refactorer -i 'openapi-spec - JSON.json' -o main.json",
 		"test": "wireit",
 		"test:report": "wireit"
@@ -51,11 +52,34 @@
 				"openapitools.json"
 			]
 		},
+		"convert:markdown:notebook": {
+			"command": "tsx src/util/markdown2notebook.ts generated/clients/python/README.md generated/clients/python/README.ipynb",
+			"dependencies": [
+				"generate:code"
+			],
+			"files": [
+				"generated/clients/python/README.md"
+			],
+			"output": [
+				"generated/clients/python/README.md generated/clients/python/README.ipynb"
+			]
+		},
 		"generate": {
 			"dependencies": [
 				"build",
 				"generate:spec",
-				"generate:code"
+				"generate:code",
+				"convert:markdown:notebook"
+			]
+		},
+		"generate:code": {
+			"command": "npx -y @openapitools/openapi-generator-cli generate",
+			"dependencies": [
+				"generate:spec",
+				"build"
+			],
+			"files": [
+				"./src/**/*.ts"
 			]
 		},
 		"generate:spec": {
@@ -68,16 +92,6 @@
 			],
 			"output": [
 				"./generated/*.json"
-			]
-		},
-		"generate:code": {
-			"command": "npx -y @openapitools/openapi-generator-cli generate",
-			"dependencies": [
-				"generate:spec",
-				"build"
-			],
-			"files": [
-				"./src/**/*.ts"
 			]
 		},
 		"test": {
