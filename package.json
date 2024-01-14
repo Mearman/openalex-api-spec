@@ -42,7 +42,7 @@
 		"test": "wireit",
 		"test:report": "wireit"
 	},
-	"version": "0.0.4-2",
+	"version": "0.0.4-3",
 	"wireit": {
 		"build": {
 			"command": "tsc --noEmit",
