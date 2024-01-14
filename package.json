@@ -41,7 +41,8 @@
 		"generate:spec": "wireit",
 		"refactor": "tsc . && npx -y openapi-refactorer -i 'openapi-spec - JSON.json' -o main.json",
 		"test": "wireit",
-		"test:report": "wireit"
+		"test:report": "wireit",
+		"sync": "git submodule foreach --recursive 'git add . ; git commit --allow-empty --allow-empty-message -m \"\" && git push'"
 	},
 	"version": "0.0.4-3",
 	"wireit": {
