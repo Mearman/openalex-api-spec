@@ -1,6 +1,6 @@
-import { refParameter, refSchema } from "~/spec/components";
+import { refParameter, refResponse } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
-import { funderSchema } from "~/spec/components/schemas/funders/funderSchema";
+import { funderGet200Response } from "~/spec/components/responses/funderGet200Response";
 
 export const funder = {
 	"/funders/{id}": {
@@ -19,14 +19,7 @@ export const funder = {
 				refParameter({ select }),
 			],
 			responses: {
-				"200": {
-					content: {
-						"application/json": {
-							schema: refSchema({ funderSchema }),
-						},
-					},
-					description: "",
-				},
+				"200": refResponse({ funderGet200Response }),
 			},
 
 			summary: "/funders/{id}",

@@ -1,5 +1,5 @@
-import { refSchema } from "~/spec/components";
-import { sourcesArray } from "~/spec/components/schemas/sources/sourcesArray";
+import { refResponse } from "~/spec/components";
+import { sourcesGet200Response } from "~/spec/components/responses/sourcesGet200Response";
 
 export const sources = {
 	"/sources": {
@@ -17,14 +17,7 @@ export const sources = {
 				},
 			],
 			responses: {
-				"200": {
-					content: {
-						"application/json": {
-							schema: refSchema({ sourcesArray })
-						}
-					},
-					description: ""
-				}
+				"200": refResponse({ sourcesGet200Response }),
 			},
 			summary: "/sources",
 		},

@@ -1,6 +1,6 @@
-import { refParameter, refSchema } from "~/spec/components";
+import { refParameter, refResponse } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
-import { institutionSchema } from "~/spec/components/schemas/institutions/institutionSchema";
+import { institutionGet200Response } from "~/spec/components/responses/institutionGet200Response";
 
 export const institution = {
 	"/institutions/{id}": {
@@ -19,14 +19,7 @@ export const institution = {
 				refParameter({ select }),
 			],
 			responses: {
-				"200": {
-					content: {
-						"application/json": {
-							schema: refSchema({ institutionSchema })
-						},
-					},
-					description: "",
-				},
+				"200": refResponse({ institutionGet200Response })
 			},
 			summary: "/institutions/{id}",
 		},

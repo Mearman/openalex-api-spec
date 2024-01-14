@@ -1,6 +1,6 @@
-import { refParameter, refSchema } from "~/spec/components";
+import { refParameter, refResponse } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
-import { sourceSchema } from "~/spec/components/schemas/sources/sourceSchema";
+import { sourceGet200Response } from "~/spec/components/responses/sourceGet200Response";
 
 export const source = {
 	"/sources/{id}": {
@@ -19,14 +19,7 @@ export const source = {
 				refParameter({ select }),
 			],
 			responses: {
-				"200": {
-					content: {
-						"application/json": {
-							schema: refSchema({ sourceSchema }),
-						},
-					},
-					description: "",
-				},
+				"200": refResponse({ sourceGet200Response }),
 			},
 			summary: "/sources/{id}",
 		},

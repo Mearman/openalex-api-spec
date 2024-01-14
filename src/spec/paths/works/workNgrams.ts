@@ -1,8 +1,9 @@
-import { refSchema } from "~/spec/components";
+import { refResponse } from "~/spec/components";
+import { workNgramsGet200Response } from "~/spec/components/responses/workNgramsGet200Response";
 
 import { tags } from "~/spec/paths/works/tags";
 
-const example: {
+export const example: {
 	meta: {
 		count: number;
 		openalex_id: string;
@@ -29,7 +30,7 @@ const example: {
 		},
 	],
 };
-let ngramMeta = {
+export const ngramMeta = {
 	properties: {
 		count: {
 			type: "integer",
@@ -84,20 +85,7 @@ export const workNgrams: PathItemObject = {
 			},
 		],
 		responses: {
-			"200": {
-				content: {
-					"application/json": {
-						example,
-						schema: {
-							properties: {
-								meta: refSchema({ ngramMeta }),
-								ngrams: refSchema({ ngram }),
-							},
-						},
-					},
-				},
-				description: "",
-			},
+			"200": refResponse({ workNgramsGet200Response }),
 		},
 		summary: "/works/{id}/ngrams",
 		tags: tags.concat(["ngrams", "single"]),

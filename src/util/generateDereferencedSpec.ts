@@ -12,7 +12,7 @@ export async function generateDereferencedSpec(doc: OpenAPI.Document, outputFile
 	const result: OpenAPI.Document = sortObject(await dereference(doc));
 	if ("components" in result) {
 		result.components = Object.keys(result.components).reduce((acc, key) => {
-			acc[key] = {}
+			acc[key] = {};
 			return acc;
 		}, {});
 	}

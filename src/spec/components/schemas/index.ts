@@ -1,6 +1,6 @@
 import { refSchema } from "~/spec/components";
 
-export let schemas = {
+export const schemas = {
 	// group_by
 } satisfies Record<string, SchemaObject>;
 

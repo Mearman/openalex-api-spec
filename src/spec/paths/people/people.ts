@@ -1,5 +1,6 @@
-import { refParameter } from "~/spec/components";
+import { refParameter, refResponse } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
+import { getPerson200Response } from "~/spec/components/responses/getPerson200Response";
 
 export const people = {
 	"/people/{id}": {
@@ -18,28 +19,7 @@ export const people = {
 				refParameter({ select }),
 			],
 			responses: {
-				"200": {
-					content: {
-						"application/json": {
-							schema: {
-								properties: {
-									display_name: {
-										type: "string",
-									},
-									id: {
-										type: "string",
-									},
-									orcid: {
-										type: "string",
-									},
-								},
-								required: ["id", "display_name", "orcid"],
-								type: "object",
-							},
-						},
-					},
-					description: "",
-				},
+				"200": refResponse({ getPerson200Response }),
 			},
 			summary: "/people/{id}",
 		},

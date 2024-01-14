@@ -4,7 +4,7 @@ import { countsByYear } from "~/spec/components/schemas/shared/countsByYear";
 import { roles } from "~/spec/components/schemas/shared/roles";
 import { summary_stats } from "~/spec/components/schemas/shared/summary_stats";
 
-export let publisherSchema = {
+export const publisherSchema = {
 	additionalProperties: false,
 	properties: {
 		alternate_titles: {

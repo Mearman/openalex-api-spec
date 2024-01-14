@@ -1,6 +1,6 @@
-import { refParameter, refSchema } from "~/spec/components";
+import { refParameter, refResponse } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
-import { publisherSchema } from "~/spec/components/schemas/publishers/publisherSchema";
+import { publisherGet200Response } from "~/spec/components/responses/publisherGet200Response";
 
 export const publisher = {
 	"/publishers/{id}": {
@@ -19,14 +19,7 @@ export const publisher = {
 				refParameter({ select }),
 			],
 			responses: {
-				"200": {
-					content: {
-						"application/json": {
-							schema: refSchema({ publisherSchema }),
-						},
-					},
-					description: "",
-				},
+				"200": refResponse({ publisherGet200Response }),
 			},
 			summary: "/publishers/{id}",
 		},
