@@ -19,7 +19,8 @@ on:
 
 jobs:
   version:
-    if: github.ref == 'refs/heads/main'
+    # if: github.ref == 'refs/heads/main'
+    if: github.ref_name == github.event.repository.default_branch
     outputs:
       VERSION: ${{ steps.version.outputs.VERSION }}
     runs-on: ubuntu-latest
