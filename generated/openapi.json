@@ -1698,7 +1698,10 @@
 						"type": "string"
 					},
 					"country_code": {
-						"type": "string"
+						"type": [
+							"string",
+							"null"
+						]
 					},
 					"geonames_city_id": {
 						"type": [
@@ -1831,7 +1834,10 @@
 						"type": "integer"
 					},
 					"country_code": {
-						"type": "string"
+						"type": [
+							"string",
+							"null"
+						]
 					},
 					"counts_by_year": {
 						"$ref": "#/components/schemas/countsByYear"
@@ -3195,7 +3201,15 @@
 					},
 					"societies": {
 						"items": {
-							"type": "string"
+							"properties": {
+								"organization": {
+									"type": "string"
+								},
+								"url": {
+									"type": "string"
+								}
+							},
+							"type": "object"
 						},
 						"type": [
 							"array",
@@ -3426,7 +3440,10 @@
 						"items": {
 							"properties": {
 								"award_id": {
-									"type": "string"
+									"type": [
+										"string",
+										"null"
+									]
 								},
 								"funder": {
 									"type": "string"
@@ -3481,7 +3498,10 @@
 						"type": "array"
 					},
 					"language": {
-						"type": "string"
+						"type": [
+							"string",
+							"null"
+						]
 					},
 					"locations": {
 						"items": {
@@ -3636,7 +3656,7 @@
 		},
 		"summary": "OpenAlex API",
 		"title": "OpenAlex",
-		"version": "1.0.0"
+		"version": "0.0.2"
 	},
 	"openapi": "3.1.0",
 	"paths": {
