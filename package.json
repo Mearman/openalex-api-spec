@@ -37,7 +37,7 @@
 		"build": "wireit",
 		"generate": "wireit",
 		"generate:spec": "wireit",
-		"generate:typescript": "wireit",
+		"generate:code": "wireit",
 		"refactor": "tsc . && npx -y openapi-refactorer -i 'openapi-spec - JSON.json' -o main.json",
 		"test": "wireit",
 		"test:report": "wireit"
@@ -54,7 +54,7 @@
 			"dependencies": [
 				"build",
 				"generate:spec",
-				"generate:typescript"
+				"generate:code"
 			]
 		},
 		"generate:spec": {
@@ -69,7 +69,7 @@
 				"./generated/*.json"
 			]
 		},
-		"generate:typescript": {
+		"generate:code": {
 			"command": "npx -y @openapitools/openapi-generator-cli generate",
 			"dependencies": [
 				"generate:spec",
