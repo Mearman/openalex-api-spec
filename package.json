@@ -58,7 +58,8 @@
 				"generate:code"
 			],
 			"files": [
-				"generated/clients/python/README.md"
+				"generated/clients/python/README.md",
+				"src/util/markdown2notebook.ts"
 			],
 			"output": [
 				"generated/clients/python/README.md generated/clients/python/README.ipynb"
