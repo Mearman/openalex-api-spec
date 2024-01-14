@@ -49,7 +49,7 @@ jobs:
           results-file: jest.report.json
           timezone: "europe/london"
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@main
         with:
           name: jest-report
           path: jest.report.json
