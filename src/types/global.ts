@@ -16,7 +16,14 @@ declare global {
 	type ExampleObject = OpenAPIV3_1.ExampleObject;
 	type RequestBodyObject = OpenAPIV3_1.RequestBodyObject;
 	type HeaderObject = OpenAPIV3_1.HeaderObject;
-	type ResponseObject = OpenAPIV3_1.ResponseObject;
+	// type ResponseObject = OpenAPIV3_1.ResponseObject;
+	type ResponseObject = Omit<OpenAPIV3_1.ResponseObject, "content"> & {
+		content: {
+			[media: string]: Omit<OpenAPIV3_1.MediaTypeObject, "schema"> & {
+				schema: ReferenceObject;
+			};
+		}
+	}
 	type CallbackObject = OpenAPIV3_1.CallbackObject;
 	type LinkObject = OpenAPIV3_1.LinkObject;
 	type EncodingObject = OpenAPIV3_1.EncodingObject;
