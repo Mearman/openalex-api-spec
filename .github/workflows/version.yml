@@ -62,6 +62,6 @@ jobs:
       - run: git add generated/openapi.3.0.json
       - run: git add generated/openapi.dereferenced.3.0.json
 
-      - run: git commit -m "${{ steps.version.outputs.VERSION }}"
-      - run: git tag -a "${{ steps.version.outputs.VERSION }}" -m "${{ steps.version.outputs.VERSION }}"
-      - run: git push origin "${{ steps.version.outputs.VERSION }}"
+      - run: git commit -m "${{ env.VERSION }}"
+      - run: git tag -a "${{ env.VERSION }}" -m "${{ env.VERSION }}"
+      - run: git push origin "${{ env.VERSION }}"
