@@ -39,6 +39,7 @@ function getMailto(): any {
 	return process.env.MAILTO ?? getGitEmail();
 }
 
+const PER_PAGE = 3;
 const TEST_RUNS: number = 3;
 const namedDocs: [string, string][] = [
 	["3.0 Document", "generated/openapi.3.0.json"],
@@ -61,25 +62,29 @@ describe.each(namedDocs)(`%s`, (name, location) => {
 		const mailto = getMailto()
 		const mailtoParam = mailto ? `mailto=${mailto}` : undefined
 
-		let fixtures: { url: string, params: string[]; }[] = [{
-			url: listUrl,
-			params: mailtoParam ? ["per_page=3", mailtoParam] : ["per_page=3"],
-		}];
+		const perPageParam: string[] | string = "per_page=" + PER_PAGE;
+		let fixtures: [string, string[]][] = [[
+			listUrl,
+			mailtoParam ? [perPageParam, mailtoParam] : [perPageParam],
+		]];
 
 		if (entity) {
-			fixtures.push({
-				url: [entityUrl, "random"].join("/"),
-				params: mailtoParam ? ["per_page=3", mailtoParam] : ["per_page=3"],
-			});
+			fixtures.push([
+				[entityUrl, "random"].join("/"),
+				mailtoParam ? [perPageParam, mailtoParam] : [perPageParam],
+			]);
 		}
 
 		fixtures = fixtures.filter((x) => x);
 
-		describe.each(fixtures)(`%s`, (fixture) => {
-			const url = [fixture.url, fixture.params.filter((x) => x).join("&")].filter(x => x).join
+		describe.each(fixtures)(`%s`, (url, params) => {
+			url = [url, params.filter((x) => x).join("&")].filter(x => x).join
 			("?")
-			test.each([...Array(TEST_RUNS).keys()])(`%s ${url}`, async () => {
-				console.debug(url)
+			const iterations: number[] = [...Array(TEST_RUNS).keys()].map((x) => x + 1);
+			test.each(iterations)(`%s ${url}`, async (iteration) => {
+				if (url.includes("per_page")) {
+					url += "&page=" + iteration
+				}
 				const res = await axios.get(url);
 				expect(res.status).toEqual(200);
 				expect(res).toSatisfyApiSpec();
