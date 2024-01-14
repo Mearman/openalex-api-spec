@@ -1,25 +1,27 @@
 name: Publish
 on:
-  workflow_dispatch:
+  release:
+    types:
+      - created
 
 jobs:
-  version:
-    outputs:
-      output1: ${{ steps.version.outputs.VERSION }}
+  publish:
     runs-on: ubuntu-latest
+
     permissions:
-      contents: write
+      contents: read
       packages: write
     steps:
-      - name: Get version
-        id: version
-        run: echo "VERSION=$(node -p "require('./package.json').version")" >> "$GITHUB_ENV"
-
-      - name: Echo version
-        run: echo ${{ steps.version.outputs.VERSION }}
-
-      - name: Create tag
-        run: git tag -a v${{ steps.version.outputs.VERSION }} -m "v${{ steps.version.outputs.VERSION }}"
-
-      - name: Push tag
-        run: git push origin v${{ steps.version.outputs.VERSION }}
+      - uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+          tag_name: ${{ github.ref }}
+          prerelease: true
+          draft: true
+          files: |
+            generated/openapi.json
+            generated/openapi.dereferenced.json
+            generated/openapi.3.0.json
+            generated/openapi.dereferenced.3.0.json
