@@ -65,7 +65,7 @@ jobs:
 
       - run: echo "TAG=v${{ env.VERSION }}" >> "$GITHUB_ENV"
 
-      - run: git commit -m "${{ env.TAG }}"
-      - run: git tag -a "${{ env.TAG }}" -m "${{ env.TAG }}"
+      - run: git commit -m "${{ github.event.inputs.version }} ${{ env.TAG }}"
+      - run: git tag -a "${{ env.TAG }}" -m "${{ github.event.inputs.version }} ${{ env.TAG }}"
       # - run: git push origin "${{ env.TAG }}"
       - run: git push origin main --follow-tags
