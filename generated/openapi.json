@@ -1,5 +1,24 @@
 {
 	"components": {
+		"examples": {
+			"example": {
+				"value": {
+					"meta": {
+						"count": 3475,
+						"doi": "https://doi.org/10.1093/comjnl/40.2_and_3.67",
+						"openalex_id": "https://openalex.org/W2089319476"
+					},
+					"ngrams": [
+						{
+							"ngram": "unbounded Length Contexts for PPM",
+							"ngram_count": 1,
+							"ngram_tokens": 5,
+							"term_frequency": 0.00017274140611504577
+						}
+					]
+				}
+			}
+		},
 		"parameters": {
 			"api_key": {
 				"in": "query",
@@ -824,56 +843,23 @@
 						}
 					}
 				},
-				"description": ""
+				"description": "Single Author Response"
 			},
 			"authorsGet200": {
 				"content": {
 					"application/json": {
 						"schema": {
-							"properties": {
-								"group_by": {
-									"$ref": "#/components/schemas/group_by_result"
-								},
-								"meta": {
-									"$ref": "#/components/schemas/meta"
-								},
-								"results": {
-									"items": {
-										"$ref": "#/components/schemas/author"
-									},
-									"type": "array"
-								}
-							},
-							"required": [
-								"meta",
-								"group_by"
-							],
-							"type": "object"
+							"$ref": "#/components/schemas/authorsResponseSchema"
 						}
 					}
 				},
-				"description": ""
+				"description": "Authors List Response"
 			},
 			"autocompleteGet200Response": {
 				"content": {
 					"application/json": {
 						"schema": {
-							"properties": {
-								"meta": {
-									"$ref": "#/components/schemas/meta"
-								},
-								"results": {
-									"items": {
-										"$ref": "#/components/schemas/autoCompleteResultItem"
-									},
-									"type": "array"
-								}
-							},
-							"required": [
-								"meta",
-								"results"
-							],
-							"type": "object"
+							"$ref": "#/components/schemas/autoCompleteResultSchema"
 						}
 					}
 				},
@@ -884,6 +870,86 @@
 					"application/json": {
 						"schema": {
 							"$ref": "#/components/schemas/concept"
+						}
+					}
+				},
+				"description": "Concept"
+			},
+			"conceptsGet200Response": {
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/conceptsResponseSchema"
+						}
+					}
+				},
+				"description": "Concepts List"
+			},
+			"funderGet200Response": {
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/funderSchema"
+						}
+					}
+				},
+				"description": ""
+			},
+			"fundersGet200Response": {
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/fundersArray"
+						}
+					}
+				},
+				"description": ""
+			},
+			"getPerson200Response": {
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/personResponseSchema"
+						}
+					}
+				},
+				"description": ""
+			},
+			"institutionGet200Response": {
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/institutionSchema"
+						}
+					}
+				},
+				"description": ""
+			},
+			"institutionsGet200Response": {
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/institutionsResponseSchema"
+						}
+					}
+				},
+				"description": ""
+			},
+			"publisherGet200Response": {
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/publisherSchema"
+						}
+					}
+				},
+				"description": ""
+			},
+			"publishersGet200Response": {
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/publishersResponseSchema"
 						}
 					}
 				},
@@ -903,7 +969,7 @@
 				"content": {
 					"application/json": {
 						"schema": {
-							"type": "string"
+							"$ref": "#/components/schemas/resp4xxResponseSchema"
 						}
 					}
 				},
@@ -922,23 +988,42 @@
 							}
 						},
 						"schema": {
-							"properties": {
-								"documentation_url": {
-									"type": "string"
-								},
-								"msg": {
-									"type": "string"
-								},
-								"version": {
-									"type": "string"
-								}
-							},
-							"required": [
-								"msg",
-								"documentation_url",
-								"version"
-							],
-							"type": "object"
+							"$ref": "#/components/schemas/rootResponseSchema"
+						}
+					}
+				},
+				"description": ""
+			},
+			"sourceGet200Response": {
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/sourceSchema"
+						}
+					}
+				},
+				"description": ""
+			},
+			"sourcesGet200Response": {
+				"content": {
+					"application/json": {
+						"schema": {
+							"$ref": "#/components/schemas/sourcesArray"
+						}
+					}
+				},
+				"description": ""
+			},
+			"workNgramsGet200Response": {
+				"content": {
+					"application/json": {
+						"examples": {
+							"ngram": {
+								"$ref": "#/components/examples/example"
+							}
+						},
+						"schema": {
+							"$ref": "#/components/schemas/workNgramsSchema"
 						}
 					}
 				},
@@ -958,25 +1043,7 @@
 				"content": {
 					"application/json": {
 						"schema": {
-							"properties": {
-								"group_by": {
-									"$ref": "#/components/schemas/group_by_result"
-								},
-								"meta": {
-									"$ref": "#/components/schemas/meta"
-								},
-								"results": {
-									"items": {
-										"$ref": "#/components/schemas/workSchema"
-									},
-									"type": "array"
-								}
-							},
-							"required": [
-								"meta",
-								"results"
-							],
-							"type": "object"
+							"$ref": "#/components/schemas/worksResponseSchema"
 						}
 					}
 				},
@@ -1136,6 +1203,26 @@
 				],
 				"type": "object"
 			},
+			"authorsResponseSchema": {
+				"properties": {
+					"group_by": {
+						"$ref": "#/components/schemas/group_by_result"
+					},
+					"meta": {
+						"$ref": "#/components/schemas/meta"
+					},
+					"results": {
+						"items": {
+							"$ref": "#/components/schemas/author"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"meta",
+					"group_by"
+				]
+			},
 			"authorships": {
 				"items": {
 					"properties": {
@@ -1272,6 +1359,24 @@
 					"entity_type",
 					"external_id",
 					"filter_key"
+				],
+				"type": "object"
+			},
+			"autoCompleteResultSchema": {
+				"properties": {
+					"meta": {
+						"$ref": "#/components/schemas/meta"
+					},
+					"results": {
+						"items": {
+							"$ref": "#/components/schemas/autoCompleteResultItem"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"meta",
+					"results"
 				],
 				"type": "object"
 			},
@@ -1483,6 +1588,19 @@
 					"$ref": "#/components/schemas/conceptSchema"
 				},
 				"type": "array"
+			},
+			"conceptsResponseSchema": {
+				"properties": {
+					"group_by": {
+						"$ref": "#/components/schemas/group_by_result"
+					},
+					"meta": {
+						"$ref": "#/components/schemas/meta"
+					},
+					"results": {
+						"$ref": "#/components/schemas/conceptsArray"
+					}
+				}
 			},
 			"countsByYear": {
 				"items": {
@@ -1924,6 +2042,24 @@
 				"required": [
 					"id",
 					"display_name"
+				],
+				"type": "object"
+			},
+			"institutionsResponseSchema": {
+				"properties": {
+					"group_by": {
+						"$ref": "#/components/schemas/group_by_result"
+					},
+					"meta": {
+						"$ref": "#/components/schemas/meta"
+					},
+					"results": {
+						"$ref": "#/components/schemas/institutionArray"
+					}
+				},
+				"required": [
+					"meta",
+					"group_by"
 				],
 				"type": "object"
 			},
@@ -2947,6 +3083,25 @@
 				],
 				"type": "object"
 			},
+			"personResponseSchema": {
+				"properties": {
+					"display_name": {
+						"type": "string"
+					},
+					"id": {
+						"type": "string"
+					},
+					"orcid": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"display_name",
+					"orcid"
+				],
+				"type": "object"
+			},
 			"publisherSchema": {
 				"additionalProperties": false,
 				"properties": {
@@ -3043,6 +3198,28 @@
 				],
 				"type": "object"
 			},
+			"publishersResponseSchema": {
+				"properties": {
+					"group_by": {
+						"$ref": "#/components/schemas/group_by_result"
+					},
+					"meta": {
+						"$ref": "#/components/schemas/meta"
+					},
+					"results": {
+						"items": {
+							"$ref": "#/components/schemas/publisherSchema"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"meta",
+					"results",
+					"group_by"
+				],
+				"type": "object"
+			},
 			"repositoriesArray": {
 				"items": {
 					"properties": {
@@ -3076,6 +3253,9 @@
 				},
 				"type": "array"
 			},
+			"resp4xxResponseSchema": {
+				"type": "string"
+			},
 			"role": {
 				"additionalProperties": false,
 				"properties": {
@@ -3102,6 +3282,25 @@
 					"$ref": "#/components/schemas/role"
 				},
 				"type": "array"
+			},
+			"rootResponseSchema": {
+				"properties": {
+					"documentation_url": {
+						"type": "string"
+					},
+					"msg": {
+						"type": "string"
+					},
+					"version": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"msg",
+					"documentation_url",
+					"version"
+				],
+				"type": "object"
 			},
 			"sourceSchema": {
 				"additionalProperties": false,
@@ -3329,6 +3528,16 @@
 			"workIdPattern": {
 				"pattern": "^(W[0-9]+|https://openalex.org/W[0-9]+|mag:\\d+|https://doi.org/10.\\d{4,9}/[-._;()/:A-Z0-9]+|pmid:\\d+|pmcid:(PMC)?\\d+)$",
 				"type": "string"
+			},
+			"workNgramsSchema": {
+				"properties": {
+					"meta": {
+						"$ref": "#/components/schemas/ngramMeta"
+					},
+					"ngrams": {
+						"$ref": "#/components/schemas/ngram"
+					}
+				}
 			},
 			"workSchema": {
 				"properties": {
@@ -3641,6 +3850,27 @@
 					"display_name"
 				],
 				"type": "object"
+			},
+			"worksResponseSchema": {
+				"properties": {
+					"group_by": {
+						"$ref": "#/components/schemas/group_by_result"
+					},
+					"meta": {
+						"$ref": "#/components/schemas/meta"
+					},
+					"results": {
+						"items": {
+							"$ref": "#/components/schemas/workSchema"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"meta",
+					"results"
+				],
+				"type": "object"
 			}
 		}
 	},
@@ -3649,7 +3879,7 @@
 		"url": "https://docs.openalex.org/"
 	},
 	"info": {
-		"description": "![](https://raw.githubusercontent.com/ourresearch/openalex-docs/main/.gitbook/assets/OpenAlex-logo-5.png)\n\n**OpenAlex** is a fully open catalog of the global research system.\n\nIt's named after the [ancient Library of Alexandria](https://en.wikipedia.org/wiki/Library_of_Alexandria) and made by the nonprofit [OurResearch](https://ourresearch.org/).\n\nThis OpenAPI specification is derived from spec generated by [openapi-devtools](https://github.com/AndrewWalsh/openapi-devtools).",
+		"description": "![](https://raw.githubusercontent.com/ourresearch/openalex-docs/main/.gitbook/assets/OpenAlex-logo-5.png)\n\n**OpenAlex** is a fully open catalog of the global research system.\n\nIt's named after the [ancient Library of Alexandria](https://en.wikipedia.org/wiki/Library_of_Alexandria) and made by the nonprofit [OurResearch](https://ourresearch.org/).\n\n## OpenAPI Specification\n\n[Mearman/openalex-api-spec](https://github.com/Mearman/openalex-api-spec)\n\nThis OpenAPI specification is reverse-engineered and derived from spec generated by [openapi-devtools](https://github.com/AndrewWalsh/openapi-devtools).\n\nThe specification document itself is OpenAPI version 3.1 and is generated from TypeScript source code.\n\n**[Releases](https://github.com/Mearman/openalex-api-spec/releases)**\n\n## Clients\n\n### Python\n\n[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&link=https://github.com/Mearman/openalex-python)](https://github.com/Mearman/openalex-python)\n[![CodeSpaces](https://img.shields.io/badge/CodeSpaces-181717?style=for-the-badge&logo=GitHub&link=https://codespaces.new/Mearman/openalex-python)](https://codespaces.new/Mearman/openalex-python)\n[![Colab](https://img.shields.io/badge/Colab-gray?style=for-the-badge&logo=Google%20Colab&link=https://colab.research.google.com/github/Mearman/openalex-python/blob/main/demos/notebook.ipynb)](https://colab.research.google.com/github/Mearman/openalex-python/blob/main/demos/notebook.ipynb)\n\n### Many more coming soon\n\n---",
 		"license": {
 			"name": "CC0",
 			"url": "https://creativecommons.org/publicdomain/zero/1.0/"
@@ -4126,29 +4356,7 @@
 				],
 				"responses": {
 					"200": {
-						"content": {
-							"application/json": {
-								"schema": {
-									"properties": {
-										"group_by": {
-											"$ref": "#/components/schemas/group_by_result"
-										},
-										"meta": {
-											"$ref": "#/components/schemas/meta"
-										},
-										"results": {
-											"$ref": "#/components/schemas/conceptsArray"
-										}
-									},
-									"required": [
-										"meta",
-										"group_by"
-									],
-									"type": "object"
-								}
-							}
-						},
-						"description": ""
+						"$ref": "#/components/responses/conceptsGet200Response"
 					},
 					"403": {
 						"$ref": "#/components/responses/resp403"
@@ -4243,14 +4451,7 @@
 				],
 				"responses": {
 					"200": {
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/fundersArray"
-								}
-							}
-						},
-						"description": ""
+						"$ref": "#/components/responses/fundersGet200Response"
 					},
 					"403": {
 						"$ref": "#/components/responses/resp403"
@@ -4290,14 +4491,7 @@
 				],
 				"responses": {
 					"200": {
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/funderSchema"
-								}
-							}
-						},
-						"description": ""
+						"$ref": "#/components/responses/funderGet200Response"
 					},
 					"403": {
 						"$ref": "#/components/responses/resp403"
@@ -4353,29 +4547,7 @@
 				],
 				"responses": {
 					"200": {
-						"content": {
-							"application/json": {
-								"schema": {
-									"properties": {
-										"group_by": {
-											"$ref": "#/components/schemas/group_by_result"
-										},
-										"meta": {
-											"$ref": "#/components/schemas/meta"
-										},
-										"results": {
-											"$ref": "#/components/schemas/institutionArray"
-										}
-									},
-									"required": [
-										"meta",
-										"group_by"
-									],
-									"type": "object"
-								}
-							}
-						},
-						"description": ""
+						"$ref": "#/components/responses/institutionsGet200Response"
 					},
 					"403": {
 						"$ref": "#/components/responses/resp403"
@@ -4415,14 +4587,7 @@
 				],
 				"responses": {
 					"200": {
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/institutionSchema"
-								}
-							}
-						},
-						"description": ""
+						"$ref": "#/components/responses/institutionGet200Response"
 					},
 					"403": {
 						"$ref": "#/components/responses/resp403"
@@ -4462,30 +4627,7 @@
 				],
 				"responses": {
 					"200": {
-						"content": {
-							"application/json": {
-								"schema": {
-									"properties": {
-										"display_name": {
-											"type": "string"
-										},
-										"id": {
-											"type": "string"
-										},
-										"orcid": {
-											"type": "string"
-										}
-									},
-									"required": [
-										"id",
-										"display_name",
-										"orcid"
-									],
-									"type": "object"
-								}
-							}
-						},
-						"description": ""
+						"$ref": "#/components/responses/getPerson200Response"
 					},
 					"403": {
 						"$ref": "#/components/responses/resp403"
@@ -4541,33 +4683,7 @@
 				],
 				"responses": {
 					"200": {
-						"content": {
-							"application/json": {
-								"schema": {
-									"properties": {
-										"group_by": {
-											"$ref": "#/components/schemas/group_by_result"
-										},
-										"meta": {
-											"$ref": "#/components/schemas/meta"
-										},
-										"results": {
-											"items": {
-												"$ref": "#/components/schemas/publisherSchema"
-											},
-											"type": "array"
-										}
-									},
-									"required": [
-										"meta",
-										"results",
-										"group_by"
-									],
-									"type": "object"
-								}
-							}
-						},
-						"description": ""
+						"$ref": "#/components/responses/publishersGet200Response"
 					},
 					"403": {
 						"$ref": "#/components/responses/resp403"
@@ -4607,14 +4723,7 @@
 				],
 				"responses": {
 					"200": {
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/publisherSchema"
-								}
-							}
-						},
-						"description": ""
+						"$ref": "#/components/responses/publisherGet200Response"
 					},
 					"403": {
 						"$ref": "#/components/responses/resp403"
@@ -4651,14 +4760,7 @@
 				],
 				"responses": {
 					"200": {
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/sourcesArray"
-								}
-							}
-						},
-						"description": ""
+						"$ref": "#/components/responses/sourcesGet200Response"
 					},
 					"403": {
 						"$ref": "#/components/responses/resp403"
@@ -4698,14 +4800,7 @@
 				],
 				"responses": {
 					"200": {
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/sourceSchema"
-								}
-							}
-						},
-						"description": ""
+						"$ref": "#/components/responses/sourceGet200Response"
 					},
 					"403": {
 						"$ref": "#/components/responses/resp403"
@@ -4826,36 +4921,7 @@
 				],
 				"responses": {
 					"200": {
-						"content": {
-							"application/json": {
-								"example": {
-									"meta": {
-										"count": 3475,
-										"doi": "https://doi.org/10.1093/comjnl/40.2_and_3.67",
-										"openalex_id": "https://openalex.org/W2089319476"
-									},
-									"ngrams": [
-										{
-											"ngram": "unbounded Length Contexts for PPM",
-											"ngram_count": 1,
-											"ngram_tokens": 5,
-											"term_frequency": 0.00017274140611504577
-										}
-									]
-								},
-								"schema": {
-									"properties": {
-										"meta": {
-											"$ref": "#/components/schemas/ngramMeta"
-										},
-										"ngrams": {
-											"$ref": "#/components/schemas/ngram"
-										}
-									}
-								}
-							}
-						},
-						"description": ""
+						"$ref": "#/components/responses/workNgramsGet200Response"
 					},
 					"403": {
 						"$ref": "#/components/responses/resp403"
