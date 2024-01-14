@@ -33,6 +33,11 @@ jobs:
       - run: ls -la
       - run: ls -la generated
 
+      - run: if [ ! -f generated/openapi.json ]; then exit 1; fi
+      - run: if [ ! -f generated/openapi.dereferenced.json ]; then exit 1; fi
+      - run: if [ ! -f generated/openapi.3.0.json ]; then exit 1; fi
+      - run: if [ ! -f generated/openapi.3.0.dereferenced.json ]; then exit 1; fi
+
       - run: npm run test:report
         continue-on-error: true
 
