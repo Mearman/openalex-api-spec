@@ -100,36 +100,36 @@
 			},
 			"typescript": {
 				"additionalProperties": {
-					"npmName": "openalex-api",
+					"npmName": "@mearman/openalex-typescript",
 					"supportsES6": "true",
 					"withInterfaces": true
 				},
 				"generatorName": "typescript",
 				"gitHost": "github.com",
-				"gitRepoId": "openalex-api-spec",
+				"gitRepoId": "openalex-typescript",
 				"gitUserId": "Mearman",
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/clients/typescript"
 			},
 			"typescript-fetch": {
 				"additionalProperties": {
-					"npmName": "openalex-api"
+					"npmName": "@mearman/openalex-typescript-fetch"
 				},
 				"generatorName": "typescript-fetch",
 				"gitHost": "github.com",
-				"gitRepoId": "openalex-api-spec",
+				"gitRepoId": "openalex-typescript-fetch",
 				"gitUserId": "Mearman",
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/clients/typescript-fetch"
 			},
 			"typescript-node": {
 				"additionalProperties": {
-					"npmName": "openalex-api",
+					"npmName": "@mearman/openalex-typescript-node",
 					"supportsES6": "true"
 				},
 				"generatorName": "typescript-node",
 				"gitHost": "github.com",
-				"gitRepoId": "openalex-api-spec",
+				"gitRepoId": "openalex-typescript-node",
 				"gitUserId": "Mearman",
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/clients/typescript-node"
