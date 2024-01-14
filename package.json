@@ -29,6 +29,10 @@
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Mearman/openalex-api-spec.git"
+	},
 	"scripts": {
 		"build": "wireit",
 		"generate": "wireit",
