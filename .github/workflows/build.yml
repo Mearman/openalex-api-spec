@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 env:
-  WIREIT_LOGGER: "metrics"
+  # WIREIT_LOGGER: "metrics"
   FORCE_COLOR: "true"
 
 concurrency:
