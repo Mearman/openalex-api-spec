@@ -6,4 +6,4 @@
 !clients/typescript
 !clients/typescript-fetch
 !clients/typescript-node
-# !clients/typescript
+!documentation/swagger-ui-react
