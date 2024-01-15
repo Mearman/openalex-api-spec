@@ -10,3 +10,7 @@
 [submodule "generated/clients/typescript-node"]
 	path = generated/clients/typescript-node
 	url = https://github.com/Mearman/openalex-typescript-node.git
+[submodule "generated/documentation/swagger-ui"]
+	path = generated/documentation/swagger-ui
+	url = https://github.com/Mearman/openalex-swagger-ui
+
