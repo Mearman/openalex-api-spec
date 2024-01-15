@@ -692,14 +692,6 @@
 			},
 			"group_by_param": {
 				"in": "query",
-				"name": "group-by",
-				"required": false,
-				"schema": {
-					"type": "string"
-				}
-			},
-			"group_by_underscore_param": {
-				"in": "query",
 				"name": "group_by",
 				"required": false,
 				"schema": {
@@ -3891,7 +3883,7 @@
 		},
 		"summary": "OpenAlex API",
 		"title": "OpenAlex",
-		"version": "0.0.5"
+		"version": "0.0.6"
 	},
 	"openapi": "3.1.0",
 	"paths": {
@@ -3934,19 +3926,22 @@
 				"operationId": "getAuthors",
 				"parameters": [
 					{
+						"$ref": "#/components/parameters/api_key"
+					},
+					{
+						"$ref": "#/components/parameters/cursor"
+					},
+					{
 						"$ref": "#/components/parameters/filter"
 					},
 					{
 						"$ref": "#/components/parameters/group_by_param"
 					},
 					{
-						"$ref": "#/components/parameters/group_by_underscore_param"
+						"$ref": "#/components/parameters/page_param"
 					},
 					{
 						"$ref": "#/components/parameters/per_page"
-					},
-					{
-						"$ref": "#/components/parameters/page_param"
 					},
 					{
 						"$ref": "#/components/parameters/sample"
@@ -4326,19 +4321,22 @@
 				"operationId": "getConcepts",
 				"parameters": [
 					{
+						"$ref": "#/components/parameters/api_key"
+					},
+					{
+						"$ref": "#/components/parameters/cursor"
+					},
+					{
 						"$ref": "#/components/parameters/filter"
 					},
 					{
 						"$ref": "#/components/parameters/group_by_param"
 					},
 					{
-						"$ref": "#/components/parameters/group_by_underscore_param"
+						"$ref": "#/components/parameters/page_param"
 					},
 					{
 						"$ref": "#/components/parameters/per_page"
-					},
-					{
-						"$ref": "#/components/parameters/page_param"
 					},
 					{
 						"$ref": "#/components/parameters/sample"
@@ -4421,19 +4419,22 @@
 				"operationId": "getFunders",
 				"parameters": [
 					{
+						"$ref": "#/components/parameters/api_key"
+					},
+					{
+						"$ref": "#/components/parameters/cursor"
+					},
+					{
 						"$ref": "#/components/parameters/filter"
 					},
 					{
 						"$ref": "#/components/parameters/group_by_param"
 					},
 					{
-						"$ref": "#/components/parameters/group_by_underscore_param"
+						"$ref": "#/components/parameters/page_param"
 					},
 					{
 						"$ref": "#/components/parameters/per_page"
-					},
-					{
-						"$ref": "#/components/parameters/page_param"
 					},
 					{
 						"$ref": "#/components/parameters/sample"
@@ -4517,19 +4518,22 @@
 				"operationId": "getInstitutions",
 				"parameters": [
 					{
+						"$ref": "#/components/parameters/api_key"
+					},
+					{
+						"$ref": "#/components/parameters/cursor"
+					},
+					{
 						"$ref": "#/components/parameters/filter"
 					},
 					{
 						"$ref": "#/components/parameters/group_by_param"
 					},
 					{
-						"$ref": "#/components/parameters/group_by_underscore_param"
+						"$ref": "#/components/parameters/page_param"
 					},
 					{
 						"$ref": "#/components/parameters/per_page"
-					},
-					{
-						"$ref": "#/components/parameters/page_param"
 					},
 					{
 						"$ref": "#/components/parameters/sample"
@@ -4653,19 +4657,22 @@
 				"operationId": "getPublishers",
 				"parameters": [
 					{
+						"$ref": "#/components/parameters/api_key"
+					},
+					{
+						"$ref": "#/components/parameters/cursor"
+					},
+					{
 						"$ref": "#/components/parameters/filter"
 					},
 					{
 						"$ref": "#/components/parameters/group_by_param"
 					},
 					{
-						"$ref": "#/components/parameters/group_by_underscore_param"
+						"$ref": "#/components/parameters/page_param"
 					},
 					{
 						"$ref": "#/components/parameters/per_page"
-					},
-					{
-						"$ref": "#/components/parameters/page_param"
 					},
 					{
 						"$ref": "#/components/parameters/sample"
@@ -4826,19 +4833,34 @@
 				"operationId": "getWorks",
 				"parameters": [
 					{
-						"$ref": "#/components/parameters/filterWorks"
-					},
-					{
 						"$ref": "#/components/parameters/api_key"
-					},
-					{
-						"$ref": "#/components/parameters/per_page"
 					},
 					{
 						"$ref": "#/components/parameters/cursor"
 					},
 					{
+						"$ref": "#/components/parameters/filterWorks"
+					},
+					{
+						"$ref": "#/components/parameters/group_by_param"
+					},
+					{
+						"$ref": "#/components/parameters/page_param"
+					},
+					{
+						"$ref": "#/components/parameters/per_page"
+					},
+					{
+						"$ref": "#/components/parameters/sample"
+					},
+					{
 						"$ref": "#/components/parameters/search"
+					},
+					{
+						"$ref": "#/components/parameters/select"
+					},
+					{
+						"$ref": "#/components/parameters/sort"
 					},
 					{
 						"$ref": "#/components/parameters/mailtoHeader"
@@ -4852,7 +4874,7 @@
 						"$ref": "#/components/responses/works"
 					},
 					"403": {
-						"$ref": "#/components/responses/resp4xx"
+						"$ref": "#/components/responses/resp403"
 					},
 					"default": {
 						"$ref": "#/components/responses/resp4xx"
