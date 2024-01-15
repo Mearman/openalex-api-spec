@@ -4833,6 +4833,9 @@
 						"$ref": "#/components/parameters/cursor"
 					},
 					{
+						"$ref": "#/components/parameters/search"
+					},
+					{
 						"$ref": "#/components/parameters/mailtoHeader"
 					},
 					{
