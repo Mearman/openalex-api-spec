@@ -98,6 +98,11 @@
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/clients/python"
 			},
+			"swagger-ui-react": {
+				"generatorName": "openapi",
+				"inputSpec": "generated/openapi.json",
+				"output": "#{cwd}/generated/documentation/swagger-ui-react/public"
+			},
 			"typescript": {
 				"additionalProperties": {
 					"npmName": "@mearman/openalex-typescript",
