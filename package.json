@@ -44,7 +44,7 @@
 		"test:report": "wireit",
 		"sync": "git submodule foreach --recursive 'git add . ; git commit --allow-empty --allow-empty-message -m \"\" && git push'"
 	},
-	"version": "0.0.4-3",
+	"version": "0.0.5",
 	"wireit": {
 		"build": {
 			"command": "tsc --noEmit",
