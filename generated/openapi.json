@@ -725,17 +725,22 @@
 				}
 			},
 			"page_param": {
+				"examples": {
+					"page": {
+						"value": 1
+					}
+				},
 				"in": "query",
 				"name": "page",
 				"required": false,
 				"schema": {
-					"type": "string"
+					"type": "integer"
 				}
 			},
 			"per_page": {
 				"examples": {
-					"1": {
-						"value": 1
+					"per_page": {
+						"value": 3
 					}
 				},
 				"in": "query",

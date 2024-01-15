@@ -953,6 +953,9 @@
 						"$ref": "#/components/parameters/cursor"
 					},
 					{
+						"$ref": "#/components/parameters/search"
+					},
+					{
 						"$ref": "#/components/parameters/mailtoHeader"
 					},
 					{
@@ -3834,15 +3837,16 @@
 				"schema": {
 					"type": "integer"
 				},
-				"example": 1
+				"example": 3
 			},
 			"page_param": {
 				"in": "query",
 				"name": "page",
 				"required": false,
 				"schema": {
-					"type": "string"
-				}
+					"type": "integer"
+				},
+				"example": 1
 			},
 			"sample": {
 				"in": "query",

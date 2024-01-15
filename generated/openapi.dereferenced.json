@@ -157,8 +157,8 @@
 					},
 					{
 						"examples": {
-							"1": {
-								"value": 1
+							"per_page": {
+								"value": 3
 							}
 						},
 						"in": "query",
@@ -169,11 +169,16 @@
 						}
 					},
 					{
+						"examples": {
+							"page": {
+								"value": 1
+							}
+						},
 						"in": "query",
 						"name": "page",
 						"required": false,
 						"schema": {
-							"type": "string"
+							"type": "integer"
 						}
 					},
 					{
@@ -2679,8 +2684,8 @@
 					},
 					{
 						"examples": {
-							"1": {
-								"value": 1
+							"per_page": {
+								"value": 3
 							}
 						},
 						"in": "query",
@@ -2691,11 +2696,16 @@
 						}
 					},
 					{
+						"examples": {
+							"page": {
+								"value": 1
+							}
+						},
 						"in": "query",
 						"name": "page",
 						"required": false,
 						"schema": {
-							"type": "string"
+							"type": "integer"
 						}
 					},
 					{
@@ -6586,8 +6596,8 @@
 					},
 					{
 						"examples": {
-							"1": {
-								"value": 1
+							"per_page": {
+								"value": 3
 							}
 						},
 						"in": "query",
@@ -6598,11 +6608,16 @@
 						}
 					},
 					{
+						"examples": {
+							"page": {
+								"value": 1
+							}
+						},
 						"in": "query",
 						"name": "page",
 						"required": false,
 						"schema": {
-							"type": "string"
+							"type": "integer"
 						}
 					},
 					{
@@ -7285,8 +7300,8 @@
 					},
 					{
 						"examples": {
-							"1": {
-								"value": 1
+							"per_page": {
+								"value": 3
 							}
 						},
 						"in": "query",
@@ -7297,11 +7312,16 @@
 						}
 					},
 					{
+						"examples": {
+							"page": {
+								"value": 1
+							}
+						},
 						"in": "query",
 						"name": "page",
 						"required": false,
 						"schema": {
-							"type": "string"
+							"type": "integer"
 						}
 					},
 					{
@@ -10001,8 +10021,8 @@
 					},
 					{
 						"examples": {
-							"1": {
-								"value": 1
+							"per_page": {
+								"value": 3
 							}
 						},
 						"in": "query",
@@ -10013,11 +10033,16 @@
 						}
 					},
 					{
+						"examples": {
+							"page": {
+								"value": 1
+							}
+						},
 						"in": "query",
 						"name": "page",
 						"required": false,
 						"schema": {
-							"type": "string"
+							"type": "integer"
 						}
 					},
 					{
@@ -12122,8 +12147,8 @@
 					},
 					{
 						"examples": {
-							"1": {
-								"value": 1
+							"per_page": {
+								"value": 3
 							}
 						},
 						"in": "query",
@@ -12136,6 +12161,14 @@
 					{
 						"in": "query",
 						"name": "cursor",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "search",
 						"required": false,
 						"schema": {
 							"type": "string"
