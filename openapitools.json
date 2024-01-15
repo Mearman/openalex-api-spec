@@ -88,8 +88,8 @@
 			"python": {
 				"additionalProperties": {
 					"packageName": "openalex_api",
-					"projectName": "OpenAlex API",
-					"packageVersion": "1.0.0"
+					"packageVersion": "0.0.6",
+					"projectName": "OpenAlex API"
 				},
 				"generatorName": "python",
 				"gitHost": "github.com",
