@@ -41,6 +41,7 @@
 		"generate": "wireit",
 		"generate:code": "wireit",
 		"generate:spec": "wireit",
+		"patch": "npm version patch --no-git-tag-version --force",
 		"refactor": "tsc . && npx -y openapi-refactorer -i 'openapi-spec - JSON.json' -o main.json",
 		"test": "wireit",
 		"test:report": "wireit",
