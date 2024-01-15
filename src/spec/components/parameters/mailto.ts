@@ -1,12 +1,18 @@
 import { refParameter, refSchema } from "~/spec/components";
 
-const mailToSchema = {
+const mailToSchema: SchemaObject = {
 	type: "string",
 	pattern: ".*mailto:\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,4}.*"
-} satisfies SchemaObject;
+}
+
 export const mailtoQuery = {
 	in: "query",
 	name: "mailto",
+	// content: {
+	// 	"application/json": {
+	// 		schema: refSchema({ mailToSchema }),
+	// 	},
+	// },
 	required: false,
 	schema: refSchema({ mailToSchema }),
 	description: [

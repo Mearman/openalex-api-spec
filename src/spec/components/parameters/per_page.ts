@@ -1,7 +1,7 @@
 export const per_page = {
 	examples: {
-		"1": {
-			value: 1,
+		"per_page": {
+			value: 3,
 		},
 	},
 	in: "query",
