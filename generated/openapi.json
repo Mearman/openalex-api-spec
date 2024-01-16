@@ -2989,14 +2989,6 @@
 						]
 					}
 				},
-				"required": [
-					"is_oa",
-					"landing_page_url",
-					"source",
-					"version",
-					"is_accepted",
-					"is_published"
-				],
 				"type": [
 					"object",
 					"null"
@@ -3883,7 +3875,7 @@
 		},
 		"summary": "OpenAlex API",
 		"title": "OpenAlex",
-		"version": "0.0.6"
+		"version": "0.0.7"
 	},
 	"openapi": "3.1.0",
 	"paths": {

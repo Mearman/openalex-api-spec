@@ -70,13 +70,5 @@ export const location: SchemaObject = {
 		version: {
 			type: ["string", "null"],
 		},
-	},
-	required: [
-		"is_oa",
-		"landing_page_url",
-		"source",
-		"version",
-		"is_accepted",
-		"is_published",
-	],
+	}
 } satisfies SchemaObject;

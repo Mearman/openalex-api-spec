@@ -16,7 +16,7 @@
 			"url": "https://creativecommons.org/publicdomain/zero/1.0/"
 		},
 		"title": "OpenAlex",
-		"version": "0.0.6"
+		"version": "0.0.7"
 	},
 	"openapi": "3.0.3",
 	"paths": {
@@ -12373,14 +12373,6 @@
 																"nullable": true
 															}
 														},
-														"required": [
-															"is_oa",
-															"landing_page_url",
-															"source",
-															"version",
-															"is_accepted",
-															"is_published"
-														],
 														"type": "object",
 														"nullable": true
 													},
@@ -12704,14 +12696,6 @@
 																	"nullable": true
 																}
 															},
-															"required": [
-																"is_oa",
-																"landing_page_url",
-																"source",
-																"version",
-																"is_accepted",
-																"is_published"
-															],
 															"type": "object",
 															"nullable": true
 														},
@@ -12859,14 +12843,6 @@
 																"nullable": true
 															}
 														},
-														"required": [
-															"is_oa",
-															"landing_page_url",
-															"source",
-															"version",
-															"is_accepted",
-															"is_published"
-														],
 														"type": "object",
 														"nullable": true
 													},
@@ -13360,14 +13336,6 @@
 													"nullable": true
 												}
 											},
-											"required": [
-												"is_oa",
-												"landing_page_url",
-												"source",
-												"version",
-												"is_accepted",
-												"is_published"
-											],
 											"type": "object",
 											"nullable": true
 										},
@@ -13691,14 +13659,6 @@
 														"nullable": true
 													}
 												},
-												"required": [
-													"is_oa",
-													"landing_page_url",
-													"source",
-													"version",
-													"is_accepted",
-													"is_published"
-												],
 												"type": "object",
 												"nullable": true
 											},
@@ -13846,14 +13806,6 @@
 													"nullable": true
 												}
 											},
-											"required": [
-												"is_oa",
-												"landing_page_url",
-												"source",
-												"version",
-												"is_accepted",
-												"is_published"
-											],
 											"type": "object",
 											"nullable": true
 										},
