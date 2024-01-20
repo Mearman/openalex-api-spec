@@ -23,7 +23,8 @@
 		"tsconfig-paths-jest": "^0.0.1",
 		"tsx": "^4.7.0",
 		"typescript": "^5.3.3",
-		"wireit": "^0.14.3"
+		"wireit": "^0.14.3",
+		"yargs": "^17.7.2"
 	},
 	"main": "./src/index.ts",
 	"name": "@mearman/openalex-api-spec",
@@ -37,23 +38,38 @@
 	},
 	"scripts": {
 		"build": "wireit",
+		"build:client:typescript": "wireit",
 		"convert:markdown:notebook": "wireit",
 		"generate": "wireit",
 		"generate:code": "wireit",
 		"generate:spec": "wireit",
-		"patch": "npm version patch --no-git-tag-version --force",
+		"patch": "npm version patch --no-git-tag-version --force && npm run generate",
 		"refactor": "tsc . && npx -y openapi-refactorer -i 'openapi-spec - JSON.json' -o main.json",
+		"sync": "git submodule foreach --recursive 'git add . ; git commit --allow-empty-message -m \"\"'",
 		"test": "wireit",
-		"test:report": "wireit",
-		"sync": "git submodule foreach --recursive 'git add . ; git commit --allow-empty --allow-empty-message -m \"\" && git push'"
+		"test:report": "wireit"
 	},
-	"version": "0.0.6",
+	"version": "0.0.8",
 	"wireit": {
 		"build": {
 			"command": "tsc --noEmit",
 			"files": [
 				"./src/**/*.ts",
 				"openapitools.json"
+			]
+		},
+		"build:client:typescript": {
+			"dependencies": [
+				"generate:code",
+				"./generated/clients/typescript:build"
+			],
+			"files": [
+				"./src/**/*.ts"
+			]
+		},
+		"build:clients": {
+			"dependencies": [
+				"build:client:typescript"
 			]
 		},
 		"convert:markdown:notebook": {
