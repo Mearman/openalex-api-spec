@@ -7,6 +7,7 @@ import { page_param } from "~/spec/components/parameters/page";
 import { per_page } from "~/spec/components/parameters/per_page";
 import { sample } from "~/spec/components/parameters/sample";
 import { search } from "~/spec/components/parameters/search";
+import { seed } from "~/spec/components/parameters/seed";
 import { select } from "~/spec/components/parameters/select";
 import { sort } from "~/spec/components/parameters/sort";
 
@@ -19,6 +20,7 @@ export const defaultListParameters: (ParameterObject | ReferenceObject)[] = [
 	refParameter({ per_page }),
 	refParameter({ sample }),
 	refParameter({ search }),
+	refParameter({ seed }),
 	refParameter({ select }),
 	refParameter({ sort }),
 ];

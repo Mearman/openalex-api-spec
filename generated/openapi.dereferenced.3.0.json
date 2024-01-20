@@ -206,6 +206,14 @@
 					},
 					{
 						"in": "query",
+						"name": "seed",
+						"required": false,
+						"schema": {
+							"description": "A seed value for sampling. Can be of any type."
+						}
+					},
+					{
+						"in": "query",
 						"name": "select",
 						"required": false,
 						"schema": {
@@ -2701,6 +2709,14 @@
 						"required": false,
 						"schema": {
 							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "seed",
+						"required": false,
+						"schema": {
+							"description": "A seed value for sampling. Can be of any type."
 						}
 					},
 					{
@@ -6599,6 +6615,14 @@
 					},
 					{
 						"in": "query",
+						"name": "seed",
+						"required": false,
+						"schema": {
+							"description": "A seed value for sampling. Can be of any type."
+						}
+					},
+					{
+						"in": "query",
 						"name": "select",
 						"required": false,
 						"schema": {
@@ -7281,6 +7305,14 @@
 						"required": false,
 						"schema": {
 							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "seed",
+						"required": false,
+						"schema": {
+							"description": "A seed value for sampling. Can be of any type."
 						}
 					},
 					{
@@ -9976,6 +10008,14 @@
 						"required": false,
 						"schema": {
 							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "seed",
+						"required": false,
+						"schema": {
+							"description": "A seed value for sampling. Can be of any type."
 						}
 					},
 					{
