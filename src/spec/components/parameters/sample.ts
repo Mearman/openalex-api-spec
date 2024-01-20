@@ -3,6 +3,6 @@ export const sample = {
 	name: "sample",
 	required: false,
 	schema: {
-		type: "string",
+		type: "integer",
 	},
 } satisfies ParameterObject;
