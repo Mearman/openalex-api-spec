@@ -11,7 +11,7 @@ import { seed } from "~/spec/components/parameters/seed";
 import { select } from "~/spec/components/parameters/select";
 import { sort } from "~/spec/components/parameters/sort";
 
-export const defaultListParameters: (ParameterObject | ReferenceObject)[] = [
+export const defaultListParameters: ReferenceObject[] = [
 	refParameter({ api_key }),
 	refParameter({ cursor }),
 	refParameter({ filter }),

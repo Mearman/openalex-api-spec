@@ -1,3 +1,5 @@
+import { refSchema } from "..";
+
 const worksFilters = [
 	"abstract.search",
 	"apc_list.currency",
@@ -152,6 +154,17 @@ const worksFilters = [
 	"type_crossref",
 	"version",
 ];
+
+const filterWorksSchema: SchemaObject = {
+	pattern: new RegExp(
+		`^(${worksFilters
+			.map((key) => key.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&"))
+			.map((s) => `(${s})`)
+			.join("|")}):.+`
+	).source,
+	type: "string",
+};
+
 export const filterWorks = {
 	in: "query",
 	name: "filter",
@@ -177,13 +190,5 @@ export const filterWorks = {
 			{}
 		),
 	},
-	schema: {
-		pattern: new RegExp(
-			`^(${worksFilters
-				.map((key) => key.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&"))
-				.map((s) => `(${s})`)
-				.join("|")}):.+`
-		).source,
-		type: "string",
-	},
+	schema: refSchema({ filterWorksSchema }),
 } satisfies ParameterObject;
