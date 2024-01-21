@@ -16,7 +16,7 @@
 			"url": "https://creativecommons.org/publicdomain/zero/1.0/"
 		},
 		"title": "OpenAlex",
-		"version": "0.0.8"
+		"version": "0.0.9"
 	},
 	"openapi": "3.0.3",
 	"paths": {
@@ -13042,7 +13042,7 @@
 						"name": "id",
 						"required": true,
 						"schema": {
-							"pattern": "^(W[0-9]+|https://openalex.org/W[0-9]+|mag:\\d+|https://doi.org/10.\\d{4,9}/[-._;()/:A-Z0-9]+|pmid:\\d+|pmcid:(PMC)?\\d+)$",
+							"pattern": "(^W[0-9]+$)|(^https:\\/\\/openalex.org\\/W[0-9]+$)|(^mag:\\d+$)|(^https:\\/\\/doi.org\\/10.\\d{4,9}\\/[-._;()\\/:a-zA-Z0-9]+$)|(^pmid:\\d+$)|(^pmcid:(PMC)?\\d+$)",
 							"type": "string"
 						}
 					},
@@ -13110,6 +13110,7 @@
 										"type": "string"
 									}
 								],
+								"enum": [],
 								"type": "string"
 							},
 							"type": "array"

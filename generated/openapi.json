@@ -788,18 +788,7 @@
 				"name": "select",
 				"required": false,
 				"schema": {
-					"items": {
-						"allOf": [
-							{
-								"$ref": "#/components/schemas/workAttributes"
-							},
-							{
-								"$ref": "#/components/schemas/baseSelectionAttributes"
-							}
-						],
-						"type": "string"
-					},
-					"type": "array"
+					"$ref": "#/components/schemas/workSelectSchema"
 				},
 				"style": "form"
 			},
@@ -3523,7 +3512,7 @@
 				"type": "string"
 			},
 			"workIdPattern": {
-				"pattern": "^(W[0-9]+|https://openalex.org/W[0-9]+|mag:\\d+|https://doi.org/10.\\d{4,9}/[-._;()/:A-Z0-9]+|pmid:\\d+|pmcid:(PMC)?\\d+)$",
+				"pattern": "(^W[0-9]+$)|(^https:\\/\\/openalex.org\\/W[0-9]+$)|(^mag:\\d+$)|(^https:\\/\\/doi.org\\/10.\\d{4,9}\\/[-._;()\\/:a-zA-Z0-9]+$)|(^pmid:\\d+$)|(^pmcid:(PMC)?\\d+$)",
 				"type": "string"
 			},
 			"workNgramsSchema": {
@@ -3848,6 +3837,21 @@
 				],
 				"type": "object"
 			},
+			"workSelectSchema": {
+				"items": {
+					"allOf": [
+						{
+							"$ref": "#/components/schemas/workAttributes"
+						},
+						{
+							"$ref": "#/components/schemas/baseSelectionAttributes"
+						}
+					],
+					"enum": [],
+					"type": "string"
+				},
+				"type": "array"
+			},
 			"worksResponseSchema": {
 				"properties": {
 					"group_by": {
@@ -3883,7 +3887,7 @@
 		},
 		"summary": "OpenAlex API",
 		"title": "OpenAlex",
-		"version": "0.0.8"
+		"version": "0.0.9"
 	},
 	"openapi": "3.1.0",
 	"paths": {

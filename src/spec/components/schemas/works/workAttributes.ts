@@ -1,4 +1,5 @@
 export const workAttributes = {
+	type: "string",
 	enum: [
 		// ...baseSelectionAttributesEnum,
 		"abstract_inverted_index",

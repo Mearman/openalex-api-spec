@@ -1,3 +1,7 @@
 export const baseSelectionAttributes = {
-	enum: ["id", "display_name"],
+	type: "string",
+	enum: [
+		"id",
+		"display_name"
+	],
 } satisfies SchemaObject;
