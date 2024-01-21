@@ -11,11 +11,12 @@ export const workAttributeSelectionParameter: ParameterObject = {
 	schema: {
 		type: "array",
 		items: {
+			enum: [],
 			allOf: [
 				refSchema({ workAttributes }),
 				refSchema({ baseSelectionAttributes }),
 			],
-			type: "string"
+			type: "string",
 		}
 	},
 } satisfies ParameterObject;
