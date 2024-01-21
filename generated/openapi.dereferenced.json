@@ -17,7 +17,7 @@
 		},
 		"summary": "OpenAlex API",
 		"title": "OpenAlex",
-		"version": "0.0.9"
+		"version": "0.1.0"
 	},
 	"openapi": "3.1.0",
 	"paths": {
@@ -11613,6 +11613,80 @@
 						}
 					},
 					{
+						"in": "query",
+						"name": "group_by",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"examples": {
+							"page": {
+								"value": 1
+							}
+						},
+						"in": "query",
+						"name": "page",
+						"required": false,
+						"schema": {
+							"type": "integer"
+						}
+					},
+					{
+						"examples": {
+							"per_page": {
+								"value": 3
+							}
+						},
+						"in": "query",
+						"name": "per_page",
+						"required": false,
+						"schema": {
+							"type": "integer"
+						}
+					},
+					{
+						"in": "query",
+						"name": "sample",
+						"required": false,
+						"schema": {
+							"type": "integer"
+						}
+					},
+					{
+						"in": "query",
+						"name": "search",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "seed",
+						"required": false,
+						"schema": {
+							"description": "A seed value for sampling. Can be of any type."
+						}
+					},
+					{
+						"in": "query",
+						"name": "select",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "sort",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
 						"description": "Filter works by a specific field.\nSee the [filter works](https://docs.openalex.org/api-entities/works/filter-works) documentation for more information.\nValid filters are:\n\n\n- `abstract.search`\n- `apc_list.currency`\n- `apc_list.provenance`\n- `apc_list.value`\n- `apc_list.value_usd`\n- `apc_paid.currency`\n- `apc_paid.provenance`\n- `apc_paid.value`\n- `apc_paid.value_usd`\n- `author.id`\n- `author.orcid`\n- `authors_count`\n- `authorships.author.id`\n- `authorships.author.orcid`\n- `authorships.countries`\n- `authorships.institutions.continent`\n- `authorships.institutions.country_code`\n- `authorships.institutions.id`\n- `authorships.institutions.is_global_south`\n- `authorships.institutions.lineage`\n- `authorships.institutions.ror`\n- `authorships.institutions.type`\n- `authorships.is_corresponding`\n- `best_oa_location.is_accepted`\n- `best_oa_location.is_oa`\n- `best_oa_location.is_published`\n- `best_oa_location.landing_page_url`\n- `best_oa_location.license`\n- `best_oa_location.source.host_organization`\n- `best_oa_location.source.host_organization_lineage`\n- `best_oa_location.source.id`\n- `best_oa_location.source.is_in_doaj`\n- `best_oa_location.source.is_oa`\n- `best_oa_location.source.issn`\n- `best_oa_location.source.type`\n- `best_oa_location.version`\n- `best_open_version`\n- `cited_by`\n- `cited_by_count`\n- `cited_by_percentile_year.max`\n- `cited_by_percentile_year.min`\n- `cites`\n- `concept.id`\n- `concepts.id`\n- `concepts.wikidata`\n- `concepts_count`\n- `corresponding_author_ids`\n- `corresponding_institution_ids`\n- `countries_distinct_count`\n- `default.search`\n- `display_name`\n- `display_name.search`\n- `doi`\n- `doi_starts_with`\n- `from_created_date`\n- `from_publication_date`\n- `fulltext.search`\n- `fulltext_origin`\n- `grants.award_id`\n- `grants.funder`\n- `has_abstract`\n- `has_doi`\n- `has_fulltext`\n- `has_ngrams`\n- `has_oa_accepted_or_published_version`\n- `has_oa_submitted_version`\n- `has_old_authors`\n- `has_orcid`\n- `has_pdf_url`\n- `has_pmcid`\n- `has_pmid`\n- `has_raw_affiliation_string`\n- `has_references`\n- `host_venue.id`\n- `ids.mag`\n- `ids.openalex`\n- `ids.pmcid`\n- `ids.pmid`\n- `institution.id`\n- `institutions.continent`\n- `institutions.country_code`\n- `institutions.id`\n- `institutions.is_global_south`\n- `institutions.ror`\n- `institutions.type`\n- `institutions_distinct_count`\n- `is_corresponding`\n- `is_oa`\n- `is_paratext`\n- `is_retracted`\n- `journal`\n- `keyword.search`\n- `keywords.keyword`\n- `language`\n- `locations.is_accepted`\n- `locations.is_oa`\n- `locations.is_published`\n- `locations.landing_page_url`\n- `locations.license`\n- `locations.source.has_issn`\n- `locations.source.host_institution_lineage`\n- `locations.source.host_organization`\n- `locations.source.host_organization_lineage`\n- `locations.source.id`\n- `locations.source.is_in_doaj`\n- `locations.source.is_oa`\n- `locations.source.issn`\n- `locations.source.publisher_lineage`\n- `locations.source.type`\n- `locations.version`\n- `locations_count`\n- `mag`\n- `oa_status`\n- `open_access.any_repository_has_fulltext`\n- `open_access.is_oa`\n- `open_access.oa_status`\n- `openalex`\n- `openalex_id`\n- `pmcid`\n- `pmid`\n- `primary_location.is_accepted`\n- `primary_location.is_oa`\n- `primary_location.is_published`\n- `primary_location.landing_page_url`\n- `primary_location.license`\n- `primary_location.source.has_issn`\n- `primary_location.source.host_institution_lineage`\n- `primary_location.source.host_organization`\n- `primary_location.source.host_organization_lineage`\n- `primary_location.source.id`\n- `primary_location.source.is_in_doaj`\n- `primary_location.source.is_oa`\n- `primary_location.source.issn`\n- `primary_location.source.publisher_lineage`\n- `primary_location.source.type`\n- `primary_location.version`\n- `publication_date`\n- `publication_year`\n- `raw_affiliation_string.search`\n- `referenced_works`\n- `referenced_works_count`\n- `related_to`\n- `repository`\n- `sustainable_development_goals.id`\n- `sustainable_development_goals.score`\n- `title.search`\n- `title_and_abstract.search`\n- `to_publication_date`\n- `to_updated_date`\n- `type`\n- `type_crossref`\n- `version`",
 						"examples": {
 							"abstract.search": {
@@ -12232,72 +12306,6 @@
 							"type": "string"
 						},
 						"style": "form"
-					},
-					{
-						"in": "query",
-						"name": "group_by",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"examples": {
-							"page": {
-								"value": 1
-							}
-						},
-						"in": "query",
-						"name": "page",
-						"required": false,
-						"schema": {
-							"type": "integer"
-						}
-					},
-					{
-						"examples": {
-							"per_page": {
-								"value": 3
-							}
-						},
-						"in": "query",
-						"name": "per_page",
-						"required": false,
-						"schema": {
-							"type": "integer"
-						}
-					},
-					{
-						"in": "query",
-						"name": "sample",
-						"required": false,
-						"schema": {
-							"type": "integer"
-						}
-					},
-					{
-						"in": "query",
-						"name": "search",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"in": "query",
-						"name": "select",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"in": "query",
-						"name": "sort",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
 					},
 					{
 						"description": "[docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)",
