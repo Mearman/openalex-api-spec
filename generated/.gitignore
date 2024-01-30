@@ -1,9 +1,10 @@
 */*
 !.gitignore
-!openapi.json
-!openapi.dereferenced.json
 !clients/python
+!clients/python-pydantic-v1
 !clients/typescript
 !clients/typescript-fetch
 !clients/typescript-node
 !documentation/swagger-ui-react
+!openapi.dereferenced.json
+!openapi.json
