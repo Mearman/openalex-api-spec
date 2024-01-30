@@ -139,5 +139,10 @@
 				"./jest.report.json"
 			]
 		}
-	}
+	},
+	"workspaces": [
+		"generated/clients/typescript",
+		"generated/clients/typescript-fetch",
+		"generated/clients/typescript-node"
+	]
 }
