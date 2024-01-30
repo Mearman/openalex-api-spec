@@ -2,6 +2,9 @@
 	"dependencies": {
 		"@apiture/openapi-down-convert": "^0.9.0",
 		"@cfworker/json-schema": "^1.12.7",
+		"@mearman/openalex-typescript": "workspace:^",
+		"@mearman/openalex-typescript-fetch": "workspace:^",
+		"@mearman/openalex-typescript-node": "workspace:^",
 		"@redocly/cli": "^1.6.0",
 		"oatts": "^1.6.0",
 		"openapi-types": "^12.1.3",
