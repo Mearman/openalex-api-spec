@@ -98,6 +98,20 @@
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/clients/python"
 			},
+			"python-pydantic-v1": {
+				"additionalProperties": {
+					"packageName": "openalex_api",
+					"packageVersion": "0.1.0",
+					"projectName": "OpenAlex API"
+				},
+				"generatorName": "python-pydantic-v1",
+				"gitHost": "github.com",
+				"gitRepoId": "openalex-python-pydantic-v1",
+				"gitUserId": "Mearman",
+				"glob": "generated/openapi.json",
+				"output": "#{cwd}/generated/clients/python-pydantic-v1"
+			},
+
 			"swagger-ui-react": {
 				"generatorName": "openapi",
 				"inputSpec": "generated/openapi.json",
