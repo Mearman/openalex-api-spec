@@ -27,6 +27,7 @@ export const info: InfoObject = {
 
 		"The specification document itself is OpenAPI version 3.1 and is generated from TypeScript source code.",
 
+		"[![Open in](https://img.shields.io/badge/Open%20in-Swagger%20UI-85EA2D?style=for-the-badge&logo=Swagger&link=https://mearman.github.io/openalex-swagger-ui-react/)](https://mearman.github.io/openalex-swagger-ui-react/)",
 		"**[Releases](https://github.com/Mearman/openalex-api-spec/releases)**",
 
 		"## Clients",
@@ -37,8 +38,11 @@ export const info: InfoObject = {
 
 			[
 				"[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white&link=https://github.com/Mearman/openalex-python)](https://github.com/Mearman/openalex-python)",
+
 				"[![Open in](https://img.shields.io/badge/Open%20in-CodeSpaces-181717?style=for-the-badge&logo=GitHub&link=https://codespaces.new/Mearman/openalex-python)](https://codespaces.new/Mearman/openalex-python)",
-				"[![Open in](https://img.shields.io/badge/Open%20in-Colab-F9AB00?style=for-the-badge&logo=Google%20Colab&link=https://colab.research.google.com/github/Mearman/openalex-python/blob/main/README.ipynb)](https://colab.research.google.com/github/Mearman/openalex-python/blob/main/README.ipynb)"
+
+				"[![Open in](https://img.shields.io/badge/Open%20in-Colab-F9AB00?style=for-the-badge&logo=Google%20Colab&link=https://colab.research.google.com/github/Mearman/openalex-python/blob/main/README.ipynb)](https://colab.research.google.com/github/Mearman/openalex-python/blob/main/README.ipynb)",
+
 				// '[![Open in](https://img.shields.io/badge/Open%20in-Binder-FF6C2C?style=for-the-badge&logo=Jupyter&link=https://mybinder.org/v2/gh/Mearman/openalex-python/main)](https://mybinder.org/v2/gh/Mearman/openalex-python/main)',
 
 				// '[![Open in](https://img.shields.io/badge/Open%20in-Codepen-000000?style=for-the-badge&logo=Codepen&link=https://codepen.io/pen?template=ExZqQq)](https://codepen.io/pen?template=ExZqQq)',
