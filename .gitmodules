@@ -1,6 +1,9 @@
 [submodule "generated/clients/python"]
 path = generated/clients/python
 url = https://github.com/Mearman/openalex-python.git
+[submodule "generated/clients/python-pydantic-v1"]
+path = generated/clients/python-pydantic-v1
+url = https://github.com/Mearman/openalex-python.git
 [submodule "generated/clients/typescript"]
 path = generated/clients/typescript
 url = https://github.com/Mearman/openalex-typescript.git
