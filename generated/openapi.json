@@ -4520,6 +4520,38 @@
 				]
 			}
 		},
+		"/funders/random": {
+			"get": {
+				"description": "Get a random funder",
+				"operationId": "getRandomFunder",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/select"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoHeader"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoQuery"
+					}
+				],
+				"responses": {
+					"200": {
+						"$ref": "#/components/responses/funderGet200Response"
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
+					}
+				},
+				"summary": "/funders/random",
+				"tags": [
+					"funders"
+				]
+			}
+		},
 		"/funders/{id}": {
 			"get": {
 				"description": "",
@@ -4617,6 +4649,38 @@
 					}
 				},
 				"summary": "/institutions",
+				"tags": [
+					"institutions"
+				]
+			}
+		},
+		"/institutions/random": {
+			"get": {
+				"description": "Get a random institution",
+				"operationId": "getRandomInstitution",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/select"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoHeader"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoQuery"
+					}
+				],
+				"responses": {
+					"200": {
+						"$ref": "#/components/responses/institutionGet200Response"
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
+					}
+				},
+				"summary": "/institutions/random",
 				"tags": [
 					"institutions"
 				]
@@ -4764,6 +4828,38 @@
 				]
 			}
 		},
+		"/publishers/random": {
+			"get": {
+				"description": "Get a random publisher",
+				"operationId": "getRandomPublisher",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/select"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoHeader"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoQuery"
+					}
+				],
+				"responses": {
+					"200": {
+						"$ref": "#/components/responses/publisherGet200Response"
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
+					}
+				},
+				"summary": "/publishers/random",
+				"tags": [
+					"publishers"
+				]
+			}
+		},
 		"/publishers/{id}": {
 			"get": {
 				"description": "",
@@ -4836,6 +4932,38 @@
 					}
 				},
 				"summary": "/sources",
+				"tags": [
+					"sources"
+				]
+			}
+		},
+		"/sources/random": {
+			"get": {
+				"description": "Get a random source",
+				"operationId": "getRandomSource",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/select"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoHeader"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoQuery"
+					}
+				],
+				"responses": {
+					"200": {
+						"$ref": "#/components/responses/sourceGet200Response"
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
+					}
+				},
+				"summary": "/sources/random",
 				"tags": [
 					"sources"
 				]
@@ -4941,6 +5069,39 @@
 				"tags": [
 					"works",
 					"list"
+				]
+			}
+		},
+		"/works/random": {
+			"get": {
+				"description": "Get a random work",
+				"operationId": "getRandomWork",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/workAttributeSelectionParameter"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoHeader"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoQuery"
+					}
+				],
+				"responses": {
+					"200": {
+						"$ref": "#/components/responses/workResp"
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
+					}
+				},
+				"summary": "/works/random",
+				"tags": [
+					"works",
+					"random"
 				]
 			}
 		},

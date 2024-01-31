@@ -2,26 +2,43 @@ import { refParameter, refResponse } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
 import { sourceGet200Response } from "~/spec/components/responses/sourceGet200Response";
 
-export const source = {
-	"/sources/{id}": {
-		get: {
-			description: "",
-			operationId: "getSource",
-			parameters: [
-				{
-					in: "path",
-					name: "id",
-					required: true,
-					schema: {
-						type: "string",
-					},
+const singleSourceResponse = {
+	"200": refResponse({sourceGet200Response}),
+} satisfies ResponsesObject;
+
+const getSourceById: PathItemObject = {
+	get: {
+		description: "",
+		operationId: "getSource",
+		parameters: [
+			{
+				in: "path",
+				name: "id",
+				required: true,
+				schema: {
+					type: "string",
 				},
-				refParameter({ select }),
-			],
-			responses: {
-				"200": refResponse({ sourceGet200Response }),
 			},
-			summary: "/sources/{id}",
-		},
+			refParameter({select}),
+		],
+		responses: singleSourceResponse,
+		summary: "/sources/{id}",
 	},
+};
+
+const getRandomSource: PathItemObject = {
+	get: {
+		description: "Get a random source",
+		operationId: "getRandomSource",
+		parameters: [
+			refParameter({select}),
+		],
+		responses: singleSourceResponse,
+		summary: "/sources/random",
+	}
+}
+
+export const source = {
+	"/sources/{id}": getSourceById,
+	"/sources/random": getRandomSource,
 } satisfies PathsObject;
