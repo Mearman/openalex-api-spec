@@ -635,7 +635,7 @@
 		},
 		"/authors/random": {
 			"get": {
-				"description": "Get a single author by id",
+				"description": "Get a random author",
 				"operationId": "getRandomAuthor",
 				"parameters": [
 					{
@@ -983,7 +983,9 @@
 				},
 				"summary": "Get Random Author",
 				"tags": [
-					"authors"
+					"authors",
+					"single",
+					"random"
 				]
 			}
 		},
@@ -1346,7 +1348,8 @@
 				},
 				"summary": "Get Author",
 				"tags": [
-					"authors"
+					"authors",
+					"single"
 				]
 			}
 		},
@@ -6580,7 +6583,9 @@
 				},
 				"summary": "/concepts/random",
 				"tags": [
-					"concepts"
+					"concepts",
+					"single",
+					"random"
 				]
 			}
 		},
@@ -8476,7 +8481,8 @@
 				},
 				"summary": "/concepts/{id}",
 				"tags": [
-					"concepts"
+					"concepts",
+					"single"
 				]
 			}
 		},
@@ -9188,7 +9194,9 @@
 				},
 				"summary": "/funders/random",
 				"tags": [
-					"funders"
+					"funders",
+					"single",
+					"random"
 				]
 			}
 		},
@@ -9475,7 +9483,8 @@
 				},
 				"summary": "/funders/{id}",
 				"tags": [
-					"funders"
+					"funders",
+					"single"
 				]
 			}
 		},
@@ -12096,7 +12105,9 @@
 				},
 				"summary": "/institutions/random",
 				"tags": [
-					"institutions"
+					"institutions",
+					"single",
+					"random"
 				]
 			}
 		},
@@ -13337,7 +13348,8 @@
 				},
 				"summary": "/institutions/{id}",
 				"tags": [
-					"institutions"
+					"institutions",
+					"single"
 				]
 			}
 		},
@@ -14184,7 +14196,9 @@
 				},
 				"summary": "/publishers/random",
 				"tags": [
-					"publishers"
+					"publishers",
+					"single",
+					"random"
 				]
 			}
 		},
@@ -14484,7 +14498,8 @@
 				},
 				"summary": "/publishers/{id}",
 				"tags": [
-					"publishers"
+					"publishers",
+					"single"
 				]
 			}
 		},
@@ -15266,7 +15281,9 @@
 				},
 				"summary": "/sources/random",
 				"tags": [
-					"sources"
+					"sources",
+					"single",
+					"random"
 				]
 			}
 		},
@@ -15635,7 +15652,8 @@
 				},
 				"summary": "/sources/{id}",
 				"tags": [
-					"sources"
+					"sources",
+					"single"
 				]
 			}
 		},
@@ -18359,6 +18377,7 @@
 				"summary": "/works/random",
 				"tags": [
 					"works",
+					"single",
 					"random"
 				]
 			}

@@ -3,6 +3,10 @@ import { conceptIdPatternRef } from "~/spec/components/parameters/conceptIdPatte
 import { select } from "~/spec/components/parameters/select";
 import { conceptGet200Response } from "~/spec/components/responses/concepts/conceptGet200Response";
 
+const tags = ["single"];
+const singleFunderResponse = {
+	"200": refResponse({conceptGet200Response}),
+} satisfies ResponsesObject;
 const getConceptById: PathItemObject = {
 	get: {
 		description: "Get a single concept",
@@ -15,10 +19,9 @@ const getConceptById: PathItemObject = {
 			conceptIdPatternRef,
 			refParameter({select}),
 		],
-		responses: {
-			"200": refResponse({conceptGet200Response}),
-		},
-		summary: "/concepts/{id}"
+		responses: singleFunderResponse,
+		summary: "/concepts/{id}",
+		tags,
 	},
 };
 
@@ -29,10 +32,9 @@ const getRandomConcept: PathItemObject = {
 		parameters: [
 			refParameter({select}),
 		],
-		responses: {
-			"200": refResponse({conceptGet200Response}),
-		},
-		summary: "/concepts/random"
+		responses: singleFunderResponse,
+		summary: "/concepts/random",
+		tags: tags.concat(["random"]),
 	},
 };
 

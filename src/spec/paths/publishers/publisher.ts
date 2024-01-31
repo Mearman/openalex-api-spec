@@ -5,7 +5,7 @@ import { publisherGet200Response } from "~/spec/components/responses/publisherGe
 const singlePublisherResponse = {
 	"200": refResponse({publisherGet200Response}),
 } satisfies ResponsesObject
-
+const tags = ["single"]
 const getPublisherById: PathItemObject = {
 	get: {
 		description: "",
@@ -23,6 +23,7 @@ const getPublisherById: PathItemObject = {
 		],
 		responses: singlePublisherResponse,
 		summary: "/publishers/{id}",
+		tags,
 	},
 };
 
@@ -35,6 +36,7 @@ const getRandomPublisher: PathItemObject = {
 		],
 		responses: singlePublisherResponse,
 		summary: "/publishers/random",
+		tags: tags.concat(["random"]),
 	}
 };
 

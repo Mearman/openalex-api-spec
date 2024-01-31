@@ -34,7 +34,7 @@ const getRandomWork: PathItemObject = {
 		],
 		responses: singleWorkResponse,
 		summary: "/works/random",
-		tags: tags.concat(["random"]),
+		tags: tags.concat(["single", "random"]),
 	},
 };
 

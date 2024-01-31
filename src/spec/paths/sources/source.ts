@@ -2,6 +2,8 @@ import { refParameter, refResponse } from "~/spec/components";
 import { select } from "~/spec/components/parameters/select";
 import { sourceGet200Response } from "~/spec/components/responses/sourceGet200Response";
 
+const tags = ["single"]
+
 const singleSourceResponse = {
 	"200": refResponse({sourceGet200Response}),
 } satisfies ResponsesObject;
@@ -23,6 +25,7 @@ const getSourceById: PathItemObject = {
 		],
 		responses: singleSourceResponse,
 		summary: "/sources/{id}",
+		tags,
 	},
 };
 
@@ -35,6 +38,7 @@ const getRandomSource: PathItemObject = {
 		],
 		responses: singleSourceResponse,
 		summary: "/sources/random",
+		tags: tags.concat(["random"]),
 	}
 }
 
