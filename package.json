@@ -18,6 +18,7 @@
 		"@types/uuid": "^9.0.7",
 		"axios": "^1.6.5",
 		"jest": "^29.7.0",
+		"jest-expect-openapi": "^1.0.0",
 		"jest-openapi": "^0.14.2",
 		"json-schema-to-ts": "^3.0.0",
 		"rimraf": "^5.0.5",
@@ -41,7 +42,7 @@
 	},
 	"scripts": {
 		"build": "wireit",
-		"build:client:typescript": "wireit",
+		"build:client:typescript": "yarn workspaces foreach -A run build",
 		"build:generated": "yarn workspaces foreach -A run tsc --noEmit",
 		"convert:markdown:notebook": "wireit",
 		"generate": "wireit",
@@ -61,15 +62,6 @@
 			"files": [
 				"./src/**/*.ts",
 				"openapitools.json"
-			]
-		},
-		"build:client:typescript": {
-			"dependencies": [
-				"generate:code",
-				"./generated/clients/typescript:build"
-			],
-			"files": [
-				"./src/**/*.ts"
 			]
 		},
 		"build:clients": {

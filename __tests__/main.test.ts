@@ -46,6 +46,7 @@ const namedDocs: [string, string][] = [
 	["3.0 Dereferenced", "generated/openapi.dereferenced.3.0.json"],
 ]
 describe.each(namedDocs)(`%s`, (name, location) => {
+	console.log("reading", name, "from", location)
 	const doc: OpenAPI.Document = JSON.parse(fs.readFileSync(location).toString())
 	jestOpenAPI(doc as unknown as OpenAPI.Document);
 	test("Root url", async () => {

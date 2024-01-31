@@ -3450,7 +3450,6 @@
 			"workSelectSchema": {
 				"type": "array",
 				"items": {
-					"enum": [],
 					"allOf": [
 						{
 							"$ref": "#/components/schemas/workAttributes"

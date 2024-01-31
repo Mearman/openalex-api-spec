@@ -3850,7 +3850,6 @@
 							"$ref": "#/components/schemas/baseSelectionAttributes"
 						}
 					],
-					"enum": [],
 					"type": "string"
 				},
 				"type": "array"

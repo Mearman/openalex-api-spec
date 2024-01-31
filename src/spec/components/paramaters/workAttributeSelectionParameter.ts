@@ -5,10 +5,9 @@ import { workAttributes } from "~/spec/components/schemas/works/workAttributes";
 const workSelectSchema: SchemaObject = {
 	type: "array",
 	items: {
-		enum: [],
 		allOf: [
-			refSchema({ workAttributes }),
-			refSchema({ baseSelectionAttributes }),
+			refSchema({workAttributes}),
+			refSchema({baseSelectionAttributes}),
 		],
 		type: "string",
 	}
@@ -20,5 +19,5 @@ export const workAttributeSelectionParameter: ParameterObject = {
 	required: false,
 	style: "form",
 	explode: false,
-	schema: refSchema({ workSelectSchema }),
+	schema: refSchema({workSelectSchema}),
 } satisfies ParameterObject;

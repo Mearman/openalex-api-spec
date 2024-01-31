@@ -17440,7 +17440,6 @@
 										"type": "string"
 									}
 								],
-								"enum": [],
 								"type": "string"
 							},
 							"type": "array"
@@ -18490,7 +18489,6 @@
 										"type": "string"
 									}
 								],
-								"enum": [],
 								"type": "string"
 							},
 							"type": "array"

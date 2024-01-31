@@ -1,6 +1,8 @@
 import * as OpenAlexApi from "@mearman/openalex-typescript-fetch";
 import { wait } from "../../util/wait";
 
+jest.retryTimes(3, {logErrorsBeforeRetry: true});
+
 describe("InfoApi", () => {
 	const infoApi = new OpenAlexApi.InfoApi()
 	test("getRoot", async () => {

@@ -9,11 +9,12 @@ import { jsWithTsESM } from 'ts-jest/presets';
 // import { jsWithBabelESM  } from 'ts-jest/presets';
 
 const jestConfig: JestConfigWithTsJest = {
+	maxConcurrency: 1,
+	testEnvironment: 'node',
 	transform: {
 		...jsWithTsESM.transform,
 	},
 	verbose: true,
-	testEnvironment: 'node'
 };
 
 export default jestConfig;
