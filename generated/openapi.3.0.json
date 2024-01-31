@@ -509,6 +509,38 @@
 				]
 			}
 		},
+		"/concepts/random": {
+			"get": {
+				"description": "Get a random concept",
+				"operationId": "getRandomConcept",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/select"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoHeader"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoQuery"
+					}
+				],
+				"responses": {
+					"200": {
+						"$ref": "#/components/responses/conceptGet200Response"
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
+					}
+				},
+				"summary": "/concepts/random",
+				"tags": [
+					"concepts"
+				]
+			}
+		},
 		"/funders": {
 			"get": {
 				"description": "",
