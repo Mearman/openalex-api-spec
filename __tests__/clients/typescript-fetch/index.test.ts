@@ -1,4 +1,5 @@
 import * as OpenAlexApi from "@mearman/openalex-typescript-fetch";
+import { wait } from "../../util/wait";
 
 describe("InfoApi", () => {
 	const infoApi = new OpenAlexApi.InfoApi()
@@ -14,7 +15,6 @@ describe("List Endpoints", () => {
 		["AuthorsApi", "getAuthors"],
 		["ConceptsApi", "getConcepts"],
 		["FundersApi", "getFunders"],
-		["FundersApi", "getFunders"],
 		["InstitutionsApi", "getInstitutions"],
 		["PublishersApi", "getPublishers"],
 		["SourcesApi", "getSources"],
@@ -23,21 +23,22 @@ describe("List Endpoints", () => {
 		const response = await new OpenAlexApi[apiName]()[methodName]();
 		expect(response).toBeDefined();
 		expect(response.results.length).toBeGreaterThan(0);
+		await wait();
 	});
 })
 
 describe("Single Endpoints", () => {
 	test.each([
-		["InfoApi", "getRoot"],
 		["AuthorsApi", "getRandomAuthor"],
-		// ["ConceptsApi", "getRandomConcept"],
-		// ["FundersApi", "getRandomFunder"],
-		// ["InstitutionsApi", "getRandomInstitution"],
-		// ["PublishersApi", "getRandomPublisher"],
-		// ["SourcesApi", "getRandomSource"],
-		// ["WorksApi", "getRandomWork"],
+		["ConceptsApi", "getRandomConcept"],
+		["FundersApi", "getRandomFunder"],
+		["InstitutionsApi", "getRandomInstitution"],
+		["PublishersApi", "getRandomPublisher"],
+		["SourcesApi", "getRandomSource"],
+		["WorksApi", "getRandomWork"],
 	])("%s.%s", async (apiName, methodName) => {
 		const response = await new OpenAlexApi[apiName]()[methodName]();
 		expect(response).toBeDefined();
+		await wait();
 	});
 })
