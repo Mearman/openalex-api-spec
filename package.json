@@ -135,6 +135,7 @@
 	"workspaces": [
 		"generated/clients/typescript",
 		"generated/clients/typescript-fetch",
-		"generated/clients/typescript-node"
+		"generated/clients/typescript-node",
+		"demos/openalex-react"
 	]
 }
