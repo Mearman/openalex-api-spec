@@ -21,3 +21,7 @@ url = https://github.com/Mearman/openalex-typescript-node.git
 [submodule "generated/documentation/swagger-ui-react"]
 path = generated/documentation/swagger-ui-react
 url = https://github.com/Mearman/openalex-swagger-ui-react.git
+
+[submodule "demos/openalex-react"]
+path = demos/openalex-react
+url = https://github.com/Mearman/openalex-react-demo.git
