@@ -6,5 +6,6 @@
 !clients/typescript-fetch
 !clients/typescript-node
 !documentation/swagger-ui-react
+!documentation/plantuml
 !openapi.dereferenced.json
-!openapi.json
+!openapi-json
