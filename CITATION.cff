@@ -1,10 +1,11 @@
 authors:
   - affiliation: "@BangorUniversity"
     family-names: Joseph Mearman
+    orcid: "https://orcid.org/0000-0002-9315-9760"
 cff-version: 1.2.0
 doi: 10.5281/zenodo.10975811
 license:
   - cc-by-4.0
-repository-code: https://github.com/Mearman/openalex-api-spec/tree/v0.0.5
-title: "Mearman/openalex-api-spec: v0.0.5"
+repository-code: https://github.com/Mearman/openalex-api-spec
+title: "Mearman/openalex-api-spec"
 type: software
