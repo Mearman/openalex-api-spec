@@ -1,5 +1,7 @@
 ![](https://raw.githubusercontent.com/ourresearch/openalex-docs/main/.gitbook/assets/OpenAlex-logo-5.png)
 
+[![DOI](https://zenodo.org/badge/740673105.svg)](https://zenodo.org/doi/10.5281/zenodo.10975810)
+
 **OpenAlex** is a fully open catalog of the global research system.
 
 It's named after the [ancient Library of Alexandria](https://en.wikipedia.org/wiki/Library_of_Alexandria) and made by the nonprofit [OurResearch](https://ourresearch.org/).
@@ -32,9 +34,9 @@ The specification document itself is OpenAPI version 3.1 and is generated from T
 
 ##### [Generators](https://openapi-generator.tech/docs/generators/)
 
-- https://openapi-generator.tech/docs/generators/bash
-- https://openapi-generator.tech/docs/generators/typescript
-- https://openapi-generator.tech/docs/generators/typescript-fetch
-- https://openapi-generator.tech/docs/generators/typescript-node
-- https://openapi-generator.tech/docs/generators/openapi/
-- https://openapi-generator.tech/docs/generators/markdown/
+- <https://openapi-generator.tech/docs/generators/bash>
+- <https://openapi-generator.tech/docs/generators/typescript>
+- <https://openapi-generator.tech/docs/generators/typescript-fetch>
+- <https://openapi-generator.tech/docs/generators/typescript-node>
+- <https://openapi-generator.tech/docs/generators/openapi/>
+- <https://openapi-generator.tech/docs/generators/markdown/>
