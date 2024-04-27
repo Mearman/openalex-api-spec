@@ -13,7 +13,7 @@ import { roles } from "~/spec/components/schemas/shared/roles";
 import { summary_stats } from "~/spec/components/schemas/shared/summary_stats";
 
 export const institutionSchema: SchemaObject = {
-	additionalProperties: false,
+	// additionalProperties: false,
 	properties: {
 		associated_institutions: refSchema({ associatedInstitutionArray }),
 		cited_by_count: {

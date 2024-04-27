@@ -7,7 +7,7 @@ import { summary_stats } from "~/spec/components/schemas/shared/summary_stats";
 import { apc_prices } from "~/spec/components/schemas/sources/apc_prices";
 
 export const sourceSchema: SchemaObject = {
-	additionalProperties: false,
+	// additionalProperties: false,
 	properties: {
 		abbreviated_title: {
 			type: ["string", "null"]

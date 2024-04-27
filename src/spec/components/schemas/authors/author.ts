@@ -11,7 +11,7 @@ import { countsByYear } from "~/spec/components/schemas/shared/countsByYear";
 import { summary_stats } from "~/spec/components/schemas/shared/summary_stats";
 
 export const author = {
-	additionalProperties: false,
+	// additionalProperties: false,
 	properties: {
 		affiliations: refSchema({ affiliations }),
 		cited_by_count: {

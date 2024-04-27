@@ -1538,7 +1538,6 @@
 				"type": "array"
 			},
 			"author": {
-				"additionalProperties": false,
 				"properties": {
 					"affiliations": {
 						"$ref": "#/components/schemas/affiliations"
@@ -2967,7 +2966,6 @@
 				"type": "array"
 			},
 			"institutionSchema": {
-				"additionalProperties": false,
 				"properties": {
 					"associated_institutions": {
 						"$ref": "#/components/schemas/associatedInstitutionArray"
@@ -3258,7 +3256,6 @@
 				"nullable": true
 			},
 			"sourceSchema": {
-				"additionalProperties": false,
 				"properties": {
 					"abbreviated_title": {
 						"type": "string",

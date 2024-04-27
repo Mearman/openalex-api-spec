@@ -310,7 +310,6 @@
 										},
 										"results": {
 											"items": {
-												"additionalProperties": false,
 												"properties": {
 													"affiliations": {
 														"items": {
@@ -672,7 +671,6 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"additionalProperties": false,
 									"properties": {
 										"affiliations": {
 											"items": {
@@ -1037,7 +1035,6 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"additionalProperties": false,
 									"properties": {
 										"affiliations": {
 											"items": {
@@ -9673,7 +9670,6 @@
 										"results": {
 											"additionalProperties": false,
 											"items": {
-												"additionalProperties": false,
 												"properties": {
 													"associated_institutions": {
 														"items": {
@@ -10915,7 +10911,6 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"additionalProperties": false,
 									"properties": {
 										"associated_institutions": {
 											"items": {
@@ -12158,7 +12153,6 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"additionalProperties": false,
 									"properties": {
 										"associated_institutions": {
 											"items": {
@@ -14597,7 +14591,6 @@
 										},
 										"results": {
 											"items": {
-												"additionalProperties": false,
 												"properties": {
 													"abbreviated_title": {
 														"type": [
@@ -14963,7 +14956,6 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"additionalProperties": false,
 									"properties": {
 										"abbreviated_title": {
 											"type": [
@@ -15334,7 +15326,6 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"additionalProperties": false,
 									"properties": {
 										"abbreviated_title": {
 											"type": [
