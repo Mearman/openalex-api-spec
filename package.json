@@ -1,4 +1,5 @@
 {
+	"type": "module",
 	"dependencies": {
 		"@apiture/openapi-down-convert": "^0.9.0",
 		"@cfworker/json-schema": "^1.12.7",
