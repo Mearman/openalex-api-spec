@@ -19,18 +19,18 @@ export const workSchema = {
 			type: "object",
 			properties: {
 				volume: {
-					type: ["string", "null"]
+					type: ["string", "null"],
 				},
 				issue: {
-					type: ["string", "null"]
+					type: ["string", "null"],
 				},
 				first_page: {
-					type: ["string", "null"]
+					type: ["string", "null"],
 				},
 				last_page: {
-					type: ["string", "null"]
+					type: ["string", "null"],
 				},
-			}
+			},
 		},
 		cited_by_api_url: {
 			type: "string",
