@@ -1,5 +1,6 @@
 import fs from "fs";
-import { OpenAPIV3_1 } from "openapi-types";
+import * as OpenAPITypes from "openapi-types";
+import OpenAPIV3_1 = OpenAPITypes.OpenAPIV3_1;
 import LicenseObject = OpenAPIV3_1.LicenseObject;
 
 const version: string = JSON.parse(
@@ -54,7 +55,7 @@ export const info: InfoObject = {
 				// '[![Open in](https://img.shields.io/badge/Open%20in-Repl.it-F26207?style=for-the-badge&logo=Replit&link=https://repl.it/github/Mearman/openalex-python)](https://repl.it/github/Mearman/openalex-python)',
 
 				// '[![Open in](https://img.shields.io/badge/Open%20in-StackBlitz-1269D3?style=for-the-badge&logo=StackBlitz&link=https://stackblitz.com/github/Mearman/openalex-python)](https://stackblitz.com/github/Mearman/openalex-python)'
-			].join("\n")
+			].join("\n"),
 		].join("\n\n"),
 		"---",
 	].join("\n\n"),
