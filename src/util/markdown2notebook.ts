@@ -128,13 +128,9 @@ export function markdown2notebook(input: fs.PathLike, output: fs.PathLike) {
 	const markdownContent = fs.readFileSync(input, "utf-8");
 	const notebook = convertMarkdownToJupyterNotebook(
 		markdownContent,
-		[
-			/Setuptools/gi,
-			/setup.py/gi,
-			/^\s*import openalex_api\s*$/gi
-		], [
-		/Then import the package/gi
-	]);
+		[/Setuptools/gi, /setup.py/gi, /^\s*import openalex_api\s*$/gi],
+		[/Then import the package/gi]
+	);
 	fs.writeFileSync(output, JSON.stringify(notebook, null, "\t"));
 	console.log(`Wrote ${output}`);
 	return notebook;
@@ -148,8 +144,4 @@ export function main() {
 		process.exit(1);
 	}
 	markdown2notebook(input, output);
-}
-
-if (require.main === module) {
-	main();
 }
