@@ -16598,7 +16598,10 @@
 																	"type": "array"
 																},
 																"raw_author_name": {
-																	"type": "string"
+																	"type": [
+																		"string",
+																		"null"
+																	]
 																}
 															},
 															"required": [
@@ -16608,7 +16611,6 @@
 																"countries",
 																"is_corresponding",
 																"raw_author_name",
-																"raw_affiliation_string",
 																"raw_affiliation_strings"
 															],
 															"type": "object"
@@ -16956,7 +16958,11 @@
 													"keywords": {
 														"items": {
 															"properties": {
-																"keyword": {
+																"display_name": {
+																	"type": "string"
+																},
+																"id": {
+																	"format": "url",
 																	"type": "string"
 																},
 																"score": {
@@ -16964,7 +16970,8 @@
 																}
 															},
 															"required": [
-																"keyword",
+																"id",
+																"display_name",
 																"score"
 															],
 															"type": "object"
@@ -17616,7 +17623,10 @@
 														"type": "array"
 													},
 													"raw_author_name": {
-														"type": "string"
+														"type": [
+															"string",
+															"null"
+														]
 													}
 												},
 												"required": [
@@ -17626,7 +17636,6 @@
 													"countries",
 													"is_corresponding",
 													"raw_author_name",
-													"raw_affiliation_string",
 													"raw_affiliation_strings"
 												],
 												"type": "object"
@@ -17974,7 +17983,11 @@
 										"keywords": {
 											"items": {
 												"properties": {
-													"keyword": {
+													"display_name": {
+														"type": "string"
+													},
+													"id": {
+														"format": "url",
 														"type": "string"
 													},
 													"score": {
@@ -17982,7 +17995,8 @@
 													}
 												},
 												"required": [
-													"keyword",
+													"id",
+													"display_name",
 													"score"
 												],
 												"type": "object"
@@ -18665,7 +18679,10 @@
 														"type": "array"
 													},
 													"raw_author_name": {
-														"type": "string"
+														"type": [
+															"string",
+															"null"
+														]
 													}
 												},
 												"required": [
@@ -18675,7 +18692,6 @@
 													"countries",
 													"is_corresponding",
 													"raw_author_name",
-													"raw_affiliation_string",
 													"raw_affiliation_strings"
 												],
 												"type": "object"
@@ -19023,7 +19039,11 @@
 										"keywords": {
 											"items": {
 												"properties": {
-													"keyword": {
+													"display_name": {
+														"type": "string"
+													},
+													"id": {
+														"format": "url",
 														"type": "string"
 													},
 													"score": {
@@ -19031,7 +19051,8 @@
 													}
 												},
 												"required": [
-													"keyword",
+													"id",
+													"display_name",
 													"score"
 												],
 												"type": "object"

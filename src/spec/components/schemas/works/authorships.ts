@@ -77,7 +77,10 @@ export const authorships = {
 				},
 			},
 			raw_author_name: {
-				type: "string",
+				type: [
+					"string",
+					"null"
+				]
 			},
 		},
 		required: [
@@ -87,7 +90,6 @@ export const authorships = {
 			"countries",
 			"is_corresponding",
 			"raw_author_name",
-			"raw_affiliation_string",
 			"raw_affiliation_strings",
 		],
 	},

@@ -115,14 +115,18 @@ export const workSchema = {
 			items: {
 				type: "object",
 				properties: {
-					keyword: {
+					id: {
+						type: "string",
+						format: "url",
+					},
+					display_name: {
 						type: "string",
 					},
 					score: {
 						type: "number",
 					},
 				},
-				required: ["keyword", "score"],
+				required: ["id", "display_name", "score"],
 			},
 		},
 		language: {
