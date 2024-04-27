@@ -3,8 +3,8 @@
 		"allowSyntheticDefaultImports": true,
 		"baseUrl": "./src",
 		"esModuleInterop": true,
-		"module": "CommonJS",
-		"moduleDetection": "auto",
+		"module": "ESNext",
+		"moduleResolution": "Node",
 		"noEmit": true,
 		"paths": {
 			"~/*": [
@@ -14,9 +14,12 @@
 		},
 		"resolveJsonModule": true,
 		"rootDir": "./",
-		"target": "es2017"
+		"target": "ESNext"
 	},
 	"include": [
 		"src/**/*.ts"
+	],
+	"exclude": [
+		"node_modules",
 	]
 }
