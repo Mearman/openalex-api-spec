@@ -11,21 +11,21 @@ const schema = {
 	additionalProperties: false,
 	properties: {
 		$schema: {
-			type: "string"
+			type: "string",
 		},
 		spaces: {
 			type: "number",
-			"default": 2
+			default: 2,
 		},
 		"generator-cli": {
 			type: "object",
 			required: ["version"],
 			properties: {
 				version: {
-					type: "string"
+					type: "string",
 				},
 				storageDir: {
-					type: "string"
+					type: "string",
 				},
 				// repository: {
 				// 	queryUrl: {
@@ -39,66 +39,66 @@ const schema = {
 				// },
 				useDocker: {
 					type: "boolean",
-					"default": false
+					default: false,
 				},
 				dockerImageName: {
 					type: "string",
-					"default": "openapitools/openapi-generator-cli"
+					default: "openapitools/openapi-generator-cli",
 				},
 				generators: {
 					type: "object",
 					additionalProperties: {
-						$ref: "#/definitions/generator"
-					}
-				}
-			}
-		}
+						$ref: "#/definitions/generator",
+					},
+				},
+			},
+		},
 	},
 	definitions: {
 		strOrAnyObject: {
 			anyOf: [
 				{
-					type: "string"
+					type: "string",
 				},
 				{
 					type: "object",
-					additionalProperties: true
-				}
-			]
+					additionalProperties: true,
+				},
+			],
 		},
 		generator: {
 			type: "object",
 			anyOf: [
 				{
-					required: ["inputSpec", "output", "generatorName"]
+					required: ["inputSpec", "output", "generatorName"],
 				},
 				{
-					required: ["glob", "output", "generatorName"]
-				}
+					required: ["glob", "output", "generatorName"],
+				},
 			],
 			properties: {
 				glob: {
 					description: "matches local specification files using a glob pattern",
 					type: "string",
-					minLength: 1
+					minLength: 1,
 				},
 				output: {
 					type: "string",
-					minLength: 1
+					minLength: 1,
 				},
 				disabled: {
 					type: "boolean",
-					"default": false
+					default: false,
 				},
 				generatorName: {
 					description: "generator to use (see list command for list)",
 					anyOf: [
 						{
-							type: "string"
+							type: "string",
 						},
 						{
 							type: "string",
-							"enum": [
+							enum: [
 								"ada",
 								"ada-server",
 								"android",
@@ -222,243 +222,268 @@ const schema = {
 								"typescript-jquery",
 								"typescript-node",
 								"typescript-redux-query",
-								"typescript-rxjs"
-							]
-						}
-					]
+								"typescript-rxjs",
+							],
+						},
+					],
 				},
 				auth: {
 					type: "string",
-					description: "adds authorization headers when fetching the OpenAPI definitions remotely. Pass in a URL-encoded string of name:header with a comma separating multiple values"
+					description:
+						"adds authorization headers when fetching the OpenAPI definitions remotely. Pass in a URL-encoded string of name:header with a comma separating multiple values",
 				},
 				apiNameSuffix: {
 					type: "string",
-					description: "suffix that will be appended to all API names ('tags'). Default: Api. e.g. Pet => PetApi. Note: Only ruby, python, jaxrs generators support this feature at the moment"
+					description:
+						"suffix that will be appended to all API names ('tags'). Default: Api. e.g. Pet => PetApi. Note: Only ruby, python, jaxrs generators support this feature at the moment",
 				},
 				apiPackage: {
 					type: "string",
-					description: "package for generated api classes"
+					description: "package for generated api classes",
 				},
 				artifactId: {
 					type: "string",
-					description: "artifactId in generated pom.xml. This also becomes part of the generated library's filename"
+					description:
+						"artifactId in generated pom.xml. This also becomes part of the generated library's filename",
 				},
 				artifactVersion: {
 					type: "string",
-					description: "artifact version in generated pom.xml. This also becomes part of the generated library's filename"
+					description:
+						"artifact version in generated pom.xml. This also becomes part of the generated library's filename",
 				},
 				config: {
 					type: "string",
-					description: "path to configuration file. It can be JSON or YAML"
+					description: "path to configuration file. It can be JSON or YAML",
 				},
 				dryRun: {
 					type: "boolean",
-					description: "try things out and report on potential changes (without actually making changes)"
+					description:
+						"try things out and report on potential changes (without actually making changes)",
 				},
 				engine: {
 					type: "string",
-					"enum": ["mustache", "handlebars"],
-					description: "templating engine: \"mustache\" (default) or \"handlebars\" (beta)"
+					enum: ["mustache", "handlebars"],
+					description:
+						'templating engine: "mustache" (default) or "handlebars" (beta)',
 				},
 				enablePostProcessFile: {
 					type: "boolean",
-					description: "enable post-processing file using environment variables"
+					description:
+						"enable post-processing file using environment variables",
 				},
 				generateAliasAsModel: {
 					type: "boolean",
-					description: "generate model implementation for aliases to map and array schemas. An 'alias' is an array, map, or list which is defined inline in a OpenAPI document and becomes a model in the generated code. A 'map' schema is an object that can have undeclared properties, i.e. the 'additionalproperties' attribute is set on that object. An 'array' schema is a list of sub schemas in a OAS document"
+					description:
+						"generate model implementation for aliases to map and array schemas. An 'alias' is an array, map, or list which is defined inline in a OpenAPI document and becomes a model in the generated code. A 'map' schema is an object that can have undeclared properties, i.e. the 'additionalproperties' attribute is set on that object. An 'array' schema is a list of sub schemas in a OAS document",
 				},
 				gitHost: {
 					type: "string",
-					description: "git host, e.g. gitlab.com"
+					description: "git host, e.g. gitlab.com",
 				},
 				gitRepoId: {
 					type: "string",
-					description: "git repo ID, e.g. openapi-generator"
+					description: "git repo ID, e.g. openapi-generator",
 				},
 				gitUserId: {
 					type: "string",
-					description: "git user ID, e.g. openapitools"
+					description: "git user ID, e.g. openapitools",
 				},
 				globalProperty: {
 					anyOf: [
 						{
-							type: "string"
+							type: "string",
 						},
 						{
 							type: "object",
-							additionalProperties: true
-						}
+							additionalProperties: true,
+						},
 					],
-					description: "sets specified global properties (previously called 'system properties') in the format of name=value,name=value (or multiple options, each with name=value)"
+					description:
+						"sets specified global properties (previously called 'system properties') in the format of name=value,name=value (or multiple options, each with name=value)",
 				},
 				groupId: {
 					type: "string",
-					description: "groupId in generated pom.xml"
+					description: "groupId in generated pom.xml",
 				},
 				httpUserAgent: {
 					type: "string",
-					description: "HTTP user agent, e.g. codegen_csharp_api_client, default to 'OpenAPI-Generator/{packageVersion}}/{language}'"
+					description:
+						"HTTP user agent, e.g. codegen_csharp_api_client, default to 'OpenAPI-Generator/{packageVersion}}/{language}'",
 				},
 				inputSpec: {
 					type: "string",
-					description: "location of the OpenAPI spec, as URL or file (required if not loaded via config using -c)"
+					description:
+						"location of the OpenAPI spec, as URL or file (required if not loaded via config using -c)",
 				},
 				ignoreFileOverride: {
 					type: "string",
-					description: "specifies an override location for the .openapi-generator-ignore file. Most useful on initial generation.\n"
+					description:
+						"specifies an override location for the .openapi-generator-ignore file. Most useful on initial generation.\n",
 				},
 				importMappings: {
 					anyOf: [
 						{
-							type: "string"
+							type: "string",
 						},
 						{
 							type: "object",
-							additionalProperties: true
-						}
+							additionalProperties: true,
+						},
 					],
-					description: "specifies mappings between a given class and the import that should be used for that class in the format of type=import,type=import. You can also have multiple occurrences of this option"
+					description:
+						"specifies mappings between a given class and the import that should be used for that class in the format of type=import,type=import. You can also have multiple occurrences of this option",
 				},
 				instantiationTypes: {
 					anyOf: [
 						{
-							type: "string"
+							type: "string",
 						},
 						{
 							type: "object",
-							additionalProperties: true
-						}
+							additionalProperties: true,
+						},
 					],
-					description: "sets instantiation type mappings in the format of type=instantiatedType,type=instantiatedType.For example (in Java): array=ArrayList,map=HashMap. In other words array types will get instantiated as ArrayList in generated code. You can also have multiple occurrences of this option"
+					description:
+						"sets instantiation type mappings in the format of type=instantiatedType,type=instantiatedType.For example (in Java): array=ArrayList,map=HashMap. In other words array types will get instantiated as ArrayList in generated code. You can also have multiple occurrences of this option",
 				},
 				invokerPackage: {
 					type: "string",
-					description: "root package for generated code"
+					description: "root package for generated code",
 				},
 				languageSpecificPrimitives: {
 					anyOf: [
 						{
-							type: "string"
+							type: "string",
 						},
 						{
 							type: "object",
-							additionalProperties: true
-						}
+							additionalProperties: true,
+						},
 					],
-					description: "specifies additional language specific primitive types in the format of type1,type2,type3,type3. For example: String,boolean,Boolean,Double. You can also have multiple occurrences of this option"
+					description:
+						"specifies additional language specific primitive types in the format of type1,type2,type3,type3. For example: String,boolean,Boolean,Double. You can also have multiple occurrences of this option",
 				},
 				legacyDiscriminatorBehavior: {
 					type: "boolean",
-					description: "this flag is used by OpenAPITools codegen to influence the processing of the discriminator attribute in OpenAPI documents. This flag has no impact if the OAS document does not use the discriminator attribute. The default value of this flag is set in each language-specific code generator (e.g. Python, Java, go...)using the method toModelName. Note to developers supporting a language generator in OpenAPITools; to fully support the discriminator attribute as defined in the OAS specification 3.x, language generators should set this flag to true by default; however this requires updating the mustache templates to generate a language-specific discriminator lookup function that iterates over {{#mappedModels}} and does not iterate over {{children}}, {{#anyOf}}, or {{#oneOf}}"
+					description:
+						"this flag is used by OpenAPITools codegen to influence the processing of the discriminator attribute in OpenAPI documents. This flag has no impact if the OAS document does not use the discriminator attribute. The default value of this flag is set in each language-specific code generator (e.g. Python, Java, go...)using the method toModelName. Note to developers supporting a language generator in OpenAPITools; to fully support the discriminator attribute as defined in the OAS specification 3.x, language generators should set this flag to true by default; however this requires updating the mustache templates to generate a language-specific discriminator lookup function that iterates over {{#mappedModels}} and does not iterate over {{children}}, {{#anyOf}}, or {{#oneOf}}",
 				},
 				library: {
 					type: "string",
-					description: "library template (sub-template)"
+					description: "library template (sub-template)",
 				},
 				logToStderr: {
 					type: "boolean",
-					description: "write all log messages (not just errors) to STDOUT. Useful for piping the JSON output of debug options (e.g. `-DdebugOperations`) to an external parser directly while testing a generator"
+					description:
+						"write all log messages (not just errors) to STDOUT. Useful for piping the JSON output of debug options (e.g. `-DdebugOperations`) to an external parser directly while testing a generator",
 				},
 				minimalUpdate: {
 					type: "boolean",
-					description: "only write output files that have changed"
+					description: "only write output files that have changed",
 				},
 				modelNamePrefix: {
 					type: "string",
-					description: "prefix that will be prepended to all model names"
+					description: "prefix that will be prepended to all model names",
 				},
 				modelNameSuffix: {
 					type: "string",
-					description: "suffix that will be appended to all model names"
+					description: "suffix that will be appended to all model names",
 				},
 				modelPackage: {
 					type: "string",
-					description: "package for generated models"
+					description: "package for generated models",
 				},
 				additionalProperties: {
-					description: "sets additional properties that can be referenced by the mustache templates in the format of name=value,name=value. You can also have multiple occurrences of this option",
+					description:
+						"sets additional properties that can be referenced by the mustache templates in the format of name=value,name=value. You can also have multiple occurrences of this option",
 					anyOf: [
 						{
-							type: "string"
+							type: "string",
 						},
 						{
 							type: "object",
-							additionalProperties: true
-						}
-					]
+							additionalProperties: true,
+						},
+					],
 				},
 				packageName: {
 					type: "string",
-					description: "package for generated classes (where supported)"
+					description: "package for generated classes (where supported)",
 				},
 				releaseNote: {
 					type: "string",
-					description: "release note, default to 'Minor update'"
+					description: "release note, default to 'Minor update'",
 				},
 				removeOperationIdPrefix: {
 					type: "boolean",
-					description: "remove prefix of operationId, e.g. config_getId => getId"
+					description:
+						"remove prefix of operationId, e.g. config_getId => getId",
 				},
 				reservedWordsMappings: {
 					anyOf: [
 						{
-							type: "string"
+							type: "string",
 						},
 						{
 							type: "object",
-							additionalProperties: true
-						}
+							additionalProperties: true,
+						},
 					],
-					description: "specifies how a reserved name should be escaped to. Otherwise, the default _<name> is used. For example id=identifier. You can also have multiple occurrences of this option"
+					description:
+						"specifies how a reserved name should be escaped to. Otherwise, the default _<name> is used. For example id=identifier. You can also have multiple occurrences of this option",
 				},
 				skipOverwrite: {
 					type: "boolean",
-					description: "specifies if the existing files should be overwritten during the generation"
+					description:
+						"specifies if the existing files should be overwritten during the generation",
 				},
 				serverVariables: {
 					anyOf: [
 						{
-							type: "string"
+							type: "string",
 						},
 						{
 							type: "object",
-							additionalProperties: true
-						}
+							additionalProperties: true,
+						},
 					],
-					description: "sets server variables overrides for spec documents which support variable templating of servers"
+					description:
+						"sets server variables overrides for spec documents which support variable templating of servers",
 				},
 				skipValidateSpec: {
 					type: "boolean",
-					description: "skips the default behavior of validating an input specification"
+					description:
+						"skips the default behavior of validating an input specification",
 				},
 				strictSpec: {
 					type: "boolean",
-					description: "'MUST' and 'SHALL' wording in OpenAPI spec is strictly adhered to. e.g. when false, no fixes will be applied to documents which pass validation but don't follow the spec"
+					description:
+						"'MUST' and 'SHALL' wording in OpenAPI spec is strictly adhered to. e.g. when false, no fixes will be applied to documents which pass validation but don't follow the spec",
 				},
 				templateDir: {
 					type: "string",
-					description: "folder containing the template files"
+					description: "folder containing the template files",
 				},
 				typeMappings: {
 					anyOf: [
 						{
-							type: "string"
+							type: "string",
 						},
 						{
 							type: "object",
-							additionalProperties: true
-						}
+							additionalProperties: true,
+						},
 					],
-					description: "sets mappings between OpenAPI spec types and generated code types in the format of OpenAPIType=generatedType,OpenAPIType=generatedType. For example: array=List,map=Map,string=String. You can also have multiple occurrences of this option"
+					description:
+						"sets mappings between OpenAPI spec types and generated code types in the format of OpenAPIType=generatedType,OpenAPIType=generatedType. For example: array=List,map=Map,string=String. You can also have multiple occurrences of this option",
 				},
 				verbose: {
 					type: "boolean",
-					description: "verbose mode"
-				}
-			}
-		}
-	}
+					description: "verbose mode",
+				},
+			},
+		},
+	},
 } as const satisfies JSONSchema;
 // } as const satisfies JSONSchema;
 // } as const;
