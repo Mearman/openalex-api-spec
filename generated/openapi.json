@@ -1,7 +1,7 @@
 {
 	"components": {
 		"examples": {
-			"example": {
+			"workNgramsGet200ResponseExample": {
 				"value": {
 					"meta": {
 						"count": 3475,
@@ -16,6 +16,32 @@
 							"term_frequency": 0.00017274140611504577
 						}
 					]
+				}
+			}
+		},
+		"headers": {
+			"Nel": {
+				"required": false,
+				"schema": {
+					"type": "string"
+				}
+			},
+			"Reporting-Endpoints": {
+				"required": false,
+				"schema": {
+					"type": "string"
+				}
+			},
+			"X-Api-Pool": {
+				"required": false,
+				"schema": {
+					"type": "string"
+				}
+			},
+			"X-Content-Type-Options": {
+				"required": false,
+				"schema": {
+					"type": "string"
 				}
 			}
 		},
@@ -697,6 +723,14 @@
 					"type": "string"
 				}
 			},
+			"idParam": {
+				"in": "path",
+				"name": "id",
+				"required": true,
+				"schema": {
+					"type": "string"
+				}
+			},
 			"mailtoHeader": {
 				"description": "[docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication#the-polite-pool)",
 				"in": "header",
@@ -1012,7 +1046,7 @@
 					"application/json": {
 						"examples": {
 							"ngram": {
-								"$ref": "#/components/examples/example"
+								"$ref": "#/components/examples/workNgramsGet200ResponseExample"
 							}
 						},
 						"schema": {
@@ -3465,6 +3499,41 @@
 				],
 				"type": "object"
 			},
+			"topicLevelArraySchema": {
+				"properties": {
+					"siblings": {
+						"items": {
+							"$ref": "#/components/schemas/topicLevelSchema"
+						},
+						"type": "array"
+					}
+				},
+				"type": "object"
+			},
+			"topicLevelSchema": {
+				"properties": {
+					"display_name": {
+						"type": "string"
+					},
+					"id": {
+						"anyOf": [
+							{
+								"pattern": "^[0-9]+$",
+								"type": "string"
+							},
+							{
+								"pattern": "^T[0-9]+$",
+								"type": "integer"
+							}
+						]
+					}
+				},
+				"required": [
+					"id",
+					"display_name"
+				],
+				"type": "object"
+			},
 			"workAttributes": {
 				"enum": [
 					"abstract_inverted_index",
@@ -3893,7 +3962,7 @@
 		},
 		"summary": "OpenAlex API",
 		"title": "OpenAlex",
-		"version": "0.1.0"
+		"version": "0.2.0"
 	},
 	"openapi": "3.1.0",
 	"paths": {
@@ -3926,6 +3995,7 @@
 				},
 				"summary": "Root",
 				"tags": [
+					"unified",
 					"info"
 				]
 			}
@@ -3988,6 +4058,7 @@
 				},
 				"summary": "List Authors",
 				"tags": [
+					"unified",
 					"authors"
 				]
 			}
@@ -4020,6 +4091,7 @@
 				},
 				"summary": "Get Random Author",
 				"tags": [
+					"unified",
 					"authors",
 					"single",
 					"random"
@@ -4057,6 +4129,7 @@
 				},
 				"summary": "Get Author",
 				"tags": [
+					"unified",
 					"authors",
 					"single"
 				]
@@ -4090,6 +4163,7 @@
 				},
 				"summary": "/autocomplete",
 				"tags": [
+					"unified",
 					"autocomplete"
 				]
 			}
@@ -4122,6 +4196,7 @@
 				},
 				"summary": "/autocomplete/authors",
 				"tags": [
+					"unified",
 					"autocomplete",
 					"authors"
 				]
@@ -4155,6 +4230,7 @@
 				},
 				"summary": "/autocomplete/concepts",
 				"tags": [
+					"unified",
 					"autocomplete",
 					"concepts"
 				]
@@ -4188,6 +4264,7 @@
 				},
 				"summary": "/autocomplete/funders",
 				"tags": [
+					"unified",
 					"autocomplete",
 					"funders"
 				]
@@ -4221,6 +4298,7 @@
 				},
 				"summary": "/autocomplete/institutions",
 				"tags": [
+					"unified",
 					"autocomplete",
 					"institutions"
 				]
@@ -4254,6 +4332,7 @@
 				},
 				"summary": "/autocomplete/publishers",
 				"tags": [
+					"unified",
 					"autocomplete",
 					"publishers"
 				]
@@ -4287,6 +4366,7 @@
 				},
 				"summary": "/autocomplete/sources",
 				"tags": [
+					"unified",
 					"autocomplete",
 					"sources"
 				]
@@ -4326,6 +4406,7 @@
 				},
 				"summary": "/autocomplete/works",
 				"tags": [
+					"unified",
 					"autocomplete",
 					"works"
 				]
@@ -4389,7 +4470,9 @@
 				},
 				"summary": "/concepts",
 				"tags": [
-					"concepts"
+					"unified",
+					"concepts",
+					"multiple"
 				]
 			}
 		},
@@ -4421,9 +4504,10 @@
 				},
 				"summary": "/concepts/random",
 				"tags": [
-					"concepts",
-					"single",
-					"random"
+					"unified",
+					"concept",
+					"random",
+					"single"
 				]
 			}
 		},
@@ -4434,7 +4518,7 @@
 					"description": "Get a single concept",
 					"url": "https://docs.openalex.org/api-entities/concepts/get-a-single-concept"
 				},
-				"operationId": "getConcept",
+				"operationId": "getConceptById",
 				"parameters": [
 					{
 						"$ref": "#/components/parameters/conceptIdParam"
@@ -4462,8 +4546,245 @@
 				},
 				"summary": "/concepts/{id}",
 				"tags": [
-					"concepts",
+					"unified",
+					"concept",
 					"single"
+				]
+			}
+		},
+		"/domains/{id}": {
+			"get": {
+				"description": "",
+				"externalDocs": {
+					"description": "https://help.openalex.org/how-it-works/topics",
+					"url": "https://docs.openalex.org/api-entities/topics"
+				},
+				"operationId": "getDomainById",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/per_page"
+					},
+					{
+						"$ref": "#/components/parameters/idParam"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoHeader"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoQuery"
+					}
+				],
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"cited_by_count": {
+											"type": "integer"
+										},
+										"created_date": {
+											"type": "string"
+										},
+										"description": {
+											"type": "string"
+										},
+										"display_name": {
+											"type": "string"
+										},
+										"display_name_alternatives": {
+											"items": {
+												"type": "string"
+											},
+											"type": "array"
+										},
+										"fields": {
+											"$ref": "#/components/schemas/topicLevelArraySchema"
+										},
+										"id": {
+											"type": "string"
+										},
+										"ids": {
+											"$ref": "#/components/schemas/ids"
+										},
+										"siblings": {
+											"$ref": "#/components/schemas/topicLevelArraySchema"
+										},
+										"updated_date": {
+											"type": "string"
+										},
+										"works_api_url": {
+											"type": "string"
+										},
+										"works_count": {
+											"type": "integer"
+										}
+									},
+									"required": [
+										"id",
+										"display_name",
+										"description",
+										"ids",
+										"display_name_alternatives",
+										"fields",
+										"siblings",
+										"works_count",
+										"cited_by_count",
+										"works_api_url",
+										"updated_date",
+										"created_date"
+									],
+									"type": "object"
+								}
+							}
+						},
+						"description": "",
+						"headers": {
+							"Nel": {
+								"$ref": "#/components/headers/Nel"
+							},
+							"Reporting-Endpoints": {
+								"$ref": "#/components/headers/Reporting-Endpoints"
+							},
+							"X-Api-Pool": {
+								"$ref": "#/components/headers/X-Api-Pool"
+							},
+							"X-Content-Type-Options": {
+								"$ref": "#/components/headers/X-Content-Type-Options"
+							}
+						}
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
+					}
+				},
+				"security": [],
+				"summary": "/domains/{id}",
+				"tags": [
+					"unified",
+					"topics",
+					"multiple"
+				]
+			}
+		},
+		"/field/{id}": {
+			"get": {
+				"description": "",
+				"operationId": "getFieldById",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/per_page"
+					},
+					{
+						"$ref": "#/components/parameters/idParam"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoHeader"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoQuery"
+					}
+				],
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"cited_by_count": {
+											"type": "integer"
+										},
+										"created_date": {
+											"type": "string"
+										},
+										"description": {
+											"type": "string"
+										},
+										"display_name": {
+											"type": "string"
+										},
+										"display_name_alternatives": {
+											"items": {
+												"type": "string"
+											},
+											"type": "array"
+										},
+										"domain": {
+											"$ref": "#/components/schemas/topicLevelSchema"
+										},
+										"id": {
+											"type": "string"
+										},
+										"ids": {
+											"$ref": "#/components/schemas/ids"
+										},
+										"siblings": {
+											"$ref": "#/components/schemas/topicLevelArraySchema"
+										},
+										"subfields": {
+											"$ref": "#/components/schemas/topicLevelArraySchema"
+										},
+										"updated_date": {
+											"type": "string"
+										},
+										"works_api_url": {
+											"type": "string"
+										},
+										"works_count": {
+											"type": "integer"
+										}
+									},
+									"required": [
+										"id",
+										"display_name",
+										"description",
+										"ids",
+										"display_name_alternatives",
+										"domain",
+										"subfields",
+										"siblings",
+										"works_count",
+										"cited_by_count",
+										"works_api_url",
+										"updated_date",
+										"created_date"
+									],
+									"type": "object"
+								}
+							}
+						},
+						"description": "",
+						"headers": {
+							"Nel": {
+								"$ref": "#/components/headers/Nel"
+							},
+							"Reporting-Endpoints": {
+								"$ref": "#/components/headers/Reporting-Endpoints"
+							},
+							"X-Api-Pool": {
+								"$ref": "#/components/headers/X-Api-Pool"
+							},
+							"X-Content-Type-Options": {
+								"$ref": "#/components/headers/X-Content-Type-Options"
+							}
+						}
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
+					}
+				},
+				"security": [],
+				"summary": "/fields/{id}",
+				"tags": [
+					"unified",
+					"topics",
+					"multiple"
 				]
 			}
 		},
@@ -4525,6 +4846,7 @@
 				},
 				"summary": "/funders",
 				"tags": [
+					"unified",
 					"funders"
 				]
 			}
@@ -4557,6 +4879,7 @@
 				},
 				"summary": "/funders/random",
 				"tags": [
+					"unified",
 					"funders",
 					"single",
 					"random"
@@ -4599,6 +4922,7 @@
 				},
 				"summary": "/funders/{id}",
 				"tags": [
+					"unified",
 					"funders",
 					"single"
 				]
@@ -4662,6 +4986,7 @@
 				},
 				"summary": "/institutions",
 				"tags": [
+					"unified",
 					"institutions"
 				]
 			}
@@ -4694,6 +5019,7 @@
 				},
 				"summary": "/institutions/random",
 				"tags": [
+					"unified",
 					"institutions",
 					"single",
 					"random"
@@ -4736,6 +5062,7 @@
 				},
 				"summary": "/institutions/{id}",
 				"tags": [
+					"unified",
 					"institutions",
 					"single"
 				]
@@ -4777,6 +5104,7 @@
 				},
 				"summary": "/people/{id}",
 				"tags": [
+					"unified",
 					"people"
 				]
 			}
@@ -4839,6 +5167,7 @@
 				},
 				"summary": "/publishers",
 				"tags": [
+					"unified",
 					"publishers"
 				]
 			}
@@ -4871,6 +5200,7 @@
 				},
 				"summary": "/publishers/random",
 				"tags": [
+					"unified",
 					"publishers",
 					"single",
 					"random"
@@ -4913,6 +5243,7 @@
 				},
 				"summary": "/publishers/{id}",
 				"tags": [
+					"unified",
 					"publishers",
 					"single"
 				]
@@ -4951,6 +5282,7 @@
 				},
 				"summary": "/sources",
 				"tags": [
+					"unified",
 					"sources"
 				]
 			}
@@ -4983,6 +5315,7 @@
 				},
 				"summary": "/sources/random",
 				"tags": [
+					"unified",
 					"sources",
 					"single",
 					"random"
@@ -5025,7 +5358,488 @@
 				},
 				"summary": "/sources/{id}",
 				"tags": [
+					"unified",
 					"sources",
+					"single"
+				]
+			}
+		},
+		"/subfields/{id}": {
+			"get": {
+				"description": "",
+				"operationId": "getSubfieldById",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/per_page"
+					},
+					{
+						"$ref": "#/components/parameters/idParam"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoHeader"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoQuery"
+					}
+				],
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"cited_by_count": {
+											"type": "integer"
+										},
+										"created_date": {
+											"type": "string"
+										},
+										"description": {
+											"type": "string"
+										},
+										"display_name": {
+											"type": "string"
+										},
+										"display_name_alternatives": {
+											"items": {
+												"type": "string"
+											},
+											"type": "array"
+										},
+										"domain": {
+											"$ref": "#/components/schemas/topicLevelSchema"
+										},
+										"field": {
+											"$ref": "#/components/schemas/topicLevelSchema"
+										},
+										"id": {
+											"type": "string"
+										},
+										"ids": {
+											"$ref": "#/components/schemas/ids"
+										},
+										"siblings": {
+											"$ref": "#/components/schemas/topicLevelArraySchema"
+										},
+										"topics": {
+											"items": {
+												"properties": {
+													"display_name": {
+														"type": "string"
+													},
+													"id": {
+														"type": "string"
+													}
+												},
+												"required": [
+													"display_name",
+													"id"
+												],
+												"type": "object"
+											},
+											"type": "array"
+										},
+										"updated_date": {
+											"type": "string"
+										},
+										"works_api_url": {
+											"type": "string"
+										},
+										"works_count": {
+											"type": "integer"
+										}
+									},
+									"required": [
+										"id",
+										"display_name",
+										"description",
+										"ids",
+										"display_name_alternatives",
+										"field",
+										"domain",
+										"topics",
+										"siblings",
+										"works_count",
+										"cited_by_count",
+										"works_api_url",
+										"updated_date",
+										"created_date"
+									],
+									"type": "object"
+								}
+							}
+						},
+						"description": "",
+						"headers": {
+							"Nel": {
+								"$ref": "#/components/headers/Nel"
+							},
+							"Reporting-Endpoints": {
+								"$ref": "#/components/headers/Reporting-Endpoints"
+							},
+							"X-Api-Pool": {
+								"$ref": "#/components/headers/X-Api-Pool"
+							},
+							"X-Content-Type-Options": {
+								"$ref": "#/components/headers/X-Content-Type-Options"
+							}
+						}
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
+					}
+				},
+				"security": [],
+				"summary": "/subfields/{id}",
+				"tags": [
+					"unified",
+					"topics",
+					"multiple"
+				]
+			}
+		},
+		"/topics": {
+			"get": {
+				"description": "",
+				"operationId": "getTopics",
+				"parameters": [
+					{
+						"in": "query",
+						"name": "sort",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"$ref": "#/components/parameters/per_page"
+					},
+					{
+						"in": "query",
+						"name": "page",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "sample",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "select",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "filter",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "search",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "group_by",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"$ref": "#/components/parameters/mailtoHeader"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoQuery"
+					}
+				],
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"group_by": {
+											"items": {
+												"properties": {
+													"count": {
+														"type": "integer"
+													},
+													"key": {
+														"type": "string"
+													},
+													"key_display_name": {
+														"type": "string"
+													}
+												},
+												"required": [
+													"key",
+													"key_display_name",
+													"count"
+												],
+												"type": "object"
+											},
+											"type": "array"
+										},
+										"meta": {
+											"properties": {
+												"count": {
+													"type": "integer"
+												},
+												"db_response_time_ms": {
+													"type": "integer"
+												},
+												"groups_count": {
+													"type": "integer"
+												},
+												"page": {
+													"type": "integer"
+												},
+												"per_page": {
+													"type": "integer"
+												}
+											},
+											"required": [
+												"count",
+												"db_response_time_ms",
+												"page",
+												"per_page",
+												"groups_count"
+											],
+											"type": "object"
+										},
+										"results": {
+											"items": {
+												"properties": {
+													"cited_by_count": {
+														"type": "integer"
+													},
+													"created_date": {
+														"type": "string"
+													},
+													"description": {
+														"type": "string"
+													},
+													"display_name": {
+														"type": "string"
+													},
+													"domain": {
+														"$ref": "#/components/schemas/topicLevelSchema"
+													},
+													"field": {
+														"$ref": "#/components/schemas/topicLevelSchema"
+													},
+													"id": {
+														"type": "string"
+													},
+													"ids": {
+														"$ref": "#/components/schemas/ids"
+													},
+													"keywords": {
+														"items": {
+															"type": "string"
+														},
+														"type": "array"
+													},
+													"relevance_score": {
+														"type": "number"
+													},
+													"siblings": {
+														"$ref": "#/components/schemas/topicLevelArraySchema"
+													},
+													"subfield": {
+														"$ref": "#/components/schemas/topicLevelSchema"
+													},
+													"updated_date": {
+														"type": "string"
+													},
+													"works_count": {
+														"type": "integer"
+													}
+												},
+												"required": [
+													"id",
+													"display_name",
+													"description"
+												],
+												"type": "object"
+											},
+											"type": "array"
+										}
+									},
+									"required": [
+										"meta",
+										"group_by"
+									],
+									"type": "object"
+								}
+							}
+						},
+						"description": "",
+						"headers": {
+							"Nel": {
+								"$ref": "#/components/headers/Nel"
+							},
+							"Reporting-Endpoints": {
+								"$ref": "#/components/headers/Reporting-Endpoints"
+							},
+							"X-Api-Pool": {
+								"$ref": "#/components/headers/X-Api-Pool"
+							},
+							"X-Content-Type-Options": {
+								"$ref": "#/components/headers/X-Content-Type-Options"
+							}
+						}
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
+					}
+				},
+				"security": [],
+				"summary": "/topics",
+				"tags": [
+					"unified",
+					"topics",
+					"multiple"
+				]
+			}
+		},
+		"/topics/{id}": {
+			"get": {
+				"description": "",
+				"operationId": "getTopicById",
+				"parameters": [
+					{
+						"$ref": "#/components/parameters/per_page"
+					},
+					{
+						"$ref": "#/components/parameters/idParam"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoHeader"
+					},
+					{
+						"$ref": "#/components/parameters/mailtoQuery"
+					}
+				],
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"cited_by_count": {
+											"type": "integer"
+										},
+										"created_date": {
+											"type": "string"
+										},
+										"description": {
+											"type": "string"
+										},
+										"display_name": {
+											"type": "string"
+										},
+										"domain": {
+											"$ref": "#/components/schemas/topicLevelArraySchema"
+										},
+										"field": {
+											"$ref": "#/components/schemas/topicLevelArraySchema"
+										},
+										"id": {
+											"type": "string"
+										},
+										"ids": {
+											"$ref": "#/components/schemas/ids"
+										},
+										"keywords": {
+											"items": {
+												"type": "string"
+											},
+											"type": "array"
+										},
+										"siblings": {
+											"$ref": "#/components/schemas/topicLevelSchema"
+										},
+										"subfield": {
+											"$ref": "#/components/schemas/topicLevelArraySchema"
+										},
+										"updated_date": {
+											"type": "string"
+										},
+										"works_count": {
+											"type": "integer"
+										}
+									},
+									"required": [
+										"id",
+										"display_name",
+										"description",
+										"keywords",
+										"ids",
+										"subfield",
+										"field",
+										"domain",
+										"siblings",
+										"works_count",
+										"cited_by_count",
+										"updated_date",
+										"created_date"
+									],
+									"type": "object"
+								}
+							}
+						},
+						"description": "",
+						"headers": {
+							"Nel": {
+								"$ref": "#/components/headers/Nel"
+							},
+							"Reporting-Endpoints": {
+								"$ref": "#/components/headers/Reporting-Endpoints"
+							},
+							"X-Api-Pool": {
+								"$ref": "#/components/headers/X-Api-Pool"
+							},
+							"X-Content-Type-Options": {
+								"$ref": "#/components/headers/X-Content-Type-Options"
+							}
+						}
+					},
+					"403": {
+						"$ref": "#/components/responses/resp403"
+					},
+					"default": {
+						"$ref": "#/components/responses/resp4xx"
+					}
+				},
+				"security": [],
+				"summary": "/topics/{id}",
+				"tags": [
+					"unified",
+					"topics",
 					"single"
 				]
 			}
@@ -5088,6 +5902,7 @@
 				},
 				"summary": "/works",
 				"tags": [
+					"unified",
 					"works",
 					"list"
 				]
@@ -5121,6 +5936,7 @@
 				},
 				"summary": "/works/random",
 				"tags": [
+					"unified",
 					"works",
 					"single",
 					"random"
@@ -5161,6 +5977,7 @@
 				},
 				"summary": "/works/{id}",
 				"tags": [
+					"unified",
 					"works",
 					"single"
 				]
@@ -5202,6 +6019,7 @@
 				},
 				"summary": "/works/{id}/ngrams",
 				"tags": [
+					"unified",
 					"works",
 					"ngrams",
 					"single"
