@@ -83,7 +83,7 @@ export function addTagsOperation(tags: string[]) {
 	});
 }
 
-const addUnifiedTag = addTagsOperation(["unified"]);
+const addUnifiedTag = addTagsOperation(["OpenAlex"]);
 
 export const paths = modifyOperationsInPaths(
 	modifyOperationsInPaths(
