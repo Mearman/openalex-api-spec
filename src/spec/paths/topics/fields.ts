@@ -24,9 +24,9 @@ export const getFieldById = modifyOperationsInPaths(
 					"200": {
 						content: {
 							"application/json": {
-								examples: {
-									Medicine: refExample({ medicineFieldExample }),
-								},
+								// examples: {
+								// 	Medicine: refExample({ medicineFieldExample }),
+								// },
 								schema: {
 									properties: {
 										cited_by_count: {

@@ -1,6 +1,5 @@
-import { refExample, refParameter, refSchema } from "~/spec/components";
+import { refParameter, refSchema } from "~/spec/components";
 
-import { healthInformaticsSubfieldExample } from "~/spec/components/examples/topics";
 import { per_page } from "~/spec/components/parameters/per_page";
 import { ids } from "~/spec/components/schemas/ids";
 import { topicLevelArraySchema } from "~/spec/components/schemas/topicLevelArraySchema";
@@ -20,11 +19,11 @@ export const getSubfieldById = modifyOperationsInPaths(
 					"200": {
 						content: {
 							"application/json": {
-								examples: {
-									"Health Informatics": refExample({
-										healthInformaticsSubfieldExample,
-									}),
-								},
+								// examples: {
+								// 	"Health Informatics": refExample({
+								// 		healthInformaticsSubfieldExample,
+								// 	}),
+								// },
 								schema: {
 									properties: {
 										cited_by_count: {

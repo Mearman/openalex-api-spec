@@ -1,9 +1,5 @@
-import { refExample, refParameter, refSchema } from "~/spec/components";
+import { refParameter, refSchema } from "~/spec/components";
 
-import {
-	topicSearchResultExample,
-	topicsExample,
-} from "~/spec/components/examples/topics";
 import { per_page } from "~/spec/components/parameters/per_page";
 import { ids } from "~/spec/components/schemas/ids";
 import { topicLevelArraySchema } from "~/spec/components/schemas/topicLevelArraySchema";
@@ -22,12 +18,12 @@ export const getTopics = modifyOperationsInPaths(
 					"200": {
 						content: {
 							"application/json": {
-								examples: {
-									"search=Artificial Intelligence in Medicine": refExample({
-										topicSearchResultExample,
-									}),
-									"/topics": refExample({ topicsExample }),
-								},
+								// examples: {
+								// 	"search=Artificial Intelligence in Medicine": refExample({
+								// 		topicSearchResultExample,
+								// 	}),
+								// 	"/topics": refExample({ topicsExample }),
+								// },
 								schema: {
 									properties: {
 										group_by: {

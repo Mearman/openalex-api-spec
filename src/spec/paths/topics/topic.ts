@@ -1,6 +1,5 @@
-import { refExample, refParameter, refSchema } from "~/spec/components";
+import { refParameter, refSchema } from "~/spec/components";
 
-import { aiMedicineTopic } from "~/spec/components/examples/topics";
 import { per_page } from "~/spec/components/parameters/per_page";
 import { ids } from "~/spec/components/schemas/ids";
 import { topicLevelArraySchema } from "~/spec/components/schemas/topicLevelArraySchema";
@@ -20,11 +19,11 @@ export const getTopicById: PathsObject = modifyOperationsInPaths(
 					"200": {
 						content: {
 							"application/json": {
-								examples: {
-									"Artificial Intelligence in Medicine": refExample({
-										aiMedicineTopic,
-									}),
-								},
+								// examples: {
+								// 	"Artificial Intelligence in Medicine": refExample({
+								// 		aiMedicineTopic,
+								// 	}),
+								// },
 								schema: {
 									properties: {
 										cited_by_count: {
