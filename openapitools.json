@@ -111,7 +111,6 @@
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/clients/python-pydantic-v1"
 			},
-
 			"swagger-ui-react": {
 				"generatorName": "openapi",
 				"inputSpec": "generated/openapi.json",
@@ -132,7 +131,7 @@
 			},
 			"typescript-fetch": {
 				"additionalProperties": {
-					"npmName": "@mearman/openalex-typescript-fetch"
+					"npmName": "openalex"
 				},
 				"generatorName": "typescript-fetch",
 				"gitHost": "github.com",
