@@ -1,8 +1,4 @@
-import { OpenAPIV3 } from "openapi-types";
-
-const headers: {
-	[p: string]: OpenAPIV3.ReferenceObject | OpenAPIV3.HeaderObject;
-} = {
+const headers = {
 	Nel: {
 		required: false,
 		schema: {
@@ -27,7 +23,7 @@ const headers: {
 			type: "string",
 		},
 	},
-};
+} satisfies HeadersRecord;
 
 export const domains = {
 	"/domains/id": {
@@ -56,7 +52,7 @@ export const domains = {
 	},
 } satisfies PathsObject;
 
-const parameters: (OpenAPIV3.ReferenceObject | OpenAPIV3.ParameterObject)[] = [
+const parameters = [
 	{
 		in: "path",
 		name: "id",
@@ -81,14 +77,14 @@ const parameters: (OpenAPIV3.ReferenceObject | OpenAPIV3.ParameterObject)[] = [
 			type: "string",
 		},
 	},
-];
+] satisfies ParameterObject[];
 
-type SchemaTypeDefinition =
-	| OpenAPIV3.ReferenceObject
-	| OpenAPIV3.ArraySchemaObject
-	| OpenAPIV3.NonArraySchemaObject;
+// type SchemaTypeDefinition =
+// 	| OpenAPIV3.ReferenceObject
+// 	| OpenAPIV3.ArraySchemaObject
+// 	| OpenAPIV3.NonArraySchemaObject;
 
-const singleTopic: SchemaTypeDefinition = {
+const singleTopic = {
 	type: "object",
 	properties: {
 		display_name: {
@@ -99,14 +95,14 @@ const singleTopic: SchemaTypeDefinition = {
 		},
 	},
 	required: ["id", "display_name"],
-};
+} satisfies NonArraySchemaObject;
 
-const topicList: SchemaTypeDefinition = {
+const topicList = {
 	type: "array",
 	items: singleTopic,
-};
+} satisfies ArraySchemaObject;
 
-const ids: SchemaTypeDefinition = {
+const ids = {
 	properties: {
 		wikidata: {
 			type: "string",
@@ -117,7 +113,7 @@ const ids: SchemaTypeDefinition = {
 	},
 	required: ["wikidata", "wikipedia"],
 	type: "object",
-};
+} satisfies NonArraySchemaObject;
 
 export const fields = {
 	"/fields/{id}": {

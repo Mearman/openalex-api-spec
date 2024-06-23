@@ -35,4 +35,9 @@ declare global {
 	type OperationObject = OpenAPIV3_1.OperationObject;
 	type ResponsesObject = OpenAPIV3_1.ResponsesObject;
 	type ObjectProperties = OpenAPIV3_1.SchemaObject["properties"];
+	type NonArraySchemaObject = OpenAPIV3_1.NonArraySchemaObject;
+	type ArraySchemaObject = OpenAPIV3_1.ArraySchemaObject;
+	type HeadersRecord = {
+		[p: string]: HeaderObject;
+	};
 }
