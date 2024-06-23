@@ -1,5 +1,5 @@
 import { refParameter, refResponse } from "~/spec/components";
-import { workAttributeSelectionParameter } from "~/spec/components/paramaters/workAttributeSelectionParameter";
+import { workAttributeSelectionParameter } from "~/spec/components/parameters/workAttributeSelectionParameter";
 import { workId } from "~/spec/components/parameters/workId";
 import { works } from "~/spec/components/responses/works/work";
 import { tags } from "~/spec/paths/works/tags";
