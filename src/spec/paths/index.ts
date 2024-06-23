@@ -13,6 +13,7 @@ import { root } from "~/spec/paths/root";
 import sources from "~/spec/paths/sources";
 import works from "~/spec/paths/works";
 import { addResponseToOperationIfNotPresent } from "~/util";
+import topics from "./topics";
 
 export function addMailToParameterToAllGets(paths: PathsObject): PathsObject {
 	return Object.entries(paths).reduce((acc, [path, pathItem]) => {
@@ -64,15 +65,19 @@ function addMinimalResponses(operation: OperationObject): OperationObject {
 	return operation;
 }
 
-export const paths = modifyOperationsInPaths(addMailToParameterToAllGets({
-	...authors,
-	...autocomplete,
-	...concepts,
-	...funders,
-	...institutions,
-	...people,
-	...publishers,
-	...root,
-	...sources,
-	...works,
-}), addMinimalResponses);
+export const paths = modifyOperationsInPaths(
+	addMailToParameterToAllGets({
+		...authors,
+		...autocomplete,
+		...concepts,
+		...funders,
+		...institutions,
+		...people,
+		...publishers,
+		...root,
+		...sources,
+		...works,
+		...topics,
+	}),
+	addMinimalResponses
+);
