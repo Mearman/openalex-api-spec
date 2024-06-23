@@ -41,7 +41,7 @@
 				},
 				"summary": "Get Author",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"authors",
 					"single"
 				]
@@ -75,7 +75,7 @@
 				},
 				"summary": "Get Random Author",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"authors",
 					"single",
 					"random"
@@ -140,7 +140,7 @@
 				},
 				"summary": "List Authors",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"authors"
 				]
 			}
@@ -173,7 +173,7 @@
 				},
 				"summary": "/autocomplete",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"autocomplete"
 				]
 			}
@@ -206,7 +206,7 @@
 				},
 				"summary": "/autocomplete/authors",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"autocomplete",
 					"authors"
 				]
@@ -240,7 +240,7 @@
 				},
 				"summary": "/autocomplete/concepts",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"autocomplete",
 					"concepts"
 				]
@@ -274,7 +274,7 @@
 				},
 				"summary": "/autocomplete/funders",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"autocomplete",
 					"funders"
 				]
@@ -308,7 +308,7 @@
 				},
 				"summary": "/autocomplete/institutions",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"autocomplete",
 					"institutions"
 				]
@@ -342,7 +342,7 @@
 				},
 				"summary": "/autocomplete/publishers",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"autocomplete",
 					"publishers"
 				]
@@ -376,7 +376,7 @@
 				},
 				"summary": "/autocomplete/sources",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"autocomplete",
 					"sources"
 				]
@@ -416,7 +416,7 @@
 				},
 				"summary": "/autocomplete/works",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"autocomplete",
 					"works"
 				]
@@ -457,8 +457,8 @@
 				},
 				"summary": "/concepts/{id}",
 				"tags": [
-					"unified",
-					"concept",
+					"OpenAlex",
+					"concepts",
 					"single"
 				]
 			}
@@ -491,8 +491,8 @@
 				},
 				"summary": "/concepts/random",
 				"tags": [
-					"unified",
-					"concept",
+					"OpenAlex",
+					"concepts",
 					"random",
 					"single"
 				]
@@ -556,7 +556,7 @@
 				},
 				"summary": "/concepts",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"concepts",
 					"multiple"
 				]
@@ -620,7 +620,7 @@
 				},
 				"summary": "/funders",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"funders"
 				]
 			}
@@ -661,7 +661,7 @@
 				},
 				"summary": "/funders/{id}",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"funders",
 					"single"
 				]
@@ -695,7 +695,7 @@
 				},
 				"summary": "/funders/random",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"funders",
 					"single",
 					"random"
@@ -760,7 +760,7 @@
 				},
 				"summary": "/institutions",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"institutions"
 				]
 			}
@@ -801,7 +801,7 @@
 				},
 				"summary": "/institutions/{id}",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"institutions",
 					"single"
 				]
@@ -835,7 +835,7 @@
 				},
 				"summary": "/institutions/random",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"institutions",
 					"single",
 					"random"
@@ -878,7 +878,7 @@
 				},
 				"summary": "/people/{id}",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"people"
 				]
 			}
@@ -941,7 +941,7 @@
 				},
 				"summary": "/publishers",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"publishers"
 				]
 			}
@@ -982,7 +982,7 @@
 				},
 				"summary": "/publishers/{id}",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"publishers",
 					"single"
 				]
@@ -1016,7 +1016,7 @@
 				},
 				"summary": "/publishers/random",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"publishers",
 					"single",
 					"random"
@@ -1044,7 +1044,7 @@
 				},
 				"summary": "Root",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"info"
 				],
 				"parameters": [
@@ -1090,7 +1090,7 @@
 				},
 				"summary": "/sources",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"sources"
 				]
 			}
@@ -1131,7 +1131,7 @@
 				},
 				"summary": "/sources/{id}",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"sources",
 					"single"
 				]
@@ -1165,7 +1165,7 @@
 				},
 				"summary": "/sources/random",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"sources",
 					"single",
 					"random"
@@ -1230,7 +1230,7 @@
 				},
 				"summary": "/works",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"works",
 					"list"
 				]
@@ -1270,7 +1270,7 @@
 				},
 				"summary": "/works/{id}",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"works",
 					"single"
 				]
@@ -1304,7 +1304,7 @@
 				},
 				"summary": "/works/random",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"works",
 					"single",
 					"random"
@@ -1347,7 +1347,7 @@
 				},
 				"summary": "/works/{id}/ngrams",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"works",
 					"ngrams",
 					"single"
@@ -1466,7 +1466,7 @@
 				"security": [],
 				"summary": "/domains/{id}",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"topics",
 					"multiple"
 				]
@@ -1584,7 +1584,7 @@
 				"security": [],
 				"summary": "/fields/{id}",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"topics",
 					"multiple"
 				]
@@ -1721,7 +1721,7 @@
 				"security": [],
 				"summary": "/subfields/{id}",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"topics",
 					"multiple"
 				]
@@ -1839,7 +1839,7 @@
 				"security": [],
 				"summary": "/topics/{id}",
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"topics",
 					"single"
 				]
@@ -2064,7 +2064,7 @@
 					}
 				],
 				"tags": [
-					"unified",
+					"OpenAlex",
 					"topics",
 					"multiple"
 				]
