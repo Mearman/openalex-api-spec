@@ -1,6 +1,6 @@
 #!/usr/bin/env npx -y tsx
 import type { FromSchema } from "json-schema-to-ts";
-import { JSONSchema7 } from "json-schema-to-ts/lib/types/definitions";
+import { JSONSchema } from "json-schema-to-ts/lib/types/definitions";
 
 const schema = {
 	// "$id": "https://openapitools.org/openapi-generator-cli/config.schema.json",
@@ -459,7 +459,7 @@ const schema = {
 			}
 		}
 	}
-} as const satisfies JSONSchema7;
+} as const satisfies JSONSchema;
 // } as const satisfies JSONSchema;
 // } as const;
 
