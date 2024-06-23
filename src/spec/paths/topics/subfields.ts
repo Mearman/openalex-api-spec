@@ -1,4 +1,6 @@
-import { refParameter, refSchema } from "~/spec/components";
+import { refExample, refParameter, refSchema } from "~/spec/components";
+
+import { healthInformaticsSubfieldExample } from "~/spec/components/examples/topics";
 import { per_page } from "~/spec/components/parameters/per_page";
 import { ids } from "~/spec/components/schemas/ids";
 import { topicLevelArraySchema } from "~/spec/components/schemas/topicLevelArraySchema";
@@ -11,13 +13,18 @@ export const getSubfieldById = modifyOperationsInPaths(
 	{
 		"/subfields/{id}": {
 			get: {
-				operationId: "getSubfieldById",
 				description: "",
+				operationId: "getSubfieldById",
 				parameters: [refParameter({ per_page }), refParameter({ idParam })],
 				responses: {
 					"200": {
 						content: {
 							"application/json": {
+								examples: {
+									"Health Informatics": refExample({
+										healthInformaticsSubfieldExample,
+									}),
+								},
 								schema: {
 									properties: {
 										cited_by_count: {
@@ -38,13 +45,13 @@ export const getSubfieldById = modifyOperationsInPaths(
 												type: "string",
 											},
 										},
-										domain: refSchema({  topicLevelSchema }),
-										field: refSchema({  topicLevelSchema }),
+										domain: refSchema({ topicLevelSchema }),
+										field: refSchema({ topicLevelSchema }),
 										id: {
 											type: "string",
 										},
 										ids: refSchema({ ids }),
-										siblings:refSchema({  topicLevelArraySchema }),
+										siblings: refSchema({ topicLevelArraySchema }),
 										topics: {
 											items: {
 												properties: {

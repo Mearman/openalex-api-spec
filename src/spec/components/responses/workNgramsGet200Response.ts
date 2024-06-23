@@ -6,7 +6,7 @@ export const workNgramsGet200Response: ResponseObject = {
 	content: {
 		"application/json": {
 			examples: {
-				"ngram": refExample({ example: workNgramsGet200ResponseExample }),
+				ngram: refExample({ workNgramsGet200ResponseExample }),
 			},
 			schema: refSchema({ workNgramsSchema }),
 		},

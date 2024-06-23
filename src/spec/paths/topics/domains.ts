@@ -1,4 +1,6 @@
-import { refParameter, refSchema } from "~/spec/components";
+import { refExample, refParameter, refSchema } from "~/spec/components";
+
+import { healthSciencesDomainExample } from "~/spec/components/examples/topics";
 import { per_page } from "~/spec/components/parameters/per_page";
 import { ids } from "~/spec/components/schemas/ids";
 import { topicLevelArraySchema } from "~/spec/components/schemas/topicLevelArraySchema";
@@ -10,13 +12,24 @@ export const getDomainById = modifyOperationsInPaths(
 	{
 		"/domains/{id}": {
 			get: {
-				operationId: "getDomainById",
 				description: "",
+				externalDocs: {
+					description: ["https://help.openalex.org/how-it-works/topics"].join(
+						"\n\n"
+					),
+					url: "https://docs.openalex.org/api-entities/topics",
+				},
+				operationId: "getDomainById",
 				parameters: [refParameter({ per_page }), refParameter({ idParam })],
 				responses: {
 					"200": {
 						content: {
 							"application/json": {
+								examples: {
+									"Health Sciences": refExample({
+										healthSciencesDomainExample,
+									}),
+								},
 								schema: {
 									properties: {
 										cited_by_count: {
@@ -81,4 +94,4 @@ export const getDomainById = modifyOperationsInPaths(
 		},
 	},
 	addTagsOperation(["topics", "multiple"])
-);
+) satisfies PathsObject;

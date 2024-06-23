@@ -1,4 +1,5 @@
-import { refParameter, refSchema } from "~/spec/components";
+import { refExample, refParameter, refSchema } from "~/spec/components";
+import { medicineFieldExample } from "~/spec/components/examples/topics";
 import { per_page } from "~/spec/components/parameters/per_page";
 import { ids } from "~/spec/components/schemas/ids";
 import { topicLevelArraySchema } from "~/spec/components/schemas/topicLevelArraySchema";
@@ -11,8 +12,8 @@ export const getFieldById = modifyOperationsInPaths(
 	{
 		"/field/{id}": {
 			get: {
-				operationId: "getFieldById",
 				description: "",
+				operationId: "getFieldById",
 				parameters: [
 					refParameter({ per_page }),
 					refParameter({
@@ -23,6 +24,9 @@ export const getFieldById = modifyOperationsInPaths(
 					"200": {
 						content: {
 							"application/json": {
+								examples: {
+									Medicine: refExample({ medicineFieldExample }),
+								},
 								schema: {
 									properties: {
 										cited_by_count: {

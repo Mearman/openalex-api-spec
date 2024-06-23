@@ -1,4 +1,6 @@
-import { refParameter, refSchema } from "~/spec/components";
+import { refExample, refParameter, refSchema } from "~/spec/components";
+
+import { aiMedicineTopic } from "~/spec/components/examples/topics";
 import { per_page } from "~/spec/components/parameters/per_page";
 import { ids } from "~/spec/components/schemas/ids";
 import { topicLevelArraySchema } from "~/spec/components/schemas/topicLevelArraySchema";
@@ -7,17 +9,22 @@ import { addTagsOperation, modifyOperationsInPaths } from "..";
 import { responseHeaders } from "../../components/headers/headers";
 import { idParam } from "../../components/parameters/idParam";
 
-export const getTopicById = modifyOperationsInPaths(
+export const getTopicById: PathsObject = modifyOperationsInPaths(
 	{
 		"/topics/{id}": {
 			get: {
-				operationId: "getTopicById",
 				description: "",
+				operationId: "getTopicById",
 				parameters: [refParameter({ per_page }), refParameter({ idParam })],
 				responses: {
 					"200": {
 						content: {
 							"application/json": {
+								examples: {
+									"Artificial Intelligence in Medicine": refExample({
+										aiMedicineTopic,
+									}),
+								},
 								schema: {
 									properties: {
 										cited_by_count: {
@@ -84,4 +91,4 @@ export const getTopicById = modifyOperationsInPaths(
 		},
 	},
 	addTagsOperation(["topics", "single"])
-);
+) satisfies PathsObject;

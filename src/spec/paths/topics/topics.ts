@@ -1,4 +1,9 @@
-import { refParameter, refSchema } from "~/spec/components";
+import { refExample, refParameter, refSchema } from "~/spec/components";
+
+import {
+	topicSearchResultExample,
+	topicsExample,
+} from "~/spec/components/examples/topics";
 import { per_page } from "~/spec/components/parameters/per_page";
 import { ids } from "~/spec/components/schemas/ids";
 import { topicLevelArraySchema } from "~/spec/components/schemas/topicLevelArraySchema";
@@ -17,9 +22,32 @@ export const getTopics = modifyOperationsInPaths(
 					"200": {
 						content: {
 							"application/json": {
+								examples: {
+									"search=Artificial Intelligence in Medicine": refExample({
+										topicSearchResultExample,
+									}),
+									"/topics": refExample({ topicsExample }),
+								},
 								schema: {
-									type: "object",
 									properties: {
+										group_by: {
+											type: "array",
+											items: {
+												type: "object",
+												properties: {
+													count: {
+														type: "integer",
+													},
+													key: {
+														type: "string",
+													},
+													key_display_name: {
+														type: "string",
+													},
+												},
+												required: ["key", "key_display_name", "count"],
+											},
+										},
 										meta: {
 											properties: {
 												count: {
@@ -91,26 +119,9 @@ export const getTopics = modifyOperationsInPaths(
 											},
 											type: "array",
 										},
-										group_by: {
-											type: "array",
-											items: {
-												type: "object",
-												properties: {
-													count: {
-														type: "integer",
-													},
-													key: {
-														type: "string",
-													},
-													key_display_name: {
-														type: "string",
-													},
-												},
-												required: ["key", "key_display_name", "count"],
-											},
-										},
 									},
 									required: ["meta", "group_by"],
+									type: "object",
 								},
 							},
 						},
