@@ -54,7 +54,8 @@ export class ComponentGenerator {
 	}
 }
 
-export const components: ComponentsObject = ComponentGenerator.get() satisfies ComponentsObject;
+export const components: ComponentsObject =
+	ComponentGenerator.get() satisfies ComponentsObject;
 
 export const ref = ComponentGenerator.ref;
 
@@ -68,3 +69,5 @@ export const refExample = (obj: Record<string, ExampleObject>) =>
 	ComponentGenerator.ref("examples", obj);
 export const refPathItem = (obj: Record<string, PathItemObject>) =>
 	ComponentGenerator.ref("pathItems", obj);
+export const refHeader = (obj: Record<string, HeaderObject>) =>
+	ComponentGenerator.ref("headers", obj);
