@@ -39,7 +39,7 @@ function getMailto(): any {
 	return process.env.MAILTO ?? getGitEmail();
 }
 
-const PER_PAGE = 3;
+const PER_PAGE = 1;
 const TEST_RUNS: number = 3;
 const namedDocs: [string, string][] = [
 	["3.0 Document", "generated/openapi.3.0.json"],
