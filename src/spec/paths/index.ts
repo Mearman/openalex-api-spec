@@ -11,9 +11,9 @@ import people from "~/spec/paths/people";
 import publishers from "~/spec/paths/publishers";
 import { root } from "~/spec/paths/root";
 import sources from "~/spec/paths/sources";
+import topics from "~/spec/paths/topics";
 import works from "~/spec/paths/works";
 import { addResponseToOperationIfNotPresent } from "~/util";
-import topics from "./topics";
 
 export function addMailToParameterToAllGets(paths: PathsObject): PathsObject {
 	return Object.entries(paths).reduce((acc, [path, pathItem]) => {
@@ -23,17 +23,17 @@ export function addMailToParameterToAllGets(paths: PathsObject): PathsObject {
 				...pathItem,
 				get: {
 					...pathItem.get,
-					parameters: [
-						...(pathItem.get.parameters || []),
-						...mailto,
-					],
+					parameters: [...(pathItem.get.parameters || []), ...mailto],
 				},
 			},
 		};
 	}, {});
 }
 
-export function modifyOperationsInPaths(paths: PathsObject, operation: (operation: OperationObject) => OperationObject): PathsObject {
+export function modifyOperationsInPaths(
+	paths: PathsObject,
+	operation: (operation: OperationObject) => OperationObject
+): PathsObject {
 	return Object.entries(paths).reduce((acc, [path, pathItem]) => {
 		return {
 			...acc,
@@ -45,11 +45,20 @@ export function modifyOperationsInPaths(paths: PathsObject, operation: (operatio
 	}, {});
 }
 
-export function operationContainsResponse(operation: OperationObject, s: string): Boolean {
-	return Object.keys(operation.responses).filter((code) => code == s).length > 0;
+export function operationContainsResponse(
+	operation: OperationObject,
+	s: string
+): Boolean {
+	return (
+		Object.keys(operation.responses).filter((code) => code == s).length > 0
+	);
 }
 
-export function addResponse(operation: OperationObject, code: string, responseRef: Record<string, ResponseObject>) {
+export function addResponse(
+	operation: OperationObject,
+	code: string,
+	responseRef: Record<string, ResponseObject>
+) {
 	return {
 		...operation,
 		responses: {
@@ -60,24 +69,38 @@ export function addResponse(operation: OperationObject, code: string, responseRe
 }
 
 function addMinimalResponses(operation: OperationObject): OperationObject {
-	operation = addResponseToOperationIfNotPresent(operation, "403", { resp403 });
-	operation = addResponseToOperationIfNotPresent(operation, "default", { resp4xx });
+	operation = addResponseToOperationIfNotPresent(operation, "403", {resp403});
+	operation = addResponseToOperationIfNotPresent(operation, "default", {
+		resp4xx,
+	});
 	return operation;
 }
 
+export function addTagsOperation(tags: string[]) {
+	return (operation: OperationObject) => ({
+		...operation,
+		tags: [...tags, ...(operation.tags || [])],
+	});
+}
+
+const addUnifiedTag = addTagsOperation(["unified"]);
+
 export const paths = modifyOperationsInPaths(
-	addMailToParameterToAllGets({
-		...authors,
-		...autocomplete,
-		...concepts,
-		...funders,
-		...institutions,
-		...people,
-		...publishers,
-		...root,
-		...sources,
-		...works,
-		...topics,
-	}),
-	addMinimalResponses
+	modifyOperationsInPaths(
+		addMailToParameterToAllGets({
+			...authors,
+			...autocomplete,
+			...concepts,
+			...funders,
+			...institutions,
+			...people,
+			...publishers,
+			...root,
+			...sources,
+			...works,
+			...topics,
+		}),
+		addMinimalResponses
+	),
+	addUnifiedTag
 );

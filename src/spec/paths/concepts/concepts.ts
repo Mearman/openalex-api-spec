@@ -2,7 +2,7 @@ import { refResponse } from "~/spec/components";
 import { defaultListParameters } from "~/spec/components/parameters/defaultListParameters";
 import { conceptsGet200Response } from "~/spec/components/responses/concepts/conceptsGet200Response";
 
-export const concepts = {
+export const getConcepts = {
 	"/concepts": {
 		get: {
 			description: "",
@@ -13,6 +13,7 @@ export const concepts = {
 			},
 
 			summary: "/concepts",
+			tags: ["concepts", "multiple"],
 		},
 	},
 } satisfies PathsObject;

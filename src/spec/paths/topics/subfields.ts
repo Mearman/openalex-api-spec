@@ -2,15 +2,16 @@ import { refParameter, refSchema } from "~/spec/components";
 import { per_page } from "~/spec/components/parameters/per_page";
 import { ids } from "~/spec/components/schemas/ids";
 import { topicLevelArraySchema } from "~/spec/components/schemas/topicLevelArraySchema";
-import { addTagsOperation, modifyOperationsInPaths } from "~/spec/paths";
+import { topicLevelSchema } from "~/spec/components/schemas/topicLevelSchema";
+import { addTagsOperation, modifyOperationsInPaths } from "..";
 import { responseHeaders } from "../../components/headers/headers";
 import { idParam } from "../../components/parameters/idParam";
 
-export const getDomainById = modifyOperationsInPaths(
+export const getSubfieldById = modifyOperationsInPaths(
 	{
-		"/domains/{id}": {
+		"/subfields/{id}": {
 			get: {
-				operationId: "getDomainById",
+				operationId: "getSubfieldById",
 				description: "",
 				parameters: [refParameter({ per_page }), refParameter({ idParam })],
 				responses: {
@@ -32,17 +33,33 @@ export const getDomainById = modifyOperationsInPaths(
 											type: "string",
 										},
 										display_name_alternatives: {
+											type: "array",
 											items: {
 												type: "string",
 											},
-											type: "array",
 										},
-										fields: refSchema({ topicLevelArraySchema }),
+										domain: refSchema({  topicLevelSchema }),
+										field: refSchema({  topicLevelSchema }),
 										id: {
 											type: "string",
 										},
 										ids: refSchema({ ids }),
-										siblings: refSchema({ topicLevelArraySchema }),
+										siblings:refSchema({  topicLevelArraySchema }),
+										topics: {
+											items: {
+												properties: {
+													display_name: {
+														type: "string",
+													},
+													id: {
+														type: "string",
+													},
+												},
+												required: ["display_name", "id"],
+												type: "object",
+											},
+											type: "array",
+										},
 										updated_date: {
 											type: "string",
 										},
@@ -59,7 +76,9 @@ export const getDomainById = modifyOperationsInPaths(
 										"description",
 										"ids",
 										"display_name_alternatives",
-										"fields",
+										"field",
+										"domain",
+										"topics",
 										"siblings",
 										"works_count",
 										"cited_by_count",
@@ -76,7 +95,7 @@ export const getDomainById = modifyOperationsInPaths(
 					},
 				},
 				security: [],
-				summary: "/domains/{id}",
+				summary: "/subfields/{id}",
 			},
 		},
 	},

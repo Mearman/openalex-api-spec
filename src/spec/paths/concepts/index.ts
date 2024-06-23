@@ -1,5 +1,11 @@
-import { concept } from "~/spec/paths/concepts/concept";
-import { concepts } from "~/spec/paths/concepts/concepts";
-import { addTags } from "~/util/addTags";
+import {
+	getConceptById,
+	getRandomConcept,
+} from "~/spec/paths/concepts/concept";
+import { getConcepts } from "~/spec/paths/concepts/concepts";
 
-export default addTags([concepts, concept], ["concepts"]) satisfies PathsObject;
+export default {
+	...getConceptById,
+	...getRandomConcept,
+	...getConcepts
+};

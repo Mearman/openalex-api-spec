@@ -1,4 +1,14 @@
-import { addTags } from "~/util";
-import { domains, fields, subfields, topics } from "./domains";
 
-export default addTags([topics, domains, subfields, fields], ["topics"]);
+import { getDomainById } from "./domains";
+import { getFieldById } from "./fields";
+import { getSubfieldById } from "./subfields";
+import { getTopicById } from "./topic";
+import { getTopics } from "./topics";
+
+export default {
+	...getDomainById,
+	...getFieldById,
+	...getSubfieldById,
+	...getTopicById,
+	...getTopics,
+};

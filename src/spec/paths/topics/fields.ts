@@ -2,17 +2,23 @@ import { refParameter, refSchema } from "~/spec/components";
 import { per_page } from "~/spec/components/parameters/per_page";
 import { ids } from "~/spec/components/schemas/ids";
 import { topicLevelArraySchema } from "~/spec/components/schemas/topicLevelArraySchema";
+import { topicLevelSchema } from "~/spec/components/schemas/topicLevelSchema";
 import { addTagsOperation, modifyOperationsInPaths } from "~/spec/paths";
 import { responseHeaders } from "../../components/headers/headers";
 import { idParam } from "../../components/parameters/idParam";
 
-export const getDomainById = modifyOperationsInPaths(
+export const getFieldById = modifyOperationsInPaths(
 	{
-		"/domains/{id}": {
+		"/field/{id}": {
 			get: {
-				operationId: "getDomainById",
+				operationId: "getFieldById",
 				description: "",
-				parameters: [refParameter({ per_page }), refParameter({ idParam })],
+				parameters: [
+					refParameter({ per_page }),
+					refParameter({
+						idParam,
+					}),
+				],
 				responses: {
 					"200": {
 						content: {
@@ -37,12 +43,13 @@ export const getDomainById = modifyOperationsInPaths(
 											},
 											type: "array",
 										},
-										fields: refSchema({ topicLevelArraySchema }),
+										domain: refSchema({ topicLevelSchema }),
 										id: {
 											type: "string",
 										},
 										ids: refSchema({ ids }),
 										siblings: refSchema({ topicLevelArraySchema }),
+										subfields: refSchema({ topicLevelArraySchema }),
 										updated_date: {
 											type: "string",
 										},
@@ -59,7 +66,8 @@ export const getDomainById = modifyOperationsInPaths(
 										"description",
 										"ids",
 										"display_name_alternatives",
-										"fields",
+										"domain",
+										"subfields",
 										"siblings",
 										"works_count",
 										"cited_by_count",
@@ -76,7 +84,7 @@ export const getDomainById = modifyOperationsInPaths(
 					},
 				},
 				security: [],
-				summary: "/domains/{id}",
+				summary: "/fields/{id}",
 			},
 		},
 	},

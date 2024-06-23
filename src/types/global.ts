@@ -13,9 +13,12 @@ declare global {
 	type ReferenceObject = OpenAPIV3_1.ReferenceObject;
 	type SchemaObject = OpenAPIV3_1.SchemaObject;
 	type ParameterObject = OpenAPIV3_1.ParameterObject;
+	type Paramaters = OperationObject["parameters"];
+	type Paramater = ReferenceObject | ParameterObject
 	type ExampleObject = OpenAPIV3_1.ExampleObject;
 	type RequestBodyObject = OpenAPIV3_1.RequestBodyObject;
 	type HeaderObject = OpenAPIV3_1.HeaderObject;
+	type Header = ReferenceObject | HeaderObject;
 	// type ResponseObject = OpenAPIV3_1.ResponseObject;
 	type ResponseObject = Omit<OpenAPIV3_1.ResponseObject, "content"> & {
 		content: {
@@ -24,6 +27,8 @@ declare global {
 			};
 		};
 	};
+	// type Paramater = OpenAPIV3_1.ReferenceObject | OpenAPIV3_1.ParameterObject;
+	// (OpenAPIV3.ReferenceObject | OpenAPIV3.ParameterObject)[] &
 	type CallbackObject = OpenAPIV3_1.CallbackObject;
 	type LinkObject = OpenAPIV3_1.LinkObject;
 	type EncodingObject = OpenAPIV3_1.EncodingObject;
@@ -46,4 +51,6 @@ declare global {
 	type GetOperation = {
 		get: OperationObject;
 	};
+	type BaseSchemaObject = OpenAPIV3_1.BaseSchemaObject;
+	type SchemaPattern = BaseSchemaObject["pattern"];
 }

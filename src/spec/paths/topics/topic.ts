@@ -2,15 +2,16 @@ import { refParameter, refSchema } from "~/spec/components";
 import { per_page } from "~/spec/components/parameters/per_page";
 import { ids } from "~/spec/components/schemas/ids";
 import { topicLevelArraySchema } from "~/spec/components/schemas/topicLevelArraySchema";
-import { addTagsOperation, modifyOperationsInPaths } from "~/spec/paths";
+import { topicLevelSchema } from "~/spec/components/schemas/topicLevelSchema";
+import { addTagsOperation, modifyOperationsInPaths } from "..";
 import { responseHeaders } from "../../components/headers/headers";
 import { idParam } from "../../components/parameters/idParam";
 
-export const getDomainById = modifyOperationsInPaths(
+export const getTopicById = modifyOperationsInPaths(
 	{
-		"/domains/{id}": {
+		"/topics/{id}": {
 			get: {
-				operationId: "getDomainById",
+				operationId: "getTopicById",
 				description: "",
 				parameters: [refParameter({ per_page }), refParameter({ idParam })],
 				responses: {
@@ -31,22 +32,23 @@ export const getDomainById = modifyOperationsInPaths(
 										display_name: {
 											type: "string",
 										},
-										display_name_alternatives: {
+										domain: refSchema({ topicLevelArraySchema }),
+										field: refSchema({ topicLevelArraySchema }),
+										id: {
+											type: "string",
+										},
+										ids: refSchema({ ids }),
+										keywords: {
 											items: {
 												type: "string",
 											},
 											type: "array",
 										},
-										fields: refSchema({ topicLevelArraySchema }),
-										id: {
-											type: "string",
-										},
-										ids: refSchema({ ids }),
-										siblings: refSchema({ topicLevelArraySchema }),
+										siblings: refSchema({
+											topicLevelSchema,
+										}),
+										subfield: refSchema({ topicLevelArraySchema }),
 										updated_date: {
-											type: "string",
-										},
-										works_api_url: {
 											type: "string",
 										},
 										works_count: {
@@ -57,13 +59,14 @@ export const getDomainById = modifyOperationsInPaths(
 										"id",
 										"display_name",
 										"description",
+										"keywords",
 										"ids",
-										"display_name_alternatives",
-										"fields",
+										"subfield",
+										"field",
+										"domain",
 										"siblings",
 										"works_count",
 										"cited_by_count",
-										"works_api_url",
 										"updated_date",
 										"created_date",
 									],
@@ -76,9 +79,9 @@ export const getDomainById = modifyOperationsInPaths(
 					},
 				},
 				security: [],
-				summary: "/domains/{id}",
+				summary: "/topics/{id}",
 			},
 		},
 	},
-	addTagsOperation(["topics", "multiple"])
+	addTagsOperation(["topics", "single"])
 );
