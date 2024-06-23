@@ -40,4 +40,10 @@ declare global {
 	type HeadersRecord = {
 		[p: string]: HeaderObject;
 	};
+	type Operation = {
+		[method in OpenAPIV3_1.HttpMethods]?: OperationObject;
+	};
+	type GetOperation = {
+		get: OperationObject;
+	};
 }
