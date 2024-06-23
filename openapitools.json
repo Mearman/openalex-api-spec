@@ -151,6 +151,11 @@
 				"gitUserId": "Mearman",
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/clients/typescript-node"
+			},
+			"mysql": {
+				"generatorName": "mysql-schema",
+				"glob": "generated/openapi.json",
+				"output": "#{cwd}/generated/schemas/mysql"
 			}
 		},
 		"version": "7.2.0"
