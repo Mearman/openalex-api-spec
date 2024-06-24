@@ -29,13 +29,7 @@ export class ComponentGenerator {
 		K extends ComponentsObject[T] = ComponentsObject[T],
 		k extends keyof K = keyof K,
 		v extends K[k] = K[k]
-	>(
-		comp: T,
-		obj: K,
-		referenceKey = Object.keys(obj)[0],
-		key = Object.keys(obj)[0],
-		value = obj[key]
-	): ReferenceObject {
+	>(comp: T, obj: K, referenceKey = Object.keys(obj)[0]): ReferenceObject {
 		// throw error if obj has more than one key
 		if (Object.keys(obj).length != 1) {
 			throw new Error(
@@ -44,6 +38,8 @@ export class ComponentGenerator {
 				)}`
 			);
 		}
+		const key = Object.keys(obj)[0];
+
 		if (!key) {
 			throw new Error(
 				`Key is not defined. While creating a reference with ${JSON.stringify(
@@ -51,6 +47,7 @@ export class ComponentGenerator {
 				)} in ${JSON.stringify(comp)}.`
 			);
 		}
+		const value = obj[key];
 		if (!value) {
 			throw new Error(
 				`Value is not defined. While creating a reference with ${JSON.stringify(
@@ -59,7 +56,7 @@ export class ComponentGenerator {
 			);
 		}
 
-		if(!referenceKey) {
+		if (!referenceKey) {
 			throw new Error(
 				`Reference key is not defined. While creating a reference with ${JSON.stringify(
 					obj
