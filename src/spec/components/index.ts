@@ -32,20 +32,48 @@ export class ComponentGenerator {
 	>(
 		comp: T,
 		obj: K,
+		referenceKey = Object.keys(obj)[0],
 		key = Object.keys(obj)[0],
 		value = obj[key]
 	): ReferenceObject {
 		// throw error if obj has more than one key
-		if (Object.keys(obj).length > 1) {
-			throw new Error(`Object ${obj} has more than one key`);
+		if (Object.keys(obj).length != 1) {
+			throw new Error(
+				`Tried to create a reference to an object with more than one key: ${JSON.stringify(
+					obj
+				)}`
+			);
 		}
+		if (!key) {
+			throw new Error(
+				`Key is not defined. While creating a reference with ${JSON.stringify(
+					obj
+				)} in ${JSON.stringify(comp)}.`
+			);
+		}
+		if (!value) {
+			throw new Error(
+				`Value is not defined. While creating a reference with ${JSON.stringify(
+					obj
+				)} from in ${JSON.stringify(comp)}.`
+			);
+		}
+
+		if(!referenceKey) {
+			throw new Error(
+				`Reference key is not defined. While creating a reference with ${JSON.stringify(
+					obj
+				)} from in ${JSON.stringify(comp)}.`
+			);
+		}
+
 		// add to instance
 		ComponentGenerator.getInstance()[comp] = {
 			...ComponentGenerator.getInstance()[comp],
-			...obj,
+			[referenceKey]: value,
 		};
 		return {
-			$ref: `#/components/${comp}/${key}`,
+			$ref: `#/components/${comp}/${referenceKey}`,
 		};
 	}
 
@@ -59,15 +87,32 @@ export const components: ComponentsObject =
 
 export const ref = ComponentGenerator.ref;
 
-export const refParameter = (obj: Record<string, ParameterObject>) =>
-	ComponentGenerator.ref("parameters", obj);
-export const refSchema = (obj: Record<string, SchemaObject>) =>
-	ComponentGenerator.ref("schemas", obj);
-export const refResponse = (obj: Record<string, ResponseObject>) =>
-	ComponentGenerator.ref("responses", obj);
-export const refExample = (obj: Record<string, ExampleObject>) =>
-	ComponentGenerator.ref("examples", obj);
-export const refPathItem = (obj: Record<string, PathItemObject>) =>
-	ComponentGenerator.ref("pathItems", obj);
-export const refHeader = (obj: Record<string, HeaderObject>) =>
-	ComponentGenerator.ref("headers", obj);
+export const refParameter = (
+	obj: Record<string, ParameterObject>,
+	key?: string
+): ReferenceObject => ComponentGenerator.ref("parameters", obj, key);
+
+export const refSchema = (
+	obj: Record<string, SchemaObject>,
+	key?: string
+): ReferenceObject => ComponentGenerator.ref("schemas", obj, key);
+
+export const refResponse = (
+	obj: Record<string, ResponseObject>,
+	key?: string
+): ReferenceObject => ComponentGenerator.ref("responses", obj, key);
+
+export const refExample = (
+	obj: Record<string, ExampleObject>,
+	key?: string
+): ReferenceObject => ComponentGenerator.ref("examples", obj, key);
+
+export const refPathItem = (
+	obj: Record<string, PathItemObject>,
+	key?: string
+): ReferenceObject => ComponentGenerator.ref("pathItems", obj, key);
+
+export const refHeader = (
+	obj: Record<string, HeaderObject>,
+	key?: string
+): ReferenceObject => ComponentGenerator.ref("headers", obj, key);
