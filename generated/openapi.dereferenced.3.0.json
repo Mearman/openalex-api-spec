@@ -17,7 +17,7 @@
 			"url": "https://creativecommons.org/publicdomain/zero/1.0/"
 		},
 		"title": "OpenAlex",
-		"version": "0.2.0"
+		"version": "0.2.3"
 	},
 	"openapi": "3.0.3",
 	"paths": {
@@ -288,8 +288,7 @@
 													"type": "integer"
 												},
 												"groups_count": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"page": {
 													"type": "integer"
@@ -506,8 +505,7 @@
 														"type": "array"
 													},
 													"orcid": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"summary_stats": {
 														"additionalProperties": false,
@@ -555,8 +553,7 @@
 																	"type": "number"
 																},
 																"wikidata": {
-																	"type": "string",
-																	"nullable": true
+																	"type": "string"
 																}
 															},
 															"required": [
@@ -862,8 +859,7 @@
 											"type": "array"
 										},
 										"orcid": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"summary_stats": {
 											"additionalProperties": false,
@@ -911,8 +907,7 @@
 														"type": "number"
 													},
 													"wikidata": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													}
 												},
 												"required": [
@@ -1221,8 +1216,7 @@
 											"type": "array"
 										},
 										"orcid": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"summary_stats": {
 											"additionalProperties": false,
@@ -1270,8 +1264,7 @@
 														"type": "number"
 													},
 													"wikidata": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													}
 												},
 												"required": [
@@ -1383,8 +1376,7 @@
 													"type": "integer"
 												},
 												"groups_count": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"page": {
 													"type": "integer"
@@ -1544,8 +1536,7 @@
 													"type": "integer"
 												},
 												"groups_count": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"page": {
 													"type": "integer"
@@ -1706,8 +1697,7 @@
 													"type": "integer"
 												},
 												"groups_count": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"page": {
 													"type": "integer"
@@ -1868,8 +1858,7 @@
 													"type": "integer"
 												},
 												"groups_count": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"page": {
 													"type": "integer"
@@ -2030,8 +2019,7 @@
 													"type": "integer"
 												},
 												"groups_count": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"page": {
 													"type": "integer"
@@ -2192,8 +2180,7 @@
 													"type": "integer"
 												},
 												"groups_count": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"page": {
 													"type": "integer"
@@ -2354,8 +2341,7 @@
 													"type": "integer"
 												},
 												"groups_count": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"page": {
 													"type": "integer"
@@ -2532,8 +2518,7 @@
 													"type": "integer"
 												},
 												"groups_count": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"page": {
 													"type": "integer"
@@ -2806,8 +2791,7 @@
 													"type": "integer"
 												},
 												"groups_count": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"page": {
 													"type": "integer"
@@ -2846,8 +2830,7 @@
 																	"type": "number"
 																},
 																"wikidata": {
-																	"type": "string",
-																	"nullable": true
+																	"type": "string"
 																}
 															},
 															"required": [
@@ -2886,8 +2869,7 @@
 														"type": "string"
 													},
 													"description": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"display_name": {
 														"type": "string"
@@ -2922,12 +2904,10 @@
 														"type": "object"
 													},
 													"image_thumbnail_url": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"image_url": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"international": {
 														"properties": {
@@ -3734,8 +3714,7 @@
 																		"type": "object"
 																	}
 																},
-																"type": "object",
-																"nullable": true
+																"type": "object"
 															},
 															"display_name": {
 																"properties": {
@@ -4565,8 +4544,7 @@
 																	"type": "number"
 																},
 																"wikidata": {
-																	"type": "string",
-																	"nullable": true
+																	"type": "string"
 																}
 															},
 															"required": [
@@ -4618,7 +4596,8 @@
 											},
 											"type": "array"
 										}
-									}
+									},
+									"type": "object"
 								}
 							}
 						},
@@ -4723,8 +4702,7 @@
 														"type": "number"
 													},
 													"wikidata": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													}
 												},
 												"required": [
@@ -4763,8 +4741,7 @@
 											"type": "string"
 										},
 										"description": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"display_name": {
 											"type": "string"
@@ -4799,12 +4776,10 @@
 											"type": "object"
 										},
 										"image_thumbnail_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"image_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"international": {
 											"properties": {
@@ -5611,8 +5586,7 @@
 															"type": "object"
 														}
 													},
-													"type": "object",
-													"nullable": true
+													"type": "object"
 												},
 												"display_name": {
 													"properties": {
@@ -6442,8 +6416,7 @@
 														"type": "number"
 													},
 													"wikidata": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													}
 												},
 												"required": [
@@ -6610,8 +6583,7 @@
 														"type": "number"
 													},
 													"wikidata": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													}
 												},
 												"required": [
@@ -6650,8 +6622,7 @@
 											"type": "string"
 										},
 										"description": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"display_name": {
 											"type": "string"
@@ -6686,12 +6657,10 @@
 											"type": "object"
 										},
 										"image_thumbnail_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"image_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"international": {
 											"properties": {
@@ -7498,8 +7467,7 @@
 															"type": "object"
 														}
 													},
-													"type": "object",
-													"nullable": true
+													"type": "object"
 												},
 												"display_name": {
 													"properties": {
@@ -8329,8 +8297,7 @@
 														"type": "number"
 													},
 													"wikidata": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													}
 												},
 												"required": [
@@ -9207,8 +9174,7 @@
 													"type": "integer"
 												},
 												"groups_count": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"page": {
 													"type": "integer"
@@ -9240,8 +9206,7 @@
 														"type": "integer"
 													},
 													"country_code": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"counts_by_year": {
 														"items": {
@@ -9268,8 +9233,7 @@
 														"type": "string"
 													},
 													"description": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"display_name": {
 														"type": "string"
@@ -9278,8 +9242,7 @@
 														"type": "integer"
 													},
 													"homepage_url": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"id": {
 														"type": "string"
@@ -9345,12 +9308,10 @@
 														"type": "object"
 													},
 													"image_thumbnail_url": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"image_url": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"relevance_score": {
 														"type": "number"
@@ -9517,8 +9478,7 @@
 											"type": "integer"
 										},
 										"country_code": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"counts_by_year": {
 											"items": {
@@ -9545,8 +9505,7 @@
 											"type": "string"
 										},
 										"description": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"display_name": {
 											"type": "string"
@@ -9555,8 +9514,7 @@
 											"type": "integer"
 										},
 										"homepage_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"id": {
 											"type": "string"
@@ -9622,12 +9580,10 @@
 											"type": "object"
 										},
 										"image_thumbnail_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"image_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"relevance_score": {
 											"type": "number"
@@ -9795,8 +9751,7 @@
 											"type": "integer"
 										},
 										"country_code": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"counts_by_year": {
 											"items": {
@@ -9823,8 +9778,7 @@
 											"type": "string"
 										},
 										"description": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"display_name": {
 											"type": "string"
@@ -9833,8 +9787,7 @@
 											"type": "integer"
 										},
 										"homepage_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"id": {
 											"type": "string"
@@ -9900,12 +9853,10 @@
 											"type": "object"
 										},
 										"image_thumbnail_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"image_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"relevance_score": {
 											"type": "number"
@@ -10174,8 +10125,7 @@
 													"type": "integer"
 												},
 												"groups_count": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"page": {
 													"type": "integer"
@@ -10237,8 +10187,7 @@
 														"type": "integer"
 													},
 													"country_code": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"counts_by_year": {
 														"items": {
@@ -10288,12 +10237,10 @@
 																"type": "string"
 															},
 															"country_code": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															},
 															"geonames_city_id": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															},
 															"latitude": {
 																"type": "number"
@@ -10302,8 +10249,7 @@
 																"type": "number"
 															},
 															"region": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															}
 														},
 														"required": [
@@ -10384,12 +10330,10 @@
 														"type": "object"
 													},
 													"image_thumbnail_url": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"image_url": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"international": {
 														"properties": {
@@ -11311,8 +11255,7 @@
 																	"type": "number"
 																},
 																"wikidata": {
-																	"type": "string",
-																	"nullable": true
+																	"type": "string"
 																}
 															},
 															"required": [
@@ -11463,8 +11406,7 @@
 											"type": "integer"
 										},
 										"country_code": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"counts_by_year": {
 											"items": {
@@ -11514,12 +11456,10 @@
 													"type": "string"
 												},
 												"country_code": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"geonames_city_id": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"latitude": {
 													"type": "number"
@@ -11528,8 +11468,7 @@
 													"type": "number"
 												},
 												"region": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												}
 											},
 											"required": [
@@ -11610,12 +11549,10 @@
 											"type": "object"
 										},
 										"image_thumbnail_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"image_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"international": {
 											"properties": {
@@ -12537,8 +12474,7 @@
 														"type": "number"
 													},
 													"wikidata": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													}
 												},
 												"required": [
@@ -12690,8 +12626,7 @@
 											"type": "integer"
 										},
 										"country_code": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"counts_by_year": {
 											"items": {
@@ -12741,12 +12676,10 @@
 													"type": "string"
 												},
 												"country_code": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"geonames_city_id": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"latitude": {
 													"type": "number"
@@ -12755,8 +12688,7 @@
 													"type": "number"
 												},
 												"region": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												}
 											},
 											"required": [
@@ -12837,12 +12769,10 @@
 											"type": "object"
 										},
 										"image_thumbnail_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"image_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"international": {
 											"properties": {
@@ -13764,8 +13694,7 @@
 														"type": "number"
 													},
 													"wikidata": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													}
 												},
 												"required": [
@@ -14098,8 +14027,7 @@
 													"type": "integer"
 												},
 												"groups_count": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"page": {
 													"type": "integer"
@@ -14167,8 +14095,7 @@
 														"type": "integer"
 													},
 													"homepage_url": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"id": {
 														"type": "string"
@@ -14234,12 +14161,10 @@
 														"type": "object"
 													},
 													"image_thumbnail_url": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"image_url": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"lineage": {
 														"items": {
@@ -14256,8 +14181,7 @@
 																"type": "string"
 															}
 														},
-														"type": "object",
-														"nullable": true
+														"type": "object"
 													},
 													"roles": {
 														"additionalProperties": false,
@@ -14460,8 +14384,7 @@
 											"type": "integer"
 										},
 										"homepage_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"id": {
 											"type": "string"
@@ -14527,12 +14450,10 @@
 											"type": "object"
 										},
 										"image_thumbnail_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"image_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"lineage": {
 											"items": {
@@ -14549,8 +14470,7 @@
 													"type": "string"
 												}
 											},
-											"type": "object",
-											"nullable": true
+											"type": "object"
 										},
 										"roles": {
 											"additionalProperties": false,
@@ -14753,8 +14673,7 @@
 											"type": "integer"
 										},
 										"homepage_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"id": {
 											"type": "string"
@@ -14820,12 +14739,10 @@
 											"type": "object"
 										},
 										"image_thumbnail_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"image_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"lineage": {
 											"items": {
@@ -14842,8 +14759,7 @@
 													"type": "string"
 												}
 											},
-											"type": "object",
-											"nullable": true
+											"type": "object"
 										},
 										"roles": {
 											"additionalProperties": false,
@@ -15021,8 +14937,7 @@
 													"type": "integer"
 												},
 												"groups_count": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"page": {
 													"type": "integer"
@@ -15044,15 +14959,13 @@
 											"items": {
 												"properties": {
 													"abbreviated_title": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"alternate_titles": {
 														"items": {
 															"type": "string"
 														},
-														"type": "array",
-														"nullable": true
+														"type": "array"
 													},
 													"apc_prices": {
 														"additionalProperties": false,
@@ -15072,19 +14985,16 @@
 															],
 															"type": "object"
 														},
-														"type": "array",
-														"nullable": true
+														"type": "array"
 													},
 													"apc_usd": {
-														"type": "number",
-														"nullable": true
+														"type": "number"
 													},
 													"cited_by_count": {
 														"type": "integer"
 													},
 													"country_code": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"counts_by_year": {
 														"items": {
@@ -15114,12 +15024,10 @@
 														"type": "string"
 													},
 													"homepage_url": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"host_organization": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"host_organization_lineage": {
 														"items": {
@@ -15128,8 +15036,7 @@
 														"type": "array"
 													},
 													"host_organization_name": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"id": {
 														"type": "string"
@@ -15204,12 +15111,10 @@
 														"items": {
 															"type": "string"
 														},
-														"type": "array",
-														"nullable": true
+														"type": "array"
 													},
 													"issn_l": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"societies": {
 														"items": {
@@ -15223,8 +15128,7 @@
 															},
 															"type": "object"
 														},
-														"type": "array",
-														"nullable": true
+														"type": "array"
 													},
 													"summary_stats": {
 														"additionalProperties": false,
@@ -15275,8 +15179,7 @@
 																	"type": "number"
 																},
 																"wikidata": {
-																	"type": "string",
-																	"nullable": true
+																	"type": "string"
 																}
 															},
 															"required": [
@@ -15384,15 +15287,13 @@
 								"schema": {
 									"properties": {
 										"abbreviated_title": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"alternate_titles": {
 											"items": {
 												"type": "string"
 											},
-											"type": "array",
-											"nullable": true
+											"type": "array"
 										},
 										"apc_prices": {
 											"additionalProperties": false,
@@ -15412,19 +15313,16 @@
 												],
 												"type": "object"
 											},
-											"type": "array",
-											"nullable": true
+											"type": "array"
 										},
 										"apc_usd": {
-											"type": "number",
-											"nullable": true
+											"type": "number"
 										},
 										"cited_by_count": {
 											"type": "integer"
 										},
 										"country_code": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"counts_by_year": {
 											"items": {
@@ -15454,12 +15352,10 @@
 											"type": "string"
 										},
 										"homepage_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"host_organization": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"host_organization_lineage": {
 											"items": {
@@ -15468,8 +15364,7 @@
 											"type": "array"
 										},
 										"host_organization_name": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"id": {
 											"type": "string"
@@ -15544,12 +15439,10 @@
 											"items": {
 												"type": "string"
 											},
-											"type": "array",
-											"nullable": true
+											"type": "array"
 										},
 										"issn_l": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"societies": {
 											"items": {
@@ -15563,8 +15456,7 @@
 												},
 												"type": "object"
 											},
-											"type": "array",
-											"nullable": true
+											"type": "array"
 										},
 										"summary_stats": {
 											"additionalProperties": false,
@@ -15615,8 +15507,7 @@
 														"type": "number"
 													},
 													"wikidata": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													}
 												},
 												"required": [
@@ -15729,15 +15620,13 @@
 								"schema": {
 									"properties": {
 										"abbreviated_title": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"alternate_titles": {
 											"items": {
 												"type": "string"
 											},
-											"type": "array",
-											"nullable": true
+											"type": "array"
 										},
 										"apc_prices": {
 											"additionalProperties": false,
@@ -15757,19 +15646,16 @@
 												],
 												"type": "object"
 											},
-											"type": "array",
-											"nullable": true
+											"type": "array"
 										},
 										"apc_usd": {
-											"type": "number",
-											"nullable": true
+											"type": "number"
 										},
 										"cited_by_count": {
 											"type": "integer"
 										},
 										"country_code": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"counts_by_year": {
 											"items": {
@@ -15799,12 +15685,10 @@
 											"type": "string"
 										},
 										"homepage_url": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"host_organization": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"host_organization_lineage": {
 											"items": {
@@ -15813,8 +15697,7 @@
 											"type": "array"
 										},
 										"host_organization_name": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"id": {
 											"type": "string"
@@ -15889,12 +15772,10 @@
 											"items": {
 												"type": "string"
 											},
-											"type": "array",
-											"nullable": true
+											"type": "array"
 										},
 										"issn_l": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"societies": {
 											"items": {
@@ -15908,8 +15789,7 @@
 												},
 												"type": "object"
 											},
-											"type": "array",
-											"nullable": true
+											"type": "array"
 										},
 										"summary_stats": {
 											"additionalProperties": false,
@@ -15960,8 +15840,7 @@
 														"type": "number"
 													},
 													"wikidata": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													}
 												},
 												"required": [
@@ -17884,6 +17763,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
+									"additionalProperties": false,
 									"properties": {
 										"group_by": {
 											"items": {
@@ -17916,8 +17796,7 @@
 													"type": "integer"
 												},
 												"groups_count": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"page": {
 													"type": "integer"
@@ -17939,8 +17818,7 @@
 											"items": {
 												"properties": {
 													"abstract_inverted_index": {
-														"type": "object",
-														"nullable": true
+														"type": "object"
 													},
 													"apc_list": {
 														"additionalProperties": false,
@@ -17964,8 +17842,7 @@
 															"value_usd",
 															"provenance"
 														],
-														"type": "object",
-														"nullable": true
+														"type": "object"
 													},
 													"apc_paid": {
 														"additionalProperties": false,
@@ -17989,8 +17866,7 @@
 															"value_usd",
 															"provenance"
 														],
-														"type": "object",
-														"nullable": true
+														"type": "object"
 													},
 													"authorships": {
 														"items": {
@@ -18004,8 +17880,7 @@
 																			"type": "string"
 																		},
 																		"orcid": {
-																			"type": "string",
-																			"nullable": true
+																			"type": "string"
 																		}
 																	},
 																	"required": [
@@ -18073,8 +17948,7 @@
 																	"type": "array"
 																},
 																"raw_author_name": {
-																	"type": "string",
-																	"nullable": true
+																	"type": "string"
 																}
 															},
 															"required": [
@@ -18103,16 +17977,13 @@
 																"type": "boolean"
 															},
 															"landing_page_url": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															},
 															"license": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															},
 															"pdf_url": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															},
 															"source": {
 																"properties": {
@@ -18120,8 +17991,7 @@
 																		"type": "string"
 																	},
 																	"host_organization": {
-																		"type": "string",
-																		"nullable": true
+																		"type": "string"
 																	},
 																	"host_organization_lineage": {
 																		"items": {
@@ -18136,8 +18006,7 @@
 																		"type": "array"
 																	},
 																	"host_organization_name": {
-																		"type": "string",
-																		"nullable": true
+																		"type": "string"
 																	},
 																	"id": {
 																		"type": "string"
@@ -18152,45 +18021,36 @@
 																		"items": {
 																			"type": "string"
 																		},
-																		"type": "array",
-																		"nullable": true
+																		"type": "array"
 																	},
 																	"issn_l": {
-																		"type": "string",
-																		"nullable": true
+																		"type": "string"
 																	},
 																	"type": {
 																		"type": "string"
 																	}
 																},
-																"type": "object",
-																"nullable": true
+																"type": "object"
 															},
 															"version": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															}
 														},
-														"type": "object",
-														"nullable": true
+														"type": "object"
 													},
 													"biblio": {
 														"properties": {
 															"first_page": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															},
 															"issue": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															},
 															"last_page": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															},
 															"volume": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															}
 														},
 														"type": "object"
@@ -18233,8 +18093,7 @@
 																	"type": "number"
 																},
 																"wikidata": {
-																	"type": "string",
-																	"nullable": true
+																	"type": "string"
 																}
 															},
 															"required": [
@@ -18285,19 +18144,16 @@
 														"type": "string"
 													},
 													"display_name": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"doi": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"grants": {
 														"items": {
 															"properties": {
 																"award_id": {
-																	"type": "string",
-																	"nullable": true
+																	"type": "string"
 																},
 																"funder": {
 																	"type": "string"
@@ -18414,8 +18270,7 @@
 														"type": "array"
 													},
 													"language": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"locations": {
 														"items": {
@@ -18431,16 +18286,13 @@
 																	"type": "boolean"
 																},
 																"landing_page_url": {
-																	"type": "string",
-																	"nullable": true
+																	"type": "string"
 																},
 																"license": {
-																	"type": "string",
-																	"nullable": true
+																	"type": "string"
 																},
 																"pdf_url": {
-																	"type": "string",
-																	"nullable": true
+																	"type": "string"
 																},
 																"source": {
 																	"properties": {
@@ -18448,8 +18300,7 @@
 																			"type": "string"
 																		},
 																		"host_organization": {
-																			"type": "string",
-																			"nullable": true
+																			"type": "string"
 																		},
 																		"host_organization_lineage": {
 																			"items": {
@@ -18464,8 +18315,7 @@
 																			"type": "array"
 																		},
 																		"host_organization_name": {
-																			"type": "string",
-																			"nullable": true
+																			"type": "string"
 																		},
 																		"id": {
 																			"type": "string"
@@ -18480,27 +18330,22 @@
 																			"items": {
 																				"type": "string"
 																			},
-																			"type": "array",
-																			"nullable": true
+																			"type": "array"
 																		},
 																		"issn_l": {
-																			"type": "string",
-																			"nullable": true
+																			"type": "string"
 																		},
 																		"type": {
 																			"type": "string"
 																		}
 																	},
-																	"type": "object",
-																	"nullable": true
+																	"type": "object"
 																},
 																"version": {
-																	"type": "string",
-																	"nullable": true
+																	"type": "string"
 																}
 															},
-															"type": "object",
-															"nullable": true
+															"type": "object"
 														},
 														"type": "array"
 													},
@@ -18520,8 +18365,7 @@
 																	"type": "boolean"
 																},
 																"qualifier_name": {
-																	"type": "string",
-																	"nullable": true
+																	"type": "string"
 																},
 																"qualifier_ui": {
 																	"type": "string"
@@ -18553,8 +18397,7 @@
 																"type": "string"
 															},
 															"oa_url": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															}
 														},
 														"required": [
@@ -18578,16 +18421,13 @@
 																"type": "boolean"
 															},
 															"landing_page_url": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															},
 															"license": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															},
 															"pdf_url": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															},
 															"source": {
 																"properties": {
@@ -18595,8 +18435,7 @@
 																		"type": "string"
 																	},
 																	"host_organization": {
-																		"type": "string",
-																		"nullable": true
+																		"type": "string"
 																	},
 																	"host_organization_lineage": {
 																		"items": {
@@ -18611,8 +18450,7 @@
 																		"type": "array"
 																	},
 																	"host_organization_name": {
-																		"type": "string",
-																		"nullable": true
+																		"type": "string"
 																	},
 																	"id": {
 																		"type": "string"
@@ -18627,27 +18465,22 @@
 																		"items": {
 																			"type": "string"
 																		},
-																		"type": "array",
-																		"nullable": true
+																		"type": "array"
 																	},
 																	"issn_l": {
-																		"type": "string",
-																		"nullable": true
+																		"type": "string"
 																	},
 																	"type": {
 																		"type": "string"
 																	}
 																},
-																"type": "object",
-																"nullable": true
+																"type": "object"
 															},
 															"version": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															}
 														},
-														"type": "object",
-														"nullable": true
+														"type": "object"
 													},
 													"publication_date": {
 														"type": "string"
@@ -18693,8 +18526,7 @@
 														"type": "array"
 													},
 													"title": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"type": {
 														"type": "string"
@@ -18869,8 +18701,7 @@
 								"schema": {
 									"properties": {
 										"abstract_inverted_index": {
-											"type": "object",
-											"nullable": true
+											"type": "object"
 										},
 										"apc_list": {
 											"additionalProperties": false,
@@ -18894,8 +18725,7 @@
 												"value_usd",
 												"provenance"
 											],
-											"type": "object",
-											"nullable": true
+											"type": "object"
 										},
 										"apc_paid": {
 											"additionalProperties": false,
@@ -18919,8 +18749,7 @@
 												"value_usd",
 												"provenance"
 											],
-											"type": "object",
-											"nullable": true
+											"type": "object"
 										},
 										"authorships": {
 											"items": {
@@ -18934,8 +18763,7 @@
 																"type": "string"
 															},
 															"orcid": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															}
 														},
 														"required": [
@@ -19003,8 +18831,7 @@
 														"type": "array"
 													},
 													"raw_author_name": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													}
 												},
 												"required": [
@@ -19033,16 +18860,13 @@
 													"type": "boolean"
 												},
 												"landing_page_url": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"license": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"pdf_url": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"source": {
 													"properties": {
@@ -19050,8 +18874,7 @@
 															"type": "string"
 														},
 														"host_organization": {
-															"type": "string",
-															"nullable": true
+															"type": "string"
 														},
 														"host_organization_lineage": {
 															"items": {
@@ -19066,8 +18889,7 @@
 															"type": "array"
 														},
 														"host_organization_name": {
-															"type": "string",
-															"nullable": true
+															"type": "string"
 														},
 														"id": {
 															"type": "string"
@@ -19082,45 +18904,36 @@
 															"items": {
 																"type": "string"
 															},
-															"type": "array",
-															"nullable": true
+															"type": "array"
 														},
 														"issn_l": {
-															"type": "string",
-															"nullable": true
+															"type": "string"
 														},
 														"type": {
 															"type": "string"
 														}
 													},
-													"type": "object",
-													"nullable": true
+													"type": "object"
 												},
 												"version": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												}
 											},
-											"type": "object",
-											"nullable": true
+											"type": "object"
 										},
 										"biblio": {
 											"properties": {
 												"first_page": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"issue": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"last_page": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"volume": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												}
 											},
 											"type": "object"
@@ -19163,8 +18976,7 @@
 														"type": "number"
 													},
 													"wikidata": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													}
 												},
 												"required": [
@@ -19215,19 +19027,16 @@
 											"type": "string"
 										},
 										"display_name": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"doi": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"grants": {
 											"items": {
 												"properties": {
 													"award_id": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"funder": {
 														"type": "string"
@@ -19344,8 +19153,7 @@
 											"type": "array"
 										},
 										"language": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"locations": {
 											"items": {
@@ -19361,16 +19169,13 @@
 														"type": "boolean"
 													},
 													"landing_page_url": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"license": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"pdf_url": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"source": {
 														"properties": {
@@ -19378,8 +19183,7 @@
 																"type": "string"
 															},
 															"host_organization": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															},
 															"host_organization_lineage": {
 																"items": {
@@ -19394,8 +19198,7 @@
 																"type": "array"
 															},
 															"host_organization_name": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															},
 															"id": {
 																"type": "string"
@@ -19410,27 +19213,22 @@
 																"items": {
 																	"type": "string"
 																},
-																"type": "array",
-																"nullable": true
+																"type": "array"
 															},
 															"issn_l": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															},
 															"type": {
 																"type": "string"
 															}
 														},
-														"type": "object",
-														"nullable": true
+														"type": "object"
 													},
 													"version": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													}
 												},
-												"type": "object",
-												"nullable": true
+												"type": "object"
 											},
 											"type": "array"
 										},
@@ -19450,8 +19248,7 @@
 														"type": "boolean"
 													},
 													"qualifier_name": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"qualifier_ui": {
 														"type": "string"
@@ -19483,8 +19280,7 @@
 													"type": "string"
 												},
 												"oa_url": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												}
 											},
 											"required": [
@@ -19508,16 +19304,13 @@
 													"type": "boolean"
 												},
 												"landing_page_url": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"license": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"pdf_url": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"source": {
 													"properties": {
@@ -19525,8 +19318,7 @@
 															"type": "string"
 														},
 														"host_organization": {
-															"type": "string",
-															"nullable": true
+															"type": "string"
 														},
 														"host_organization_lineage": {
 															"items": {
@@ -19541,8 +19333,7 @@
 															"type": "array"
 														},
 														"host_organization_name": {
-															"type": "string",
-															"nullable": true
+															"type": "string"
 														},
 														"id": {
 															"type": "string"
@@ -19557,27 +19348,22 @@
 															"items": {
 																"type": "string"
 															},
-															"type": "array",
-															"nullable": true
+															"type": "array"
 														},
 														"issn_l": {
-															"type": "string",
-															"nullable": true
+															"type": "string"
 														},
 														"type": {
 															"type": "string"
 														}
 													},
-													"type": "object",
-													"nullable": true
+													"type": "object"
 												},
 												"version": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												}
 											},
-											"type": "object",
-											"nullable": true
+											"type": "object"
 										},
 										"publication_date": {
 											"type": "string"
@@ -19623,8 +19409,7 @@
 											"type": "array"
 										},
 										"title": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"type": {
 											"type": "string"
@@ -19830,8 +19615,7 @@
 								"schema": {
 									"properties": {
 										"abstract_inverted_index": {
-											"type": "object",
-											"nullable": true
+											"type": "object"
 										},
 										"apc_list": {
 											"additionalProperties": false,
@@ -19855,8 +19639,7 @@
 												"value_usd",
 												"provenance"
 											],
-											"type": "object",
-											"nullable": true
+											"type": "object"
 										},
 										"apc_paid": {
 											"additionalProperties": false,
@@ -19880,8 +19663,7 @@
 												"value_usd",
 												"provenance"
 											],
-											"type": "object",
-											"nullable": true
+											"type": "object"
 										},
 										"authorships": {
 											"items": {
@@ -19895,8 +19677,7 @@
 																"type": "string"
 															},
 															"orcid": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															}
 														},
 														"required": [
@@ -19964,8 +19745,7 @@
 														"type": "array"
 													},
 													"raw_author_name": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													}
 												},
 												"required": [
@@ -19994,16 +19774,13 @@
 													"type": "boolean"
 												},
 												"landing_page_url": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"license": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"pdf_url": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"source": {
 													"properties": {
@@ -20011,8 +19788,7 @@
 															"type": "string"
 														},
 														"host_organization": {
-															"type": "string",
-															"nullable": true
+															"type": "string"
 														},
 														"host_organization_lineage": {
 															"items": {
@@ -20027,8 +19803,7 @@
 															"type": "array"
 														},
 														"host_organization_name": {
-															"type": "string",
-															"nullable": true
+															"type": "string"
 														},
 														"id": {
 															"type": "string"
@@ -20043,45 +19818,36 @@
 															"items": {
 																"type": "string"
 															},
-															"type": "array",
-															"nullable": true
+															"type": "array"
 														},
 														"issn_l": {
-															"type": "string",
-															"nullable": true
+															"type": "string"
 														},
 														"type": {
 															"type": "string"
 														}
 													},
-													"type": "object",
-													"nullable": true
+													"type": "object"
 												},
 												"version": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												}
 											},
-											"type": "object",
-											"nullable": true
+											"type": "object"
 										},
 										"biblio": {
 											"properties": {
 												"first_page": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"issue": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"last_page": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"volume": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												}
 											},
 											"type": "object"
@@ -20124,8 +19890,7 @@
 														"type": "number"
 													},
 													"wikidata": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													}
 												},
 												"required": [
@@ -20176,19 +19941,16 @@
 											"type": "string"
 										},
 										"display_name": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"doi": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"grants": {
 											"items": {
 												"properties": {
 													"award_id": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"funder": {
 														"type": "string"
@@ -20305,8 +20067,7 @@
 											"type": "array"
 										},
 										"language": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"locations": {
 											"items": {
@@ -20322,16 +20083,13 @@
 														"type": "boolean"
 													},
 													"landing_page_url": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"license": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"pdf_url": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"source": {
 														"properties": {
@@ -20339,8 +20097,7 @@
 																"type": "string"
 															},
 															"host_organization": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															},
 															"host_organization_lineage": {
 																"items": {
@@ -20355,8 +20112,7 @@
 																"type": "array"
 															},
 															"host_organization_name": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															},
 															"id": {
 																"type": "string"
@@ -20371,27 +20127,22 @@
 																"items": {
 																	"type": "string"
 																},
-																"type": "array",
-																"nullable": true
+																"type": "array"
 															},
 															"issn_l": {
-																"type": "string",
-																"nullable": true
+																"type": "string"
 															},
 															"type": {
 																"type": "string"
 															}
 														},
-														"type": "object",
-														"nullable": true
+														"type": "object"
 													},
 													"version": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													}
 												},
-												"type": "object",
-												"nullable": true
+												"type": "object"
 											},
 											"type": "array"
 										},
@@ -20411,8 +20162,7 @@
 														"type": "boolean"
 													},
 													"qualifier_name": {
-														"type": "string",
-														"nullable": true
+														"type": "string"
 													},
 													"qualifier_ui": {
 														"type": "string"
@@ -20444,8 +20194,7 @@
 													"type": "string"
 												},
 												"oa_url": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												}
 											},
 											"required": [
@@ -20469,16 +20218,13 @@
 													"type": "boolean"
 												},
 												"landing_page_url": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"license": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"pdf_url": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												},
 												"source": {
 													"properties": {
@@ -20486,8 +20232,7 @@
 															"type": "string"
 														},
 														"host_organization": {
-															"type": "string",
-															"nullable": true
+															"type": "string"
 														},
 														"host_organization_lineage": {
 															"items": {
@@ -20502,8 +20247,7 @@
 															"type": "array"
 														},
 														"host_organization_name": {
-															"type": "string",
-															"nullable": true
+															"type": "string"
 														},
 														"id": {
 															"type": "string"
@@ -20518,27 +20262,22 @@
 															"items": {
 																"type": "string"
 															},
-															"type": "array",
-															"nullable": true
+															"type": "array"
 														},
 														"issn_l": {
-															"type": "string",
-															"nullable": true
+															"type": "string"
 														},
 														"type": {
 															"type": "string"
 														}
 													},
-													"type": "object",
-													"nullable": true
+													"type": "object"
 												},
 												"version": {
-													"type": "string",
-													"nullable": true
+													"type": "string"
 												}
 											},
-											"type": "object",
-											"nullable": true
+											"type": "object"
 										},
 										"publication_date": {
 											"type": "string"
@@ -20584,8 +20323,7 @@
 											"type": "array"
 										},
 										"title": {
-											"type": "string",
-											"nullable": true
+											"type": "string"
 										},
 										"type": {
 											"type": "string"
