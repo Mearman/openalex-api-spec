@@ -1156,7 +1156,6 @@ __metadata:
     "@types/jest": "npm:^29.5.11"
     "@types/node": "npm:^20.11.0"
     "@types/uuid": "npm:^9.0.7"
-    axios: "npm:^1.6.5"
     jest: "npm:^29.7.0"
     jest-expect-openapi: "npm:^1.0.0"
     jest-openapi: "npm:^0.14.2"
@@ -2494,7 +2493,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.4.0, axios@npm:^1.6.5":
+"axios@npm:^1.4.0":
   version: 1.7.2
   resolution: "axios@npm:1.7.2"
   dependencies:
