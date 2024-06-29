@@ -94,7 +94,10 @@
 			],
 			"output": [
 				"generated/clients/typescript-fetch/src/",
-				"generated/clients/typescript-fetch/.openapi-generator/"
+				"generated/clients/typescript-fetch/.openapi-generator/",
+				"generated/clients/typescript/**.*.ts",
+				"generated/clients/typescript-fetch/**.*.ts",
+				"generated/clients/typescript-node/**.*.ts"
 			]
 		},
 		"build:generate:spec": {
