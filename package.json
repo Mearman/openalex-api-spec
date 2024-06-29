@@ -59,7 +59,7 @@
 		"test:report": "wireit",
 		"test:report:verbose": "WIREIT_LOGGER=metrics yarn test:report"
 	},
-	"version": "0.2.3",
+	"version": "0.2.4",
 	"wireit": {
 		"build:tsc": {
 			"command": "tsc --noEmit"
