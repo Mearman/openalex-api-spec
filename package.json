@@ -93,7 +93,8 @@
 				"build:tsc"
 			],
 			"output": [
-				"generated/clients/typescript-fetch/src/"
+				"generated/clients/typescript-fetch/src/",
+				"generated/clients/typescript-fetch/.openapi-generator/"
 			]
 		},
 		"build:generate:spec": {
@@ -123,8 +124,8 @@
 		"build": {
 			"dependencies": [
 				"build:tsc",
-				"build:client:typescript",
-				"build:generate"
+				"build:generate",
+				"build:client:typescript"
 			]
 		}
 	}
