@@ -4,7 +4,7 @@ import { personResponseSchema } from "~/spec/components/schemas/authors/personRe
 export const getPerson200Response: ResponseObject = {
 	content: {
 		"application/json": {
-			schema: refSchema({ personResponseSchema }),
+			schema: refSchema({ person: personResponseSchema }),
 		},
 	},
 	description: "",

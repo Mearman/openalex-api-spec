@@ -12,7 +12,7 @@ export async function validate(spec: OpenAPIV3_1.Document): Promise<void> {
 			console.error(err);
 			separator(20);
 		});
-		throw new Error("Validation failed");
+		throw new Error(`Validation failed ${JSON.stringify(result.errors)}`)
 	} else {
 		console.log("Validation succeeded");
 	}

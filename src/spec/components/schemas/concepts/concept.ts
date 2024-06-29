@@ -18,7 +18,7 @@ export const conceptSchema = {
 			type: "string",
 		},
 		description: {
-			type: ["string", "null"]
+			type: "string"
 		},
 		display_name: {
 			type: "string",
@@ -53,10 +53,10 @@ export const conceptSchema = {
 			type: "object",
 		},
 		image_thumbnail_url: {
-			type: ["string", "null"]
+			type: "string"
 		},
 		image_url: {
-			type: ["string", "null"]
+			type: "string"
 		},
 		international: refSchema({ international_display_name_and_description }),
 		level: {

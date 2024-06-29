@@ -9,7 +9,7 @@ export const institutions = {
 			operationId: "getInstitutions",
 			parameters: defaultListParameters,
 			responses: {
-				"200": refResponse({ institutionsGet200Response }),
+				"200": refResponse({ institutions: institutionsGet200Response }),
 			},
 
 			summary: "/institutions",

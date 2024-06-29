@@ -9,7 +9,7 @@ import { GENERATION_DIR } from "~/util/generateDereferencedSpec";
 async function main() {
 	const doc = getDoc();
 	console.log(inspect(doc, {
-		depth: null,
+		depth: 3,
 		colors: true,
 	}));
 	separator();

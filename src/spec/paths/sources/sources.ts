@@ -17,7 +17,7 @@ export const sources = {
 				},
 			],
 			responses: {
-				"200": refResponse({ sourcesGet200Response }),
+				"200": refResponse({ sources: sourcesGet200Response }),
 			},
 			summary: "/sources",
 		},

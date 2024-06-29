@@ -1,11 +1,11 @@
 import { refParameter, refResponse } from "~/spec/components";
 import { workAttributeSelectionParameter } from "~/spec/components/parameters/workAttributeSelectionParameter";
 import { workId } from "~/spec/components/parameters/workId";
-import { works } from "~/spec/components/responses/works/work";
+import { work } from "~/spec/components/responses/works/work";
 import { tags } from "~/spec/paths/works/tags";
 
 const singleWorkResponse = {
-	"200": refResponse({workResp: works}),
+	"200": refResponse({ work: work }),
 } satisfies ResponsesObject;
 
 const getWorkById: PathItemObject = {
@@ -16,8 +16,8 @@ const getWorkById: PathItemObject = {
 		},
 		operationId: "getWork",
 		parameters: [
-			refParameter({workId}),
-			refParameter({workAttributeSelectionParameter}),
+			refParameter({ workId }),
+			refParameter({ workAttributeSelectionParameter }),
 		],
 		responses: singleWorkResponse,
 		summary: "/works/{id}",
@@ -29,9 +29,7 @@ const getRandomWork: PathItemObject = {
 	get: {
 		description: "Get a random work",
 		operationId: "getRandomWork",
-		parameters: [
-			refParameter({workAttributeSelectionParameter}),
-		],
+		parameters: [refParameter({ workAttributeSelectionParameter })],
 		responses: singleWorkResponse,
 		summary: "/works/random",
 		tags: tags.concat(["single", "random"]),

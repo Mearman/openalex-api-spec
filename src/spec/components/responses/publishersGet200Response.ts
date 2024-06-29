@@ -4,7 +4,7 @@ import { publishersResponseSchema } from "~/spec/components/schemas/publishers/p
 export const publishersGet200Response: ResponseObject = {
 	content: {
 		"application/json": {
-			schema: refSchema({ publishersResponseSchema }),
+			schema: refSchema({ publishers: publishersResponseSchema }),
 		},
 	},
 	description: "",

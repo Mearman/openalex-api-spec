@@ -3,7 +3,7 @@ import { select } from "~/spec/components/parameters/select";
 import { funderGet200Response } from "~/spec/components/responses/funderGet200Response";
 
 const singleFunderResponse = {
-	"200": refResponse({funderGet200Response}),
+	"200": refResponse({ funder: funderGet200Response }),
 };
 
 const tags = ["single"];
@@ -21,7 +21,7 @@ const getFunderById: PathItemObject = {
 					type: "string",
 				},
 			},
-			refParameter({select}),
+			refParameter({ select }),
 		],
 		responses: singleFunderResponse,
 		summary: "/funders/{id}",
@@ -33,14 +33,11 @@ const getRandomFunder: PathItemObject = {
 	get: {
 		description: "Get a random funder",
 		operationId: "getRandomFunder",
-		parameters: [
-			refParameter({select}),
-		],
+		parameters: [refParameter({ select })],
 		responses: singleFunderResponse,
 		summary: "/funders/random",
 		tags: tags.concat(["random"]),
 	},
-
 };
 
 export const funder = {

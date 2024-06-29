@@ -1,10 +1,10 @@
 import { refSchema } from "~/spec/components";
 import { workSchema } from "~/spec/components/schemas/works/work";
 
-export const works = {
+export const work = {
 	content: {
 		"application/json": {
-			schema: refSchema({ workSchema }),
+			schema: refSchema({ work: workSchema }),
 		},
 	},
 	description: "",

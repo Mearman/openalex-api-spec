@@ -8,7 +8,7 @@ export const workNgramsGet200Response: ResponseObject = {
 			examples: {
 				ngram: refExample({ workNgramsGet200ResponseExample }),
 			},
-			schema: refSchema({ workNgramsSchema }),
+			schema: refSchema({ ngrams: workNgramsSchema }),
 		},
 	},
 	description: "",

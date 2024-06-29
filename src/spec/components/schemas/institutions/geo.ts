@@ -7,10 +7,10 @@ export const geo = {
 			type: "string",
 		},
 		country_code: {
-			type: ["string", "null"]
+			type: "string"
 		},
 		geonames_city_id: {
-			type: ["string", "null"],
+			type: "string",
 		},
 		latitude: {
 			type: "number",
@@ -19,7 +19,7 @@ export const geo = {
 			type: "number",
 		},
 		region: {
-			type: ["string", "null"],
+			type: "string",
 		},
 	},
 	required: [

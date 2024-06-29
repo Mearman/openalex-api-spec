@@ -3,8 +3,8 @@ import { conceptIdPatternRef } from "~/spec/components/parameters/conceptIdPatte
 import { select } from "~/spec/components/parameters/select";
 import { conceptGet200Response } from "~/spec/components/responses/concepts/conceptGet200Response";
 
-const singleFunderResponse = {
-	"200": refResponse({ conceptGet200Response }),
+const conceptResponse = {
+	"200": refResponse({ concept: conceptGet200Response }),
 } satisfies ResponsesObject;
 
 export const getConceptById: PathsObject = {
@@ -17,7 +17,7 @@ export const getConceptById: PathsObject = {
 			},
 			operationId: "getConceptById",
 			parameters: [conceptIdPatternRef, refParameter({ select })],
-			responses: singleFunderResponse,
+			responses: conceptResponse,
 			summary: "/concepts/{id}",
 			tags: ["concepts", "single"],
 		},
@@ -30,7 +30,7 @@ export const getRandomConcept: PathsObject = {
 			operationId: "getRandomConcept",
 			description: "Get a random concept",
 			parameters: [refParameter({ select })],
-			responses: singleFunderResponse,
+			responses: conceptResponse,
 			summary: "/concepts/random",
 			tags: ["concepts", "random", "single"],
 		},

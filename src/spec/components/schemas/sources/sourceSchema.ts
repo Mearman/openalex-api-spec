@@ -10,91 +10,91 @@ export const sourceSchema: SchemaObject = {
 	// additionalProperties: false,
 	properties: {
 		abbreviated_title: {
-			type: ["string", "null"]
+			type: "string",
 		},
 		alternate_titles: {
-			type: ["array", "null"],
+			type: "array",
 			items: {
-				type: "string"
-			}
+				type: "string",
+			},
 		},
 		apc_prices: refSchema({ apc_prices }),
 		apc_usd: {
-			type: ["number", "null"]
+			type: "number",
 		},
 		cited_by_count: {
-			type: "integer"
+			type: "integer",
 		},
 		country_code: {
-			type: ["string", "null"]
+			type: "string",
 		},
 		counts_by_year: refSchema({ countsByYear }),
 		created_date: {
-			type: "string"
+			type: "string",
 		},
 		display_name: {
-			type: "string"
+			type: "string",
 		},
 		homepage_url: {
-			type: ["string", "null"]
+			type: "string",
 		},
 		host_organization: {
-			type: ["string", "null"]
+			type: "string",
 		},
 		host_organization_lineage: {
 			type: "array",
 			items: {
-				type: "string"
-			}
+				type: "string",
+			},
 		},
 		host_organization_name: {
-			type: ["string", "null"]
+			type: "string",
 		},
 		id: {
-			type: "string"
+			type: "string",
 		},
 		ids: refSchema({ ids }),
 		is_in_doaj: {
-			type: "boolean"
+			type: "boolean",
 		},
 		is_oa: {
-			type: "boolean"
+			type: "boolean",
 		},
 		issn: {
-			type: ["array", "null"],
+			type: "array",
 			items: {
-				type: "string"
-			}
+				type: "string",
+			},
 		},
 		issn_l: {
-			type: ["string", "null"],
+			type: "string",
 		},
 		societies: {
-			type: ["array", "null"],
+			type: "array",
 			items: {
 				type: "object",
 				properties: {
 					url: {
-						type: "string"
+						type: "string",
 					},
 					organization: {
-						type: "string"
-					}
+						type: "string",
+					},
 				},
-			}
+			},
 		},
 		summary_stats: refSchema({ summary_stats }),
 		type: {
-			type: "string"
+			type: "string",
 		},
 		updated_date: {
-			type: "string"
+			type: "string",
 		},
 		works_api_url: {
-			type: "string"
+			type: "string",
 		},
 		works_count: {
-			type: "integer"
+			type: "integer",
 		},
 		x_concepts: refSchema({ dehydratedConceptArray }),
 	},

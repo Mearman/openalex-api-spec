@@ -1,6 +1,6 @@
 export const apc_prices: SchemaObject = {
 	additionalProperties: false,
-	type: ["array", "null"],
+	type: "array",
 	items: {
 		additionalProperties: false,
 		properties: {

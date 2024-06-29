@@ -14,7 +14,7 @@ export const meta = {
 			type: "integer",
 		},
 		groups_count: {
-			type: ["string", "null"],
+			type: "string",
 		},
 	},
 	required: [
@@ -25,3 +25,4 @@ export const meta = {
 		"groups_count",
 	],
 } satisfies SchemaObject;
+

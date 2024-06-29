@@ -19,7 +19,7 @@ export const people = {
 				refParameter({ select }),
 			],
 			responses: {
-				"200": refResponse({ getPerson200Response }),
+				"200": refResponse({ person: getPerson200Response }),
 			},
 			summary: "/people/{id}",
 		},

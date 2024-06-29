@@ -64,10 +64,28 @@ export class ComponentGenerator {
 			);
 		}
 
+		const existing = ComponentGenerator.getInstance()[comp]?.[referenceKey];
+		if (existing) {
+			if (existing !== value) {
+				throw new Error(
+					`Tried to create reference ${JSON.stringify(referenceKey)} with a different value than the existing one: ${JSON.stringify(
+						obj
+					)} in ${JSON.stringify(comp)}.`
+				);
+			}
+			return {
+				$ref: `#/components/${comp}/${referenceKey}`,
+			};
+		}
+
+		const newObj = {
+			[referenceKey]: value,
+		};
+
 		// add to instance
 		ComponentGenerator.getInstance()[comp] = {
 			...ComponentGenerator.getInstance()[comp],
-			[referenceKey]: value,
+			...newObj,
 		};
 		return {
 			$ref: `#/components/${comp}/${referenceKey}`,

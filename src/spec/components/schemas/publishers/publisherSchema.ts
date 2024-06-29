@@ -33,17 +33,17 @@ export const publisherSchema = {
 			type: "integer",
 		},
 		homepage_url: {
-			type: ["string", "null"]
+			type: "string"
 		},
 		id: {
 			type: "string",
 		},
 		ids: refSchema({ ids }),
 		image_thumbnail_url: {
-			type: ["string", "null"]
+			type: "string"
 		},
 		image_url: {
-			type: ["string", "null"]
+			type: "string"
 		},
 		lineage: {
 			items: {
@@ -52,7 +52,7 @@ export const publisherSchema = {
 			type: "array",
 		},
 		parent_publisher: {
-			type: ["object", "null"],
+			type: "object",
 			properties: {
 				display_name: {
 					type: "string",

@@ -4,7 +4,7 @@ import { institutionsResponseSchema } from "~/spec/components/schemas/institutio
 export const institutionsGet200Response: ResponseObject = {
 	content: {
 		"application/json": {
-			schema: refSchema({ institutionsResponseSchema }),
+			schema: refSchema({ institutions: institutionsResponseSchema }),
 		},
 	},
 	description: "",

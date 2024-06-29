@@ -12,7 +12,7 @@ export const international_description = {
 	properties: {
 		description: refSchema({ internationalisation })
 	},
-	type: ["object", "null"],
+	type: "object",
 } satisfies SchemaObject;
 
 export const international_display_name_and_description = {

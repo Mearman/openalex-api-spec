@@ -6,10 +6,10 @@ import { apc } from "~/spec/components/schemas/works/apc";
 import { authorships } from "~/spec/components/schemas/works/authorships";
 import { location } from "~/spec/components/schemas/works/location";
 
-export const workSchema = {
+export const workSchema: SchemaObject = {
 	properties: {
 		abstract_inverted_index: {
-			type: ["object", "null"],
+			type: "object",
 		},
 		apc_list: refSchema({ apc }),
 		apc_paid: refSchema({ apc }),
@@ -19,16 +19,16 @@ export const workSchema = {
 			type: "object",
 			properties: {
 				volume: {
-					type: ["string", "null"],
+					type: "string",
 				},
 				issue: {
-					type: ["string", "null"],
+					type: "string",
 				},
 				first_page: {
-					type: ["string", "null"],
+					type: "string",
 				},
 				last_page: {
-					type: ["string", "null"],
+					type: "string",
 				},
 			},
 		},
@@ -71,10 +71,10 @@ export const workSchema = {
 			type: "string",
 		},
 		display_name: {
-			type: ["string", "null"],
+			type: "string",
 		},
 		doi: {
-			type: ["string", "null"],
+			type: "string",
 		},
 		grants: {
 			type: "array",
@@ -88,7 +88,7 @@ export const workSchema = {
 						type: "string",
 					},
 					award_id: {
-						type: ["string", "null"],
+						type: "string",
 					},
 				},
 				required: ["funder", "funder_display_name", "award_id"],
@@ -130,7 +130,7 @@ export const workSchema = {
 			},
 		},
 		language: {
-			type: ["string", "null"],
+			type: "string",
 		},
 		locations: {
 			type: "array",
@@ -154,7 +154,7 @@ export const workSchema = {
 						type: "string",
 					},
 					qualifier_name: {
-						type: ["string", "null"],
+						type: "string",
 					},
 					is_major_topic: {
 						type: "boolean",
@@ -182,7 +182,7 @@ export const workSchema = {
 					type: "string",
 				},
 				oa_url: {
-					type: ["string", "null"],
+					type: "string",
 				},
 				any_repository_has_fulltext: {
 					type: "boolean",
@@ -231,7 +231,7 @@ export const workSchema = {
 			},
 		},
 		title: {
-			type: ["string", "null"],
+			type: "string",
 		},
 		type: {
 			type: "string",
@@ -245,4 +245,4 @@ export const workSchema = {
 	},
 	required: ["id", "display_name"],
 	type: "object",
-} satisfies SchemaObject;
+};

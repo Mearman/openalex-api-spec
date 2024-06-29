@@ -13,7 +13,7 @@ export const authorships = {
 						type: "string",
 					},
 					orcid: {
-						type: ["string", "null"]
+						type: "string",
 					},
 				},
 				required: ["id", "display_name"],
@@ -77,10 +77,7 @@ export const authorships = {
 				},
 			},
 			raw_author_name: {
-				type: [
-					"string",
-					"null"
-				]
+				type: "string",
 			},
 		},
 		required: [

@@ -14,7 +14,7 @@ export const dehydratedConcept = {
 			type: "number",
 		},
 		wikidata: {
-			type: ["string", "null"]
+			type: "string"
 		},
 	},
 	required: [

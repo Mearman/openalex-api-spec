@@ -9,7 +9,7 @@ export const publishers = {
 			operationId: "getPublishers",
 			parameters: defaultListParameters,
 			responses: {
-				"200": refResponse({ publishersGet200Response }),
+				"200": refResponse({ publishers: publishersGet200Response }),
 			},
 
 			summary: "/publishers",

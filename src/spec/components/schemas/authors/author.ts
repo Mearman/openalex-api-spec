@@ -37,7 +37,7 @@ export const author = {
 		last_known_institution: refSchema({ dehydratedInstitution }),
 		last_known_institutions: refSchema({ dehydratedInstitutionArray }),
 		orcid: {
-			type: ["string", "null"]
+			type: "string"
 		},
 		summary_stats: refSchema({ summary_stats }),
 		updated_date: {

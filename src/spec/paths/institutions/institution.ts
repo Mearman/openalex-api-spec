@@ -3,10 +3,10 @@ import { select } from "~/spec/components/parameters/select";
 import { institutionGet200Response } from "~/spec/components/responses/institutionGet200Response";
 
 const singleInstitutionResponse = {
-	"200": refResponse({institutionGet200Response})
-} satisfies ResponsesObject
+	"200": refResponse({ institution: institutionGet200Response }),
+} satisfies ResponsesObject;
 
-const tags = ["single"]
+const tags = ["single"];
 
 const getInstitutionById: PathItemObject = {
 	get: {
@@ -21,7 +21,7 @@ const getInstitutionById: PathItemObject = {
 					type: "string",
 				},
 			},
-			refParameter({select}),
+			refParameter({ select }),
 		],
 		responses: singleInstitutionResponse,
 		summary: "/institutions/{id}",
@@ -33,14 +33,12 @@ const getRandomInstitution: PathItemObject = {
 	get: {
 		description: "Get a random institution",
 		operationId: "getRandomInstitution",
-		parameters: [
-			refParameter({select}),
-		],
+		parameters: [refParameter({ select })],
 		responses: singleInstitutionResponse,
 		summary: "/institutions/random",
 		tags: tags.concat(["random"]),
 	},
-}
+};
 
 export const institution = {
 	"/institutions/{id}": getInstitutionById,

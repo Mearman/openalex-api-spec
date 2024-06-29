@@ -4,9 +4,10 @@ import { group_by_result } from "~/spec/components/schemas/system/group_by_resul
 import { meta } from "~/spec/components/schemas/system/meta";
 
 export const conceptsResponseSchema: SchemaObject = {
+	type: "object",
 	properties: {
 		group_by: refSchema({ group_by_result }),
 		meta: refSchema({ meta }),
-		results: refSchema({ conceptsArray }),
+		results: refSchema({ conceptArray: conceptsArray }),
 	},
 };

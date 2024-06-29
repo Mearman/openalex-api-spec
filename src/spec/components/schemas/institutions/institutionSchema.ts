@@ -20,7 +20,7 @@ export const institutionSchema: SchemaObject = {
 			type: "integer",
 		},
 		country_code: {
-			type: ["string", "null"]
+			type: "string"
 		},
 		counts_by_year: refSchema({ countsByYear }),
 		created_date: {
@@ -50,10 +50,10 @@ export const institutionSchema: SchemaObject = {
 		},
 		ids: refSchema({ ids }),
 		image_thumbnail_url: {
-			type: ["string", "null"]
+			type: "string"
 		},
 		image_url: {
-			type: ["string", "null"]
+			type: "string"
 		},
 		international: refSchema({ international_display_name }),
 		lineage: {

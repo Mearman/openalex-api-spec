@@ -4,7 +4,7 @@ import { authorsResponseSchema } from "~/spec/components/schemas/authors/authors
 export const authorsGet200: ResponseObject = {
 	content: {
 		"application/json": {
-			schema: refSchema({ authorsResponseSchema }),
+			schema: refSchema({ authors: authorsResponseSchema }),
 		},
 	},
 	description: "Authors List Response",

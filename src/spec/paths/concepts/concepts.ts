@@ -9,7 +9,7 @@ export const getConcepts = {
 			operationId: "getConcepts",
 			parameters: defaultListParameters,
 			responses: {
-				"200": refResponse({ conceptsGet200Response }),
+				"200": refResponse({ concepts: conceptsGet200Response }),
 			},
 
 			summary: "/concepts",

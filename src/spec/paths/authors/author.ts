@@ -7,7 +7,7 @@ const links: Record<string, LinkObject> = {
 		operationId: "getInstitution",
 		parameters: {
 			id: "$response.body#/last_known_institution/id",
-		}
+		},
 	},
 };
 
@@ -22,7 +22,7 @@ let authorIdParam = {
 } satisfies ParameterObject;
 
 const singleAuthorResponse = {
-	"200": refResponse({authorGet200})
+	"200": refResponse({ authorGet200 }),
 } satisfies ResponsesObject;
 
 const tags = ["single"];
@@ -30,10 +30,7 @@ const authorById = {
 	get: {
 		description: "Get a single author by id",
 		operationId: "getAuthor",
-		parameters: [
-			refParameter({authorIdParam}),
-			refParameter({select}),
-		],
+		parameters: [refParameter({ authorIdParam }), refParameter({ select })],
 		responses: singleAuthorResponse,
 		summary: "Get Author",
 		tags,
@@ -44,16 +41,14 @@ const randomAuthor = {
 	get: {
 		description: "Get a random author",
 		operationId: "getRandomAuthor",
-		parameters: [
-			refParameter({select}),
-		],
+		parameters: [refParameter({ select })],
 		responses: singleAuthorResponse,
 		summary: "Get Random Author",
 		tags: tags.concat(["random"]),
-	}
+	},
 } satisfies PathItemObject;
 
 export const author = {
 	"/authors/{id}": authorById,
-	"/authors/random": randomAuthor
+	"/authors/random": randomAuthor,
 } satisfies PathsObject;

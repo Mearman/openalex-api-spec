@@ -1,6 +1,6 @@
 export const location: SchemaObject = {
 	additionalProperties: false,
-	type: ["object", "null"],
+	type: "object",
 	properties: {
 		is_accepted: {
 			type: "boolean",
@@ -12,16 +12,16 @@ export const location: SchemaObject = {
 			type: "boolean",
 		},
 		landing_page_url: {
-			type: ["string", "null"],
+			type: "string",
 		},
 		license: {
-			type: ["string", "null"],
+			type: "string",
 		},
 		pdf_url: {
-			type: ["string", "null"],
+			type: "string",
 		},
 		source: {
-			type: ["object", "null"],
+			type: "object",
 			properties: {
 				id: {
 					type: "string",
@@ -30,10 +30,10 @@ export const location: SchemaObject = {
 					type: "string",
 				},
 				issn_l: {
-					type: ["string", "null"]
+					type: "string",
 				},
 				issn: {
-					type: ["array", "null"],
+					type: "array",
 					items: {
 						type: "string",
 					},
@@ -45,10 +45,10 @@ export const location: SchemaObject = {
 					type: "boolean",
 				},
 				host_organization: {
-					type: ["string", "null"]
+					type: "string",
 				},
 				host_organization_name: {
-					type: ["string", "null"]
+					type: "string",
 				},
 				host_organization_lineage: {
 					type: "array",
@@ -65,10 +65,10 @@ export const location: SchemaObject = {
 				type: {
 					type: "string",
 				},
-			}
+			},
 		},
 		version: {
-			type: ["string", "null"],
+			type: "string",
 		},
-	}
+	},
 } satisfies SchemaObject;

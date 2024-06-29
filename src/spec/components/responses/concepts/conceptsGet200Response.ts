@@ -4,7 +4,7 @@ import { conceptsResponseSchema } from "~/spec/components/schemas/concepts/conce
 export const conceptsGet200Response: ResponseObject = {
 	content: {
 		"application/json": {
-			schema: refSchema({ conceptsResponseSchema }),
+			schema: refSchema({ concepts: conceptsResponseSchema }),
 		},
 	},
 	description: "Concepts List",
