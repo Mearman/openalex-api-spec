@@ -32,7 +32,7 @@ entity Author {
     x_concepts: OasAnyTypeNotMapped
 }
 
-entity AuthorsResponseSchema {
+entity Authors {
     * group_by: OasAnyTypeNotMapped
     * meta: Meta
     results: OasAnyTypeNotMapped
@@ -86,28 +86,7 @@ entity ConceptIds {
     wikipedia: OasAnyTypeNotMapped
 }
 
-entity ConceptSchema {
-    ancestors: OasAnyTypeNotMapped
-    cited_by_count: OasAnyTypeNotMapped
-    counts_by_year: OasAnyTypeNotMapped
-    created_date: OasAnyTypeNotMapped
-    description: OasAnyTypeNotMapped
-    * display_name: OasAnyTypeNotMapped
-    * id: OasAnyTypeNotMapped
-    ids: ConceptIds
-    image_thumbnail_url: OasAnyTypeNotMapped
-    image_url: OasAnyTypeNotMapped
-    international: InternationalDisplayNameAndDescription
-    level: OasAnyTypeNotMapped
-    related_concepts: OasAnyTypeNotMapped
-    summary_stats: SummaryStats
-    updated_date: OasAnyTypeNotMapped
-    wikidata: OasAnyTypeNotMapped
-    works_api_url: OasAnyTypeNotMapped
-    works_count: OasAnyTypeNotMapped
-}
-
-entity ConceptsResponseSchema {
+entity Concepts {
     group_by: OasAnyTypeNotMapped
     meta: Meta
     results: OasAnyTypeNotMapped
@@ -130,9 +109,61 @@ entity DehydratedInstitution {
     type: OasAnyTypeNotMapped
 }
 
+entity Domain {
+    * cited_by_count: OasAnyTypeNotMapped
+    * created_date: OasAnyTypeNotMapped
+    * description: OasAnyTypeNotMapped
+    * display_name: OasAnyTypeNotMapped
+    * display_name_alternatives: OasAnyTypeNotMapped
+    * fields: TopicLevelArraySchema
+    * id: OasAnyTypeNotMapped
+    * ids: Ids
+    * siblings: TopicLevelArraySchema
+    * updated_date: OasAnyTypeNotMapped
+    * works_api_url: OasAnyTypeNotMapped
+    * works_count: OasAnyTypeNotMapped
+}
+
 entity ErrorMessage {
     * error: OasAnyTypeNotMapped
     * message: OasAnyTypeNotMapped
+}
+
+entity Field {
+    * cited_by_count: OasAnyTypeNotMapped
+    * created_date: OasAnyTypeNotMapped
+    * description: OasAnyTypeNotMapped
+    * display_name: OasAnyTypeNotMapped
+    * display_name_alternatives: OasAnyTypeNotMapped
+    * domain: TopicLevelSchema
+    * id: OasAnyTypeNotMapped
+    * ids: Ids
+    * siblings: TopicLevelArraySchema
+    * subfields: TopicLevelArraySchema
+    * updated_date: OasAnyTypeNotMapped
+    * works_api_url: OasAnyTypeNotMapped
+    * works_count: OasAnyTypeNotMapped
+}
+
+entity Funder {
+    * alternate_titles: OasAnyTypeNotMapped
+    cited_by_count: OasAnyTypeNotMapped
+    country_code: OasAnyTypeNotMapped
+    counts_by_year: OasAnyTypeNotMapped
+    created_date: OasAnyTypeNotMapped
+    description: OasAnyTypeNotMapped
+    * display_name: OasAnyTypeNotMapped
+    grants_count: OasAnyTypeNotMapped
+    homepage_url: OasAnyTypeNotMapped
+    * id: OasAnyTypeNotMapped
+    ids: Ids
+    image_thumbnail_url: OasAnyTypeNotMapped
+    image_url: OasAnyTypeNotMapped
+    relevance_score: OasAnyTypeNotMapped
+    roles: OasAnyTypeNotMapped
+    summary_stats: SummaryStats
+    updated_date: OasAnyTypeNotMapped
+    works_count: OasAnyTypeNotMapped
 }
 
 entity FunderSchema {
@@ -190,6 +221,34 @@ entity Ids {
     wikipedia: OasAnyTypeNotMapped
 }
 
+entity Institution {
+    associated_institutions: OasAnyTypeNotMapped
+    cited_by_count: OasAnyTypeNotMapped
+    country_code: OasAnyTypeNotMapped
+    counts_by_year: OasAnyTypeNotMapped
+    created_date: OasAnyTypeNotMapped
+    * display_name: OasAnyTypeNotMapped
+    display_name_acronyms: OasAnyTypeNotMapped
+    display_name_alternatives: OasAnyTypeNotMapped
+    geo: Geo
+    homepage_url: OasAnyTypeNotMapped
+    * id: OasAnyTypeNotMapped
+    ids: Ids
+    image_thumbnail_url: OasAnyTypeNotMapped
+    image_url: OasAnyTypeNotMapped
+    international: InternationalDisplayName
+    lineage: OasAnyTypeNotMapped
+    repositories: OasAnyTypeNotMapped
+    roles: OasAnyTypeNotMapped
+    ror: OasAnyTypeNotMapped
+    summary_stats: SummaryStats
+    type: OasAnyTypeNotMapped
+    updated_date: OasAnyTypeNotMapped
+    works_api_url: OasAnyTypeNotMapped
+    works_count: OasAnyTypeNotMapped
+    x_concepts: OasAnyTypeNotMapped
+}
+
 entity InstitutionSchema {
     associated_institutions: OasAnyTypeNotMapped
     cited_by_count: OasAnyTypeNotMapped
@@ -218,7 +277,7 @@ entity InstitutionSchema {
     x_concepts: OasAnyTypeNotMapped
 }
 
-entity InstitutionsResponseSchema {
+entity Institutions {
     * group_by: OasAnyTypeNotMapped
     * meta: Meta
     results: OasAnyTypeNotMapped
@@ -543,10 +602,42 @@ entity NgramMeta {
     * openalex_id: OasAnyTypeNotMapped
 }
 
-entity PersonResponseSchema {
+entity Ngrams {
+    meta: NgramMeta
+    ngrams: OasAnyTypeNotMapped
+}
+
+entity Person {
     * display_name: OasAnyTypeNotMapped
     * id: OasAnyTypeNotMapped
     * orcid: OasAnyTypeNotMapped
+}
+
+entity Publisher {
+    alternate_titles: OasAnyTypeNotMapped
+    cited_by_count: OasAnyTypeNotMapped
+    country_codes: OasAnyTypeNotMapped
+    counts_by_year: OasAnyTypeNotMapped
+    created_date: OasAnyTypeNotMapped
+    * display_name: OasAnyTypeNotMapped
+    hierarchy_level: OasAnyTypeNotMapped
+    homepage_url: OasAnyTypeNotMapped
+    * id: OasAnyTypeNotMapped
+    ids: Ids
+    image_thumbnail_url: OasAnyTypeNotMapped
+    image_url: OasAnyTypeNotMapped
+    lineage: OasAnyTypeNotMapped
+    parent_publisher: PublisherParentPublisher
+    roles: OasAnyTypeNotMapped
+    sources_api_url: OasAnyTypeNotMapped
+    summary_stats: SummaryStats
+    updated_date: OasAnyTypeNotMapped
+    works_count: OasAnyTypeNotMapped
+}
+
+entity PublisherParentPublisher {
+    display_name: OasAnyTypeNotMapped
+    id: OasAnyTypeNotMapped
 }
 
 entity PublisherSchema {
@@ -563,7 +654,7 @@ entity PublisherSchema {
     image_thumbnail_url: OasAnyTypeNotMapped
     image_url: OasAnyTypeNotMapped
     lineage: OasAnyTypeNotMapped
-    parent_publisher: PublisherSchemaParentPublisher
+    parent_publisher: PublisherParentPublisher
     roles: OasAnyTypeNotMapped
     sources_api_url: OasAnyTypeNotMapped
     summary_stats: SummaryStats
@@ -571,12 +662,7 @@ entity PublisherSchema {
     works_count: OasAnyTypeNotMapped
 }
 
-entity PublisherSchemaParentPublisher {
-    display_name: OasAnyTypeNotMapped
-    id: OasAnyTypeNotMapped
-}
-
-entity PublishersResponseSchema {
+entity Publishers {
     * group_by: OasAnyTypeNotMapped
     * meta: Meta
     * results: OasAnyTypeNotMapped
@@ -592,6 +678,35 @@ entity RootResponseSchema {
     * documentation_url: OasAnyTypeNotMapped
     * msg: OasAnyTypeNotMapped
     * version: OasAnyTypeNotMapped
+}
+
+entity Source {
+    abbreviated_title: OasAnyTypeNotMapped
+    alternate_titles: OasAnyTypeNotMapped
+    apc_prices: Map
+    apc_usd: OasAnyTypeNotMapped
+    cited_by_count: OasAnyTypeNotMapped
+    country_code: OasAnyTypeNotMapped
+    counts_by_year: OasAnyTypeNotMapped
+    created_date: OasAnyTypeNotMapped
+    * display_name: OasAnyTypeNotMapped
+    homepage_url: OasAnyTypeNotMapped
+    host_organization: OasAnyTypeNotMapped
+    host_organization_lineage: OasAnyTypeNotMapped
+    host_organization_name: OasAnyTypeNotMapped
+    * id: OasAnyTypeNotMapped
+    ids: Ids
+    is_in_doaj: OasAnyTypeNotMapped
+    is_oa: OasAnyTypeNotMapped
+    issn: OasAnyTypeNotMapped
+    issn_l: OasAnyTypeNotMapped
+    societies: OasAnyTypeNotMapped
+    summary_stats: SummaryStats
+    type: OasAnyTypeNotMapped
+    updated_date: OasAnyTypeNotMapped
+    works_api_url: OasAnyTypeNotMapped
+    works_count: OasAnyTypeNotMapped
+    x_concepts: OasAnyTypeNotMapped
 }
 
 entity SourceSchema {
@@ -623,10 +738,27 @@ entity SourceSchema {
     x_concepts: OasAnyTypeNotMapped
 }
 
-entity SourcesArray {
+entity Sources {
     group_by: OasAnyTypeNotMapped
     meta: Meta
     results: OasAnyTypeNotMapped
+}
+
+entity Subfield {
+    * cited_by_count: OasAnyTypeNotMapped
+    * created_date: OasAnyTypeNotMapped
+    * description: OasAnyTypeNotMapped
+    * display_name: OasAnyTypeNotMapped
+    * display_name_alternatives: OasAnyTypeNotMapped
+    * domain: TopicLevelSchema
+    * field: TopicLevelSchema
+    * id: OasAnyTypeNotMapped
+    * ids: Ids
+    * siblings: TopicLevelArraySchema
+    * topics: OasAnyTypeNotMapped
+    * updated_date: OasAnyTypeNotMapped
+    * works_api_url: OasAnyTypeNotMapped
+    * works_count: OasAnyTypeNotMapped
 }
 
 entity SummaryStats {
@@ -635,24 +767,58 @@ entity SummaryStats {
     * i10_index: OasAnyTypeNotMapped
 }
 
-entity WorkAttributes {
+entity Topic {
+    * cited_by_count: OasAnyTypeNotMapped
+    * created_date: OasAnyTypeNotMapped
+    * description: OasAnyTypeNotMapped
+    * display_name: OasAnyTypeNotMapped
+    * domain: TopicLevelArraySchema
+    * field: TopicLevelArraySchema
+    * id: OasAnyTypeNotMapped
+    * ids: Ids
+    * keywords: OasAnyTypeNotMapped
+    * siblings: TopicLevelSchema
+    * subfield: TopicLevelArraySchema
+    * updated_date: OasAnyTypeNotMapped
+    * works_count: OasAnyTypeNotMapped
 }
 
-entity WorkNgramsSchema {
-    meta: NgramMeta
-    ngrams: OasAnyTypeNotMapped
+entity TopicLevelArraySchema {
+    siblings: OasAnyTypeNotMapped
 }
 
-entity WorkSchema {
+entity TopicLevelSchema {
+    * display_name: OasAnyTypeNotMapped
+    * id: TopicLevelSchemaId
+}
+
+entity TopicLevelSchemaId {
+}
+
+entity Topics {
+    * group_by: OasAnyTypeNotMapped
+    * meta: TopicsMeta
+    results: OasAnyTypeNotMapped
+}
+
+entity TopicsMeta {
+    * count: OasAnyTypeNotMapped
+    * db_response_time_ms: OasAnyTypeNotMapped
+    * groups_count: OasAnyTypeNotMapped
+    * page: OasAnyTypeNotMapped
+    * per_page: OasAnyTypeNotMapped
+}
+
+entity Work {
     abstract_inverted_index: OasAnyTypeNotMapped
     apc_list: Apc
     apc_paid: Apc
     authorships: OasAnyTypeNotMapped
     best_oa_location: Location
-    biblio: WorkSchemaBiblio
+    biblio: WorkBiblio
     cited_by_api_url: OasAnyTypeNotMapped
     cited_by_count: OasAnyTypeNotMapped
-    cited_by_percentile_year: WorkSchemaCitedByPercentileYear
+    cited_by_percentile_year: WorkCitedByPercentileYear
     concepts: OasAnyTypeNotMapped
     corresponding_author_ids: OasAnyTypeNotMapped
     corresponding_institution_ids: OasAnyTypeNotMapped
@@ -674,7 +840,7 @@ entity WorkSchema {
     locations_count: OasAnyTypeNotMapped
     mesh: OasAnyTypeNotMapped
     ngrams_url: OasAnyTypeNotMapped
-    open_access: WorkSchemaOpenAccess
+    open_access: WorkOpenAccess
     primary_location: Location
     publication_date: OasAnyTypeNotMapped
     publication_year: OasAnyTypeNotMapped
@@ -688,73 +854,155 @@ entity WorkSchema {
     updated_date: OasAnyTypeNotMapped
 }
 
-entity WorkSchemaBiblio {
+entity WorkAttributes {
+}
+
+entity WorkBiblio {
     first_page: OasAnyTypeNotMapped
     issue: OasAnyTypeNotMapped
     last_page: OasAnyTypeNotMapped
     volume: OasAnyTypeNotMapped
 }
 
-entity WorkSchemaCitedByPercentileYear {
+entity WorkCitedByPercentileYear {
     * max: OasAnyTypeNotMapped
     * min: OasAnyTypeNotMapped
 }
 
-entity WorkSchemaOpenAccess {
+entity WorkOpenAccess {
     * any_repository_has_fulltext: OasAnyTypeNotMapped
     * is_oa: OasAnyTypeNotMapped
     * oa_status: OasAnyTypeNotMapped
     * oa_url: OasAnyTypeNotMapped
 }
 
-entity WorksResponseSchema {
+entity WorkSchema {
+    abstract_inverted_index: OasAnyTypeNotMapped
+    apc_list: Apc
+    apc_paid: Apc
+    authorships: OasAnyTypeNotMapped
+    best_oa_location: Location
+    biblio: WorkBiblio
+    cited_by_api_url: OasAnyTypeNotMapped
+    cited_by_count: OasAnyTypeNotMapped
+    cited_by_percentile_year: WorkCitedByPercentileYear
+    concepts: OasAnyTypeNotMapped
+    corresponding_author_ids: OasAnyTypeNotMapped
+    corresponding_institution_ids: OasAnyTypeNotMapped
+    countries_distinct_count: OasAnyTypeNotMapped
+    counts_by_year: OasAnyTypeNotMapped
+    created_date: OasAnyTypeNotMapped
+    * display_name: OasAnyTypeNotMapped
+    doi: OasAnyTypeNotMapped
+    grants: OasAnyTypeNotMapped
+    has_fulltext: OasAnyTypeNotMapped
+    * id: OasAnyTypeNotMapped
+    ids: Ids
+    institutions_distinct_count: OasAnyTypeNotMapped
+    is_paratext: OasAnyTypeNotMapped
+    is_retracted: OasAnyTypeNotMapped
+    keywords: OasAnyTypeNotMapped
+    language: OasAnyTypeNotMapped
+    locations: OasAnyTypeNotMapped
+    locations_count: OasAnyTypeNotMapped
+    mesh: OasAnyTypeNotMapped
+    ngrams_url: OasAnyTypeNotMapped
+    open_access: WorkOpenAccess
+    primary_location: Location
+    publication_date: OasAnyTypeNotMapped
+    publication_year: OasAnyTypeNotMapped
+    referenced_works: OasAnyTypeNotMapped
+    referenced_works_count: OasAnyTypeNotMapped
+    related_works: OasAnyTypeNotMapped
+    sustainable_development_goals: OasAnyTypeNotMapped
+    title: OasAnyTypeNotMapped
+    type: OasAnyTypeNotMapped
+    type_crossref: OasAnyTypeNotMapped
+    updated_date: OasAnyTypeNotMapped
+}
+
+entity WorksResponse {
     group_by: OasAnyTypeNotMapped
     * meta: Meta
     * results: OasAnyTypeNotMapped
 }
 
 
+Authors -- Meta : meta
+AutoCompleteResultSchema -- Meta : meta
+Institution -- Geo : geo
+Institution -- Ids : ids
+Institution -- InternationalDisplayName : international
+Institution -- SummaryStats : summary_stats
+Institutions -- Meta : meta
+Ngrams -- NgramMeta : meta
+FunderSchema -- Ids : ids
+FunderSchema -- SummaryStats : summary_stats
+TopicLevelSchema -- TopicLevelSchemaId : id
+Work -- Apc : apc_list
+Work -- Apc : apc_paid
+Work -- Location : best_oa_location
+Work -- WorkBiblio : biblio
+Work -- WorkCitedByPercentileYear : cited_by_percentile_year
+Work -- Ids : ids
+Work -- WorkOpenAccess : open_access
+Work -- Location : primary_location
+InternationalDescription -- Internationalisation : description
+Subfield -- TopicLevelSchema : domain
+Subfield -- TopicLevelSchema : field
+Subfield -- Ids : ids
+Subfield -- TopicLevelArraySchema : siblings
+Concept -- ConceptIds : ids
+Concept -- InternationalDisplayNameAndDescription : international
+Concept -- SummaryStats : summary_stats
+WorksResponse -- Meta : meta
+Sources -- Meta : meta
+Concepts -- Meta : meta
+InternationalDisplayName -- Internationalisation : display_name
+Author -- Ids : ids
+Author -- DehydratedInstitution : last_known_institution
+Author -- SummaryStats : summary_stats
+Domain -- TopicLevelArraySchema : fields
+Domain -- Ids : ids
+Domain -- TopicLevelArraySchema : siblings
+FundersArray -- Meta : meta
 SourceSchema -- Ids : ids
 SourceSchema -- SummaryStats : summary_stats
-AuthorsResponseSchema -- Meta : meta
+Funder -- Ids : ids
+Funder -- SummaryStats : summary_stats
 InstitutionSchema -- Geo : geo
 InstitutionSchema -- Ids : ids
 InstitutionSchema -- InternationalDisplayName : international
 InstitutionSchema -- SummaryStats : summary_stats
-AutoCompleteResultSchema -- Meta : meta
-PublishersResponseSchema -- Meta : meta
-ConceptSchema -- ConceptIds : ids
-ConceptSchema -- InternationalDisplayNameAndDescription : international
-ConceptSchema -- SummaryStats : summary_stats
-FunderSchema -- Ids : ids
-FunderSchema -- SummaryStats : summary_stats
+Source -- Ids : ids
+Source -- SummaryStats : summary_stats
+Field -- TopicLevelSchema : domain
+Field -- Ids : ids
+Field -- TopicLevelArraySchema : siblings
+Field -- TopicLevelArraySchema : subfields
+Publishers -- Meta : meta
 PublisherSchema -- Ids : ids
-PublisherSchema -- PublisherSchemaParentPublisher : parent_publisher
+PublisherSchema -- PublisherParentPublisher : parent_publisher
 PublisherSchema -- SummaryStats : summary_stats
 WorkSchema -- Apc : apc_list
 WorkSchema -- Apc : apc_paid
 WorkSchema -- Location : best_oa_location
-WorkSchema -- WorkSchemaBiblio : biblio
-WorkSchema -- WorkSchemaCitedByPercentileYear : cited_by_percentile_year
+WorkSchema -- WorkBiblio : biblio
+WorkSchema -- WorkCitedByPercentileYear : cited_by_percentile_year
 WorkSchema -- Ids : ids
-WorkSchema -- WorkSchemaOpenAccess : open_access
+WorkSchema -- WorkOpenAccess : open_access
 WorkSchema -- Location : primary_location
-InternationalDescription -- Internationalisation : description
-SourcesArray -- Meta : meta
-Concept -- ConceptIds : ids
-Concept -- InternationalDisplayNameAndDescription : international
-Concept -- SummaryStats : summary_stats
-WorksResponseSchema -- Meta : meta
-ConceptsResponseSchema -- Meta : meta
-InstitutionsResponseSchema -- Meta : meta
-InternationalDisplayName -- Internationalisation : display_name
-WorkNgramsSchema -- NgramMeta : meta
-Author -- Ids : ids
-Author -- DehydratedInstitution : last_known_institution
-Author -- SummaryStats : summary_stats
+Topic -- TopicLevelArraySchema : domain
+Topic -- TopicLevelArraySchema : field
+Topic -- Ids : ids
+Topic -- TopicLevelSchema : siblings
+Topic -- TopicLevelArraySchema : subfield
+Topics -- TopicsMeta : meta
+Publisher -- Ids : ids
+Publisher -- PublisherParentPublisher : parent_publisher
+Publisher -- SummaryStats : summary_stats
 InternationalDisplayNameAndDescription -- InternationalDescription : description
 InternationalDisplayNameAndDescription -- InternationalDisplayName : display_name
-FundersArray -- Meta : meta
 Location -- LocationSource : source
 
 @enduml

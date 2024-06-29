@@ -17,7 +17,7 @@
 			"url": "https://creativecommons.org/publicdomain/zero/1.0/"
 		},
 		"title": "OpenAlex",
-		"version": "0.2.3"
+		"version": "0.2.4"
 	},
 	"openapi": "3.0.3",
 	"paths": {
