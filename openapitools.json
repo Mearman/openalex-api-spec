@@ -50,6 +50,11 @@
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/documentation/markdown"
 			},
+			"mysql": {
+				"generatorName": "mysql-schema",
+				"glob": "generated/openapi.json",
+				"output": "#{cwd}/generated/schemas/mysql"
+			},
 			"nodejs-express-server": {
 				"additionalProperties": {
 					"npmName": "openalex-api"
@@ -131,8 +136,11 @@
 			},
 			"typescript-fetch": {
 				"additionalProperties": {
-					"npmName": "openalex"
+					"npmName": "openalex",
+					"supportsES6": true,
+					"withInterfaces": true
 				},
+				"generateAliasAsModel": true,
 				"generatorName": "typescript-fetch",
 				"gitHost": "github.com",
 				"gitRepoId": "openalex-typescript-fetch",
@@ -151,11 +159,6 @@
 				"gitUserId": "Mearman",
 				"glob": "generated/openapi.json",
 				"output": "#{cwd}/generated/clients/typescript-node"
-			},
-			"mysql": {
-				"generatorName": "mysql-schema",
-				"glob": "generated/openapi.json",
-				"output": "#{cwd}/generated/schemas/mysql"
 			}
 		},
 		"version": "7.2.0"
