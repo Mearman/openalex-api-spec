@@ -3,7 +3,6 @@ import { per_page } from "~/spec/components/parameters/per_page";
 import { ids } from "~/spec/components/schemas/ids";
 import { topicLevelArraySchema } from "~/spec/components/schemas/topicLevelArraySchema";
 import { topicLevelSchema } from "~/spec/components/schemas/topicLevelSchema";
-import { addTagsOperation, modifyOperationsInPaths } from "~/spec/paths";
 import { responseHeaders } from "../../components/headers/headers";
 import { idParam } from "../../components/parameters/idParam";
 
@@ -73,25 +72,22 @@ const fieldResponse = {
 	description: "",
 	headers: responseHeaders,
 };
-export const getFieldById = modifyOperationsInPaths(
-	{
-		"/field/{id}": {
-			get: {
-				description: "",
-				operationId: "getFieldById",
-				parameters: [
-					refParameter({ per_page }),
-					refParameter({
-						idParam,
-					}),
-				],
-				responses: {
-					"200": refResponse({ field: fieldResponse }),
-				},
-				security: [],
-				summary: "/fields/{id}",
+export const getFieldById: PathsObject = {
+	"/field/{id}": {
+		get: {
+			description: "",
+			operationId: "getFieldById",
+			parameters: [
+				refParameter({ per_page }),
+				refParameter({
+					idParam,
+				}),
+			],
+			responses: {
+				"200": refResponse({ field: fieldResponse }),
 			},
+			security: [],
+			summary: "/fields/{id}",
 		},
 	},
-	addTagsOperation(["topics", "multiple"])
-);
+};

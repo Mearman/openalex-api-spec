@@ -2,285 +2,333 @@
 
 title OpenAlex Schemas Diagram
 
+entity AffiliationsInner {
+    * institution: DehydratedInstitution
+    * years: List<Integer>
+}
+
 entity Apc {
-    * currency: OasAnyTypeNotMapped
-    * provenance: OasAnyTypeNotMapped
-    * value: OasAnyTypeNotMapped
-    * value_usd: OasAnyTypeNotMapped
+    * currency: String
+    * provenance: String
+    * value: Integer
+    * value_usd: Integer
+}
+
+entity ApcPricesInner {
+    * currency: String
+    * price: BigDecimal
 }
 
 entity AssociatedInstitution {
-    relationship: OasAnyTypeNotMapped
+    relationship: String
 }
 
 entity Author {
-    affiliations: OasAnyTypeNotMapped
-    cited_by_count: OasAnyTypeNotMapped
-    counts_by_year: OasAnyTypeNotMapped
-    created_date: OasAnyTypeNotMapped
-    * display_name: OasAnyTypeNotMapped
-    display_name_alternatives: OasAnyTypeNotMapped
-    * id: OasAnyTypeNotMapped
+    affiliations: List<AffiliationsInner>
+    cited_by_count: Integer
+    counts_by_year: List<CountsByYearInner>
+    created_date: String
+    * display_name: String
+    display_name_alternatives: List<String>
+    * id: String
     ids: Ids
     last_known_institution: DehydratedInstitution
-    last_known_institutions: OasAnyTypeNotMapped
-    orcid: OasAnyTypeNotMapped
+    last_known_institutions: List<DehydratedInstitution>
+    orcid: String
     summary_stats: SummaryStats
-    updated_date: OasAnyTypeNotMapped
-    works_api_url: OasAnyTypeNotMapped
-    works_count: OasAnyTypeNotMapped
-    x_concepts: OasAnyTypeNotMapped
+    updated_date: String
+    works_api_url: String
+    works_count: Integer
+    x_concepts: List<DehydratedConcept>
 }
 
 entity Authors {
-    * group_by: OasAnyTypeNotMapped
+    * group_by: List<GroupByResultInner>
     * meta: Meta
-    results: OasAnyTypeNotMapped
+    results: List<Author>
+}
+
+entity AuthorshipsInner {
+    * author: AuthorshipsInnerAuthor
+    * author_position: String
+    * countries: List<String>
+    * institutions: List<AuthorshipsInnerInstitutionsInner>
+    * is_corresponding: Boolean
+    raw_affiliation_string: String
+    * raw_affiliation_strings: List<String>
+    * raw_author_name: String
+}
+
+entity AuthorshipsInnerAuthor {
+    * display_name: String
+    * id: String
+    orcid: String
+}
+
+entity AuthorshipsInnerInstitutionsInner {
+    * country_code: String
+    * display_name: String
+    * id: String
+    * lineage: List<String>
+    * ror: String
+    * type: String
 }
 
 entity AutoCompleteResultItem {
-    * cited_by_count: OasAnyTypeNotMapped
-    * display_name: OasAnyTypeNotMapped
-    * entity_type: OasAnyTypeNotMapped
-    * external_id: OasAnyTypeNotMapped
-    * filter_key: OasAnyTypeNotMapped
-    * hint: OasAnyTypeNotMapped
-    * id: OasAnyTypeNotMapped
-    * works_count: OasAnyTypeNotMapped
+    * cited_by_count: Integer
+    * display_name: String
+    * entity_type: String
+    * external_id: String
+    * filter_key: String
+    * hint: String
+    * id: String
+    * works_count: Integer
 }
 
 entity AutoCompleteResultSchema {
     * meta: Meta
-    * results: OasAnyTypeNotMapped
+    * results: List<AutoCompleteResultItem>
 }
 
 entity BaseSelectionAttributes {
 }
 
 entity Concept {
-    ancestors: OasAnyTypeNotMapped
-    cited_by_count: OasAnyTypeNotMapped
-    counts_by_year: OasAnyTypeNotMapped
-    created_date: OasAnyTypeNotMapped
-    description: OasAnyTypeNotMapped
-    * display_name: OasAnyTypeNotMapped
-    * id: OasAnyTypeNotMapped
+    ancestors: List<DehydratedConcept>
+    cited_by_count: Integer
+    counts_by_year: List<CountsByYearInner>
+    created_date: String
+    description: String
+    * display_name: String
+    * id: String
     ids: ConceptIds
-    image_thumbnail_url: OasAnyTypeNotMapped
-    image_url: OasAnyTypeNotMapped
+    image_thumbnail_url: String
+    image_url: String
     international: InternationalDisplayNameAndDescription
-    level: OasAnyTypeNotMapped
-    related_concepts: OasAnyTypeNotMapped
+    level: Integer
+    related_concepts: List<DehydratedConcept>
     summary_stats: SummaryStats
-    updated_date: OasAnyTypeNotMapped
-    wikidata: OasAnyTypeNotMapped
-    works_api_url: OasAnyTypeNotMapped
-    works_count: OasAnyTypeNotMapped
+    updated_date: String
+    wikidata: String
+    works_api_url: String
+    works_count: Integer
 }
 
 entity ConceptIds {
-    mag: OasAnyTypeNotMapped
-    * openalex: OasAnyTypeNotMapped
-    umls_cui: OasAnyTypeNotMapped
-    wikidata: OasAnyTypeNotMapped
-    wikipedia: OasAnyTypeNotMapped
+    mag: String
+    * openalex: String
+    umls_cui: List<String>
+    wikidata: String
+    wikipedia: String
 }
 
 entity Concepts {
-    group_by: OasAnyTypeNotMapped
+    group_by: List<GroupByResultInner>
     meta: Meta
-    results: OasAnyTypeNotMapped
+    results: List<Concept>
+}
+
+entity CountsByYearInner {
+    * cited_by_count: Integer
+    works_count: Integer
+    * year: Integer
 }
 
 entity DehydratedConcept {
-    * display_name: OasAnyTypeNotMapped
-    * id: OasAnyTypeNotMapped
-    level: OasAnyTypeNotMapped
-    score: OasAnyTypeNotMapped
-    wikidata: OasAnyTypeNotMapped
+    * display_name: String
+    * id: String
+    level: Integer
+    score: BigDecimal
+    wikidata: String
 }
 
 entity DehydratedInstitution {
-    country_code: OasAnyTypeNotMapped
-    display_name: OasAnyTypeNotMapped
-    id: OasAnyTypeNotMapped
-    lineage: OasAnyTypeNotMapped
-    ror: OasAnyTypeNotMapped
-    type: OasAnyTypeNotMapped
+    country_code: String
+    display_name: String
+    id: String
+    lineage: List<String>
+    ror: String
+    type: String
 }
 
 entity Domain {
-    * cited_by_count: OasAnyTypeNotMapped
-    * created_date: OasAnyTypeNotMapped
-    * description: OasAnyTypeNotMapped
-    * display_name: OasAnyTypeNotMapped
-    * display_name_alternatives: OasAnyTypeNotMapped
+    * cited_by_count: Integer
+    * created_date: String
+    * description: String
+    * display_name: String
+    * display_name_alternatives: List<String>
     * fields: TopicLevelArraySchema
-    * id: OasAnyTypeNotMapped
+    * id: String
     * ids: Ids
     * siblings: TopicLevelArraySchema
-    * updated_date: OasAnyTypeNotMapped
-    * works_api_url: OasAnyTypeNotMapped
-    * works_count: OasAnyTypeNotMapped
+    * updated_date: String
+    * works_api_url: String
+    * works_count: Integer
 }
 
 entity ErrorMessage {
-    * error: OasAnyTypeNotMapped
-    * message: OasAnyTypeNotMapped
+    * error: String
+    * message: String
 }
 
 entity Field {
-    * cited_by_count: OasAnyTypeNotMapped
-    * created_date: OasAnyTypeNotMapped
-    * description: OasAnyTypeNotMapped
-    * display_name: OasAnyTypeNotMapped
-    * display_name_alternatives: OasAnyTypeNotMapped
+    * cited_by_count: Integer
+    * created_date: String
+    * description: String
+    * display_name: String
+    * display_name_alternatives: List<String>
     * domain: TopicLevelSchema
-    * id: OasAnyTypeNotMapped
+    * id: String
     * ids: Ids
     * siblings: TopicLevelArraySchema
     * subfields: TopicLevelArraySchema
-    * updated_date: OasAnyTypeNotMapped
-    * works_api_url: OasAnyTypeNotMapped
-    * works_count: OasAnyTypeNotMapped
+    * updated_date: String
+    * works_api_url: String
+    * works_count: Integer
 }
 
 entity Funder {
-    * alternate_titles: OasAnyTypeNotMapped
-    cited_by_count: OasAnyTypeNotMapped
-    country_code: OasAnyTypeNotMapped
-    counts_by_year: OasAnyTypeNotMapped
-    created_date: OasAnyTypeNotMapped
-    description: OasAnyTypeNotMapped
-    * display_name: OasAnyTypeNotMapped
-    grants_count: OasAnyTypeNotMapped
-    homepage_url: OasAnyTypeNotMapped
-    * id: OasAnyTypeNotMapped
+    * alternate_titles: List<String>
+    cited_by_count: Integer
+    country_code: String
+    counts_by_year: List<CountsByYearInner>
+    created_date: String
+    description: String
+    * display_name: String
+    grants_count: Integer
+    homepage_url: String
+    * id: String
     ids: Ids
-    image_thumbnail_url: OasAnyTypeNotMapped
-    image_url: OasAnyTypeNotMapped
-    relevance_score: OasAnyTypeNotMapped
-    roles: OasAnyTypeNotMapped
+    image_thumbnail_url: String
+    image_url: String
+    relevance_score: BigDecimal
+    roles: List<Role>
     summary_stats: SummaryStats
-    updated_date: OasAnyTypeNotMapped
-    works_count: OasAnyTypeNotMapped
+    updated_date: String
+    works_count: Integer
 }
 
 entity FunderSchema {
-    * alternate_titles: OasAnyTypeNotMapped
-    cited_by_count: OasAnyTypeNotMapped
-    country_code: OasAnyTypeNotMapped
-    counts_by_year: OasAnyTypeNotMapped
-    created_date: OasAnyTypeNotMapped
-    description: OasAnyTypeNotMapped
-    * display_name: OasAnyTypeNotMapped
-    grants_count: OasAnyTypeNotMapped
-    homepage_url: OasAnyTypeNotMapped
-    * id: OasAnyTypeNotMapped
+    * alternate_titles: List<String>
+    cited_by_count: Integer
+    country_code: String
+    counts_by_year: List<CountsByYearInner>
+    created_date: String
+    description: String
+    * display_name: String
+    grants_count: Integer
+    homepage_url: String
+    * id: String
     ids: Ids
-    image_thumbnail_url: OasAnyTypeNotMapped
-    image_url: OasAnyTypeNotMapped
-    relevance_score: OasAnyTypeNotMapped
-    roles: OasAnyTypeNotMapped
+    image_thumbnail_url: String
+    image_url: String
+    relevance_score: BigDecimal
+    roles: List<Role>
     summary_stats: SummaryStats
-    updated_date: OasAnyTypeNotMapped
-    works_count: OasAnyTypeNotMapped
+    updated_date: String
+    works_count: Integer
 }
 
 entity FundersArray {
-    * group_by: OasAnyTypeNotMapped
+    * group_by: List<GroupByResultInner>
     * meta: Meta
-    results: OasAnyTypeNotMapped
+    results: List<FunderSchema>
 }
 
 entity Geo {
-    * city: OasAnyTypeNotMapped
-    * country: OasAnyTypeNotMapped
-    * country_code: OasAnyTypeNotMapped
-    * geonames_city_id: OasAnyTypeNotMapped
-    * latitude: OasAnyTypeNotMapped
-    * longitude: OasAnyTypeNotMapped
-    * region: OasAnyTypeNotMapped
+    * city: String
+    * country: String
+    * country_code: String
+    * geonames_city_id: String
+    * latitude: BigDecimal
+    * longitude: BigDecimal
+    * region: String
+}
+
+entity GroupByResultInner {
+    * count: Integer
+    * key: String
+    * key_display_name: String
 }
 
 entity Ids {
-    crossref: OasAnyTypeNotMapped
-    doi: OasAnyTypeNotMapped
-    fatcat: OasAnyTypeNotMapped
-    grid: OasAnyTypeNotMapped
-    issn: OasAnyTypeNotMapped
-    issn_l: OasAnyTypeNotMapped
-    mag: OasAnyTypeNotMapped
-    * openalex: OasAnyTypeNotMapped
-    orcid: OasAnyTypeNotMapped
-    pmcid: OasAnyTypeNotMapped
-    pmid: OasAnyTypeNotMapped
-    ror: OasAnyTypeNotMapped
-    scopus: OasAnyTypeNotMapped
-    wikidata: OasAnyTypeNotMapped
-    wikipedia: OasAnyTypeNotMapped
+    crossref: String
+    doi: String
+    fatcat: String
+    grid: String
+    issn: List<String>
+    issn_l: String
+    mag: String
+    * openalex: String
+    orcid: String
+    pmcid: String
+    pmid: String
+    ror: String
+    scopus: String
+    wikidata: String
+    wikipedia: String
 }
 
 entity Institution {
-    associated_institutions: OasAnyTypeNotMapped
-    cited_by_count: OasAnyTypeNotMapped
-    country_code: OasAnyTypeNotMapped
-    counts_by_year: OasAnyTypeNotMapped
-    created_date: OasAnyTypeNotMapped
-    * display_name: OasAnyTypeNotMapped
-    display_name_acronyms: OasAnyTypeNotMapped
-    display_name_alternatives: OasAnyTypeNotMapped
+    associated_institutions: List<AssociatedInstitution>
+    cited_by_count: Integer
+    country_code: String
+    counts_by_year: List<CountsByYearInner>
+    created_date: String
+    * display_name: String
+    display_name_acronyms: List<String>
+    display_name_alternatives: List<String>
     geo: Geo
-    homepage_url: OasAnyTypeNotMapped
-    * id: OasAnyTypeNotMapped
+    homepage_url: String
+    * id: String
     ids: Ids
-    image_thumbnail_url: OasAnyTypeNotMapped
-    image_url: OasAnyTypeNotMapped
+    image_thumbnail_url: String
+    image_url: String
     international: InternationalDisplayName
-    lineage: OasAnyTypeNotMapped
-    repositories: OasAnyTypeNotMapped
-    roles: OasAnyTypeNotMapped
-    ror: OasAnyTypeNotMapped
+    lineage: List<String>
+    repositories: List<RepositoriesArrayInner>
+    roles: List<Role>
+    ror: String
     summary_stats: SummaryStats
-    type: OasAnyTypeNotMapped
-    updated_date: OasAnyTypeNotMapped
-    works_api_url: OasAnyTypeNotMapped
-    works_count: OasAnyTypeNotMapped
-    x_concepts: OasAnyTypeNotMapped
+    type: String
+    updated_date: String
+    works_api_url: String
+    works_count: Integer
+    x_concepts: List<DehydratedConcept>
 }
 
 entity InstitutionSchema {
-    associated_institutions: OasAnyTypeNotMapped
-    cited_by_count: OasAnyTypeNotMapped
-    country_code: OasAnyTypeNotMapped
-    counts_by_year: OasAnyTypeNotMapped
-    created_date: OasAnyTypeNotMapped
-    * display_name: OasAnyTypeNotMapped
-    display_name_acronyms: OasAnyTypeNotMapped
-    display_name_alternatives: OasAnyTypeNotMapped
+    associated_institutions: List<AssociatedInstitution>
+    cited_by_count: Integer
+    country_code: String
+    counts_by_year: List<CountsByYearInner>
+    created_date: String
+    * display_name: String
+    display_name_acronyms: List<String>
+    display_name_alternatives: List<String>
     geo: Geo
-    homepage_url: OasAnyTypeNotMapped
-    * id: OasAnyTypeNotMapped
+    homepage_url: String
+    * id: String
     ids: Ids
-    image_thumbnail_url: OasAnyTypeNotMapped
-    image_url: OasAnyTypeNotMapped
+    image_thumbnail_url: String
+    image_url: String
     international: InternationalDisplayName
-    lineage: OasAnyTypeNotMapped
-    repositories: OasAnyTypeNotMapped
-    roles: OasAnyTypeNotMapped
-    ror: OasAnyTypeNotMapped
+    lineage: List<String>
+    repositories: List<RepositoriesArrayInner>
+    roles: List<Role>
+    ror: String
     summary_stats: SummaryStats
-    type: OasAnyTypeNotMapped
-    updated_date: OasAnyTypeNotMapped
-    works_api_url: OasAnyTypeNotMapped
-    works_count: OasAnyTypeNotMapped
-    x_concepts: OasAnyTypeNotMapped
+    type: String
+    updated_date: String
+    works_api_url: String
+    works_count: Integer
+    x_concepts: List<DehydratedConcept>
 }
 
 entity Institutions {
-    * group_by: OasAnyTypeNotMapped
+    * group_by: List<GroupByResultInner>
     * meta: Meta
-    results: OasAnyTypeNotMapped
+    results: List<InstitutionSchema>
 }
 
 entity InternationalDescription {
@@ -297,498 +345,523 @@ entity InternationalDisplayNameAndDescription {
 }
 
 entity Internationalisation {
-    ab: OasAnyTypeNotMapped
-    ace: OasAnyTypeNotMapped
-    aeb-arab: OasAnyTypeNotMapped
-    af: OasAnyTypeNotMapped
-    ak: OasAnyTypeNotMapped
-    alt: OasAnyTypeNotMapped
-    am: OasAnyTypeNotMapped
-    an: OasAnyTypeNotMapped
-    ang: OasAnyTypeNotMapped
-    ar: OasAnyTypeNotMapped
-    arc: OasAnyTypeNotMapped
-    ary: OasAnyTypeNotMapped
-    arz: OasAnyTypeNotMapped
-    as: OasAnyTypeNotMapped
-    ast: OasAnyTypeNotMapped
-    atj: OasAnyTypeNotMapped
-    ay: OasAnyTypeNotMapped
-    az: OasAnyTypeNotMapped
-    azb: OasAnyTypeNotMapped
-    ba: OasAnyTypeNotMapped
-    ban: OasAnyTypeNotMapped
-    bar: OasAnyTypeNotMapped
-    bcl: OasAnyTypeNotMapped
-    be: OasAnyTypeNotMapped
-    be-tarask: OasAnyTypeNotMapped
-    bg: OasAnyTypeNotMapped
-    bho: OasAnyTypeNotMapped
-    bi: OasAnyTypeNotMapped
-    bm: OasAnyTypeNotMapped
-    bn: OasAnyTypeNotMapped
-    bo: OasAnyTypeNotMapped
-    bpy: OasAnyTypeNotMapped
-    br: OasAnyTypeNotMapped
-    bs: OasAnyTypeNotMapped
-    bxr: OasAnyTypeNotMapped
-    ca: OasAnyTypeNotMapped
-    cbk-zam: OasAnyTypeNotMapped
-    cdo: OasAnyTypeNotMapped
-    ce: OasAnyTypeNotMapped
-    ceb: OasAnyTypeNotMapped
-    chr: OasAnyTypeNotMapped
-    ckb: OasAnyTypeNotMapped
-    co: OasAnyTypeNotMapped
-    crh: OasAnyTypeNotMapped
-    crh-latn: OasAnyTypeNotMapped
-    cs: OasAnyTypeNotMapped
-    csb: OasAnyTypeNotMapped
-    cv: OasAnyTypeNotMapped
-    cy: OasAnyTypeNotMapped
-    da: OasAnyTypeNotMapped
-    de: OasAnyTypeNotMapped
-    de-at: OasAnyTypeNotMapped
-    de-ch: OasAnyTypeNotMapped
-    diq: OasAnyTypeNotMapped
-    dv: OasAnyTypeNotMapped
-    el: OasAnyTypeNotMapped
-    eml: OasAnyTypeNotMapped
-    * en: OasAnyTypeNotMapped
-    en-ca: OasAnyTypeNotMapped
-    en-gb: OasAnyTypeNotMapped
-    en-us: OasAnyTypeNotMapped
-    eo: OasAnyTypeNotMapped
-    es: OasAnyTypeNotMapped
-    et: OasAnyTypeNotMapped
-    eu: OasAnyTypeNotMapped
-    ext: OasAnyTypeNotMapped
-    fa: OasAnyTypeNotMapped
-    fi: OasAnyTypeNotMapped
-    fo: OasAnyTypeNotMapped
-    fr: OasAnyTypeNotMapped
-    frc: OasAnyTypeNotMapped
-    frp: OasAnyTypeNotMapped
-    frr: OasAnyTypeNotMapped
-    fur: OasAnyTypeNotMapped
-    fy: OasAnyTypeNotMapped
-    ga: OasAnyTypeNotMapped
-    gan: OasAnyTypeNotMapped
-    gan-hans: OasAnyTypeNotMapped
-    gan-hant: OasAnyTypeNotMapped
-    gcr: OasAnyTypeNotMapped
-    gd: OasAnyTypeNotMapped
-    gl: OasAnyTypeNotMapped
-    gn: OasAnyTypeNotMapped
-    gpe: OasAnyTypeNotMapped
-    gsw: OasAnyTypeNotMapped
-    gu: OasAnyTypeNotMapped
-    gv: OasAnyTypeNotMapped
-    ha: OasAnyTypeNotMapped
-    hak: OasAnyTypeNotMapped
-    he: OasAnyTypeNotMapped
-    hi: OasAnyTypeNotMapped
-    hif: OasAnyTypeNotMapped
-    hr: OasAnyTypeNotMapped
-    hsb: OasAnyTypeNotMapped
-    ht: OasAnyTypeNotMapped
-    hu: OasAnyTypeNotMapped
-    hy: OasAnyTypeNotMapped
-    hyw: OasAnyTypeNotMapped
-    ia: OasAnyTypeNotMapped
-    id: OasAnyTypeNotMapped
-    ie: OasAnyTypeNotMapped
-    ig: OasAnyTypeNotMapped
-    ilo: OasAnyTypeNotMapped
-    inh: OasAnyTypeNotMapped
-    io: OasAnyTypeNotMapped
-    is: OasAnyTypeNotMapped
-    it: OasAnyTypeNotMapped
-    iu: OasAnyTypeNotMapped
-    ja: OasAnyTypeNotMapped
-    jam: OasAnyTypeNotMapped
-    jv: OasAnyTypeNotMapped
-    ka: OasAnyTypeNotMapped
-    kaa: OasAnyTypeNotMapped
-    kab: OasAnyTypeNotMapped
-    kbp: OasAnyTypeNotMapped
-    kg: OasAnyTypeNotMapped
-    kk: OasAnyTypeNotMapped
-    kk-arab: OasAnyTypeNotMapped
-    kk-cn: OasAnyTypeNotMapped
-    kk-cyrl: OasAnyTypeNotMapped
-    kk-kz: OasAnyTypeNotMapped
-    kk-latn: OasAnyTypeNotMapped
-    kk-tr: OasAnyTypeNotMapped
-    kl: OasAnyTypeNotMapped
-    km: OasAnyTypeNotMapped
-    kn: OasAnyTypeNotMapped
-    ko: OasAnyTypeNotMapped
-    ko-kp: OasAnyTypeNotMapped
-    krc: OasAnyTypeNotMapped
-    ks: OasAnyTypeNotMapped
-    ksh: OasAnyTypeNotMapped
-    ku: OasAnyTypeNotMapped
-    ku-latn: OasAnyTypeNotMapped
-    kw: OasAnyTypeNotMapped
-    ky: OasAnyTypeNotMapped
-    la: OasAnyTypeNotMapped
-    lad: OasAnyTypeNotMapped
-    lb: OasAnyTypeNotMapped
-    lfn: OasAnyTypeNotMapped
-    li: OasAnyTypeNotMapped
-    lij: OasAnyTypeNotMapped
-    lld: OasAnyTypeNotMapped
-    lmo: OasAnyTypeNotMapped
-    lo: OasAnyTypeNotMapped
-    lt: OasAnyTypeNotMapped
-    lv: OasAnyTypeNotMapped
-    lzh: OasAnyTypeNotMapped
-    mai: OasAnyTypeNotMapped
-    mg: OasAnyTypeNotMapped
-    min: OasAnyTypeNotMapped
-    mk: OasAnyTypeNotMapped
-    ml: OasAnyTypeNotMapped
-    mn: OasAnyTypeNotMapped
-    mni: OasAnyTypeNotMapped
-    mr: OasAnyTypeNotMapped
-    ms: OasAnyTypeNotMapped
-    ms-arab: OasAnyTypeNotMapped
-    mt: OasAnyTypeNotMapped
-    mwl: OasAnyTypeNotMapped
-    my: OasAnyTypeNotMapped
-    mzn: OasAnyTypeNotMapped
-    nah: OasAnyTypeNotMapped
-    nan: OasAnyTypeNotMapped
-    nap: OasAnyTypeNotMapped
-    nb: OasAnyTypeNotMapped
-    nds: OasAnyTypeNotMapped
-    nds-nl: OasAnyTypeNotMapped
-    ne: OasAnyTypeNotMapped
-    new: OasAnyTypeNotMapped
-    nia: OasAnyTypeNotMapped
-    nl: OasAnyTypeNotMapped
-    nn: OasAnyTypeNotMapped
-    nov: OasAnyTypeNotMapped
-    nqo: OasAnyTypeNotMapped
-    nrm: OasAnyTypeNotMapped
-    oc: OasAnyTypeNotMapped
-    or: OasAnyTypeNotMapped
-    os: OasAnyTypeNotMapped
-    pa: OasAnyTypeNotMapped
-    pam: OasAnyTypeNotMapped
-    pap: OasAnyTypeNotMapped
-    pcd: OasAnyTypeNotMapped
-    pdc: OasAnyTypeNotMapped
-    pih: OasAnyTypeNotMapped
-    pl: OasAnyTypeNotMapped
-    pms: OasAnyTypeNotMapped
-    pnb: OasAnyTypeNotMapped
-    ps: OasAnyTypeNotMapped
-    pt: OasAnyTypeNotMapped
-    pt-br: OasAnyTypeNotMapped
-    qu: OasAnyTypeNotMapped
-    rm: OasAnyTypeNotMapped
-    ro: OasAnyTypeNotMapped
-    ru: OasAnyTypeNotMapped
-    rue: OasAnyTypeNotMapped
-    rw: OasAnyTypeNotMapped
-    sa: OasAnyTypeNotMapped
-    sah: OasAnyTypeNotMapped
-    sat: OasAnyTypeNotMapped
-    sc: OasAnyTypeNotMapped
-    scn: OasAnyTypeNotMapped
-    sco: OasAnyTypeNotMapped
-    sd: OasAnyTypeNotMapped
-    se: OasAnyTypeNotMapped
-    sgs: OasAnyTypeNotMapped
-    sh: OasAnyTypeNotMapped
-    shi: OasAnyTypeNotMapped
-    si: OasAnyTypeNotMapped
-    sk: OasAnyTypeNotMapped
-    sl: OasAnyTypeNotMapped
-    smn: OasAnyTypeNotMapped
-    sms: OasAnyTypeNotMapped
-    so: OasAnyTypeNotMapped
-    sq: OasAnyTypeNotMapped
-    sr: OasAnyTypeNotMapped
-    sr-ec: OasAnyTypeNotMapped
-    sr-el: OasAnyTypeNotMapped
-    stq: OasAnyTypeNotMapped
-    su: OasAnyTypeNotMapped
-    sv: OasAnyTypeNotMapped
-    sw: OasAnyTypeNotMapped
-    syl: OasAnyTypeNotMapped
-    szl: OasAnyTypeNotMapped
-    ta: OasAnyTypeNotMapped
-    te: OasAnyTypeNotMapped
-    tg: OasAnyTypeNotMapped
-    tg-latn: OasAnyTypeNotMapped
-    th: OasAnyTypeNotMapped
-    ti: OasAnyTypeNotMapped
-    tk: OasAnyTypeNotMapped
-    tl: OasAnyTypeNotMapped
-    tr: OasAnyTypeNotMapped
-    ts: OasAnyTypeNotMapped
-    tt: OasAnyTypeNotMapped
-    tt-cyrl: OasAnyTypeNotMapped
-    tw: OasAnyTypeNotMapped
-    ug: OasAnyTypeNotMapped
-    uk: OasAnyTypeNotMapped
-    ur: OasAnyTypeNotMapped
-    uz: OasAnyTypeNotMapped
-    vec: OasAnyTypeNotMapped
-    vi: OasAnyTypeNotMapped
-    vls: OasAnyTypeNotMapped
-    vo: OasAnyTypeNotMapped
-    vro: OasAnyTypeNotMapped
-    wa: OasAnyTypeNotMapped
-    war: OasAnyTypeNotMapped
-    wo: OasAnyTypeNotMapped
-    wuu: OasAnyTypeNotMapped
-    xmf: OasAnyTypeNotMapped
-    yi: OasAnyTypeNotMapped
-    yo: OasAnyTypeNotMapped
-    yue: OasAnyTypeNotMapped
-    za: OasAnyTypeNotMapped
-    zh: OasAnyTypeNotMapped
-    zh-cn: OasAnyTypeNotMapped
-    zh-hans: OasAnyTypeNotMapped
-    zh-hant: OasAnyTypeNotMapped
-    zh-hk: OasAnyTypeNotMapped
-    zh-mo: OasAnyTypeNotMapped
-    zh-my: OasAnyTypeNotMapped
-    zh-sg: OasAnyTypeNotMapped
-    zh-tw: OasAnyTypeNotMapped
-    zu: OasAnyTypeNotMapped
+    ab: String
+    ace: String
+    aeb-arab: String
+    af: String
+    ak: String
+    alt: String
+    am: String
+    an: String
+    ang: String
+    ar: String
+    arc: String
+    ary: String
+    arz: String
+    as: String
+    ast: String
+    atj: String
+    ay: String
+    az: String
+    azb: String
+    ba: String
+    ban: String
+    bar: String
+    bcl: String
+    be: String
+    be-tarask: String
+    bg: String
+    bho: String
+    bi: String
+    bm: String
+    bn: String
+    bo: String
+    bpy: String
+    br: String
+    bs: String
+    bxr: String
+    ca: String
+    cbk-zam: String
+    cdo: String
+    ce: String
+    ceb: String
+    chr: String
+    ckb: String
+    co: String
+    crh: String
+    crh-latn: String
+    cs: String
+    csb: String
+    cv: String
+    cy: String
+    da: String
+    de: String
+    de-at: String
+    de-ch: String
+    diq: String
+    dv: String
+    el: String
+    eml: String
+    * en: String
+    en-ca: String
+    en-gb: String
+    en-us: String
+    eo: String
+    es: String
+    et: String
+    eu: String
+    ext: String
+    fa: String
+    fi: String
+    fo: String
+    fr: String
+    frc: String
+    frp: String
+    frr: String
+    fur: String
+    fy: String
+    ga: String
+    gan: String
+    gan-hans: String
+    gan-hant: String
+    gcr: String
+    gd: String
+    gl: String
+    gn: String
+    gpe: String
+    gsw: String
+    gu: String
+    gv: String
+    ha: String
+    hak: String
+    he: String
+    hi: String
+    hif: String
+    hr: String
+    hsb: String
+    ht: String
+    hu: String
+    hy: String
+    hyw: String
+    ia: String
+    id: String
+    ie: String
+    ig: String
+    ilo: String
+    inh: String
+    io: String
+    is: String
+    it: String
+    iu: String
+    ja: String
+    jam: String
+    jv: String
+    ka: String
+    kaa: String
+    kab: String
+    kbp: String
+    kg: String
+    kk: String
+    kk-arab: String
+    kk-cn: String
+    kk-cyrl: String
+    kk-kz: String
+    kk-latn: String
+    kk-tr: String
+    kl: String
+    km: String
+    kn: String
+    ko: String
+    ko-kp: String
+    krc: String
+    ks: String
+    ksh: String
+    ku: String
+    ku-latn: String
+    kw: String
+    ky: String
+    la: String
+    lad: String
+    lb: String
+    lfn: String
+    li: String
+    lij: String
+    lld: String
+    lmo: String
+    lo: String
+    lt: String
+    lv: String
+    lzh: String
+    mai: String
+    mg: String
+    min: String
+    mk: String
+    ml: String
+    mn: String
+    mni: String
+    mr: String
+    ms: String
+    ms-arab: String
+    mt: String
+    mwl: String
+    my: String
+    mzn: String
+    nah: String
+    nan: String
+    nap: String
+    nb: String
+    nds: String
+    nds-nl: String
+    ne: String
+    new: String
+    nia: String
+    nl: String
+    nn: String
+    nov: String
+    nqo: String
+    nrm: String
+    oc: String
+    or: String
+    os: String
+    pa: String
+    pam: String
+    pap: String
+    pcd: String
+    pdc: String
+    pih: String
+    pl: String
+    pms: String
+    pnb: String
+    ps: String
+    pt: String
+    pt-br: String
+    qu: String
+    rm: String
+    ro: String
+    ru: String
+    rue: String
+    rw: String
+    sa: String
+    sah: String
+    sat: String
+    sc: String
+    scn: String
+    sco: String
+    sd: String
+    se: String
+    sgs: String
+    sh: String
+    shi: String
+    si: String
+    sk: String
+    sl: String
+    smn: String
+    sms: String
+    so: String
+    sq: String
+    sr: String
+    sr-ec: String
+    sr-el: String
+    stq: String
+    su: String
+    sv: String
+    sw: String
+    syl: String
+    szl: String
+    ta: String
+    te: String
+    tg: String
+    tg-latn: String
+    th: String
+    ti: String
+    tk: String
+    tl: String
+    tr: String
+    ts: String
+    tt: String
+    tt-cyrl: String
+    tw: String
+    ug: String
+    uk: String
+    ur: String
+    uz: String
+    vec: String
+    vi: String
+    vls: String
+    vo: String
+    vro: String
+    wa: String
+    war: String
+    wo: String
+    wuu: String
+    xmf: String
+    yi: String
+    yo: String
+    yue: String
+    za: String
+    zh: String
+    zh-cn: String
+    zh-hans: String
+    zh-hant: String
+    zh-hk: String
+    zh-mo: String
+    zh-my: String
+    zh-sg: String
+    zh-tw: String
+    zu: String
 }
 
 entity Location {
-    is_accepted: OasAnyTypeNotMapped
-    is_oa: OasAnyTypeNotMapped
-    is_published: OasAnyTypeNotMapped
-    landing_page_url: OasAnyTypeNotMapped
-    license: OasAnyTypeNotMapped
-    pdf_url: OasAnyTypeNotMapped
+    is_accepted: Boolean
+    is_oa: Boolean
+    is_published: Boolean
+    landing_page_url: String
+    license: String
+    pdf_url: String
     source: LocationSource
-    version: OasAnyTypeNotMapped
+    version: String
 }
 
 entity LocationSource {
-    display_name: OasAnyTypeNotMapped
-    host_organization: OasAnyTypeNotMapped
-    host_organization_lineage: OasAnyTypeNotMapped
-    host_organization_lineage_names: OasAnyTypeNotMapped
-    host_organization_name: OasAnyTypeNotMapped
-    id: OasAnyTypeNotMapped
-    is_in_doaj: OasAnyTypeNotMapped
-    is_oa: OasAnyTypeNotMapped
-    issn: OasAnyTypeNotMapped
-    issn_l: OasAnyTypeNotMapped
-    type: OasAnyTypeNotMapped
+    display_name: String
+    host_organization: String
+    host_organization_lineage: List<String>
+    host_organization_lineage_names: List<String>
+    host_organization_name: String
+    id: String
+    is_in_doaj: Boolean
+    is_oa: Boolean
+    issn: List<String>
+    issn_l: String
+    type: String
 }
 
 entity Meta {
-    * count: OasAnyTypeNotMapped
-    * db_response_time_ms: OasAnyTypeNotMapped
-    * groups_count: OasAnyTypeNotMapped
-    * page: OasAnyTypeNotMapped
-    * per_page: OasAnyTypeNotMapped
+    * count: Integer
+    * db_response_time_ms: Integer
+    * groups_count: String
+    * page: Integer
+    * per_page: Integer
+}
+
+entity NgramInner {
+    * ngram: String
+    * ngram_count: Integer
+    * ngram_tokens: Integer
+    * term_frequency: BigDecimal
 }
 
 entity NgramMeta {
-    * count: OasAnyTypeNotMapped
-    doi: OasAnyTypeNotMapped
-    * openalex_id: OasAnyTypeNotMapped
+    * count: Integer
+    doi: String
+    * openalex_id: String
 }
 
 entity Ngrams {
     meta: NgramMeta
-    ngrams: OasAnyTypeNotMapped
+    ngrams: List<NgramInner>
 }
 
 entity Person {
-    * display_name: OasAnyTypeNotMapped
-    * id: OasAnyTypeNotMapped
-    * orcid: OasAnyTypeNotMapped
+    * display_name: String
+    * id: String
+    * orcid: String
 }
 
 entity Publisher {
-    alternate_titles: OasAnyTypeNotMapped
-    cited_by_count: OasAnyTypeNotMapped
-    country_codes: OasAnyTypeNotMapped
-    counts_by_year: OasAnyTypeNotMapped
-    created_date: OasAnyTypeNotMapped
-    * display_name: OasAnyTypeNotMapped
-    hierarchy_level: OasAnyTypeNotMapped
-    homepage_url: OasAnyTypeNotMapped
-    * id: OasAnyTypeNotMapped
+    alternate_titles: List<String>
+    cited_by_count: Integer
+    country_codes: List<String>
+    counts_by_year: List<CountsByYearInner>
+    created_date: String
+    * display_name: String
+    hierarchy_level: Integer
+    homepage_url: String
+    * id: String
     ids: Ids
-    image_thumbnail_url: OasAnyTypeNotMapped
-    image_url: OasAnyTypeNotMapped
-    lineage: OasAnyTypeNotMapped
+    image_thumbnail_url: String
+    image_url: String
+    lineage: List<String>
     parent_publisher: PublisherParentPublisher
-    roles: OasAnyTypeNotMapped
-    sources_api_url: OasAnyTypeNotMapped
+    roles: List<Role>
+    sources_api_url: String
     summary_stats: SummaryStats
-    updated_date: OasAnyTypeNotMapped
-    works_count: OasAnyTypeNotMapped
+    updated_date: String
+    works_count: Integer
 }
 
 entity PublisherParentPublisher {
-    display_name: OasAnyTypeNotMapped
-    id: OasAnyTypeNotMapped
+    display_name: String
+    id: String
 }
 
 entity PublisherSchema {
-    alternate_titles: OasAnyTypeNotMapped
-    cited_by_count: OasAnyTypeNotMapped
-    country_codes: OasAnyTypeNotMapped
-    counts_by_year: OasAnyTypeNotMapped
-    created_date: OasAnyTypeNotMapped
-    * display_name: OasAnyTypeNotMapped
-    hierarchy_level: OasAnyTypeNotMapped
-    homepage_url: OasAnyTypeNotMapped
-    * id: OasAnyTypeNotMapped
+    alternate_titles: List<String>
+    cited_by_count: Integer
+    country_codes: List<String>
+    counts_by_year: List<CountsByYearInner>
+    created_date: String
+    * display_name: String
+    hierarchy_level: Integer
+    homepage_url: String
+    * id: String
     ids: Ids
-    image_thumbnail_url: OasAnyTypeNotMapped
-    image_url: OasAnyTypeNotMapped
-    lineage: OasAnyTypeNotMapped
+    image_thumbnail_url: String
+    image_url: String
+    lineage: List<String>
     parent_publisher: PublisherParentPublisher
-    roles: OasAnyTypeNotMapped
-    sources_api_url: OasAnyTypeNotMapped
+    roles: List<Role>
+    sources_api_url: String
     summary_stats: SummaryStats
-    updated_date: OasAnyTypeNotMapped
-    works_count: OasAnyTypeNotMapped
+    updated_date: String
+    works_count: Integer
 }
 
 entity Publishers {
-    * group_by: OasAnyTypeNotMapped
+    * group_by: List<GroupByResultInner>
     * meta: Meta
-    * results: OasAnyTypeNotMapped
+    * results: List<PublisherSchema>
+}
+
+entity RepositoriesArrayInner {
+    * display_name: String
+    * host_organization: String
+    * host_organization_lineage: List<String>
+    * host_organization_name: String
+    * id: String
 }
 
 entity Role {
-    * id: OasAnyTypeNotMapped
-    * role: OasAnyTypeNotMapped
-    * works_count: OasAnyTypeNotMapped
+    * id: String
+    * role: String
+    * works_count: Integer
 }
 
 entity RootResponseSchema {
-    * documentation_url: OasAnyTypeNotMapped
-    * msg: OasAnyTypeNotMapped
-    * version: OasAnyTypeNotMapped
+    * documentation_url: String
+    * msg: String
+    * version: String
 }
 
 entity Source {
-    abbreviated_title: OasAnyTypeNotMapped
-    alternate_titles: OasAnyTypeNotMapped
-    apc_prices: Map
-    apc_usd: OasAnyTypeNotMapped
-    cited_by_count: OasAnyTypeNotMapped
-    country_code: OasAnyTypeNotMapped
-    counts_by_year: OasAnyTypeNotMapped
-    created_date: OasAnyTypeNotMapped
-    * display_name: OasAnyTypeNotMapped
-    homepage_url: OasAnyTypeNotMapped
-    host_organization: OasAnyTypeNotMapped
-    host_organization_lineage: OasAnyTypeNotMapped
-    host_organization_name: OasAnyTypeNotMapped
-    * id: OasAnyTypeNotMapped
+    abbreviated_title: String
+    alternate_titles: List<String>
+    apc_prices: List<ApcPricesInner>
+    apc_usd: BigDecimal
+    cited_by_count: Integer
+    country_code: String
+    counts_by_year: List<CountsByYearInner>
+    created_date: String
+    * display_name: String
+    homepage_url: String
+    host_organization: String
+    host_organization_lineage: List<String>
+    host_organization_name: String
+    * id: String
     ids: Ids
-    is_in_doaj: OasAnyTypeNotMapped
-    is_oa: OasAnyTypeNotMapped
-    issn: OasAnyTypeNotMapped
-    issn_l: OasAnyTypeNotMapped
-    societies: OasAnyTypeNotMapped
+    is_in_doaj: Boolean
+    is_oa: Boolean
+    issn: List<String>
+    issn_l: String
+    societies: List<SourceSocietiesInner>
     summary_stats: SummaryStats
-    type: OasAnyTypeNotMapped
-    updated_date: OasAnyTypeNotMapped
-    works_api_url: OasAnyTypeNotMapped
-    works_count: OasAnyTypeNotMapped
-    x_concepts: OasAnyTypeNotMapped
+    type: String
+    updated_date: String
+    works_api_url: String
+    works_count: Integer
+    x_concepts: List<DehydratedConcept>
 }
 
 entity SourceSchema {
-    abbreviated_title: OasAnyTypeNotMapped
-    alternate_titles: OasAnyTypeNotMapped
-    apc_prices: Map
-    apc_usd: OasAnyTypeNotMapped
-    cited_by_count: OasAnyTypeNotMapped
-    country_code: OasAnyTypeNotMapped
-    counts_by_year: OasAnyTypeNotMapped
-    created_date: OasAnyTypeNotMapped
-    * display_name: OasAnyTypeNotMapped
-    homepage_url: OasAnyTypeNotMapped
-    host_organization: OasAnyTypeNotMapped
-    host_organization_lineage: OasAnyTypeNotMapped
-    host_organization_name: OasAnyTypeNotMapped
-    * id: OasAnyTypeNotMapped
+    abbreviated_title: String
+    alternate_titles: List<String>
+    apc_prices: List<ApcPricesInner>
+    apc_usd: BigDecimal
+    cited_by_count: Integer
+    country_code: String
+    counts_by_year: List<CountsByYearInner>
+    created_date: String
+    * display_name: String
+    homepage_url: String
+    host_organization: String
+    host_organization_lineage: List<String>
+    host_organization_name: String
+    * id: String
     ids: Ids
-    is_in_doaj: OasAnyTypeNotMapped
-    is_oa: OasAnyTypeNotMapped
-    issn: OasAnyTypeNotMapped
-    issn_l: OasAnyTypeNotMapped
-    societies: OasAnyTypeNotMapped
+    is_in_doaj: Boolean
+    is_oa: Boolean
+    issn: List<String>
+    issn_l: String
+    societies: List<SourceSocietiesInner>
     summary_stats: SummaryStats
-    type: OasAnyTypeNotMapped
-    updated_date: OasAnyTypeNotMapped
-    works_api_url: OasAnyTypeNotMapped
-    works_count: OasAnyTypeNotMapped
-    x_concepts: OasAnyTypeNotMapped
+    type: String
+    updated_date: String
+    works_api_url: String
+    works_count: Integer
+    x_concepts: List<DehydratedConcept>
+}
+
+entity SourceSocietiesInner {
+    organization: String
+    url: String
 }
 
 entity Sources {
-    group_by: OasAnyTypeNotMapped
+    group_by: List<GroupByResultInner>
     meta: Meta
-    results: OasAnyTypeNotMapped
+    results: List<SourceSchema>
 }
 
 entity Subfield {
-    * cited_by_count: OasAnyTypeNotMapped
-    * created_date: OasAnyTypeNotMapped
-    * description: OasAnyTypeNotMapped
-    * display_name: OasAnyTypeNotMapped
-    * display_name_alternatives: OasAnyTypeNotMapped
+    * cited_by_count: Integer
+    * created_date: String
+    * description: String
+    * display_name: String
+    * display_name_alternatives: List<String>
     * domain: TopicLevelSchema
     * field: TopicLevelSchema
-    * id: OasAnyTypeNotMapped
+    * id: String
     * ids: Ids
     * siblings: TopicLevelArraySchema
-    * topics: OasAnyTypeNotMapped
-    * updated_date: OasAnyTypeNotMapped
-    * works_api_url: OasAnyTypeNotMapped
-    * works_count: OasAnyTypeNotMapped
+    * topics: List<SubfieldTopicsInner>
+    * updated_date: String
+    * works_api_url: String
+    * works_count: Integer
+}
+
+entity SubfieldTopicsInner {
+    * display_name: String
+    * id: String
 }
 
 entity SummaryStats {
-    * 2yr_mean_citedness: OasAnyTypeNotMapped
-    * h_index: OasAnyTypeNotMapped
-    * i10_index: OasAnyTypeNotMapped
+    * 2yr_mean_citedness: BigDecimal
+    * h_index: Integer
+    * i10_index: Integer
 }
 
 entity Topic {
-    * cited_by_count: OasAnyTypeNotMapped
-    * created_date: OasAnyTypeNotMapped
-    * description: OasAnyTypeNotMapped
-    * display_name: OasAnyTypeNotMapped
+    * cited_by_count: Integer
+    * created_date: String
+    * description: String
+    * display_name: String
     * domain: TopicLevelArraySchema
     * field: TopicLevelArraySchema
-    * id: OasAnyTypeNotMapped
+    * id: String
     * ids: Ids
-    * keywords: OasAnyTypeNotMapped
+    * keywords: List<String>
     * siblings: TopicLevelSchema
     * subfield: TopicLevelArraySchema
-    * updated_date: OasAnyTypeNotMapped
-    * works_count: OasAnyTypeNotMapped
+    * updated_date: String
+    * works_count: Integer
 }
 
 entity TopicLevelArraySchema {
-    siblings: OasAnyTypeNotMapped
+    siblings: List<TopicLevelSchema>
 }
 
 entity TopicLevelSchema {
-    * display_name: OasAnyTypeNotMapped
+    * display_name: String
     * id: TopicLevelSchemaId
 }
 
@@ -796,211 +869,329 @@ entity TopicLevelSchemaId {
 }
 
 entity Topics {
-    * group_by: OasAnyTypeNotMapped
+    * group_by: List<GroupByResultInner>
     * meta: TopicsMeta
-    results: OasAnyTypeNotMapped
+    results: List<TopicsResultsInner>
 }
 
 entity TopicsMeta {
-    * count: OasAnyTypeNotMapped
-    * db_response_time_ms: OasAnyTypeNotMapped
-    * groups_count: OasAnyTypeNotMapped
-    * page: OasAnyTypeNotMapped
-    * per_page: OasAnyTypeNotMapped
+    * count: Integer
+    * db_response_time_ms: Integer
+    * groups_count: Integer
+    * page: Integer
+    * per_page: Integer
+}
+
+entity TopicsResultsInner {
+    cited_by_count: Integer
+    created_date: String
+    * description: String
+    * display_name: String
+    domain: TopicLevelSchema
+    field: TopicLevelSchema
+    * id: String
+    ids: Ids
+    keywords: List<String>
+    relevance_score: BigDecimal
+    siblings: TopicLevelArraySchema
+    subfield: TopicLevelSchema
+    updated_date: String
+    works_count: Integer
 }
 
 entity Work {
-    abstract_inverted_index: OasAnyTypeNotMapped
+    abstract_inverted_index: Object
     apc_list: Apc
     apc_paid: Apc
-    authorships: OasAnyTypeNotMapped
+    authorships: List<AuthorshipsInner>
     best_oa_location: Location
     biblio: WorkBiblio
-    cited_by_api_url: OasAnyTypeNotMapped
-    cited_by_count: OasAnyTypeNotMapped
+    cited_by_api_url: String
+    cited_by_count: Integer
     cited_by_percentile_year: WorkCitedByPercentileYear
-    concepts: OasAnyTypeNotMapped
-    corresponding_author_ids: OasAnyTypeNotMapped
-    corresponding_institution_ids: OasAnyTypeNotMapped
-    countries_distinct_count: OasAnyTypeNotMapped
-    counts_by_year: OasAnyTypeNotMapped
-    created_date: OasAnyTypeNotMapped
-    * display_name: OasAnyTypeNotMapped
-    doi: OasAnyTypeNotMapped
-    grants: OasAnyTypeNotMapped
-    has_fulltext: OasAnyTypeNotMapped
-    * id: OasAnyTypeNotMapped
+    concepts: List<DehydratedConcept>
+    corresponding_author_ids: List<String>
+    corresponding_institution_ids: List<String>
+    countries_distinct_count: Integer
+    counts_by_year: List<CountsByYearInner>
+    created_date: String
+    * display_name: String
+    doi: String
+    grants: List<WorkGrantsInner>
+    has_fulltext: Boolean
+    * id: String
     ids: Ids
-    institutions_distinct_count: OasAnyTypeNotMapped
-    is_paratext: OasAnyTypeNotMapped
-    is_retracted: OasAnyTypeNotMapped
-    keywords: OasAnyTypeNotMapped
-    language: OasAnyTypeNotMapped
-    locations: OasAnyTypeNotMapped
-    locations_count: OasAnyTypeNotMapped
-    mesh: OasAnyTypeNotMapped
-    ngrams_url: OasAnyTypeNotMapped
+    institutions_distinct_count: Integer
+    is_paratext: Boolean
+    is_retracted: Boolean
+    keywords: List<WorkKeywordsInner>
+    language: String
+    locations: List<Location>
+    locations_count: Integer
+    mesh: List<WorkMeshInner>
+    ngrams_url: String
     open_access: WorkOpenAccess
     primary_location: Location
-    publication_date: OasAnyTypeNotMapped
-    publication_year: OasAnyTypeNotMapped
-    referenced_works: OasAnyTypeNotMapped
-    referenced_works_count: OasAnyTypeNotMapped
-    related_works: OasAnyTypeNotMapped
-    sustainable_development_goals: OasAnyTypeNotMapped
-    title: OasAnyTypeNotMapped
-    type: OasAnyTypeNotMapped
-    type_crossref: OasAnyTypeNotMapped
-    updated_date: OasAnyTypeNotMapped
+    publication_date: String
+    publication_year: Integer
+    referenced_works: List<String>
+    referenced_works_count: Integer
+    related_works: List<String>
+    sustainable_development_goals: List<WorkSustainableDevelopmentGoalsInner>
+    title: String
+    type: String
+    type_crossref: String
+    updated_date: String
 }
 
 entity WorkAttributes {
 }
 
 entity WorkBiblio {
-    first_page: OasAnyTypeNotMapped
-    issue: OasAnyTypeNotMapped
-    last_page: OasAnyTypeNotMapped
-    volume: OasAnyTypeNotMapped
+    first_page: String
+    issue: String
+    last_page: String
+    volume: String
 }
 
 entity WorkCitedByPercentileYear {
-    * max: OasAnyTypeNotMapped
-    * min: OasAnyTypeNotMapped
+    * max: Integer
+    * min: Integer
+}
+
+entity WorkGrantsInner {
+    * award_id: String
+    * funder: String
+    * funder_display_name: String
+}
+
+entity WorkKeywordsInner {
+    * display_name: String
+    * id: String
+    * score: BigDecimal
+}
+
+entity WorkMeshInner {
+    * descriptor_name: String
+    * descriptor_ui: String
+    * is_major_topic: Boolean
+    * qualifier_name: String
+    * qualifier_ui: String
 }
 
 entity WorkOpenAccess {
-    * any_repository_has_fulltext: OasAnyTypeNotMapped
-    * is_oa: OasAnyTypeNotMapped
-    * oa_status: OasAnyTypeNotMapped
-    * oa_url: OasAnyTypeNotMapped
+    * any_repository_has_fulltext: Boolean
+    * is_oa: Boolean
+    * oa_status: String
+    * oa_url: String
 }
 
 entity WorkSchema {
-    abstract_inverted_index: OasAnyTypeNotMapped
+    abstract_inverted_index: Object
     apc_list: Apc
     apc_paid: Apc
-    authorships: OasAnyTypeNotMapped
+    authorships: List<AuthorshipsInner>
     best_oa_location: Location
     biblio: WorkBiblio
-    cited_by_api_url: OasAnyTypeNotMapped
-    cited_by_count: OasAnyTypeNotMapped
+    cited_by_api_url: String
+    cited_by_count: Integer
     cited_by_percentile_year: WorkCitedByPercentileYear
-    concepts: OasAnyTypeNotMapped
-    corresponding_author_ids: OasAnyTypeNotMapped
-    corresponding_institution_ids: OasAnyTypeNotMapped
-    countries_distinct_count: OasAnyTypeNotMapped
-    counts_by_year: OasAnyTypeNotMapped
-    created_date: OasAnyTypeNotMapped
-    * display_name: OasAnyTypeNotMapped
-    doi: OasAnyTypeNotMapped
-    grants: OasAnyTypeNotMapped
-    has_fulltext: OasAnyTypeNotMapped
-    * id: OasAnyTypeNotMapped
+    concepts: List<DehydratedConcept>
+    corresponding_author_ids: List<String>
+    corresponding_institution_ids: List<String>
+    countries_distinct_count: Integer
+    counts_by_year: List<CountsByYearInner>
+    created_date: String
+    * display_name: String
+    doi: String
+    grants: List<WorkGrantsInner>
+    has_fulltext: Boolean
+    * id: String
     ids: Ids
-    institutions_distinct_count: OasAnyTypeNotMapped
-    is_paratext: OasAnyTypeNotMapped
-    is_retracted: OasAnyTypeNotMapped
-    keywords: OasAnyTypeNotMapped
-    language: OasAnyTypeNotMapped
-    locations: OasAnyTypeNotMapped
-    locations_count: OasAnyTypeNotMapped
-    mesh: OasAnyTypeNotMapped
-    ngrams_url: OasAnyTypeNotMapped
+    institutions_distinct_count: Integer
+    is_paratext: Boolean
+    is_retracted: Boolean
+    keywords: List<WorkKeywordsInner>
+    language: String
+    locations: List<Location>
+    locations_count: Integer
+    mesh: List<WorkMeshInner>
+    ngrams_url: String
     open_access: WorkOpenAccess
     primary_location: Location
-    publication_date: OasAnyTypeNotMapped
-    publication_year: OasAnyTypeNotMapped
-    referenced_works: OasAnyTypeNotMapped
-    referenced_works_count: OasAnyTypeNotMapped
-    related_works: OasAnyTypeNotMapped
-    sustainable_development_goals: OasAnyTypeNotMapped
-    title: OasAnyTypeNotMapped
-    type: OasAnyTypeNotMapped
-    type_crossref: OasAnyTypeNotMapped
-    updated_date: OasAnyTypeNotMapped
+    publication_date: String
+    publication_year: Integer
+    referenced_works: List<String>
+    referenced_works_count: Integer
+    related_works: List<String>
+    sustainable_development_goals: List<WorkSustainableDevelopmentGoalsInner>
+    title: String
+    type: String
+    type_crossref: String
+    updated_date: String
+}
+
+entity WorkSustainableDevelopmentGoalsInner {
+    * display_name: String
+    * id: String
+    * score: BigDecimal
 }
 
 entity WorksResponse {
-    group_by: OasAnyTypeNotMapped
+    group_by: List<GroupByResultInner>
     * meta: Meta
-    * results: OasAnyTypeNotMapped
+    * results: List<WorkSchema>
 }
 
 
+Authors -- "0..*" GroupByResultInner : group_by
 Authors -- Meta : meta
+Authors -- "0..*" Author : results
 AutoCompleteResultSchema -- Meta : meta
+AutoCompleteResultSchema -- "0..*" AutoCompleteResultItem : results
+Institution -- "0..*" CountsByYearInner : counts_by_year
 Institution -- Geo : geo
 Institution -- Ids : ids
 Institution -- InternationalDisplayName : international
+Institution -- "0..*" RepositoriesArrayInner : repositories
+Institution -- "0..*" Role : roles
 Institution -- SummaryStats : summary_stats
+Institution -- "0..*" DehydratedConcept : x_concepts
+Institutions -- "0..*" GroupByResultInner : group_by
 Institutions -- Meta : meta
+Institutions -- "0..*" InstitutionSchema : results
 Ngrams -- NgramMeta : meta
+Ngrams -- "0..*" NgramInner : ngrams
+FunderSchema -- "0..*" CountsByYearInner : counts_by_year
 FunderSchema -- Ids : ids
+FunderSchema -- "0..*" Role : roles
 FunderSchema -- SummaryStats : summary_stats
 TopicLevelSchema -- TopicLevelSchemaId : id
 Work -- Apc : apc_list
 Work -- Apc : apc_paid
+Work -- "0..*" AuthorshipsInner : authorships
 Work -- Location : best_oa_location
 Work -- WorkBiblio : biblio
 Work -- WorkCitedByPercentileYear : cited_by_percentile_year
+Work -- "0..*" DehydratedConcept : concepts
+Work -- "0..*" CountsByYearInner : counts_by_year
+Work -- "0..*" WorkGrantsInner : grants
 Work -- Ids : ids
+Work -- "0..*" WorkKeywordsInner : keywords
+Work -- "0..*" Location : locations
+Work -- "0..*" WorkMeshInner : mesh
 Work -- WorkOpenAccess : open_access
 Work -- Location : primary_location
+Work -- "0..*" WorkSustainableDevelopmentGoalsInner : sustainable_development_goals
 InternationalDescription -- Internationalisation : description
 Subfield -- TopicLevelSchema : domain
 Subfield -- TopicLevelSchema : field
 Subfield -- Ids : ids
 Subfield -- TopicLevelArraySchema : siblings
+Subfield -- "0..*" SubfieldTopicsInner : topics
+Concept -- "0..*" DehydratedConcept : ancestors
+Concept -- "0..*" CountsByYearInner : counts_by_year
 Concept -- ConceptIds : ids
 Concept -- InternationalDisplayNameAndDescription : international
+Concept -- "0..*" DehydratedConcept : related_concepts
 Concept -- SummaryStats : summary_stats
+WorksResponse -- "0..*" GroupByResultInner : group_by
 WorksResponse -- Meta : meta
+WorksResponse -- "0..*" WorkSchema : results
+Sources -- "0..*" GroupByResultInner : group_by
 Sources -- Meta : meta
+Sources -- "0..*" SourceSchema : results
+Concepts -- "0..*" GroupByResultInner : group_by
 Concepts -- Meta : meta
+Concepts -- "0..*" Concept : results
+TopicLevelArraySchema -- "0..*" TopicLevelSchema : siblings
 InternationalDisplayName -- Internationalisation : display_name
+Author -- "0..*" AffiliationsInner : affiliations
+Author -- "0..*" CountsByYearInner : counts_by_year
 Author -- Ids : ids
 Author -- DehydratedInstitution : last_known_institution
+Author -- "0..*" DehydratedInstitution : last_known_institutions
 Author -- SummaryStats : summary_stats
+Author -- "0..*" DehydratedConcept : x_concepts
 Domain -- TopicLevelArraySchema : fields
 Domain -- Ids : ids
 Domain -- TopicLevelArraySchema : siblings
+AffiliationsInner -- DehydratedInstitution : institution
+FundersArray -- "0..*" GroupByResultInner : group_by
 FundersArray -- Meta : meta
+FundersArray -- "0..*" FunderSchema : results
+SourceSchema -- "0..*" ApcPricesInner : apc_prices
+SourceSchema -- "0..*" CountsByYearInner : counts_by_year
 SourceSchema -- Ids : ids
+SourceSchema -- "0..*" SourceSocietiesInner : societies
 SourceSchema -- SummaryStats : summary_stats
+SourceSchema -- "0..*" DehydratedConcept : x_concepts
+Funder -- "0..*" CountsByYearInner : counts_by_year
 Funder -- Ids : ids
+Funder -- "0..*" Role : roles
 Funder -- SummaryStats : summary_stats
+InstitutionSchema -- "0..*" CountsByYearInner : counts_by_year
 InstitutionSchema -- Geo : geo
 InstitutionSchema -- Ids : ids
 InstitutionSchema -- InternationalDisplayName : international
+InstitutionSchema -- "0..*" RepositoriesArrayInner : repositories
+InstitutionSchema -- "0..*" Role : roles
 InstitutionSchema -- SummaryStats : summary_stats
+InstitutionSchema -- "0..*" DehydratedConcept : x_concepts
+TopicsResultsInner -- TopicLevelSchema : domain
+TopicsResultsInner -- TopicLevelSchema : field
+TopicsResultsInner -- Ids : ids
+TopicsResultsInner -- TopicLevelArraySchema : siblings
+TopicsResultsInner -- TopicLevelSchema : subfield
+Source -- "0..*" ApcPricesInner : apc_prices
+Source -- "0..*" CountsByYearInner : counts_by_year
 Source -- Ids : ids
+Source -- "0..*" SourceSocietiesInner : societies
 Source -- SummaryStats : summary_stats
+Source -- "0..*" DehydratedConcept : x_concepts
 Field -- TopicLevelSchema : domain
 Field -- Ids : ids
 Field -- TopicLevelArraySchema : siblings
 Field -- TopicLevelArraySchema : subfields
+Publishers -- "0..*" GroupByResultInner : group_by
 Publishers -- Meta : meta
+Publishers -- "0..*" PublisherSchema : results
+PublisherSchema -- "0..*" CountsByYearInner : counts_by_year
 PublisherSchema -- Ids : ids
 PublisherSchema -- PublisherParentPublisher : parent_publisher
+PublisherSchema -- "0..*" Role : roles
 PublisherSchema -- SummaryStats : summary_stats
 WorkSchema -- Apc : apc_list
 WorkSchema -- Apc : apc_paid
+WorkSchema -- "0..*" AuthorshipsInner : authorships
 WorkSchema -- Location : best_oa_location
 WorkSchema -- WorkBiblio : biblio
 WorkSchema -- WorkCitedByPercentileYear : cited_by_percentile_year
+WorkSchema -- "0..*" DehydratedConcept : concepts
+WorkSchema -- "0..*" CountsByYearInner : counts_by_year
+WorkSchema -- "0..*" WorkGrantsInner : grants
 WorkSchema -- Ids : ids
+WorkSchema -- "0..*" WorkKeywordsInner : keywords
+WorkSchema -- "0..*" Location : locations
+WorkSchema -- "0..*" WorkMeshInner : mesh
 WorkSchema -- WorkOpenAccess : open_access
 WorkSchema -- Location : primary_location
+WorkSchema -- "0..*" WorkSustainableDevelopmentGoalsInner : sustainable_development_goals
 Topic -- TopicLevelArraySchema : domain
 Topic -- TopicLevelArraySchema : field
 Topic -- Ids : ids
 Topic -- TopicLevelSchema : siblings
 Topic -- TopicLevelArraySchema : subfield
+Topics -- "0..*" GroupByResultInner : group_by
 Topics -- TopicsMeta : meta
+Topics -- "0..*" TopicsResultsInner : results
+Publisher -- "0..*" CountsByYearInner : counts_by_year
 Publisher -- Ids : ids
 Publisher -- PublisherParentPublisher : parent_publisher
+Publisher -- "0..*" Role : roles
 Publisher -- SummaryStats : summary_stats
+AuthorshipsInner -- AuthorshipsInnerAuthor : author
+AuthorshipsInner -- "0..*" AuthorshipsInnerInstitutionsInner : institutions
 InternationalDisplayNameAndDescription -- InternationalDescription : description
 InternationalDisplayNameAndDescription -- InternationalDisplayName : display_name
 Location -- LocationSource : source

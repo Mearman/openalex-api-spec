@@ -15,7 +15,7 @@ export default {
 			},
 			summary: "/autocomplete/funders",
 
-			tags: ["funders"],
+
 		},
 	},
 } satisfies PathsObject;

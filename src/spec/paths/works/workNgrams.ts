@@ -1,8 +1,6 @@
 import { refResponse } from "~/spec/components";
 import { workNgramsGet200Response } from "~/spec/components/responses/workNgramsGet200Response";
 
-import { tags } from "~/spec/paths/works/tags";
-
 export const workNgrams: PathItemObject = {
 	get: {
 		description: "",
@@ -24,10 +22,9 @@ export const workNgrams: PathItemObject = {
 			"200": refResponse({ workNgramsGet200Response }),
 		},
 		summary: "/works/{id}/ngrams",
-		tags: tags.concat(["ngrams", "single"]),
 	},
 };
 
-export default {
+export const getWorkNgrams: PathsObject = {
 	"/works/{id}/ngrams": workNgrams,
 };

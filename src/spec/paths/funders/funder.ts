@@ -6,8 +6,6 @@ const singleFunderResponse = {
 	"200": refResponse({ funder: funderGet200Response }),
 };
 
-const tags = ["single"];
-
 const getFunderById: PathItemObject = {
 	get: {
 		description: "",
@@ -25,7 +23,6 @@ const getFunderById: PathItemObject = {
 		],
 		responses: singleFunderResponse,
 		summary: "/funders/{id}",
-		tags,
 	},
 };
 
@@ -36,7 +33,7 @@ const getRandomFunder: PathItemObject = {
 		parameters: [refParameter({ select })],
 		responses: singleFunderResponse,
 		summary: "/funders/random",
-		tags: tags.concat(["random"]),
+
 	},
 };
 

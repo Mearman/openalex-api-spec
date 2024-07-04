@@ -68,7 +68,9 @@ export class ComponentGenerator {
 		if (existing) {
 			if (existing !== value) {
 				throw new Error(
-					`Tried to create reference ${JSON.stringify(referenceKey)} with a different value than the existing one: ${JSON.stringify(
+					`Tried to create reference ${JSON.stringify(
+						referenceKey
+					)} with a different value than the existing one: ${JSON.stringify(
 						obj
 					)} in ${JSON.stringify(comp)}.`
 				);

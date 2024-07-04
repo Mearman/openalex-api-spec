@@ -19,7 +19,6 @@ export const getConceptById: PathsObject = {
 			parameters: [conceptIdPatternRef, refParameter({ select })],
 			responses: conceptResponse,
 			summary: "/concepts/{id}",
-			tags: ["concepts", "single"],
 		},
 	},
 };
@@ -32,7 +31,6 @@ export const getRandomConcept: PathsObject = {
 			parameters: [refParameter({ select })],
 			responses: conceptResponse,
 			summary: "/concepts/random",
-			tags: ["concepts", "random", "single"],
 		},
 	},
 };

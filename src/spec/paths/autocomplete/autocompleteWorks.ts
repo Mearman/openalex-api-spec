@@ -19,7 +19,7 @@ export default {
 			},
 			summary: "/autocomplete/works",
 
-			tags: ["works"],
+
 		},
 	}
 	,

@@ -15,7 +15,7 @@ export default {
 			},
 			summary: "/autocomplete/concepts",
 
-			tags: ["concepts"],
+
 		},
 	},
 } satisfies PathsObject;

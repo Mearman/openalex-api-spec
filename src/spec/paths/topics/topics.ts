@@ -4,7 +4,6 @@ import { per_page } from "~/spec/components/parameters/per_page";
 import { ids } from "~/spec/components/schemas/ids";
 import { topicLevelArraySchema } from "~/spec/components/schemas/topicLevelArraySchema";
 import { topicLevelSchema } from "~/spec/components/schemas/topicLevelSchema";
-import { addTagsOperation, modifyOperationsInPaths } from "~/spec/paths";
 import { responseHeaders } from "../../components/headers/headers";
 
 const topics = {
@@ -119,78 +118,75 @@ const topicsRespone = {
 	headers: responseHeaders,
 } satisfies ResponseObject;
 
-export const getTopics = modifyOperationsInPaths(
-	{
-		"/topics": {
-			get: {
-				operationId: "getTopics",
-				summary: "/topics",
-				description: "",
-				responses: {
-					"200": refResponse({ topics: topicsRespone }),
-				},
-				security: [],
-				parameters: [
-					{
-						name: "sort",
-						in: "query",
-						required: false,
-						schema: {
-							type: "string",
-						},
-					},
-					refParameter({ per_page }),
-					{
-						name: "page",
-						in: "query",
-						required: false,
-						schema: {
-							type: "string",
-						},
-					},
-					{
-						name: "sample",
-						in: "query",
-						required: false,
-						schema: {
-							type: "string",
-						},
-					},
-					{
-						name: "select",
-						in: "query",
-						required: false,
-						schema: {
-							type: "string",
-						},
-					},
-					{
-						name: "filter",
-						in: "query",
-						required: false,
-						schema: {
-							type: "string",
-						},
-					},
-					{
-						name: "search",
-						in: "query",
-						required: false,
-						schema: {
-							type: "string",
-						},
-					},
-					{
-						name: "group_by",
-						in: "query",
-						required: false,
-						schema: {
-							type: "string",
-						},
-					},
-				],
+export const getTopics: PathsObject = {
+	"/topics": {
+		get: {
+			operationId: "getTopics",
+			summary: "/topics",
+			description: "",
+			responses: {
+				"200": refResponse({ topics: topicsRespone }),
 			},
+			security: [],
+			parameters: [
+				{
+					name: "sort",
+					in: "query",
+					required: false,
+					schema: {
+						type: "string",
+					},
+				},
+				refParameter({ per_page }),
+				{
+					name: "page",
+					in: "query",
+					required: false,
+					schema: {
+						type: "string",
+					},
+				},
+				{
+					name: "sample",
+					in: "query",
+					required: false,
+					schema: {
+						type: "string",
+					},
+				},
+				{
+					name: "select",
+					in: "query",
+					required: false,
+					schema: {
+						type: "string",
+					},
+				},
+				{
+					name: "filter",
+					in: "query",
+					required: false,
+					schema: {
+						type: "string",
+					},
+				},
+				{
+					name: "search",
+					in: "query",
+					required: false,
+					schema: {
+						type: "string",
+					},
+				},
+				{
+					name: "group_by",
+					in: "query",
+					required: false,
+					schema: {
+						type: "string",
+					},
+				},
+			],
 		},
 	},
-	addTagsOperation(["topics", "multiple"])
-);
+};

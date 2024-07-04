@@ -1,9 +1,10 @@
-import work from "~/spec/paths/works/work";
-import workNgrams from "~/spec/paths/works/workNgrams";
-import works from "~/spec/paths/works/works";
+import { getRandomWork, getWork } from "~/spec/paths/works/work";
+import { getWorkNgrams } from "~/spec/paths/works/workNgrams";
+import { getWorks } from "~/spec/paths/works/works";
 
-export default {
-	...works,
-	...work,
-	...workNgrams,
-} satisfies PathsObject;
+export const workPaths: PathsObject = {
+	...getWork,
+	...getWorkNgrams,
+	...getRandomWork,
+	...getWorks,
+};

@@ -1,9 +1,7 @@
 import { refParameter, refResponse, refSchema } from "~/spec/components";
-
 import { per_page } from "~/spec/components/parameters/per_page";
 import { ids } from "~/spec/components/schemas/ids";
 import { topicLevelArraySchema } from "~/spec/components/schemas/topicLevelArraySchema";
-import { addTagsOperation, modifyOperationsInPaths } from "~/spec/paths";
 import { responseHeaders } from "../../components/headers/headers";
 import { idParam } from "../../components/parameters/idParam";
 
@@ -75,28 +73,25 @@ const domainResponse: ResponseObject = {
 	headers: responseHeaders,
 };
 
-export const getDomainById = modifyOperationsInPaths(
-	{
-		"/domains/{id}": {
-			get: {
-				description: "",
-				externalDocs: {
-					description: ["https://help.openalex.org/how-it-works/topics"].join(
-						"\n\n"
-					),
-					url: "https://docs.openalex.org/api-entities/topics",
-				},
-				operationId: "getDomainById",
-				parameters: [refParameter({ per_page }), refParameter({ idParam })],
-				responses: {
-					"200": refResponse({
-						domain: domainResponse,
-					}),
-				} satisfies ResponsesObject,
-				security: [],
-				summary: "/domains/{id}",
+export const getDomainById: PathsObject = {
+	"/domains/{id}": {
+		get: {
+			description: "",
+			externalDocs: {
+				description: ["https://help.openalex.org/how-it-works/topics"].join(
+					"\n\n"
+				),
+				url: "https://docs.openalex.org/api-entities/topics",
 			},
+			operationId: "getDomainById",
+			parameters: [refParameter({ per_page }), refParameter({ idParam })],
+			responses: {
+				"200": refResponse({
+					domain: domainResponse,
+				}),
+			} satisfies ResponsesObject,
+			security: [],
+			summary: "/domains/{id}",
 		},
 	},
-	addTagsOperation(["topics", "multiple"])
-) satisfies PathsObject;
+};

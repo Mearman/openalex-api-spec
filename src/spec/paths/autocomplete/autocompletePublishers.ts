@@ -16,7 +16,7 @@ export default {
 			},
 			summary: "/autocomplete/publishers",
 
-			tags: ["publishers"],
+
 		},
 	}
 	,

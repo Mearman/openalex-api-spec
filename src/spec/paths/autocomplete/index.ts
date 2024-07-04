@@ -6,18 +6,14 @@ import institutions from "~/spec/paths/autocomplete/autocompleteInstitutions";
 import publishers from "~/spec/paths/autocomplete/autocompletePublishers";
 import sources from "~/spec/paths/autocomplete/autocompleteSources";
 import works from "~/spec/paths/autocomplete/autocompleteWorks";
-import { addTags } from "~/util/addTags";
 
-export default addTags(
-	[
-		autocomplete,
-		authors,
-		concepts,
-		funders,
-		institutions,
-		publishers,
-		sources,
-		works,
-	],
-	["autocomplete"]
-) satisfies PathsObject;
+export const autocompletePaths: PathsObject = {
+	...autocomplete,
+	...authors,
+	...concepts,
+	...funders,
+	...institutions,
+	...publishers,
+	...sources,
+	...works,
+};

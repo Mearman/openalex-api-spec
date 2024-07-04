@@ -6,8 +6,6 @@ const singleInstitutionResponse = {
 	"200": refResponse({ institution: institutionGet200Response }),
 } satisfies ResponsesObject;
 
-const tags = ["single"];
-
 const getInstitutionById: PathItemObject = {
 	get: {
 		description: "",
@@ -25,7 +23,6 @@ const getInstitutionById: PathItemObject = {
 		],
 		responses: singleInstitutionResponse,
 		summary: "/institutions/{id}",
-		tags,
 	},
 };
 
@@ -36,7 +33,6 @@ const getRandomInstitution: PathItemObject = {
 		parameters: [refParameter({ select })],
 		responses: singleInstitutionResponse,
 		summary: "/institutions/random",
-		tags: tags.concat(["random"]),
 	},
 };
 

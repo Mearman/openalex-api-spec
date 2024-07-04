@@ -15,7 +15,7 @@ export default {
 			},
 			summary: "/autocomplete/institutions",
 
-			tags: ["institutions"],
+
 		},
 	},
 } satisfies PathsObject;

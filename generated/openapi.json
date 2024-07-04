@@ -821,7 +821,18 @@
 				"name": "select",
 				"required": false,
 				"schema": {
-					"$ref": "#/components/schemas/workSelectSchema"
+					"items": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/workAttributes"
+							},
+							{
+								"$ref": "#/components/schemas/baseSelectionAttributes"
+							}
+						],
+						"type": "string"
+					},
+					"type": "array"
 				},
 				"style": "form"
 			},
@@ -4776,20 +4787,6 @@
 				],
 				"type": "object"
 			},
-			"workSelectSchema": {
-				"items": {
-					"allOf": [
-						{
-							"$ref": "#/components/schemas/workAttributes"
-						},
-						{
-							"$ref": "#/components/schemas/baseSelectionAttributes"
-						}
-					],
-					"type": "string"
-				},
-				"type": "array"
-			},
 			"worksArray": {
 				"items": {
 					"$ref": "#/components/schemas/workSchema"
@@ -4829,7 +4826,7 @@
 		},
 		"summary": "OpenAlex API",
 		"title": "OpenAlex",
-		"version": "0.2.4"
+		"version": "0.3.0"
 	},
 	"openapi": "3.1.0",
 	"paths": {
@@ -4862,8 +4859,7 @@
 				},
 				"summary": "Root",
 				"tags": [
-					"OpenAlex",
-					"info"
+					"OpenAlex"
 				]
 			}
 		},
@@ -4925,8 +4921,7 @@
 				},
 				"summary": "List Authors",
 				"tags": [
-					"OpenAlex",
-					"authors"
+					"OpenAlex"
 				]
 			}
 		},
@@ -4958,10 +4953,7 @@
 				},
 				"summary": "Get Random Author",
 				"tags": [
-					"OpenAlex",
-					"authors",
-					"single",
-					"random"
+					"OpenAlex"
 				]
 			}
 		},
@@ -4996,9 +4988,7 @@
 				},
 				"summary": "Get Author",
 				"tags": [
-					"OpenAlex",
-					"authors",
-					"single"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5030,8 +5020,7 @@
 				},
 				"summary": "/autocomplete",
 				"tags": [
-					"OpenAlex",
-					"autocomplete"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5063,9 +5052,7 @@
 				},
 				"summary": "/autocomplete/authors",
 				"tags": [
-					"OpenAlex",
-					"autocomplete",
-					"authors"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5097,9 +5084,7 @@
 				},
 				"summary": "/autocomplete/concepts",
 				"tags": [
-					"OpenAlex",
-					"autocomplete",
-					"concepts"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5131,9 +5116,7 @@
 				},
 				"summary": "/autocomplete/funders",
 				"tags": [
-					"OpenAlex",
-					"autocomplete",
-					"funders"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5165,9 +5148,7 @@
 				},
 				"summary": "/autocomplete/institutions",
 				"tags": [
-					"OpenAlex",
-					"autocomplete",
-					"institutions"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5199,9 +5180,7 @@
 				},
 				"summary": "/autocomplete/publishers",
 				"tags": [
-					"OpenAlex",
-					"autocomplete",
-					"publishers"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5233,9 +5212,7 @@
 				},
 				"summary": "/autocomplete/sources",
 				"tags": [
-					"OpenAlex",
-					"autocomplete",
-					"sources"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5273,9 +5250,7 @@
 				},
 				"summary": "/autocomplete/works",
 				"tags": [
-					"OpenAlex",
-					"autocomplete",
-					"works"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5337,9 +5312,7 @@
 				},
 				"summary": "/concepts",
 				"tags": [
-					"OpenAlex",
-					"concepts",
-					"multiple"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5371,10 +5344,7 @@
 				},
 				"summary": "/concepts/random",
 				"tags": [
-					"OpenAlex",
-					"concepts",
-					"random",
-					"single"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5413,9 +5383,7 @@
 				},
 				"summary": "/concepts/{id}",
 				"tags": [
-					"OpenAlex",
-					"concepts",
-					"single"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5455,9 +5423,7 @@
 				"security": [],
 				"summary": "/domains/{id}",
 				"tags": [
-					"OpenAlex",
-					"topics",
-					"multiple"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5493,9 +5459,7 @@
 				"security": [],
 				"summary": "/fields/{id}",
 				"tags": [
-					"OpenAlex",
-					"topics",
-					"multiple"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5557,8 +5521,7 @@
 				},
 				"summary": "/funders",
 				"tags": [
-					"OpenAlex",
-					"funders"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5590,10 +5553,7 @@
 				},
 				"summary": "/funders/random",
 				"tags": [
-					"OpenAlex",
-					"funders",
-					"single",
-					"random"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5633,9 +5593,7 @@
 				},
 				"summary": "/funders/{id}",
 				"tags": [
-					"OpenAlex",
-					"funders",
-					"single"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5697,8 +5655,7 @@
 				},
 				"summary": "/institutions",
 				"tags": [
-					"OpenAlex",
-					"institutions"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5730,10 +5687,7 @@
 				},
 				"summary": "/institutions/random",
 				"tags": [
-					"OpenAlex",
-					"institutions",
-					"single",
-					"random"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5773,9 +5727,7 @@
 				},
 				"summary": "/institutions/{id}",
 				"tags": [
-					"OpenAlex",
-					"institutions",
-					"single"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5815,8 +5767,7 @@
 				},
 				"summary": "/people/{id}",
 				"tags": [
-					"OpenAlex",
-					"people"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5878,8 +5829,7 @@
 				},
 				"summary": "/publishers",
 				"tags": [
-					"OpenAlex",
-					"publishers"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5911,10 +5861,7 @@
 				},
 				"summary": "/publishers/random",
 				"tags": [
-					"OpenAlex",
-					"publishers",
-					"single",
-					"random"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5954,9 +5901,7 @@
 				},
 				"summary": "/publishers/{id}",
 				"tags": [
-					"OpenAlex",
-					"publishers",
-					"single"
+					"OpenAlex"
 				]
 			}
 		},
@@ -5993,8 +5938,7 @@
 				},
 				"summary": "/sources",
 				"tags": [
-					"OpenAlex",
-					"sources"
+					"OpenAlex"
 				]
 			}
 		},
@@ -6026,10 +5970,7 @@
 				},
 				"summary": "/sources/random",
 				"tags": [
-					"OpenAlex",
-					"sources",
-					"single",
-					"random"
+					"OpenAlex"
 				]
 			}
 		},
@@ -6069,9 +6010,7 @@
 				},
 				"summary": "/sources/{id}",
 				"tags": [
-					"OpenAlex",
-					"sources",
-					"single"
+					"OpenAlex"
 				]
 			}
 		},
@@ -6107,9 +6046,7 @@
 				"security": [],
 				"summary": "/subfields/{id}",
 				"tags": [
-					"OpenAlex",
-					"topics",
-					"multiple"
+					"OpenAlex"
 				]
 			}
 		},
@@ -6198,9 +6135,7 @@
 				"security": [],
 				"summary": "/topics",
 				"tags": [
-					"OpenAlex",
-					"topics",
-					"multiple"
+					"OpenAlex"
 				]
 			}
 		},
@@ -6236,9 +6171,7 @@
 				"security": [],
 				"summary": "/topics/{id}",
 				"tags": [
-					"OpenAlex",
-					"topics",
-					"single"
+					"OpenAlex"
 				]
 			}
 		},
@@ -6300,9 +6233,7 @@
 				},
 				"summary": "/works",
 				"tags": [
-					"OpenAlex",
-					"works",
-					"list"
+					"OpenAlex"
 				]
 			}
 		},
@@ -6334,10 +6265,7 @@
 				},
 				"summary": "/works/random",
 				"tags": [
-					"OpenAlex",
-					"works",
-					"single",
-					"random"
+					"OpenAlex"
 				]
 			}
 		},
@@ -6375,9 +6303,7 @@
 				},
 				"summary": "/works/{id}",
 				"tags": [
-					"OpenAlex",
-					"works",
-					"single"
+					"OpenAlex"
 				]
 			}
 		},
@@ -6417,10 +6343,7 @@
 				},
 				"summary": "/works/{id}/ngrams",
 				"tags": [
-					"OpenAlex",
-					"works",
-					"ngrams",
-					"single"
+					"OpenAlex"
 				]
 			}
 		}

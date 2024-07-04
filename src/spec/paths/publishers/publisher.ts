@@ -6,7 +6,6 @@ const singlePublisherResponse = {
 	"200": refResponse({ publisher: publisherGet200Response }),
 } satisfies ResponsesObject;
 
-const tags = ["single"];
 const getPublisherById: PathItemObject = {
 	get: {
 		description: "",
@@ -24,7 +23,6 @@ const getPublisherById: PathItemObject = {
 		],
 		responses: singlePublisherResponse,
 		summary: "/publishers/{id}",
-		tags,
 	},
 };
 
@@ -35,7 +33,6 @@ const getRandomPublisher: PathItemObject = {
 		parameters: [refParameter({ select })],
 		responses: singlePublisherResponse,
 		summary: "/publishers/random",
-		tags: tags.concat(["random"]),
 	},
 };
 

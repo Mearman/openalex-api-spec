@@ -2,17 +2,17 @@ import { refResponse } from "~/spec/components";
 import { mailto } from "~/spec/components/parameters/mailto";
 import { resp403 } from "~/spec/components/responses/resp403";
 import { resp4xx } from "~/spec/components/responses/resp4xx";
-import authors from "~/spec/paths/authors";
-import autocomplete from "~/spec/paths/autocomplete";
-import concepts from "~/spec/paths/concepts";
-import funders from "~/spec/paths/funders";
-import institutions from "~/spec/paths/institutions";
-import people from "~/spec/paths/people";
-import publishers from "~/spec/paths/publishers";
+import { authorPaths } from "~/spec/paths/authors";
+import { autocompletePaths } from "~/spec/paths/autocomplete";
+import { conceptPaths } from "~/spec/paths/concepts";
+import { funderPaths } from "~/spec/paths/funders";
+import { institutionPaths } from "~/spec/paths/institutions";
+import { peoplePaths } from "~/spec/paths/people";
+import { publisherPaths } from "~/spec/paths/publishers";
 import { root } from "~/spec/paths/root";
-import sources from "~/spec/paths/sources";
-import topics from "~/spec/paths/topics";
-import works from "~/spec/paths/works";
+import { sourcePaths } from "~/spec/paths/sources";
+import { topicPaths } from "~/spec/paths/topics";
+import { workPaths } from "~/spec/paths/works";
 import { addResponseToOperationIfNotPresent } from "~/util";
 
 export function addMailToParameterToAllGets(paths: PathsObject): PathsObject {
@@ -69,7 +69,7 @@ export function addResponse(
 }
 
 function addMinimalResponses(operation: OperationObject): OperationObject {
-	operation = addResponseToOperationIfNotPresent(operation, "403", {resp403});
+	operation = addResponseToOperationIfNotPresent(operation, "403", { resp403 });
 	operation = addResponseToOperationIfNotPresent(operation, "default", {
 		resp4xx,
 	});
@@ -88,17 +88,17 @@ const addUnifiedTag = addTagsOperation(["OpenAlex"]);
 export const paths = modifyOperationsInPaths(
 	modifyOperationsInPaths(
 		addMailToParameterToAllGets({
-			...authors,
-			...autocomplete,
-			...concepts,
-			...funders,
-			...institutions,
-			...people,
-			...publishers,
+			...authorPaths,
+			...autocompletePaths,
+			...conceptPaths,
+			...funderPaths,
+			...institutionPaths,
+			...peoplePaths,
+			...publisherPaths,
 			...root,
-			...sources,
-			...works,
-			...topics,
+			...sourcePaths,
+			...workPaths,
+			...topicPaths,
 		}),
 		addMinimalResponses
 	),

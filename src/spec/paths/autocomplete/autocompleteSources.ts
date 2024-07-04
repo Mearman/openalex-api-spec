@@ -15,7 +15,7 @@ export default {
 			},
 			summary: "/autocomplete/sources",
 
-			tags: ["sources"],
+
 		},
 	}
 	,

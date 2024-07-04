@@ -4,7 +4,6 @@ import { per_page } from "~/spec/components/parameters/per_page";
 import { ids } from "~/spec/components/schemas/ids";
 import { topicLevelArraySchema } from "~/spec/components/schemas/topicLevelArraySchema";
 import { topicLevelSchema } from "~/spec/components/schemas/topicLevelSchema";
-import { addTagsOperation, modifyOperationsInPaths } from "..";
 import { responseHeaders } from "../../components/headers/headers";
 import { idParam } from "../../components/parameters/idParam";
 
@@ -93,20 +92,17 @@ const subfieldResponse = {
 	description: "",
 	headers: responseHeaders,
 };
-export const getSubfieldById = modifyOperationsInPaths(
-	{
-		"/subfields/{id}": {
-			get: {
-				description: "",
-				operationId: "getSubfieldById",
-				parameters: [refParameter({ per_page }), refParameter({ idParam })],
-				responses: {
-					"200": refResponse({ subfield: subfieldResponse }),
-				},
-				security: [],
-				summary: "/subfields/{id}",
+export const getSubfieldById: PathsObject = {
+	"/subfields/{id}": {
+		get: {
+			description: "",
+			operationId: "getSubfieldById",
+			parameters: [refParameter({ per_page }), refParameter({ idParam })],
+			responses: {
+				"200": refResponse({ subfield: subfieldResponse }),
 			},
+			security: [],
+			summary: "/subfields/{id}",
 		},
 	},
-	addTagsOperation(["topics", "multiple"])
-);
+};

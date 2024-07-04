@@ -15,7 +15,7 @@ export default {
 			},
 			summary: "/autocomplete/authors",
 
-			tags: ["authors"],
+
 		},
 	},
 } satisfies PathsObject;

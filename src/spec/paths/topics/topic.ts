@@ -4,7 +4,6 @@ import { per_page } from "~/spec/components/parameters/per_page";
 import { ids } from "~/spec/components/schemas/ids";
 import { topicLevelArraySchema } from "~/spec/components/schemas/topicLevelArraySchema";
 import { topicLevelSchema } from "~/spec/components/schemas/topicLevelSchema";
-import { addTagsOperation, modifyOperationsInPaths } from "..";
 import { responseHeaders } from "../../components/headers/headers";
 import { idParam } from "../../components/parameters/idParam";
 
@@ -78,20 +77,17 @@ const topicResponse = {
 	headers: responseHeaders,
 } satisfies ResponseObject;
 
-export const getTopicById: PathsObject = modifyOperationsInPaths(
-	{
-		"/topics/{id}": {
-			get: {
-				description: "",
-				operationId: "getTopicById",
-				parameters: [refParameter({ per_page }), refParameter({ idParam })],
-				responses: {
-					"200": refResponse({ topic: topicResponse }),
-				},
-				security: [],
-				summary: "/topics/{id}",
+export const getTopicById: PathsObject = {
+	"/topics/{id}": {
+		get: {
+			description: "",
+			operationId: "getTopicById",
+			parameters: [refParameter({ per_page }), refParameter({ idParam })],
+			responses: {
+				"200": refResponse({ topic: topicResponse }),
 			},
+			security: [],
+			summary: "/topics/{id}",
 		},
 	},
-	addTagsOperation(["topics", "single"])
-) satisfies PathsObject;
+};

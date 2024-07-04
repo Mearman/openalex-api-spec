@@ -4,7 +4,7 @@ import { getSubfieldById } from "./subfields";
 import { getTopicById } from "./topic";
 import { getTopics } from "./topics";
 
-export default {
+export const topicPaths: PathsObject = {
 	...getDomainById,
 	...getFieldById,
 	...getSubfieldById,

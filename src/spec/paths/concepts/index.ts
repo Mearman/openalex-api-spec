@@ -4,8 +4,8 @@ import {
 } from "~/spec/paths/concepts/concept";
 import { getConcepts } from "~/spec/paths/concepts/concepts";
 
-export default {
+export const conceptPaths: PathsObject = {
 	...getConceptById,
 	...getRandomConcept,
-	...getConcepts
+	...getConcepts,
 };

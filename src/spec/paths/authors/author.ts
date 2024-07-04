@@ -25,7 +25,6 @@ const singleAuthorResponse = {
 	"200": refResponse({ authorGet200 }),
 } satisfies ResponsesObject;
 
-const tags = ["single"];
 const authorById = {
 	get: {
 		description: "Get a single author by id",
@@ -33,7 +32,6 @@ const authorById = {
 		parameters: [refParameter({ authorIdParam }), refParameter({ select })],
 		responses: singleAuthorResponse,
 		summary: "Get Author",
-		tags,
 	},
 };
 
@@ -44,7 +42,6 @@ const randomAuthor = {
 		parameters: [refParameter({ select })],
 		responses: singleAuthorResponse,
 		summary: "Get Random Author",
-		tags: tags.concat(["random"]),
 	},
 } satisfies PathItemObject;
 

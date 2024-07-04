@@ -50,7 +50,7 @@ export const root: PathsObject = {
 				"200": refResponse({ root200GetResponses }),
 			},
 			summary: "Root",
-			tags: ["info"],
+
 		}
 	},
 } satisfies PathsObject;

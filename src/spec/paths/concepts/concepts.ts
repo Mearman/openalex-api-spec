@@ -13,7 +13,7 @@ export const getConcepts = {
 			},
 
 			summary: "/concepts",
-			tags: ["concepts", "multiple"],
+
 		},
 	},
 } satisfies PathsObject;
